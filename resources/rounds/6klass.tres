@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="RoundInfo" load_steps=2 format=3 uid="uid://ntjngd8ipd8l"]
+
+[ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/RoundInfo.gd" id="1_sy474"]
+
+[resource]
+script = ExtResource("1_sy474")
+metadata/_custom_type_script = "uid://besub6tgkqobr"

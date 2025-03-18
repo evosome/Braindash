@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg52mj0nq2oli"]
+
+[ext_resource type="Script" uid="uid://cla7x6dopvome" path="res://src/client/screens/RoundScreen.gd" id="1_h4ne0"]
+
+[node name="RoundScreen" type="Node" node_paths=PackedStringArray("_arena_holder")]
+script = ExtResource("1_h4ne0")
+_arena_holder = NodePath("LevelHolder")
+
+[node name="LevelHolder" type="Node2D" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

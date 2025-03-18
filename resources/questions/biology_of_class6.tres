@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="QuestionList" load_steps=4 format=3 uid="uid://kt5aviwydpfd"]
+
+[ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="1_6g3ii"]
+[ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="2_xh0sr"]
+
+[sub_resource type="Resource" id="Resource_6g3ii"]
+script = ExtResource("1_6g3ii")
+title = "Test question"
+description = "This is a test question"
+variants = Array[String](["1", "2", "3", "4"])
+correct_index = 2
+metadata/_custom_type_script = "uid://gkiynunvfb7y"
+
+[resource]
+script = ExtResource("2_xh0sr")
+questions = Array[ExtResource("1_6g3ii")]([SubResource("Resource_6g3ii")])
+metadata/_custom_type_script = "uid://dbxtuj550kfe3"

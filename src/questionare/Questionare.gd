@@ -4,12 +4,12 @@ class_name Questionare extends Object
 signal ended()
 
 var _is_ended: bool
-var _question_index: int
-var _question_list: Array[QuestionType]
+var _question_index: int = 0
+var _question_list: Array
 
 func _init(question_list_resource: QuestionList) -> void:
 	var question_list = question_list_resource.questions
-	var question_list_size = question_list.questions.size()
+	var question_list_size = question_list.size()
 	
 	if question_list_size == 0:
 		push_error("Given an empty question list")

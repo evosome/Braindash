@@ -1,6 +1,6 @@
-
 class_name RoundArena extends Node
 
+@export var _timer: Timer
 @export var _camera: Camera2D
 @export var _entities_container: Node
 
@@ -14,6 +14,10 @@ func spawn(entity: Node) -> void:
 
 func despawn(entity: Node) -> void:
 	_entities_container.remove_child(entity)
+
+
+func get_timer() -> Timer:
+	return _timer
 
 
 func get_camera() -> Camera2D:

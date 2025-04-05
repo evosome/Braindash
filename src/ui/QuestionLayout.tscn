@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://tfasl1rmo86s"]
+
+[ext_resource type="Theme" uid="uid://djogfvlavmqy8" path="res://resources/themes/BraindashTheme.tres" id="1_xcb56"]
+[ext_resource type="Script" uid="uid://ckia01ydswkrs" path="res://src/ui/QuestionLayout.gd" id="2_hsshg"]
+[ext_resource type="Texture2D" uid="uid://bsehpxjq6adus" path="res://assets/textures/ui/rtgfl78y.png" id="2_hwgah"]
+[ext_resource type="PackedScene" uid="uid://jtqamw26pipu" path="res://src/ui/QuestionTimer.tscn" id="3_hsshg"]
+
+[node name="QuestionLayout" type="Control" node_paths=PackedStringArray("_question_title_label", "_question_texture_rect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xcb56")
+script = ExtResource("2_hsshg")
+_question_title_label = NodePath("VBoxContainer/QuestionTitleContainer/PanelContainer/VBoxContainer/QuestionTitle")
+_question_texture_rect = NodePath("VBoxContainer/QuestionTitleContainer/TitlePicture/PanelContainer/TextureRect")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -96
+
+[node name="QuestionTitleContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 396)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.79
+theme = ExtResource("1_xcb56")
+theme_override_constants/separation = -48
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/QuestionTitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/QuestionTitleContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="QuestionTitle" type="Label" parent="VBoxContainer/QuestionTitleContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "question title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/QuestionTitleContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+
+[node name="Control" type="Control" parent="VBoxContainer/QuestionTitleContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QuestionTimer" parent="VBoxContainer/QuestionTitleContainer/PanelContainer/VBoxContainer/Control" instance=ExtResource("3_hsshg")]
+layout_mode = 1
+offset_bottom = 0.0
+rotation = -0.020944
+
+[node name="TitlePicture" type="Control" parent="VBoxContainer/QuestionTitleContainer"]
+custom_minimum_size = Vector2(296, 296)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/QuestionTitleContainer/TitlePicture"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+offset_left = 42.6245
+offset_top = 0.813034
+offset_right = 298.625
+offset_bottom = 256.813
+rotation = 0.174533
+pivot_offset = Vector2(128, 128)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_xcb56")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/QuestionTitleContainer/TitlePicture/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_hwgah")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ButtonsMargin" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 11.49
+
+[node name="ButtonGrid" type="GridContainer" parent="VBoxContainer/ButtonsMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
+layout_mode = 2
+text = "А. Пюпитер"
+
+[node name="Button2" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
+layout_mode = 2
+text = "Б. Планшетник"
+
+[node name="Button3" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
+layout_mode = 2
+text = "В. кафедра бешенная"
+
+[node name="Button4" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
+layout_mode = 2
+text = "Г. подаставка для
+книг"

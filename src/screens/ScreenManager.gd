@@ -7,7 +7,6 @@ var _managing_node: Node
 
 var _registration_map: Dictionary[String, PackedScene] = {}
 
-
 func _init(on: Node) -> void:
 	_managing_node = on
 

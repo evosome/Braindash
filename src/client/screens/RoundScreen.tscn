@@ -1,12 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg52mj0nq2oli"]
+[gd_scene load_steps=3 format=3 uid="uid://cg52mj0nq2oli"]
 
 [ext_resource type="Script" uid="uid://cla7x6dopvome" path="res://src/client/screens/RoundScreen.gd" id="1_h4ne0"]
+[ext_resource type="PackedScene" uid="uid://tfasl1rmo86s" path="res://src/ui/QuestionLayout.tscn" id="2_dwmib"]
 
-[node name="RoundScreen" type="Node" node_paths=PackedStringArray("_arena_holder")]
+[node name="RoundScreen" type="Node" node_paths=PackedStringArray("_arena_holder", "_question_layout")]
 script = ExtResource("1_h4ne0")
-_arena_holder = NodePath("LevelHolder")
+_arena_holder = NodePath("SubViewportContainer/SubViewport/LevelHolder")
+_question_layout = NodePath("UI/QuestionLayer/CenterContainer/QuestionLayout")
 
-[node name="LevelHolder" type="Node2D" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="LevelHolder" type="Node2D" parent="SubViewportContainer/SubViewport"]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -15,3 +31,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="QuestionLayer" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestionShadow" type="ColorRect" parent="UI/QuestionLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.121569, 0.121569, 0.121569, 0.498039)
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/QuestionLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestionLayout" parent="UI/QuestionLayer/CenterContainer" instance=ExtResource("2_dwmib")]
+layout_mode = 2

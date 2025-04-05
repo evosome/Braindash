@@ -9,6 +9,7 @@ title = "Test question"
 description = "This is a test question"
 variants = Array[String](["1", "2", "3", "4"])
 correct_index = 2
+timeout_seconds = 30.0
 metadata/_custom_type_script = "uid://gkiynunvfb7y"
 
 [resource]

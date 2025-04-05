@@ -1,9 +1,9 @@
-
 class_name GameClient extends Node
+
+var _context: GameContext = GameContext.new()
 
 @export var _screens_configurer: ScreenConfigurer
 
-@onready var _context: GameContext = GameContext.new()
 @onready var _screen_manager: ScreenManager = ScreenManager.on(self)
 
 

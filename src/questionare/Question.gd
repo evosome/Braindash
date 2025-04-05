@@ -4,7 +4,7 @@ class_name Question extends Object
 signal answered(answer: Answer)
 
 var _type: QuestionType
-var _answer: Answer
+var _answers: Dictionary[PlayerInfo, Answer]
 
 func _init(type: QuestionType) -> void:
 	_type = type
@@ -22,16 +22,26 @@ func get_type() -> QuestionType:
 	return _type
 
 
-func get_answer() -> Answer:
-	return _answer
+func get_answers() -> Array[Answer]:
+	return _answers.values()
 
 
-func answer(value: String, who) -> void:
-	_answer = Answer.new(
+func get_answer_of(player: PlayerInfo) -> Answer:
+	return _answers[player]
+
+
+func answer(value: String, who: PlayerInfo) -> void:
+	if _answers.has(who):
+		push_error("Player has already answered! Player: " + who.to_string())
+		return
+
+	var new_answer = Answer.new(
 		value,
 		who,
 		_is_variant_correct(value))
-	answered.emit(_answer)
+
+	_answers[who] = new_answer
+	answered.emit(new_answer)
 
 
 class Answer:

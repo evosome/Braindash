@@ -12,9 +12,12 @@ func _init(answers: Array[Question.Answer]) -> void:
 
 
 func _determine_winner(answers: Array[Question.Answer]) -> PlayerInfo:
-	return (answers
+	var first_correct_answer = (answers
 			.filter(func (a: Question.Answer): return a.is_correct())
 			.pop_front())
+	if !first_correct_answer:
+		return null
+	return first_correct_answer.get_who_answered()
 
 
 func is_draw() -> bool:

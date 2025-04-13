@@ -35,6 +35,7 @@ func _ready() -> void:
 
 	_timer.timeout.connect(_on_timer_timeout)
 
+
 #region public
 
 
@@ -82,7 +83,9 @@ func start() -> void:
 
 	await _async_process_gameplay()
 
+
 #endregion
+
 
 #region private
 
@@ -126,9 +129,13 @@ func _has_answers_from_all_players(answers: Array[Question.Answer]) -> bool:
 	if answers.is_empty():
 		return false
 
-	return answers.all(
-		func(a: Question.Answer):
-			return _players.has(a.get_who_answered()))
+	var players_answered = answers.map(
+		func(a: Question.Answer): return a.get_who_answered())
+	
+	var is_all_answered = _players.all(
+		func(p: PlayerInfo): return players_answered.has(p))
+
+	return is_all_answered
 
 
 func _init_timer(timeout_seconds: float) -> void:
@@ -139,7 +146,9 @@ func _end_question_immediately(question: Question) -> void:
 	var answers = question.get_answers()
 	question_ended.emit(QuestionResult.new(answers))
 
+
 #endregion
+
 
 #region event handlers
 
@@ -148,7 +157,7 @@ func _on_question_answered(answer: Question.Answer) -> void:
 	var player_answered = answer.get_who_answered()
 	someone_answered.emit(player_answered, answer)
 	print_debug(
-		"Player" + player_answered.to_string() + " answered for question " + answer.to_string())
+		"Player " + player_answered.to_string() + " answered for question " + answer.to_string())
 	
 	if _has_answers_from_all_players(_current_question.get_answers()):
 		_end_question_immediately(_current_question)
@@ -156,5 +165,6 @@ func _on_question_answered(answer: Question.Answer) -> void:
 
 func _on_timer_timeout() -> void:
 	_end_question_immediately(_current_question)
+
 
 #endregion

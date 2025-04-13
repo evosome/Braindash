@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://jtqamw26pipu"]
 
-[ext_resource type="Script" uid="uid://velje2hwgr0j" path="res://src/ui/QuestionTimer.gd" id="1_4tapp"]
+[ext_resource type="Script" uid="uid://velje2hwgr0j" path="res://src/ui/question/QuestionTimer.gd" id="1_4tapp"]
 [ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="1_fyx2i"]
 
 [node name="QuestionTimer" type="Control"]

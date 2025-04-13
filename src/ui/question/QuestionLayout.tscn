@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://tfasl1rmo86s"]
+[gd_scene load_steps=6 format=3 uid="uid://tfasl1rmo86s"]
 
 [ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="1_mg4y8"]
-[ext_resource type="Script" uid="uid://ckia01ydswkrs" path="res://src/ui/QuestionLayout.gd" id="2_hsshg"]
+[ext_resource type="Script" uid="uid://ckia01ydswkrs" path="res://src/ui/question/QuestionLayout.gd" id="2_hsshg"]
 [ext_resource type="Texture2D" uid="uid://bsehpxjq6adus" path="res://assets/textures/ui/rtgfl78y.png" id="2_hwgah"]
-[ext_resource type="PackedScene" uid="uid://jtqamw26pipu" path="res://src/ui/QuestionTimer.tscn" id="3_hsshg"]
+[ext_resource type="PackedScene" uid="uid://jtqamw26pipu" path="res://src/ui/question/QuestionTimer.tscn" id="3_hsshg"]
+[ext_resource type="Script" uid="uid://cooknf4fg1rew" path="res://src/ui/question/AnswerButton.gd" id="5_mg4y8"]
 
 [node name="QuestionLayout" type="Control" node_paths=PackedStringArray("_question_timer", "_question_title_label", "_question_texture_rect")]
 layout_mode = 3
@@ -101,29 +102,33 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 11.49
 
 [node name="ButtonGrid" type="GridContainer" parent="VBoxContainer/ButtonsMargin"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 4
 columns = 2
 
-[node name="AnwserButton0" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
+[node name="AnswerButtonA" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
 layout_mode = 2
 theme_type_variation = &"QuestionLayout__AnswerButton"
-text = "А. Пюпитер"
+script = ExtResource("5_mg4y8")
+metadata/_custom_type_script = "uid://cooknf4fg1rew"
 
-[node name="AnwserButton1" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
+[node name="AnswerButtonB" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
 layout_mode = 2
 theme_type_variation = &"QuestionLayout__AnswerButton"
-text = "Б. Планшетник"
+script = ExtResource("5_mg4y8")
+metadata/_custom_type_script = "uid://cooknf4fg1rew"
 
-[node name="AnwserButton2" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
+[node name="AnswerButtonC" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
 layout_mode = 2
 theme_type_variation = &"QuestionLayout__AnswerButton"
-text = "В. кафедра бешенная"
+script = ExtResource("5_mg4y8")
+metadata/_custom_type_script = "uid://cooknf4fg1rew"
 
-[node name="AnwserButton3" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
+[node name="AnswerButtonD" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
 layout_mode = 2
 theme_type_variation = &"QuestionLayout__AnswerButton"
-text = "Г. подаставка для
-книг"
+script = ExtResource("5_mg4y8")
+metadata/_custom_type_script = "uid://cooknf4fg1rew"

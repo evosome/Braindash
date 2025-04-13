@@ -8,6 +8,10 @@ var _context: GameContext = GameContext.new()
 
 
 func _ready() -> void:
+	
+	_context.set_me(PlayerInfo.new())
+	_context.set_enemy(PlayerInfo.new())
+	
 	_screen_manager.set_context(_context)
 	if _screens_configurer:
 		_screens_configurer.configure(_screen_manager)

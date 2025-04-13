@@ -7,3 +7,7 @@ var _nickname: String
 
 func get_nickname() -> String:
 	return _nickname
+
+
+func _to_string() -> String:
+	return "<Player#nickname={0}>".format([_nickname])

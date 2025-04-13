@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://tfasl1rmo86s"]
 
-[ext_resource type="Theme" uid="uid://djogfvlavmqy8" path="res://resources/themes/BraindashTheme.tres" id="1_xcb56"]
+[ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="1_mg4y8"]
 [ext_resource type="Script" uid="uid://ckia01ydswkrs" path="res://src/ui/QuestionLayout.gd" id="2_hsshg"]
 [ext_resource type="Texture2D" uid="uid://bsehpxjq6adus" path="res://assets/textures/ui/rtgfl78y.png" id="2_hwgah"]
 [ext_resource type="PackedScene" uid="uid://jtqamw26pipu" path="res://src/ui/QuestionTimer.tscn" id="3_hsshg"]
 
-[node name="QuestionLayout" type="Control" node_paths=PackedStringArray("_question_title_label", "_question_texture_rect")]
+[node name="QuestionLayout" type="Control" node_paths=PackedStringArray("_question_timer", "_question_title_label", "_question_texture_rect")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,9 +14,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_xcb56")
+theme = ExtResource("1_mg4y8")
 script = ExtResource("2_hsshg")
-_question_title_label = NodePath("VBoxContainer/QuestionTitleContainer/PanelContainer/VBoxContainer/QuestionTitle")
+_question_timer = NodePath("VBoxContainer/QuestionTitleContainer/PanelContainer/MarginContainer/VBoxContainer/QuestionTimer")
+_question_title_label = NodePath("VBoxContainer/QuestionTitleContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/QuestionTitle")
 _question_texture_rect = NodePath("VBoxContainer/QuestionTitleContainer/TitlePicture/PanelContainer/TextureRect")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -33,39 +34,40 @@ custom_minimum_size = Vector2(0, 396)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.79
-theme = ExtResource("1_xcb56")
 theme_override_constants/separation = -48
 alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/QuestionTitleContainer"]
+clip_children = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_type_variation = &"QuestionTitlePanelContainer"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/QuestionTitleContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/QuestionTitleContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/QuestionTitleContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="QuestionTitle" type="Label" parent="VBoxContainer/QuestionTitleContainer/PanelContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/QuestionTitleContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="QuestionTitle" type="Label" parent="VBoxContainer/QuestionTitleContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_type_variation = &"Text32"
 text = "question title"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/QuestionTitleContainer/PanelContainer/VBoxContainer"]
+[node name="QuestionTimer" parent="VBoxContainer/QuestionTitleContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_hsshg")]
 layout_mode = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_right = 64
-
-[node name="Control" type="Control" parent="VBoxContainer/QuestionTitleContainer/PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 16)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="QuestionTimer" parent="VBoxContainer/QuestionTitleContainer/PanelContainer/VBoxContainer/Control" instance=ExtResource("3_hsshg")]
-layout_mode = 1
-offset_bottom = 0.0
-rotation = -0.020944
+size_flags_vertical = 0
 
 [node name="TitlePicture" type="Control" parent="VBoxContainer/QuestionTitleContainer"]
 custom_minimum_size = Vector2(296, 296)
@@ -84,7 +86,6 @@ rotation = 0.174533
 pivot_offset = Vector2(128, 128)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_xcb56")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/QuestionTitleContainer/TitlePicture/PanelContainer"]
 layout_mode = 2
@@ -106,19 +107,23 @@ theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 4
 columns = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
+[node name="AnwserButton0" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
 layout_mode = 2
+theme_type_variation = &"QuestionLayout__AnswerButton"
 text = "А. Пюпитер"
 
-[node name="Button2" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
+[node name="AnwserButton1" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
 layout_mode = 2
+theme_type_variation = &"QuestionLayout__AnswerButton"
 text = "Б. Планшетник"
 
-[node name="Button3" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
+[node name="AnwserButton2" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
 layout_mode = 2
+theme_type_variation = &"QuestionLayout__AnswerButton"
 text = "В. кафедра бешенная"
 
-[node name="Button4" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
+[node name="AnwserButton3" type="Button" parent="VBoxContainer/ButtonsMargin/ButtonGrid"]
 layout_mode = 2
+theme_type_variation = &"QuestionLayout__AnswerButton"
 text = "Г. подаставка для
 книг"

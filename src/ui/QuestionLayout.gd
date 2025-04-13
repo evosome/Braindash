@@ -26,7 +26,7 @@ func set_question_timer_enabled(enabled: bool) -> void:
 	_question_timer.visible = enabled
 
 
-func start_question_timer(secs: int) -> void:
+func start_question_timer(secs: float) -> void:
 	_question_timer.start_timer(secs)
 
 

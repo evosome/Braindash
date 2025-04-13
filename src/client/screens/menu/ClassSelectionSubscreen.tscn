@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://7kcymuw21ytx"]
+
+[ext_resource type="Script" uid="uid://k04ixe7pcfx3" path="res://src/client/screens/menu/MenuSubscreen.gd" id="1_ogbgv"]
+[ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="2_y2vwj"]
+[ext_resource type="PackedScene" uid="uid://gpctaggqnnf0" path="res://src/ui/SelectionCard.tscn" id="3_hs8h0"]
+
+[node name="ClassSelectionSubscreen" type="Node"]
+script = ExtResource("1_ogbgv")
+metadata/_custom_type_script = "uid://k04ixe7pcfx3"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_y2vwj")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+scroll_horizontal = 100
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(2000, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="SelectionCard" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("3_hs8h0")]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="SelectionCard2" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("3_hs8h0")]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="SelectionCard3" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("3_hs8h0")]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="SelectionCard4" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("3_hs8h0")]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="SelectionCard5" parent="VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("3_hs8h0")]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"BigButton"
+text = "Назад"
+
+[node name="Button2" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"BigButton"
+text = "Назад"

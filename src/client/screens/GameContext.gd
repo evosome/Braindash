@@ -3,6 +3,8 @@ class_name GameContext extends Object
 
 signal screen_changed(screen_name: String)
 
+var _me: PlayerInfo
+var _enemy: PlayerInfo
 var _current_screen_name: String
 var _current_round_info: RoundInfo
 
@@ -25,3 +27,19 @@ func get_current_screen_name() -> String:
 
 func switch_screen(screen_name: String) -> void:
 	_current_screen_name = screen_name
+
+
+func get_me() -> PlayerInfo:
+	return _me
+
+
+func set_me(player: PlayerInfo) -> void:
+	_me = player
+
+
+func get_enemy() -> PlayerInfo:
+	return _enemy
+
+
+func set_enemy(player: PlayerInfo) -> void:
+	_enemy = player

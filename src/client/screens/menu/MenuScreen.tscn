@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwmvkw1qfsrbd"]
+
+[ext_resource type="Script" uid="uid://dnnedcgvdxevt" path="res://src/client/screens/menu/MenuScreen.gd" id="1_ua43x"]
+[ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="2_iriku"]
+[ext_resource type="Texture2D" uid="uid://dc065sua5dj0e" path="res://assets/textures/ui/desk_texture.png" id="3_n7a1n"]
+[ext_resource type="Texture2D" uid="uid://c4ije5g2gmmnv" path="res://assets/textures/ui/Portal.png" id="4_84ab8"]
+[ext_resource type="PackedScene" uid="uid://bu6rp4c0ukb3b" path="res://src/client/screens/menu/MainSubscreen.tscn" id="5_6tfw6"]
+[ext_resource type="Shader" uid="uid://b34jo00fn70sf" path="res://resources/shaders/Vignette.gdshader" id="5_h3evu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3evu"]
+shader = ExtResource("5_h3evu")
+shader_parameter/alpha = 0.6
+shader_parameter/inner_radius = 0.5
+shader_parameter/outer_radius = 1.2
+
+[node name="MenuScreen" type="Node" node_paths=PackedStringArray("_subscreen_container")]
+script = ExtResource("1_ua43x")
+_subscreen_container = NodePath("UI/MarginContainer")
+metadata/_custom_type_script = "uid://dna16q5rcgqn2"
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_iriku")
+
+[node name="BackgroundRectangle" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_n7a1n")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_84ab8")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Control" parent="UI/MarginContainer" instance=ExtResource("5_6tfw6")]
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_h3evu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

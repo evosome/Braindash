@@ -12,8 +12,12 @@ func _ready() -> void:
 
 
 func on_enter(ctx: MenuScreen) -> void:
-	pass
+	_start_button.pressed.connect(_on_start_button_pressed.bind(ctx))
 
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_start_button_pressed(ctx: MenuScreen) -> void:
+	ctx.get_subscreen_manager().switch("grades")

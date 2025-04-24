@@ -19,3 +19,7 @@ func _ready() -> void:
 	_context.screen_changed.connect(
 		func(screen_name: String):
 			_screen_manager.switch(screen_name))
+
+
+func get_context() -> GameContext:
+	return _context

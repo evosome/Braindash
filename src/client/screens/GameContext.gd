@@ -7,6 +7,8 @@ var _me: PlayerInfo
 var _enemy: PlayerInfo
 var _current_screen_name: String
 var _current_round_info: RoundInfo
+var _grades: Array[Grade]
+var _current_grade: Grade
 
 
 func has_round_info() -> bool:
@@ -27,6 +29,7 @@ func get_current_screen_name() -> String:
 
 func switch_screen(screen_name: String) -> void:
 	_current_screen_name = screen_name
+	screen_changed.emit(screen_name)
 
 
 func get_me() -> PlayerInfo:
@@ -43,3 +46,19 @@ func get_enemy() -> PlayerInfo:
 
 func set_enemy(player: PlayerInfo) -> void:
 	_enemy = player
+
+
+func set_grades(grades: Array[Grade]) -> void:
+	_grades = grades
+
+
+func get_grades() -> Array[Grade]:
+	return _grades
+
+
+func set_current_grade(grade: Grade) -> void:
+	_current_grade = grade
+
+
+func get_current_grade() -> Grade:
+	return _current_grade

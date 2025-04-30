@@ -6,23 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://ri4duqaeuxyx" path="res://src/entities/Pinwheel.tscn" id="4_qi2i7"]
 [ext_resource type="Texture2D" uid="uid://haxyeho8ydb6" path="res://assets/textures/entities/dummy_character/Character 1 - Paka-pop-idle_056.png" id="5_qjbt5"]
 
-[node name="SimpleRoundArena" type="Node" node_paths=PackedStringArray("_camera", "_entities_container", "_left_player_position", "_right_player_position")]
+[node name="SimpleRoundArena" type="Node" node_paths=PackedStringArray("_entities_container", "_left_player_position", "_right_player_position")]
 script = ExtResource("1_dgjgl")
-_camera = NodePath("Camera2D")
 _entities_container = NodePath("Entities")
 _left_player_position = NodePath("Spawnpoints/Left")
 _right_player_position = NodePath("Spawnpoints/Right")
 metadata/_custom_type_script = "uid://jxaxfhe61nfe"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Enviroment" type="Node" parent="."]
 
 [node name="Background" type="Sprite2D" parent="Enviroment"]
-position = Vector2(-3, 5)
+scale = Vector2(2, 2)
 texture = ExtResource("2_mvosa")
 
 [node name="ArenaGround" type="Sprite2D" parent="Enviroment"]
+scale = Vector2(2, 2)
 texture = ExtResource("3_mvosa")
 
 [node name="Entities" type="Node" parent="."]
@@ -37,7 +35,7 @@ scale = Vector2(1.72, 1.72)
 [node name="Spawnpoints" type="Node" parent="."]
 
 [node name="Left" type="Node2D" parent="Spawnpoints"]
-position = Vector2(-624, 88)
+position = Vector2(-568, 344)
 
 [node name="Sprite2D" type="Sprite2D" parent="Spawnpoints/Left"]
 position = Vector2(-16, 80)
@@ -45,10 +43,14 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("5_qjbt5")
 
 [node name="Right" type="Node2D" parent="Spawnpoints"]
-position = Vector2(640, 376)
+position = Vector2(640, 648)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Spawnpoints/Right"]
 position = Vector2(-24.0001, -208)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("5_qjbt5")
 flip_h = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+editor_draw_limits = true
+editor_draw_drag_margin = true

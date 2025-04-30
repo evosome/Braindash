@@ -1,0 +1,15 @@
+[gd_resource type="AnimatedTexture" load_steps=2 format=3 uid="uid://b5jk2y3pvhus7"]
+
+[ext_resource type="Texture2D" uid="uid://ygcg07kdbrw6" path="res://assets/textures/ui/portal.png" id="1_v1q8f"]
+
+[resource]
+frames = 5
+frame_0/texture = ExtResource("1_v1q8f")
+frame_1/texture = ExtResource("1_v1q8f")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("1_v1q8f")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("1_v1q8f")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("1_v1q8f")
+frame_4/duration = 1.0

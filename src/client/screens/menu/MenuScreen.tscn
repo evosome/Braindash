@@ -21,12 +21,6 @@ _screens = Dictionary[String, PackedScene]({
 _current_screen_name = "main"
 metadata/_custom_type_script = "uid://cmtftlag4tb0"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3evu"]
-shader = ExtResource("5_h3evu")
-shader_parameter/alpha = 0.52
-shader_parameter/inner_radius = 0.2
-shader_parameter/outer_radius = 0.765
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_nt5hp"]
 atlas = ExtResource("8_5r1y7")
 region = Rect2(0, 0, 1080, 1920)
@@ -77,14 +71,26 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="MenuScreen" type="Node" node_paths=PackedStringArray("_subscreen_container")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3evu"]
+shader = ExtResource("5_h3evu")
+shader_parameter/alpha = 0.52
+shader_parameter/inner_radius = 0.2
+shader_parameter/outer_radius = 0.765
+
+[node name="MenuScreen" type="Control" node_paths=PackedStringArray("_subscreen_container")]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ua43x")
 _subscreen_container = NodePath("UI/MarginContainer/VBoxContainer/Control")
 _subscreen_manager_configurer = SubResource("Resource_libnp")
-metadata/_custom_type_script = "uid://dna16q5rcgqn2"
 
 [node name="UI" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -104,6 +110,22 @@ grow_vertical = 2
 texture = ExtResource("3_n7a1n")
 expand_mode = 3
 stretch_mode = 6
+
+[node name="AnimatedTextureRect" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_nt5hp")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("9_5r1y7")
+sprite_frames = SubResource("SpriteFrames_iehcr")
+speed_scale = 2.0
+animation = "default"
+metadata/_custom_type_script = "uid://bkivtbn77nera"
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
 material = SubResource("ShaderMaterial_h3evu")
@@ -140,19 +162,3 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_type_variation = &"MenuScreen__CopyrightText"
 text = "Braindash. STKBest & Evosome 2025"
-
-[node name="AnimatedTextureRect" type="TextureRect" parent="UI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_nt5hp")
-expand_mode = 3
-stretch_mode = 5
-script = ExtResource("9_5r1y7")
-sprite_frames = SubResource("SpriteFrames_iehcr")
-speed_scale = 2.0
-animation = "default"
-metadata/_custom_type_script = "uid://bkivtbn77nera"

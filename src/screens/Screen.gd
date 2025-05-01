@@ -1,5 +1,5 @@
 
-class_name Screen extends Node
+class_name Screen extends Control
 
 signal entered()
 

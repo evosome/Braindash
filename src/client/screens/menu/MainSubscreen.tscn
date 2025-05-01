@@ -4,13 +4,20 @@
 [ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="2_p8ij3"]
 [ext_resource type="Script" uid="uid://blvm6n2nx4mse" path="res://src/client/screens/menu/MainMenuSubscreen.gd" id="2_q4ffi"]
 
-[node name="MainSubscreen" type="Node" node_paths=PackedStringArray("_start_button", "_quit_button")]
+[node name="MainSubscreen" type="Control" node_paths=PackedStringArray("_start_button", "_quit_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("2_q4ffi")
 _start_button = NodePath("AspectRatioContainer/VBoxContainer/VBoxContainer/StartButton")
 _quit_button = NodePath("AspectRatioContainer/VBoxContainer/VBoxContainer/QuitButton")
 metadata/_custom_type_script = "uid://blvm6n2nx4mse"
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

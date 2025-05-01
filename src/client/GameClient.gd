@@ -1,24 +1,19 @@
 class_name GameClient extends Node
 
-var _context: GameContext = GameContext.new()
-
-@export var _screens_configurer: ScreenConfigurer
-
-@onready var _screen_manager: ScreenManager = ScreenManager.on(self)
+var _context: GameContext
+var _screen_manager: ScreenManager
 
 
 func _ready() -> void:
 	
+	_screen_manager = ScreenManager.on(self)
+	_context = GameContext.new(_screen_manager)
+	_screen_manager.set_context(_context)
 	_context.set_me(PlayerInfo.new())
 	_context.set_enemy(PlayerInfo.new())
-	
-	_screen_manager.set_context(_context)
-	if _screens_configurer:
-		_screens_configurer.configure(_screen_manager)
-	
-	_context.screen_changed.connect(
-		func(screen_name: String):
-			_screen_manager.switch(screen_name))
+	_screen_manager.register("menu", preload("res://src/client/screens/menu/MenuScreen.tscn"))
+	_screen_manager.register("round", preload("res://src/client/screens/RoundScreen.tscn"))
+	_screen_manager.switch("menu")
 
 
 func get_context() -> GameContext:

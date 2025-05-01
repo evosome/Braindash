@@ -17,15 +17,13 @@ func _ready() -> void:
 
 #region virtuals
 
-func on_enter(ctx: MenuScreen) -> void:
-	var global_ctx = ctx.get_global_context()
+func on_enter(ctx: MenuContext) -> void:
 	
 	_back_button.pressed.connect(_on_back_button_pressed.bind(ctx))
 	_continue_button.pressed.connect(_on_continue_button_pressed.bind(ctx))
-	_cards_grid.card_selected.connect(func(card):
-		_on_card_selected(ctx, global_ctx, card))
+	_cards_grid.card_selected.connect(func(card): _on_card_selected(ctx, card))
 	
-	var current_grade = global_ctx.get_current_grade()
+	var current_grade = ctx.get_current_grade()
 	if !current_grade:
 		push_error("Entered topic selection screen, but current grade is not set")
 		return
@@ -50,21 +48,20 @@ func _show_grade_cards(topics: Array[Topic]) -> void:
 
 #region event handlers
 
-func _on_back_button_pressed(ctx: MenuScreen) -> void:
-	ctx.get_subscreen_manager().switch("grades")
+func _on_back_button_pressed(ctx: MenuContext) -> void:
+	ctx.switch_subscreen("grades")
 
 
-func _on_continue_button_pressed(ctx: MenuScreen) -> void:
-	ctx.get_global_context().switch_screen("round")
+func _on_continue_button_pressed(ctx: MenuContext) -> void:
+	ctx.switch_screen("round")
 
 
 func _on_card_selected(
-		ctx: MenuScreen,
-		global_ctx: GameContext,
+		ctx: MenuContext,
 		card: SelectionCard) -> void:
 	_continue_button.set_disabled(false)
 	
 	var selected_topic = card.get_context() as Topic
-	global_ctx.set_current_round_info(selected_topic.round_info)
+	ctx.set_current_round_info(selected_topic.round_info)
 
 #endregion

@@ -17,15 +17,14 @@ func _ready() -> void:
 
 #region virtuals
 
-func on_enter(ctx: MenuScreen) -> void:
-	var global_ctx = ctx.get_global_context()
+func on_enter(ctx: MenuContext) -> void:
 	
 	_back_button.pressed.connect(_on_back_button_pressed.bind(ctx))
 	_continue_button.pressed.connect(_on_continue_button_pressed.bind(ctx))
 	_cards_grid.card_selected.connect(func(card):
-		_on_card_selected(ctx, global_ctx, card))
+		_on_card_selected(ctx, card))
 	
-	_show_grade_cards(global_ctx.get_grades())
+	_show_grade_cards(ctx.get_grades())
 
 #endregion
 
@@ -45,20 +44,19 @@ func _show_grade_cards(grades: Array[Grade]) -> void:
 
 #region event handlers
 
-func _on_back_button_pressed(ctx: MenuScreen) -> void:
-	ctx.get_subscreen_manager().switch("main")
+func _on_back_button_pressed(ctx: MenuContext) -> void:
+	ctx.switch_subscreen("main")
 
 
-func _on_continue_button_pressed(ctx: MenuScreen) -> void:
-	ctx.get_subscreen_manager().switch("topics")
+func _on_continue_button_pressed(ctx: MenuContext) -> void:
+	ctx.switch_subscreen("topics")
 
 
 func _on_card_selected(
-		ctx: MenuScreen,
-		global_ctx: GameContext,
+		ctx: MenuContext,
 		card: SelectionCard) -> void:
 
 	_continue_button.set_disabled(false)
-	global_ctx.set_current_grade(card.get_context() as Grade)
+	ctx.set_current_grade(card.get_context() as Grade)
 
 #endregion

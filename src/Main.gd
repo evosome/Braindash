@@ -10,7 +10,6 @@ extends Node
 
 
 func _ready() -> void:
-	var context = _client.get_context()
-	
-	context.set_grades(_grades)
 	add_child(_client)
+	var context = _client.get_context()
+	context.set_grades(_grades)

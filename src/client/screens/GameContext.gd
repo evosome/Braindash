@@ -1,7 +1,5 @@
 
-class_name GameContext extends Object
-
-signal screen_changed(screen_name: String)
+class_name GameContext
 
 var _me: PlayerInfo
 var _enemy: PlayerInfo
@@ -9,6 +7,21 @@ var _current_screen_name: String
 var _current_round_info: RoundInfo
 var _grades: Array[Grade]
 var _current_grade: Grade
+var _screen_manager: ScreenManager
+
+
+#region builtin
+
+func _init(screen_manager: ScreenManager) -> void:
+	_screen_manager = screen_manager
+
+#endregion
+
+
+#region public
+
+func switch_screen(screen_name: String) -> void:
+	_screen_manager.switch(screen_name)
 
 
 func has_round_info() -> bool:
@@ -25,11 +38,6 @@ func set_current_round_info(value: RoundInfo) -> void:
 
 func get_current_screen_name() -> String:
 	return _current_screen_name
-
-
-func switch_screen(screen_name: String) -> void:
-	_current_screen_name = screen_name
-	screen_changed.emit(screen_name)
 
 
 func get_me() -> PlayerInfo:
@@ -62,3 +70,5 @@ func set_current_grade(grade: Grade) -> void:
 
 func get_current_grade() -> Grade:
 	return _current_grade
+
+#endregion

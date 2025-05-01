@@ -1,19 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://1bou5tfi3xnv"]
+[gd_scene load_steps=2 format=3 uid="uid://1bou5tfi3xnv"]
 
 [ext_resource type="Script" uid="uid://cs4ux64q3njch" path="res://src/client/GameClient.gd" id="1_enkav"]
-[ext_resource type="Script" uid="uid://cmtftlag4tb0" path="res://src/screens/ScreenConfigurer.gd" id="2_g4av4"]
-[ext_resource type="PackedScene" uid="uid://cg52mj0nq2oli" path="res://src/client/screens/RoundScreen.tscn" id="2_yffxu"]
-[ext_resource type="PackedScene" uid="uid://cwmvkw1qfsrbd" path="res://src/client/screens/menu/MenuScreen.tscn" id="3_xdko2"]
-
-[sub_resource type="Resource" id="Resource_yffxu"]
-script = ExtResource("2_g4av4")
-_screens = Dictionary[String, PackedScene]({
-"menu": ExtResource("3_xdko2"),
-"round": ExtResource("2_yffxu")
-})
-_current_screen_name = "menu"
-metadata/_custom_type_script = "uid://cmtftlag4tb0"
 
 [node name="GameClient" type="Node"]
 script = ExtResource("1_enkav")
-_screens_configurer = SubResource("Resource_yffxu")

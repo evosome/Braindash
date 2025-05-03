@@ -21,4 +21,4 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_start_button_pressed(ctx: MenuContext) -> void:
-	ctx.switch_subscreen("grades")
+	ctx.switch_subscreen("characters")

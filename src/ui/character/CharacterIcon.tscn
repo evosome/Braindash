@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://hlde3l1yx57g"]
+
+[ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="1_mx8et"]
+[ext_resource type="Script" uid="uid://c5kl8nwlodtmn" path="res://src/ui/character/CharacterIcon.gd" id="2_oln4y"]
+
+[node name="CharacterIcon" type="Control"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_mx8et")
+script = ExtResource("2_oln4y")
+
+[node name="IconButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon_alignment = 1
+expand_icon = true

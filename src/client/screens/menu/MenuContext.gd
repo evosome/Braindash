@@ -41,4 +41,20 @@ func switch_screen(screen_name: String) -> void:
 func switch_subscreen(subscreen_name: String) -> void:
 	_subscreen_manager.switch(subscreen_name)
 
+
+func set_my_character_type(character_type: CharacterType) -> void:
+	_game_context.set_my_character_type(character_type)
+
+
+func get_my_character_type() -> CharacterType:
+	return _game_context.get_my_character_type()
+
+
+func set_enemy_character_type(character_type: CharacterType) -> void:
+	_game_context.set_enemy_character_type(character_type)
+
+
+func get_available_characters() -> Array[CharacterType]:
+	return _game_context.get_available_characters()
+
 #endregion

@@ -6,6 +6,8 @@ const GRADE_SELECTION_SUBSCREEN = preload(
 const TOPIC_SEELCTION_SUBSCREEN = preload(
 		"res://src/client/screens/menu/TopicSelectionSubscreen.tscn")
 const MAIN_SUBSCREEN = preload("res://src/client/screens/menu/MainSubscreen.tscn")
+const CHARACTER_SELECTION_SUBSCREEN = preload(
+		"res://src/client/screens/menu/CharacterSelectionSubscreen.tscn")
 
 var _menu_context: MenuContext
 var _subscreen_manager: ScreenManager
@@ -20,6 +22,7 @@ func _ready() -> void:
 	_subscreen_manager.register("grades", GRADE_SELECTION_SUBSCREEN)
 	_subscreen_manager.register("topics", TOPIC_SEELCTION_SUBSCREEN)
 	_subscreen_manager.register("main", MAIN_SUBSCREEN)
+	_subscreen_manager.register("characters", CHARACTER_SELECTION_SUBSCREEN)
 
 
 func on_enter(ctx: GameContext) -> void:

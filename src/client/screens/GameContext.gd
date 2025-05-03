@@ -8,6 +8,9 @@ var _current_round_info: RoundInfo
 var _grades: Array[Grade]
 var _current_grade: Grade
 var _screen_manager: ScreenManager
+var _enemy_character_type: CharacterType
+var _my_character_type: CharacterType
+var _available_characters: Array[CharacterType]
 
 
 #region builtin
@@ -70,5 +73,29 @@ func set_current_grade(grade: Grade) -> void:
 
 func get_current_grade() -> Grade:
 	return _current_grade
+
+
+func set_my_character_type(value: CharacterType) -> void:
+	_my_character_type = value
+
+
+func get_my_character_type() -> CharacterType:
+	return _my_character_type
+
+
+func set_enemy_character_type(value: CharacterType) -> void:
+	_enemy_character_type = value
+
+
+func get_enemy_character_type() -> CharacterType:
+	return _enemy_character_type
+
+
+func set_available_characters(characters: Array[CharacterType]) -> void:
+	_available_characters = characters
+
+
+func get_available_characters() -> Array[CharacterType]:
+	return _available_characters
 
 #endregion

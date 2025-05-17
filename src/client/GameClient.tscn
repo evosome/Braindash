@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1bou5tfi3xnv"]
+
+[ext_resource type="Script" uid="uid://cs4ux64q3njch" path="res://src/client/GameClient.gd" id="1_enkav"]
+
+[node name="GameClient" type="Node"]
+script = ExtResource("1_enkav")

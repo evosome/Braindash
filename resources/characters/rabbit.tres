@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CharacterType" load_steps=4 format=3 uid="uid://dlt5n4cbvmc6e"]
+
+[ext_resource type="Texture2D" uid="uid://cj1yhxcpejmwe" path="res://assets/textures/entities/characters/rabbit/rabbit_portrait.png" id="1_bfbrq"]
+[ext_resource type="PackedScene" uid="uid://b36pnp1iiqk5n" path="res://src/entities/characters/sprites/RabbitSprite.tscn" id="2_gkk33"]
+[ext_resource type="Script" uid="uid://m5axqnbe46t3" path="res://src/entities/characters/CharacterType.gd" id="3_nxclr"]
+
+[resource]
+script = ExtResource("3_nxclr")
+kind = "Лучник"
+kind_icon = ExtResource("1_bfbrq")
+ability_icons = Array[Texture2D]([])
+name = "Крольчиха"
+description = ""
+packed_sprite = ExtResource("2_gkk33")
+metadata/_custom_type_script = "uid://m5axqnbe46t3"

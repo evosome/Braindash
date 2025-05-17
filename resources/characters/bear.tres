@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterType" load_steps=3 format=3 uid="uid://csy1il6vgmqed"]
+
+[ext_resource type="Texture2D" uid="uid://dywktwd5cxnxk" path="res://assets/textures/entities/characters/bear/bear_portrait.png" id="1_ynd15"]
+[ext_resource type="Script" uid="uid://m5axqnbe46t3" path="res://src/entities/characters/CharacterType.gd" id="2_kk2vk"]
+
+[resource]
+script = ExtResource("2_kk2vk")
+kind = "Воин"
+kind_icon = ExtResource("1_ynd15")
+ability_icons = Array[Texture2D]([])
+name = "Медведь"
+description = ""
+metadata/_custom_type_script = "uid://m5axqnbe46t3"

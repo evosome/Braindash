@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5om3lha823um"]
+
+[ext_resource type="Script" uid="uid://2sc2g6ybjc8t" path="res://src/entities/characters/PlayerCharacter.gd" id="1_e87dg"]
+[ext_resource type="Script" uid="uid://bdg4ual2ghokm" path="res://src/entities/components/HealthComponent.gd" id="2_bm506"]
+
+[node name="PlayerCharacter" type="Node2D" node_paths=PackedStringArray("_health_component")]
+script = ExtResource("1_e87dg")
+_health_component = NodePath("HealthComponent")
+metadata/_custom_type_script = "uid://2sc2g6ybjc8t"
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_bm506")
+metadata/_custom_type_script = "uid://bdg4ual2ghokm"

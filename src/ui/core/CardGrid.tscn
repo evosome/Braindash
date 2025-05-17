@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci6d5jeu8u8jv"]
+
+[ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="1_d0s12"]
+[ext_resource type="Script" uid="uid://7atahg848h7p" path="res://src/ui/core/SwipableScrollContainer.gd" id="1_mbh7c"]
+[ext_resource type="Script" uid="uid://t4ve0h4ikk2e" path="res://src/ui/core/CardGrid.gd" id="2_ct2n8"]
+
+[node name="CardGrid" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_d0s12")
+script = ExtResource("2_ct2n8")
+
+[node name="CardGridPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"CardGrid__Panel"
+
+[node name="MarginContainer" type="MarginContainer" parent="CardGridPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardGridPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CardGridTitle" type="Label" parent="CardGridPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"Text32"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CardGridPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+script = ExtResource("1_mbh7c")
+
+[node name="CardContainer" type="GridContainer" parent="CardGridPanel/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3

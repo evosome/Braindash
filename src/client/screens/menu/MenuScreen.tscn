@@ -1,0 +1,164 @@
+[gd_scene load_steps=20 format=3 uid="uid://cwmvkw1qfsrbd"]
+
+[ext_resource type="Script" uid="uid://dnnedcgvdxevt" path="res://src/client/screens/menu/MenuScreen.gd" id="1_ua43x"]
+[ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="2_iriku"]
+[ext_resource type="Script" uid="uid://cmtftlag4tb0" path="res://src/screens/ScreenConfigurer.gd" id="3_1hteh"]
+[ext_resource type="PackedScene" uid="uid://7kcymuw21ytx" path="res://src/client/screens/menu/ClassSelectionSubscreen.tscn" id="3_libnp"]
+[ext_resource type="Texture2D" uid="uid://dc065sua5dj0e" path="res://assets/textures/ui/desk_texture.png" id="3_n7a1n"]
+[ext_resource type="PackedScene" uid="uid://dbdbkguftho1r" path="res://src/client/screens/menu/TopicSelectionSubscreen.tscn" id="4_5r1y7"]
+[ext_resource type="PackedScene" uid="uid://bu6rp4c0ukb3b" path="res://src/client/screens/menu/MainSubscreen.tscn" id="5_6tfw6"]
+[ext_resource type="Shader" uid="uid://b34jo00fn70sf" path="res://resources/shaders/Vignette.gdshader" id="5_h3evu"]
+[ext_resource type="Texture2D" uid="uid://ygcg07kdbrw6" path="res://assets/textures/ui/portal.png" id="8_5r1y7"]
+[ext_resource type="Script" uid="uid://bkivtbn77nera" path="res://addons/animatedtexturerect/animated_texture_rect.gd" id="9_5r1y7"]
+
+[sub_resource type="Resource" id="Resource_libnp"]
+script = ExtResource("3_1hteh")
+_screens = Dictionary[String, PackedScene]({
+"grades": ExtResource("3_libnp"),
+"main": ExtResource("5_6tfw6"),
+"topics": ExtResource("4_5r1y7")
+})
+_current_screen_name = "main"
+metadata/_custom_type_script = "uid://cmtftlag4tb0"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt5hp"]
+atlas = ExtResource("8_5r1y7")
+region = Rect2(0, 0, 1080, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huwqq"]
+atlas = ExtResource("8_5r1y7")
+region = Rect2(1080, 0, 1080, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y3ux"]
+atlas = ExtResource("8_5r1y7")
+region = Rect2(2160, 0, 1080, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6vnf"]
+atlas = ExtResource("8_5r1y7")
+region = Rect2(3240, 0, 1080, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fqpe"]
+atlas = ExtResource("8_5r1y7")
+region = Rect2(4320, 0, 1080, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esiwy"]
+atlas = ExtResource("8_5r1y7")
+region = Rect2(5400, 0, 1080, 1920)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iehcr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt5hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huwqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6y3ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6vnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fqpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esiwy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3evu"]
+shader = ExtResource("5_h3evu")
+shader_parameter/alpha = 0.52
+shader_parameter/inner_radius = 0.2
+shader_parameter/outer_radius = 0.765
+
+[node name="MenuScreen" type="Control" node_paths=PackedStringArray("_subscreen_container")]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ua43x")
+_subscreen_container = NodePath("UI/MarginContainer/VBoxContainer/Control")
+_subscreen_manager_configurer = SubResource("Resource_libnp")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_iriku")
+
+[node name="BackgroundRectangle" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_n7a1n")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="AnimatedTextureRect" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_nt5hp")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("9_5r1y7")
+sprite_frames = SubResource("SpriteFrames_iehcr")
+speed_scale = 2.0
+animation = "default"
+metadata/_custom_type_script = "uid://bkivtbn77nera"
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_h3evu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_type_variation = &"MenuScreen__CopyrightText"
+text = "STKBest & Evosome, 2025"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://o1rdgd0key61"]
+[gd_scene load_steps=11 format=3 uid="uid://o1rdgd0key61"]
 
 [ext_resource type="Script" uid="uid://dqiq3ylg6rxgd" path="res://src/Main.gd" id="1_4gxt3"]
 [ext_resource type="Script" uid="uid://of8ygp14u0yt" path="res://src/questionare/Grade.gd" id="2_5qjmp"]
@@ -6,14 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://dbormhlve1p6" path="res://assets/textures/ui/logo.png" id="4_8ec3e"]
 [ext_resource type="Resource" uid="uid://ntjngd8ipd8l" path="res://resources/rounds/6klass.tres" id="5_vjwby"]
 [ext_resource type="Script" uid="uid://m5axqnbe46t3" path="res://src/entities/characters/CharacterType.gd" id="6_8ec3e"]
-[ext_resource type="Texture2D" uid="uid://b03ahn7in6evm" path="res://assets/textures/legacy/icons8/icons8-bow-and-arrow-96.png" id="7_38a0m"]
-[ext_resource type="Texture2D" uid="uid://dislj6cl83115" path="res://assets/textures/legacy/icons8/icons8-thor-hammer-96.png" id="8_fh42b"]
+[ext_resource type="Resource" uid="uid://dlt5n4cbvmc6e" path="res://resources/characters/rabbit.tres" id="7_fh42b"]
+[ext_resource type="Resource" uid="uid://csy1il6vgmqed" path="res://resources/characters/bear.tres" id="8_insap"]
 
 [sub_resource type="Resource" id="Resource_38a0m"]
 script = ExtResource("3_vjwby")
 name = "Биология"
 cover_image = ExtResource("4_8ec3e")
 round_info = ExtResource("5_vjwby")
+enemy_character_type = ExtResource("7_fh42b")
 metadata/_custom_type_script = "uid://btm8gwa2binwt"
 
 [sub_resource type="Resource" id="Resource_fh42b"]
@@ -23,25 +24,7 @@ topics = Array[ExtResource("3_vjwby")]([SubResource("Resource_38a0m")])
 author_name = "Чибизов А. В."
 metadata/_custom_type_script = "uid://of8ygp14u0yt"
 
-[sub_resource type="Resource" id="Resource_insap"]
-script = ExtResource("6_8ec3e")
-kind = "Лучник"
-kind_icon = ExtResource("7_38a0m")
-ability_icons = Array[Texture2D]([])
-name = "Крольчиха"
-description = ""
-metadata/_custom_type_script = "uid://m5axqnbe46t3"
-
-[sub_resource type="Resource" id="Resource_w32tk"]
-script = ExtResource("6_8ec3e")
-kind = "Воин"
-kind_icon = ExtResource("8_fh42b")
-ability_icons = Array[Texture2D]([])
-name = "Медведь"
-description = ""
-metadata/_custom_type_script = "uid://m5axqnbe46t3"
-
 [node name="Main" type="Node"]
 script = ExtResource("1_4gxt3")
 _grades = Array[ExtResource("2_5qjmp")]([SubResource("Resource_fh42b")])
-_characters = Array[ExtResource("6_8ec3e")]([SubResource("Resource_insap"), SubResource("Resource_w32tk")])
+_characters = Array[ExtResource("6_8ec3e")]([ExtResource("7_fh42b"), ExtResource("8_insap")])

@@ -1,21 +1,52 @@
-class_name CharacterSprite extends AnimatedSprite2D
+class_name CharacterSprite extends Node2D
+
+## Fired when attack is gonna be performed while playing animation
+signal attack_happened
 
 enum Animations {
 	IDLE,
 	ATTACK,
-	GOT_DAMAGE,
-	DIED,
-	VICTORY
+	HURT
 }
 
-var _animation_names = [
-	"idle",
-	"attack",
-	"got_damage",
-	"died",
-	"victory"
-]
+enum LookDirections {
+	LEFT,
+	RIGHT
+}
+
+@export var _sprite: AnimatedSprite2D
+@export var _animation_player: AnimationPlayer
+
+
+#region public
+
+func look_at_direction(direction: LookDirections) -> void:
+	_sprite.flip_h = direction == LookDirections.LEFT
+
 
 func play_animation(animation: Animations) -> void:
-	var animation_name = _animation_names[animation as int]
-	play(animation_name)
+	var animation_name = Animations.find_key(animation)
+	if !_animation_player.has_animation(animation_name):
+		push_error(
+			"Animation: ",
+			animation_name,
+			" is not set on sprite.")
+		return
+	_animation_player.play(animation_name)
+
+
+func async_play_animation(animation: Animations) -> void:
+	play_animation(animation)
+	await _animation_player.animation_finished
+
+#endregion
+
+
+#region protected
+
+##TODO: Use states on player character, instead of using this
+## Shorthand for emitting attack event. Call this method only in animations.
+func perform_attack() -> void:
+	attack_happened.emit()
+
+#endregion

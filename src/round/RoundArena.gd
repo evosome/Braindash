@@ -3,8 +3,7 @@ class_name RoundArena extends Node
 @export var _camera: Camera2D
 @export var _entities_container: Node
 
-@export var _left_player_position: Node2D
-@export var _right_player_position: Node2D
+@export var _spawnpoints: Array[Node2D]
 
 
 func spawn(entity: Node) -> void:
@@ -23,9 +22,23 @@ func get_entities() -> Array[Node]:
 	return _entities_container.get_children()
 
 
-func get_left_player_position() -> Vector2:
-	return _left_player_position.position
+func get_free_spawnpoint_position() -> Vector2:
+	var node: Node2D = _spawnpoints.pop_front()
+	return node.position
 
 
-func get_right_player_position() -> Vector2:
-	return _right_player_position.position
+## This method is asynchronous.
+## Asynchronously show animations of smashing loser by winner.
+func async_smash(smash_info: SmashInfo) -> void:
+	
+	#TODO: maybe animate this by AnimationPlayer node?
+	
+	var winner_char = smash_info.get_winner_character()
+	var loser_char = smash_info.get_loser_characters()
+	
+	await winner_char.async_play_animation(CharacterSprite.Animations.ATTACK)
+
+
+## Asynchronously show animations when nobody wins
+func async_on_draw() -> void:
+	pass

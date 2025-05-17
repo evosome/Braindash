@@ -33,6 +33,8 @@ func on_enter(ctx: GameContext) -> void:
 
 	_round = _init_round_from(round_info)
 	_inject_round(_round)
+	_arena = _round.get_arena()
+	
 	_listen_signals_from(_round)
 	_add_players_from(ctx, _round)
 	
@@ -55,15 +57,42 @@ func _inject_round(round_: Round) -> void:
 
 func _add_players_from(ctx: GameContext, round_: Round) -> void:
 	_player = ctx.get_me()
+	var player_character_type = ctx.get_my_character_type()
 	round_.add_player(_player)
+	round_.create_character_for(_player, player_character_type)
 
 	_ai_enemy = ctx.get_enemy()
+	var enemy_character_type = ctx.get_enemy_character_type()
 	round_.add_player(_ai_enemy)
+	round_.create_character_for(_ai_enemy, enemy_character_type)
+	
+	#TODO: implement team system, instead of setting targets like this
+	var player_char = round_.get_character_of(_player)
+	var enemy_char = round_.get_character_of(_ai_enemy)
+	player_char.set_target(enemy_char)
+	enemy_char.set_target(player_char)
+	player_char.look_at_other(enemy_char)
+	enemy_char.look_at_other(player_char)
 
 
 func _listen_signals_from(round: Round) -> void:
 	round.question_just_spawned.connect(_on_question_just_spawned)
 	round.question_ended.connect(_on_question_ended)
+
+
+func _perform_smashing(winner: PlayerInfo, losers: Array[PlayerInfo]) -> void:
+	var winner_char = _round.get_character_of(winner)
+	
+	var loser_chars: Array[PlayerCharacter]
+	loser_chars.assign(
+		losers
+			.map(func(l: PlayerInfo): return _round.get_character_of(l)))
+	
+	var smash_info = SmashInfo.new()
+	smash_info.set_damage(25)
+	smash_info.set_winner_character(winner_char)
+	smash_info.set_loser_characters(loser_chars)
+	await _arena.async_smash(smash_info)
 
 #endregion
 
@@ -93,5 +122,14 @@ func _on_question_layout_got_answer(variant: String) -> void:
 func _on_question_ended(result: QuestionResult) -> void:
 	_question_layer.set_layer_visible(false)
 	_question_layout.reset_question_timer()
+	
+	if !result.is_draw():
+		var winner = result.get_winner()
+		var losers = result.get_losers()
+		await _perform_smashing(winner, losers)
+	else:
+		await _arena.async_on_draw()
+	
+	_round.do_continue()
 
 #endregion

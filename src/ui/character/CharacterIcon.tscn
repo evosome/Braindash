@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c5kl8nwlodtmn" path="res://src/ui/character/CharacterIcon.gd" id="2_oln4y"]
 
 [node name="CharacterIcon" type="Control"]
-custom_minimum_size = Vector2(96, 96)
+custom_minimum_size = Vector2(196, 256)
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_mx8et")

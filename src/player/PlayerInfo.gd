@@ -10,4 +10,4 @@ func get_nickname() -> String:
 
 
 func _to_string() -> String:
-	return "<Player#nickname={0}>".format([_nickname])
+	return "<Player#nickname=\"{0}\">".format([_nickname])

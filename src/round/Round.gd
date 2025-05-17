@@ -21,7 +21,10 @@ var _players: Array[PlayerInfo] = []
 var _questionare: Questionare
 var _is_running: bool = false
 var _current_question: Question
+var _character_map: Dictionary[PlayerInfo, PlayerCharacter]
 
+
+#region built-in
 
 func _init(round_info: RoundInfo) -> void:
 	_info = round_info
@@ -35,9 +38,10 @@ func _ready() -> void:
 
 	_timer.timeout.connect(_on_timer_timeout)
 
+#endregion
+
 
 #region public
-
 
 func get_info() -> RoundInfo:
 	return _info
@@ -58,6 +62,28 @@ func add_player(player: PlayerInfo) -> void:
 		return
 
 	_players.append(player)
+
+
+func create_character_for(player: PlayerInfo, charater_type: CharacterType) -> void:
+	if !_players.has(player):
+		push_error("Add player first!")
+		return
+	if _character_map.has(player):
+		push_error("Character for the player was already assigned")
+		return
+	var spawn_point = _arena.get_free_spawnpoint_position()
+	var character = PlayerCharacter.spawn(_arena, spawn_point, charater_type)
+	_character_map[player] = character
+
+
+func get_character_of(player: PlayerInfo) -> PlayerCharacter:
+	var found_player = _character_map.get(player)
+	if !found_player:
+		push_error(
+				"Character of the specified player(",
+				player.to_string(),
+				") was not found. Returning null...")
+	return found_player
 
 
 func answer_on_current(variant: String, player: PlayerInfo) -> void:
@@ -84,10 +110,16 @@ func start() -> void:
 	await _async_process_gameplay()
 
 
+func do_continue() -> void:
+	pass
+
 #endregion
 
 
 #region private
+
+func _get_free_spawnpoint_position() -> Vector2:
+	return Vector2.ZERO
 
 
 func _instantiate_arena_from(round_info: RoundInfo) -> RoundArena:
@@ -146,12 +178,10 @@ func _end_question_immediately(question: Question) -> void:
 	var answers = question.get_answers()
 	question_ended.emit(QuestionResult.new(answers))
 
-
 #endregion
 
 
 #region event handlers
-
 
 func _on_question_answered(answer: Question.Answer) -> void:
 	var player_answered = answer.get_who_answered()
@@ -165,6 +195,5 @@ func _on_question_answered(answer: Question.Answer) -> void:
 
 func _on_timer_timeout() -> void:
 	_end_question_immediately(_current_question)
-
 
 #endregion

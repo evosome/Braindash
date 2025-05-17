@@ -62,6 +62,7 @@ func _on_card_selected(
 	_continue_button.set_disabled(false)
 	
 	var selected_topic = card.get_context() as Topic
+	ctx.set_enemy_character_type(selected_topic.enemy_character_type)
 	ctx.set_current_round_info(selected_topic.round_info)
 
 #endregion

@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg52mj0nq2oli"]
+[gd_scene load_steps=5 format=3 uid="uid://cg52mj0nq2oli"]
 
 [ext_resource type="Script" uid="uid://cla7x6dopvome" path="res://src/client/screens/RoundScreen.gd" id="1_h4ne0"]
 [ext_resource type="PackedScene" uid="uid://dkrsrcgjfjdo2" path="res://src/ui/question/QuestionLayer.tscn" id="2_dwmib"]
+[ext_resource type="Shader" uid="uid://b34jo00fn70sf" path="res://resources/shaders/Vignette.gdshader" id="3_tsiw5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gvg2w"]
+shader = ExtResource("3_tsiw5")
+shader_parameter/alpha = 0.47
+shader_parameter/inner_radius = 0.795
+shader_parameter/outer_radius = 1.135
 
 [node name="RoundScreen" type="Control" node_paths=PackedStringArray("_arena_holder")]
 layout_mode = 3
@@ -23,11 +30,22 @@ grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="LevelHolder" type="Node2D" parent="SubViewportContainer/SubViewport"]
+
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+material = SubResource("ShaderMaterial_gvg2w")
+custom_minimum_size = Vector2(1920, 1080)
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 1

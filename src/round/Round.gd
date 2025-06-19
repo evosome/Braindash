@@ -71,8 +71,8 @@ func create_character_for(player: PlayerInfo, charater_type: CharacterType) -> v
 	if _character_map.has(player):
 		push_error("Character for the player was already assigned")
 		return
-	var spawn_point = _arena.get_free_spawnpoint_position()
-	var character = PlayerCharacter.spawn(_arena, spawn_point, charater_type)
+	var spawnpoint = _arena.get_free_spawnpoint()
+	var character = PlayerCharacter.spawn(_arena, spawnpoint, charater_type)
 	_character_map[player] = character
 
 

@@ -81,6 +81,10 @@ func look_at_other(other: PlayerCharacter) -> void:
 		else CharacterSprite.LookDirections.LEFT)
 	_character_sprite.look_at_direction(look_direction)
 
+
+func look_at_direction(direction: CharacterSprite.LookDirections) -> void:
+	_character_sprite.look_at_direction(direction)
+
 #endregion
 
 
@@ -95,12 +99,14 @@ func _on_sprite_attack_happened() -> void:
 
 #region static
 
-static func spawn(arena: RoundArena, position: Vector2, character_type: CharacterType) -> PlayerCharacter:
+static func spawn(
+		arena: RoundArena,
+		spawnpoint: CharacterSpawnpoint,
+		character_type: CharacterType) -> PlayerCharacter:
 	var player_character = PLAYER_CHARACTER_PACKED.instantiate()
 	player_character._arena = arena
 	player_character._character_type = character_type
-	player_character.position = position
-	arena.spawn(player_character)
+	arena.spawn_character_at(player_character, spawnpoint)
 	return player_character
 
 #endregion

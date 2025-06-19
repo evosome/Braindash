@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="RoundInfo" load_steps=4 format=3 uid="uid://ntjngd8ipd8l"]
 
 [ext_resource type="Resource" uid="uid://kt5aviwydpfd" path="res://resources/questions/biology_of_class6.tres" id="1_ax331"]
-[ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/round/SimpleRoundArena.tscn" id="1_he10v"]
+[ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/round/arenas/SimpleRoundArena.tscn" id="1_he10v"]
 [ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/RoundInfo.gd" id="1_sy474"]
 
 [resource]

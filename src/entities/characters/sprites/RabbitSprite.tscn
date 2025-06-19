@@ -115,7 +115,6 @@ _animation_player = NodePath("AnimationPlayer")
 metadata/_custom_type_script = "uid://do5av0re8ksnm"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(128, 0)
 sprite_frames = ExtResource("2_a6jtl")
 animation = &"idle"
 

@@ -3,11 +3,18 @@ class_name RoundArena extends Node
 @export var _camera: Camera2D
 @export var _entities_container: Node
 
-@export var _spawnpoints: Array[Node2D]
+@export var _spawnpoints: Array[CharacterSpawnpoint]
 
 
 func spawn(entity: Node) -> void:
 	_entities_container.add_child(entity)
+
+
+func spawn_character_at(character: PlayerCharacter, spawnpoint: CharacterSpawnpoint) -> void:
+	character.set_position(spawnpoint.get_position())
+	character.set_scale(Vector2.ONE * spawnpoint.get_character_distance())
+	spawn(character)
+	character.look_at_direction(spawnpoint.get_character_look_direction())
 
 
 func despawn(entity: Node) -> void:
@@ -25,6 +32,10 @@ func get_entities() -> Array[Node]:
 func get_free_spawnpoint_position() -> Vector2:
 	var node: Node2D = _spawnpoints.pop_front()
 	return node.position
+
+
+func get_free_spawnpoint() -> CharacterSpawnpoint:
+	return _spawnpoints.pop_front()
 
 
 ## This method is asynchronous.

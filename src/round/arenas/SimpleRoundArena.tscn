@@ -1,42 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqjatfrbtwte5"]
+[gd_scene load_steps=6 format=3 uid="uid://cqjatfrbtwte5"]
 
-[ext_resource type="Script" uid="uid://jxaxfhe61nfe" path="res://src/round/RoundArena.gd" id="1_dgjgl"]
+[ext_resource type="Script" uid="uid://jxaxfhe61nfe" path="res://src/round/arenas/RoundArena.gd" id="1_dgjgl"]
 [ext_resource type="Texture2D" uid="uid://blb3yjfd8c888" path="res://assets/textures/level_0/level0_background.png" id="2_mvosa"]
 [ext_resource type="Texture2D" uid="uid://cx0ufy6lrpsl5" path="res://assets/textures/level_0/level1.png" id="3_mvosa"]
 [ext_resource type="PackedScene" uid="uid://ri4duqaeuxyx" path="res://src/entities/Pinwheel.tscn" id="4_qi2i7"]
+[ext_resource type="Script" uid="uid://c178jhmaeapc6" path="res://src/round/arenas/CharacterSpawnpoint.gd" id="5_spcgp"]
 
 [node name="SimpleRoundArena" type="Node" node_paths=PackedStringArray("_entities_container", "_spawnpoints")]
 script = ExtResource("1_dgjgl")
 _entities_container = NodePath("Entities")
-_spawnpoints = [NodePath("Spawnpoints/Left"), NodePath("Spawnpoints/Right")]
+_spawnpoints = [NodePath("Spawnpoints/SpawnpointLeft"), NodePath("Spawnpoints/SpawnpointRight")]
 metadata/_custom_type_script = "uid://jxaxfhe61nfe"
 
 [node name="Enviroment" type="Node" parent="."]
 
 [node name="Background" type="Sprite2D" parent="Enviroment"]
-scale = Vector2(2, 2)
 texture = ExtResource("2_mvosa")
 
 [node name="ArenaGround" type="Sprite2D" parent="Enviroment"]
-scale = Vector2(2, 2)
 texture = ExtResource("3_mvosa")
 
 [node name="Entities" type="Node" parent="."]
 
 [node name="Pinwheel" parent="Entities" instance=ExtResource("4_qi2i7")]
-position = Vector2(-776, 504)
+position = Vector2(-768, 232)
 
 [node name="Pinwheel2" parent="Entities" instance=ExtResource("4_qi2i7")]
-position = Vector2(616, 136)
-scale = Vector2(1.72, 1.72)
+position = Vector2(648, 24)
+scale = Vector2(1.31, 1.31)
 
 [node name="Spawnpoints" type="Node" parent="."]
 
-[node name="Left" type="Node2D" parent="Spawnpoints"]
-position = Vector2(-568, 632)
+[node name="SpawnpointLeft" type="Node2D" parent="Spawnpoints"]
+position = Vector2(-640, 192)
+script = ExtResource("5_spcgp")
+_character_look_direction = 1
+_character_distance = 1.0
+metadata/_custom_type_script = "uid://c178jhmaeapc6"
 
-[node name="Right" type="Node2D" parent="Spawnpoints"]
-position = Vector2(640, 632)
+[node name="SpawnpointRight" type="Node2D" parent="Spawnpoints"]
+position = Vector2(576, 192)
+script = ExtResource("5_spcgp")
+_character_distance = 1.0
+metadata/_custom_type_script = "uid://c178jhmaeapc6"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 editor_draw_limits = true

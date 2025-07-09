@@ -2,32 +2,38 @@ class_name StateManager
 
 var _state_map: Dictionary[String, State] = {}
 var _current_state: State
+var _context: Variant
 
 
 #region public
 
-func register(name: String, state: State) -> void:
-    _state_map[name] = state
+
+func set_context(ctx: Variant) -> void:
+    _context = ctx
 
 
-func unregister(name: String) -> void:
-    _state_map.erase(name)
+func register(id: Variant, state: State) -> void:
+    _state_map[id] = state
+
+
+func unregister(id: Variant) -> void:
+    _state_map.erase(id)
 
 
 @warning_ignore_start("redundant_await")
-func transition_to(name: String) -> void:
+func transition_to(id: Variant) -> void:
     if _current_state:
-        await _current_state.on_exit()
+        await _current_state.on_exit(_context)
     
-    var new_state = _state_map.get(name)
+    var new_state = _state_map.get(id)
     if !new_state:
-        push_error("Unable to make transition, because state \"{state_name}\" not registered".format({
-            state_name = name
+        push_error("Unable to make transition, because state \"{state_name}\" is not registered".format({
+            state_name = id
         }))
         return
     
     _current_state = new_state
-    await _current_state.on_enter()
+    await _current_state.on_enter(_context)
 @warning_ignore_restore("redundant_await")
 
 #endregion

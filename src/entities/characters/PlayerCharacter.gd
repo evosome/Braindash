@@ -9,7 +9,7 @@ enum Animations {
 const PLAYER_CHARACTER_PACKED = preload(
 		"res://src/entities/characters/PlayerCharacter.tscn")
 
-var _arena: RoundArena
+var _arena: Arena
 var _damage_amount: int
 var _target: PlayerCharacter
 var _character_type: CharacterType
@@ -100,7 +100,7 @@ func _on_sprite_attack_happened() -> void:
 #region static
 
 static func spawn(
-		arena: RoundArena,
+		arena: Arena,
 		spawnpoint: CharacterSpawnpoint,
 		character_type: CharacterType) -> PlayerCharacter:
 	var player_character = PLAYER_CHARACTER_PACKED.instantiate()

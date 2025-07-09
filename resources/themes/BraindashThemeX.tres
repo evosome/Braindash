@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b7akri5gxpl5b"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://b7akri5gxpl5b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndj1q"]
 content_margin_left = 64.0
@@ -13,6 +13,12 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_asxl5"]
+corner_radius_top_left = 96
+corner_radius_top_right = 96
+corner_radius_bottom_right = 96
+corner_radius_bottom_left = 96
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_io641"]
 content_margin_left = 8.0
@@ -89,6 +95,8 @@ BigButton/font_sizes/font_size = 32
 BigButton/styles/normal = SubResource("StyleBoxFlat_ndj1q")
 CardGrid__Panel/base_type = &"PanelContainer"
 CardGrid__Panel/styles/panel = SubResource("StyleBoxFlat_fewps")
+CharacterIcon__Button/base_type = &"Button"
+CharacterIcon__Button/styles/normal = SubResource("StyleBoxFlat_asxl5")
 CharacterIcon__Panel/base_type = &"PanelContainer"
 CharacterIcon__Panel/styles/panel = SubResource("StyleBoxFlat_io641")
 CommonVBoxContainer/base_type = &"VBoxContainer"

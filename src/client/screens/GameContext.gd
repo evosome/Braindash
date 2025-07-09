@@ -31,10 +31,12 @@ func has_round_info() -> bool:
 	return _current_round_info != null
 
 
+#TODO: rename this method into `get_game_info`
 func get_current_round_info() -> RoundInfo:
 	return _current_round_info
 
 
+#TODO: rename this method into `set_game_info`
 func set_current_round_info(value: RoundInfo) -> void:
 	_current_round_info = value
 

@@ -1,16 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://cqjatfrbtwte5"]
 
-[ext_resource type="Script" uid="uid://jxaxfhe61nfe" path="res://src/round/arenas/RoundArena.gd" id="1_dgjgl"]
+[ext_resource type="Script" uid="uid://b5vb7uuqninn1" path="res://src/round/arenas/Arena.gd" id="1_spcgp"]
 [ext_resource type="Texture2D" uid="uid://blb3yjfd8c888" path="res://assets/textures/level_0/level0_background.png" id="2_mvosa"]
 [ext_resource type="Texture2D" uid="uid://cx0ufy6lrpsl5" path="res://assets/textures/level_0/level1.png" id="3_mvosa"]
 [ext_resource type="PackedScene" uid="uid://ri4duqaeuxyx" path="res://src/entities/Pinwheel.tscn" id="4_qi2i7"]
 [ext_resource type="Script" uid="uid://c178jhmaeapc6" path="res://src/round/arenas/CharacterSpawnpoint.gd" id="5_spcgp"]
 
-[node name="SimpleRoundArena" type="Node" node_paths=PackedStringArray("_entities_container", "_spawnpoints")]
-script = ExtResource("1_dgjgl")
+[node name="SimpleRoundArena" type="Node" node_paths=PackedStringArray("_camera", "_entities_container", "_spawnpoints")]
+script = ExtResource("1_spcgp")
+_camera = NodePath("Camera2D")
 _entities_container = NodePath("Entities")
 _spawnpoints = [NodePath("Spawnpoints/SpawnpointLeft"), NodePath("Spawnpoints/SpawnpointRight")]
-metadata/_custom_type_script = "uid://jxaxfhe61nfe"
 
 [node name="Enviroment" type="Node" parent="."]
 

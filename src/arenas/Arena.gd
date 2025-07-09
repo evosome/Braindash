@@ -1,9 +1,37 @@
-class_name RoundArena extends Node
+class_name Arena extends Node
+
+var _character_map: Dictionary[PlayerInfo, PlayerCharacter] = {}
 
 @export var _camera: Camera2D
 @export var _entities_container: Node
 
 @export var _spawnpoints: Array[CharacterSpawnpoint]
+
+
+func create_character_for(player: PlayerInfo, charater_type: CharacterType) -> void:
+	if _character_map.has(player):
+		push_error("Character for the player was already assigned")
+		return
+	var spawnpoint = get_free_spawnpoint()
+	var character = PlayerCharacter.spawn(self, spawnpoint, charater_type)
+	_character_map[player] = character
+
+
+func get_character_of(player: PlayerInfo) -> PlayerCharacter:
+	var found_player = _character_map.get(player)
+	if !found_player:
+		push_error(
+				"Character of the specified player(",
+				player.to_string(),
+				") was not found. Returning null...")
+	return found_player
+
+
+func get_characters_of(players: Array[PlayerInfo]) -> Array[PlayerCharacter]:
+	var chatacters: Array[PlayerCharacter]
+	var resolved_characters = players.map(func(p: PlayerInfo): return _character_map.get(p))
+	chatacters.assign(resolved_characters)
+	return chatacters
 
 
 func spawn(entity: Node) -> void:
@@ -51,5 +79,5 @@ func async_smash(smash_info: SmashInfo) -> void:
 
 
 ## Asynchronously show animations when nobody wins
-func async_on_draw() -> void:
+func async_draw() -> void:
 	pass

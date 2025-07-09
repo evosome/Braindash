@@ -1,6 +1,7 @@
-class_name Round
+[gd_scene load_steps=2 format=3 uid="uid://buf5tiis14j7o"]
 
-signal ended(result: Result)
+[sub_resource type="GDScript" id="GDScript_hkb6t"]
+script/source = "class_name Round
 
 ## Represents variants of round end. Round can be ended, when time is over or
 ## all players answered for a question.
@@ -14,8 +15,6 @@ signal _internal_ended
 var _timer: Timer
 var _question: Question
 var _end_reason: EndReason
-var _is_over: bool = false
-var _result: Result
 
 
 #region constructor
@@ -27,24 +26,7 @@ func _init(question: Question, timer: Timer) -> void:
 #endregion
 
 
-#region getters/setters
-
-## Get last result of round if round is over. Helpful when not awaiting async method
-## `start`.
-func get_result() -> Result:
-	if !_is_over:
-		push_warning("Trying to access round result, but has not ended yet")
-		return null
-	return _result
-
-#endregion
-
-
 #region public
-
-func is_over() -> bool:
-	return _is_over
-
 
 ## This method is asynchronous. Start the round and wait until any of two reasons happenned:
 ## time is over or all players answered for a question.
@@ -58,13 +40,7 @@ func start() -> Result:
 
 	await _internal_ended
 
-	_timer.timeout.disconnect(_on_timeout)
-	_question.all_participants_answered.disconnect(_on_all_answered)
-
-	_result = Result.new(_question, _end_reason)
-	_is_over = true
-	ended.emit(_result)
-	return _result
+	return Result.new(_question, _end_reason)
 
 
 ## Get the question associated with this round
@@ -125,3 +101,10 @@ class Result:
 		return _answers[index] if index != -1 else null
 
 #endregion
+"
+
+[node name="Round" type="Node"]
+script = SubResource("GDScript_hkb6t")
+metadata/_custom_type_script = "uid://rx8cuja4qadg"
+
+[node name="Timer" type="Timer" parent="."]

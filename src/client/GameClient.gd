@@ -12,7 +12,7 @@ func _ready() -> void:
 	_context.set_me(PlayerInfo.new())
 	_context.set_enemy(PlayerInfo.new())
 	_screen_manager.register("menu", preload("res://src/client/screens/menu/MenuScreen.tscn"))
-	_screen_manager.register("round", preload("res://src/client/screens/RoundScreen.tscn"))
+	_screen_manager.register("round", preload("res://src/client/singleplayer/SingleplayerGameScreen.tscn"))
 	_screen_manager.switch("menu")
 
 

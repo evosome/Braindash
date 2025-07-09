@@ -19,6 +19,10 @@ boot_splash/fullsize=false
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
+[autoload]
+
+Sx="*res://addons/signal_extensions/sx_autoload.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -30,7 +34,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/animatedtexturerect/plugin.cfg")
+enabled=PackedStringArray("res://addons/animatedtexturerect/plugin.cfg", "res://addons/signal_extensions/plugin.cfg", "res://addons/signals/plugin.cfg")
 
 [rendering]
 

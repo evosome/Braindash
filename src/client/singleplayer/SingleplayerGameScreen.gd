@@ -2,6 +2,7 @@ class_name SingleplayerGameScreen extends ClientScreen
 
 @onready var _game_container: Node = %"GameContainer"
 @onready var _question_layer: QuestionLayer = %"QuestionLayer"
+@onready var _round_popup: RoundPopup = %"RoundPopup"
 
 
 #region built in
@@ -45,6 +46,7 @@ func on_enter(ctx: GameContext) -> void:
 	game_context.game = singleplayer_game
 	game_context.state_manager = state_manager
 	game_context.question_layer = _question_layer
+	game_context.round_popup = _round_popup
 	state_manager.set_context(game_context)
 
 	state_manager.register("intro", IntroState.new())
@@ -69,6 +71,7 @@ class GameStateContext:
 	var state_manager: StateManager
 	var question_layer: QuestionLayer
 	var current_round: Round
+	var round_popup: RoundPopup
 
 	# shared fields between states
 	var round_result: Round.Result
@@ -159,6 +162,12 @@ class AnswerState:
 				var current_question = current_round.get_question()
 				current_question.answer(_answer_text, local_player)
 				ctx.transition_to("wait_opponent")
+
+				#FIXME - temporary ai logic here, remove it
+				var question_type = current_question.get_type()
+				var correct_answer = question_type.get_correct()
+				current_question.answer(correct_answer, game.get_enemy_player())
+
 			EndReason.TIMEOUT:
 				ctx.round_result = current_round.get_result()
 				ctx.transition_to("round_over")
@@ -191,17 +200,25 @@ class RoundOverState:
 	func on_enter(ctx: GameStateContext) -> void:
 		print_debug("Entered round over state")
 
+		var question_layer = ctx.question_layer
+		question_layer.set_layer_visible(false)
+
 		var game = ctx.game
 		var local_player = game.get_local_player()
 
-		var current_round = ctx.current_round
-		var current_question = current_round.get_question()
+		var round_result = ctx.round_result
 
-		var player_answer = current_question.get_answer_of(local_player)
-		if player_answer:
-			print_debug("player answered: ", player_answer.to_string())
+		var round_popup = ctx.round_popup
+		var popup_badge = RoundPopup.PopupBadge.WRONG
+		if round_result.is_draw():
+			popup_badge = RoundPopup.PopupBadge.DRAW
 		else:
-			print_debug("player has no answer")
+			var best_result = round_result.get_best_answer()
+
+			if best_result.get_who_answered() == local_player:
+				popup_badge = RoundPopup.PopupBadge.CORRECT
+
+		await round_popup.show_popup(popup_badge)
 
 		ctx.transition_to("fight")
 
@@ -217,7 +234,7 @@ class FightState:
 		
 		await game.do_fight(round_result)
 		
-		var next_state = "round" if !game.is_over() else "outro"
+		var next_state = "introduce_question" if !game.is_over() else "outro"
 		ctx.transition_to(next_state)
 
 

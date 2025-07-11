@@ -28,7 +28,7 @@ func _init(question_list: QuestionList, participants: Array[PlayerInfo]) -> void
 func next() -> Question:
 	var question_list_size = _question_list.size()
 	
-	if _question_index > question_list_size:
+	if _question_index >= question_list_size:
 		push_error("Questionare list is exhausted")
 		return
 		

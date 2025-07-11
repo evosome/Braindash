@@ -76,8 +76,9 @@ func do_fight(round_result: Round.Result) -> void:
 	var best_character = _arena.get_character_of(best_player)
 	smash_info.set_winner_character(best_character)
 
+	var loser_players: Array[PlayerInfo]
 	var worse_answers = round_result.get_worse_answers()
-	var loser_players = worse_answers.map(func(a: Question.Answer): return a.get_who_answered())
+	loser_players.assign(worse_answers.map(func(a: Question.Answer): return a.get_who_answered()))
 	var loser_characters = _arena.get_characters_of(loser_players)
 
 	smash_info.set_loser_characters(loser_characters)

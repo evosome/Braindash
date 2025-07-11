@@ -1,20 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqjatfrbtwte5"]
+[gd_scene load_steps=7 format=3 uid="uid://cqjatfrbtwte5"]
 
-[ext_resource type="Script" uid="uid://b5vb7uuqninn1" path="res://src/round/arenas/Arena.gd" id="1_spcgp"]
+[ext_resource type="Script" uid="uid://b5vb7uuqninn1" path="res://src/arenas/Arena.gd" id="1_spcgp"]
 [ext_resource type="Texture2D" uid="uid://blb3yjfd8c888" path="res://assets/textures/level_0/level0_background.png" id="2_mvosa"]
 [ext_resource type="Texture2D" uid="uid://cx0ufy6lrpsl5" path="res://assets/textures/level_0/level1.png" id="3_mvosa"]
 [ext_resource type="PackedScene" uid="uid://ri4duqaeuxyx" path="res://src/entities/Pinwheel.tscn" id="4_qi2i7"]
-[ext_resource type="Script" uid="uid://c178jhmaeapc6" path="res://src/round/arenas/CharacterSpawnpoint.gd" id="5_spcgp"]
+[ext_resource type="Script" uid="uid://c178jhmaeapc6" path="res://src/arenas/CharacterSpawnpoint.gd" id="5_spcgp"]
+[ext_resource type="Script" uid="uid://b05gaofxlcqng" path="res://src/arenas/ArenaCamera.gd" id="6_60ski"]
 
 [node name="SimpleRoundArena" type="Node" node_paths=PackedStringArray("_camera", "_entities_container", "_spawnpoints")]
 script = ExtResource("1_spcgp")
-_camera = NodePath("Camera2D")
+_camera = NodePath("ArenaCamera")
 _entities_container = NodePath("Entities")
 _spawnpoints = [NodePath("Spawnpoints/SpawnpointLeft"), NodePath("Spawnpoints/SpawnpointRight")]
 
 [node name="Enviroment" type="Node" parent="."]
 
-[node name="Background" type="Sprite2D" parent="Enviroment"]
+[node name="Background2" type="Sprite2D" parent="Enviroment"]
 texture = ExtResource("2_mvosa")
 
 [node name="ArenaGround" type="Sprite2D" parent="Enviroment"]
@@ -44,6 +45,5 @@ script = ExtResource("5_spcgp")
 _character_distance = 1.0
 metadata/_custom_type_script = "uid://c178jhmaeapc6"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-editor_draw_limits = true
-editor_draw_drag_margin = true
+[node name="ArenaCamera" type="Camera2D" parent="."]
+script = ExtResource("6_60ski")

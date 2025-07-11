@@ -2,7 +2,7 @@ class_name Arena extends Node
 
 var _character_map: Dictionary[PlayerInfo, PlayerCharacter] = {}
 
-@export var _camera: Camera2D
+@export var _camera: ArenaCamera
 @export var _entities_container: Node
 
 @export var _spawnpoints: Array[CharacterSpawnpoint]
@@ -74,8 +74,16 @@ func async_smash(smash_info: SmashInfo) -> void:
 	
 	var winner_char = smash_info.get_winner_character()
 	var loser_char = smash_info.get_loser_characters()
-	
+
+	# TODO: this is temporary attack animation. Add attack type, that asyncly controls
+	# attack animations
+	await _camera.zoom_in(winner_char.get_position(), 1.5)
+
 	await winner_char.async_play_animation(CharacterSprite.Animations.ATTACK)
+
+	await get_tree().create_timer(1.5).timeout
+
+	await _camera.zoom_off()
 
 
 ## Asynchronously show animations when nobody wins

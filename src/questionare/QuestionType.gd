@@ -11,3 +11,7 @@ class_name QuestionType extends Resource
 
 func has_timeout() -> bool:
 	return timeout_seconds > 0
+
+
+func get_correct() -> String:
+	return variants[correct_index]

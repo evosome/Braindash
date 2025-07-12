@@ -1,5 +1,6 @@
 class_name ArenaCamera extends Camera2D
 
+var _following_target: Node2D
 var _default_zoom_value: Vector2
 var _zoom_in_tween: Tween
 
@@ -8,6 +9,19 @@ var _zoom_in_tween: Tween
 
 func _ready() -> void:
     _default_zoom_value = zoom
+
+
+func _process(_delta: float) -> void:
+    if _following_target:
+        position = _following_target.position
+
+#endregion
+
+
+#region getter/setter
+
+func set_following_target(node2d: Node2D) -> void:
+    _following_target = node2d
 
 #endregion
 

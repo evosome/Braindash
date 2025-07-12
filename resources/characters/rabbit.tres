@@ -1,15 +1,22 @@
-[gd_resource type="Resource" script_class="CharacterType" load_steps=4 format=3 uid="uid://dlt5n4cbvmc6e"]
+[gd_resource type="Resource" script_class="RabbitCharacterType" load_steps=7 format=3 uid="uid://dlt5n4cbvmc6e"]
 
 [ext_resource type="Texture2D" uid="uid://cj1yhxcpejmwe" path="res://assets/textures/entities/characters/rabbit/rabbit_portrait.png" id="1_bfbrq"]
-[ext_resource type="PackedScene" uid="uid://b36pnp1iiqk5n" path="res://src/entities/characters/sprites/RabbitSprite.tscn" id="2_gkk33"]
-[ext_resource type="Script" uid="uid://m5axqnbe46t3" path="res://src/entities/characters/CharacterType.gd" id="3_nxclr"]
+[ext_resource type="Script" uid="uid://bdxmicut2k743" path="res://src/entities/characters/rabbit/RabbitAttack.gd" id="1_nxclr"]
+[ext_resource type="Texture2D" uid="uid://d1oj03loofc1k" path="res://assets/textures/entities/characters/rabbit/arrow.png" id="2_dc61s"]
+[ext_resource type="PackedScene" uid="uid://b36pnp1iiqk5n" path="res://src/entities/characters/rabbit/RabbitSprite.tscn" id="4_8lj35"]
+[ext_resource type="Script" uid="uid://b44s0gfuh4mpk" path="res://src/entities/characters/rabbit/RabbitCharacterType.gd" id="5_4lfjd"]
+
+[sub_resource type="Resource" id="Resource_cj10r"]
+script = ExtResource("1_nxclr")
+metadata/_custom_type_script = "uid://bdxmicut2k743"
 
 [resource]
-script = ExtResource("3_nxclr")
+script = ExtResource("5_4lfjd")
+_rabbit_attack_type = SubResource("Resource_cj10r")
 kind = "Лучник"
 kind_icon = ExtResource("1_bfbrq")
-ability_icons = Array[Texture2D]([])
+ability_icons = Array[Texture2D]([ExtResource("2_dc61s")])
 name = "Крольчиха"
 description = ""
-packed_sprite = ExtResource("2_gkk33")
-metadata/_custom_type_script = "uid://m5axqnbe46t3"
+packed_sprite = ExtResource("4_8lj35")
+metadata/_custom_type_script = "uid://b44s0gfuh4mpk"

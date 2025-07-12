@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b36pnp1iiqk5n"]
 
-[ext_resource type="Script" uid="uid://do5av0re8ksnm" path="res://src/entities/components/CharacterSprite.gd" id="1_m75yx"]
-[ext_resource type="SpriteFrames" uid="uid://buavf4uv88hef" path="res://resources/spritesheets/rabbit_spritesheet.tres" id="2_a6jtl"]
+[ext_resource type="Script" uid="uid://do5av0re8ksnm" path="res://src/entities/components/CharacterSprite.gd" id="1_rrxyn"]
+[ext_resource type="SpriteFrames" uid="uid://buavf4uv88hef" path="res://resources/spritesheets/rabbit_spritesheet.tres" id="2_apn38"]
 
 [sub_resource type="Animation" id="Animation_m30wo"]
 resource_name = "ATTACK"
@@ -109,13 +109,13 @@ _data = {
 }
 
 [node name="RabbitSprite" type="Node2D" node_paths=PackedStringArray("_sprite", "_animation_player")]
-script = ExtResource("1_m75yx")
+script = ExtResource("1_rrxyn")
 _sprite = NodePath("AnimatedSprite2D")
 _animation_player = NodePath("AnimationPlayer")
 metadata/_custom_type_script = "uid://do5av0re8ksnm"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_a6jtl")
+sprite_frames = ExtResource("2_apn38")
 animation = &"idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

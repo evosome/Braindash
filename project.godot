@@ -34,7 +34,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/animatedtexturerect/plugin.cfg", "res://addons/signal_extensions/plugin.cfg", "res://addons/signals/plugin.cfg")
+enabled=PackedStringArray("res://addons/animatedtexturerect/plugin.cfg")
 
 [rendering]
 

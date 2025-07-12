@@ -1,7 +1,8 @@
-[gd_resource type="SpriteFrames" load_steps=27 format=3 uid="uid://buavf4uv88hef"]
+[gd_resource type="SpriteFrames" load_steps=31 format=3 uid="uid://buavf4uv88hef"]
 
 [ext_resource type="Texture2D" uid="uid://cjopt2wu4bdvx" path="res://assets/textures/entities/characters/rabbit/rabbit_idle.png" id="1_eolq8"]
 [ext_resource type="Texture2D" uid="uid://sabr4eftshk7" path="res://assets/textures/entities/characters/rabbit/rabbit_attack.png" id="1_pu5db"]
+[ext_resource type="Texture2D" uid="uid://bpmev41j0qgc1" path="res://assets/textures/entities/characters/rabbit/rabbit_hurt.png" id="2_2wl5d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynywn"]
 atlas = ExtResource("1_pu5db")
@@ -66,6 +67,18 @@ region = Rect2(8400, 0, 600, 517)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1nmir"]
 atlas = ExtResource("1_pu5db")
 region = Rect2(9000, 0, 600, 517)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvt26"]
+atlas = ExtResource("2_2wl5d")
+region = Rect2(0, 0, 309, 517)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jy4t"]
+atlas = ExtResource("2_2wl5d")
+region = Rect2(309, 0, 309, 517)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u6ra"]
+atlas = ExtResource("2_2wl5d")
+region = Rect2(618, 0, 309, 517)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pu5db"]
 atlas = ExtResource("1_eolq8")
@@ -153,6 +166,20 @@ animations = [{
 "loop": true,
 "name": &"attack",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvt26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jy4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u6ra")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,

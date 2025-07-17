@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqjatfrbtwte5"]
+[gd_scene load_steps=8 format=3 uid="uid://cqjatfrbtwte5"]
 
 [ext_resource type="Script" uid="uid://b5vb7uuqninn1" path="res://src/arenas/Arena.gd" id="1_spcgp"]
 [ext_resource type="Texture2D" uid="uid://blb3yjfd8c888" path="res://assets/textures/level_0/level0_background.png" id="2_mvosa"]
@@ -7,11 +7,18 @@
 [ext_resource type="Script" uid="uid://c178jhmaeapc6" path="res://src/arenas/CharacterSpawnpoint.gd" id="5_spcgp"]
 [ext_resource type="Script" uid="uid://b05gaofxlcqng" path="res://src/arenas/ArenaCamera.gd" id="6_60ski"]
 
-[node name="SimpleRoundArena" type="Node" node_paths=PackedStringArray("_camera", "_entities_container", "_spawnpoints")]
+[sub_resource type="Curve2D" id="Curve2D_60ski"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -960, 384, 0, 0, 0, 0, 960, 384)
+}
+point_count = 2
+
+[node name="SimpleRoundArena" type="Node" node_paths=PackedStringArray("_camera", "_entities_container", "_spawnpoints", "_line_of_ground")]
 script = ExtResource("1_spcgp")
 _camera = NodePath("ArenaCamera")
 _entities_container = NodePath("Entities")
 _spawnpoints = [NodePath("Spawnpoints/SpawnpointLeft"), NodePath("Spawnpoints/SpawnpointRight")]
+_line_of_ground = NodePath("Path2D")
 
 [node name="Enviroment" type="Node" parent="."]
 
@@ -33,17 +40,20 @@ scale = Vector2(1.31, 1.31)
 [node name="Spawnpoints" type="Node" parent="."]
 
 [node name="SpawnpointLeft" type="Node2D" parent="Spawnpoints"]
-position = Vector2(-640, 192)
+position = Vector2(-768, 192)
 script = ExtResource("5_spcgp")
 _character_look_direction = 1
 _character_distance = 1.0
 metadata/_custom_type_script = "uid://c178jhmaeapc6"
 
 [node name="SpawnpointRight" type="Node2D" parent="Spawnpoints"]
-position = Vector2(576, 192)
+position = Vector2(768, 192)
 script = ExtResource("5_spcgp")
 _character_distance = 1.0
 metadata/_custom_type_script = "uid://c178jhmaeapc6"
 
 [node name="ArenaCamera" type="Camera2D" parent="."]
 script = ExtResource("6_60ski")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_60ski")

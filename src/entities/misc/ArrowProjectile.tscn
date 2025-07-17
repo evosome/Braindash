@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c570nevqeir6x"]
 
-[ext_resource type="Script" uid="uid://cdn0ot2tubblx" path="res://src/entities/projectiles/ArrowProjectile.gd" id="1_h6s4v"]
+[ext_resource type="Script" uid="uid://cdn0ot2tubblx" path="res://src/entities/misc/ArrowProjectile.gd" id="1_h6s4v"]
 [ext_resource type="Texture2D" uid="uid://d1oj03loofc1k" path="res://assets/textures/entities/characters/rabbit/arrow.png" id="2_xvr8p"]
 
 [node name="ArrowProjectile" type="Node2D"]

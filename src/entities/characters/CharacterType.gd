@@ -6,4 +6,7 @@ class_name CharacterType extends Resource
 @export var name: String
 @export var description: String
 @export var packed_sprite: PackedScene
-@export var attack_type: AttackType
+
+
+func get_attack_type() -> AttackType:
+    return

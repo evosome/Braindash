@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="CharacterType" load_steps=3 format=3 uid="uid://csy1il6vgmqed"]
+[gd_resource type="Resource" script_class="CharacterType" load_steps=4 format=3 uid="uid://csy1il6vgmqed"]
 
 [ext_resource type="Texture2D" uid="uid://dywktwd5cxnxk" path="res://assets/textures/entities/characters/bear/bear_portrait.png" id="1_ynd15"]
+[ext_resource type="PackedScene" uid="uid://dbe2vjnuu5un2" path="res://src/entities/characters/bear/BearSprite.tscn" id="2_55abc"]
 [ext_resource type="Script" uid="uid://m5axqnbe46t3" path="res://src/entities/characters/CharacterType.gd" id="2_kk2vk"]
 
 [resource]
@@ -10,4 +11,5 @@ kind_icon = ExtResource("1_ynd15")
 ability_icons = Array[Texture2D]([])
 name = "Медведь"
 description = ""
+packed_sprite = ExtResource("2_55abc")
 metadata/_custom_type_script = "uid://m5axqnbe46t3"

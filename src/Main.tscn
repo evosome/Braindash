@@ -1,30 +1,79 @@
-[gd_scene load_steps=11 format=3 uid="uid://o1rdgd0key61"]
+[gd_scene load_steps=21 format=3 uid="uid://o1rdgd0key61"]
 
 [ext_resource type="Script" uid="uid://dqiq3ylg6rxgd" path="res://src/Main.gd" id="1_4gxt3"]
 [ext_resource type="Script" uid="uid://of8ygp14u0yt" path="res://src/questionare/Grade.gd" id="2_5qjmp"]
 [ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="3_vjwby"]
 [ext_resource type="Texture2D" uid="uid://dbormhlve1p6" path="res://assets/textures/ui/logo.png" id="4_8ec3e"]
+[ext_resource type="Resource" uid="uid://dssfhokhd1nrl" path="res://resources/characters/rabbit2.tres" id="5_fh42b"]
 [ext_resource type="Resource" uid="uid://ntjngd8ipd8l" path="res://resources/rounds/6klass.tres" id="5_vjwby"]
 [ext_resource type="Script" uid="uid://m5axqnbe46t3" path="res://src/entities/characters/CharacterType.gd" id="6_8ec3e"]
-[ext_resource type="Resource" uid="uid://dlt5n4cbvmc6e" path="res://resources/characters/rabbit.tres" id="7_fh42b"]
-[ext_resource type="Resource" uid="uid://csy1il6vgmqed" path="res://resources/characters/bear.tres" id="8_insap"]
+[ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="7_0ri8u"]
+[ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="8_x08y8"]
+[ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/RoundInfo.gd" id="8_y60b8"]
+[ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="9_cj10r"]
+[ext_resource type="Resource" uid="uid://gjkvbpcuxtmo" path="res://resources/characters/bear2.tres" id="12_k2i6c"]
 
 [sub_resource type="Resource" id="Resource_38a0m"]
 script = ExtResource("3_vjwby")
 name = "Биология"
 cover_image = ExtResource("4_8ec3e")
 round_info = ExtResource("5_vjwby")
-enemy_character_type = ExtResource("7_fh42b")
+enemy_character_type = ExtResource("5_fh42b")
+metadata/_custom_type_script = "uid://btm8gwa2binwt"
+
+[sub_resource type="Resource" id="Resource_e7jk0"]
+script = ExtResource("8_x08y8")
+title = "Сколько у меяня сантиметров?"
+description = ""
+variants = Array[String](["1", "5", "120", "12"])
+correct_index = 3
+timeout_seconds = 30.0
+metadata/_custom_type_script = "uid://gkiynunvfb7y"
+
+[sub_resource type="Resource" id="Resource_r7o8t"]
+script = ExtResource("8_x08y8")
+title = "Кто такой бойкиссер?"
+description = ""
+variants = Array[String](["тупой гей кот", "ВВП", "хихиха", "1"])
+correct_index = 0
+timeout_seconds = 30.0
+metadata/_custom_type_script = "uid://gkiynunvfb7y"
+
+[sub_resource type="Resource" id="Resource_7lugs"]
+script = ExtResource("8_x08y8")
+title = "Сколько?"
+description = ""
+variants = Array[String](["1", "2", "3", "4"])
+correct_index = 2
+timeout_seconds = 30.0
+metadata/_custom_type_script = "uid://gkiynunvfb7y"
+
+[sub_resource type="Resource" id="Resource_nsfgg"]
+script = ExtResource("9_cj10r")
+questions = Array[ExtResource("8_x08y8")]([SubResource("Resource_e7jk0"), SubResource("Resource_r7o8t"), SubResource("Resource_7lugs")])
+metadata/_custom_type_script = "uid://dbxtuj550kfe3"
+
+[sub_resource type="Resource" id="Resource_x08y8"]
+script = ExtResource("8_y60b8")
+packed_arena = ExtResource("7_0ri8u")
+question_list = SubResource("Resource_nsfgg")
+metadata/_custom_type_script = "uid://besub6tgkqobr"
+
+[sub_resource type="Resource" id="Resource_cj10r"]
+script = ExtResource("3_vjwby")
+name = "ОБЖ"
+round_info = SubResource("Resource_x08y8")
+enemy_character_type = ExtResource("12_k2i6c")
 metadata/_custom_type_script = "uid://btm8gwa2binwt"
 
 [sub_resource type="Resource" id="Resource_fh42b"]
 script = ExtResource("2_5qjmp")
 name = "7 Класс"
-topics = Array[ExtResource("3_vjwby")]([SubResource("Resource_38a0m")])
+topics = Array[ExtResource("3_vjwby")]([SubResource("Resource_38a0m"), SubResource("Resource_cj10r")])
 author_name = "Чибизов А. В."
 metadata/_custom_type_script = "uid://of8ygp14u0yt"
 
 [node name="Main" type="Node"]
 script = ExtResource("1_4gxt3")
 _grades = Array[ExtResource("2_5qjmp")]([SubResource("Resource_fh42b")])
-_characters = Array[ExtResource("6_8ec3e")]([ExtResource("7_fh42b"), ExtResource("8_insap")])
+_characters = Array[ExtResource("6_8ec3e")]([ExtResource("12_k2i6c"), ExtResource("5_fh42b")])

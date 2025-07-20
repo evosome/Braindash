@@ -101,21 +101,14 @@ func get_curve_of_ground() -> Curve2D:
 func show_tip_at(position: Vector2) -> void:
 	var new_tip = YOUR_CHARACTER_TIP_PRELOADED.instantiate()
 	new_tip.position = position
-	add_child(new_tip)	
-
-
-
-#TODO - maybe it's better to render tips on UI layer?
-func show_tip_at(position: Vector2) -> void:
-	var new_tip = YOUR_CHARACTER_TIP_PRELOADED.instantiate()
-	new_tip.position = position
-	add_child(new_tip)	
+	add_child(new_tip)
 
 
 func create_character_for(player: PlayerInfo, charater_type: CharacterType) -> PlayerCharacter:
 	if _character_map.has(player):
 		push_error("Character for the player was already assigned")
 		return
+	
 	var spawnpoint = get_free_spawnpoint()
 	var character = PlayerCharacter.spawn(self, spawnpoint, charater_type)
 

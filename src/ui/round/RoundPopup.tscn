@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://xfvdscqswb20"]
+[gd_scene load_steps=10 format=3 uid="uid://xfvdscqswb20"]
 
 [ext_resource type="Script" uid="uid://c30n7vf6mur0n" path="res://src/ui/round/RoundPopup.gd" id="1_lx1xs"]
 [ext_resource type="Texture2D" uid="uid://dnqw7js88swxb" path="res://assets/textures/ui/correct.png" id="2_y7jff"]
+[ext_resource type="Texture2D" uid="uid://dufkm5yf24tx5" path="res://assets/textures/ui/wrong.png" id="3_an8d5"]
+[ext_resource type="Texture2D" uid="uid://bmsvubbde8age" path="res://assets/textures/ui/draw.png" id="4_xek8f"]
+[ext_resource type="Texture2D" uid="uid://2431jobdnepn" path="res://assets/textures/ui/win.png" id="5_vc8wi"]
+[ext_resource type="Texture2D" uid="uid://p4nssqb8xan6" path="res://assets/textures/ui/lose.png" id="6_xiibm"]
 
 [sub_resource type="Animation" id="Animation_an8d5"]
 length = 0.001
@@ -73,6 +77,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lx1xs")
 _animation_player = NodePath("AnimationPlayer")
+_badge_textures = Dictionary[int, Texture2D]({
+0: ExtResource("2_y7jff"),
+1: ExtResource("3_an8d5"),
+2: ExtResource("4_xek8f"),
+3: ExtResource("5_vc8wi"),
+4: ExtResource("6_xiibm")
+})
 metadata/_custom_type_script = "uid://c30n7vf6mur0n"
 
 [node name="Background" type="ColorRect" parent="."]

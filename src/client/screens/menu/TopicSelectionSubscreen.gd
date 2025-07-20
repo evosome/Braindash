@@ -1,6 +1,8 @@
 class_name TopicSelectionSubscreen extends Screen
 
+#TODO - move these constant to their classes and create `make` static function
 const SELECTION_CARD_PACKED = preload("res://src/ui/core/SelectionCard.tscn")
+const CHARACTER_ICON_PACKED = preload("res://src/ui/character/CharacterIcon.tscn")
 
 @onready var _back_button: Button = %"BackButton"
 @onready var _continue_button: Button = %"ContunueButton"
@@ -28,19 +30,31 @@ func on_enter(ctx: MenuContext) -> void:
 		push_error("Entered topic selection screen, but current grade is not set")
 		return
 
-	_show_grade_cards(current_grade.topics)
+	_show_grade_cards(current_grade.topics, current_grade.accent_color)
 
 #endregion
 
 
 #region private
 
-func _show_grade_cards(topics: Array[Topic]) -> void:
+func _show_grade_cards(topics: Array[Topic], grade_accent: Color) -> void:
 	for topic in topics:
+
+		#TODO - inherit card scenes (and maybe types) for grade and topic cards
 		var card = SELECTION_CARD_PACKED.instantiate()
 		card.set_title(topic.name)
-		card.set_accent_color(Color.DEEP_SKY_BLUE)
+		card.set_header_texture(topic.cover_image)
+		card.set_accent_color(grade_accent)
 		card.set_context(topic)
+
+		var enemy_character_type = topic.enemy_character_type
+
+		var character_icon = CHARACTER_ICON_PACKED.instantiate()
+		character_icon.set_icon_texture(enemy_character_type.kind_icon)
+		character_icon.custom_minimum_size = Vector2(64, 64)
+		var header = card.get_header()
+		header.add_child(character_icon)
+
 		_cards_grid.add_card(card)
 
 #endregion

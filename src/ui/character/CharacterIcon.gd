@@ -2,7 +2,7 @@ class_name CharacterIcon extends Control
 
 signal clicked
 
-@onready var _icon_button: Button = %"IconButton"
+@export var _icon_button: Button
 
 
 #region built-in

@@ -3,6 +3,9 @@ class_name SingleplayerGameScreen extends ClientScreen
 @onready var _game_container: Node = %"GameContainer"
 @onready var _question_layer: QuestionLayer = %"QuestionLayer"
 @onready var _round_popup: RoundPopup = %"RoundPopup"
+@onready var _current_player_stats: CharacterStats = %"CurrentPlayerStats"
+@onready var _enemy_player_stats: CharacterStats = %"EnemyPlayerStats"
+@onready var _round_count_popup: RoundCountPopup = %"RoundCountPopup"
 
 
 #region built in
@@ -36,8 +39,11 @@ func on_enter(ctx: GameContext) -> void:
 	_game_container.add_child(singleplayer_game)
 
 	# spawn characters for players
-	singleplayer_game.spawn_character_for(me, ctx.get_my_character_type())
-	singleplayer_game.spawn_character_for(enemy, ctx.get_enemy_character_type())
+	var my_character = singleplayer_game.spawn_character_for(me, ctx.get_my_character_type())
+	var enemy_character = singleplayer_game.spawn_character_for(enemy, ctx.get_enemy_character_type())
+
+	_current_player_stats.set_character(my_character)
+	_enemy_player_stats.set_character(enemy_character)
 
 	# init state machine, create state context and register states
 	var state_manager = StateManager.new()
@@ -47,6 +53,7 @@ func on_enter(ctx: GameContext) -> void:
 	game_context.state_manager = state_manager
 	game_context.question_layer = _question_layer
 	game_context.round_popup = _round_popup
+	game_context.round_count_popup = _round_count_popup
 	state_manager.set_context(game_context)
 
 	state_manager.register("intro", IntroState.new())
@@ -71,7 +78,9 @@ class GameStateContext:
 	var state_manager: StateManager
 	var question_layer: QuestionLayer
 	var current_round: Round
+	#TODO - rename this into `round_result_popup`
 	var round_popup: RoundPopup
+	var round_count_popup: RoundCountPopup
 
 	# shared fields between states
 	var round_result: Round.Result
@@ -111,6 +120,9 @@ class IntroduceQuestionState:
 		var game = ctx.game
 		var current_round = game.get_next_round()
 		ctx.current_round = current_round
+
+		var round_count = current_round.get_count()
+		await ctx.round_count_popup.show_popup(round_count)
 
 		var current_question = current_round.get_question()
 
@@ -230,11 +242,17 @@ class FightState:
 		print_debug("Entered fight state")
 
 		var game = ctx.game
+
 		var round_result = ctx.round_result
 		
 		await game.do_fight(round_result)
 		
-		var next_state = "introduce_question" if !game.is_over() else "outro"
+		var next_state = "introduce_question"
+		if game.is_over():
+			next_state = "outro"
+		elif game.is_questionare_over():
+			next_state = "health_countdown"
+
 		ctx.transition_to(next_state)
 
 

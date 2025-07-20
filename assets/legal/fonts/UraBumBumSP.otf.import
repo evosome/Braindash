@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cjig52atq8org"
-path="res://.godot/imported/UraBumBumSP.otf-ec7f23c66564ab5a8047048cf4e95979.fontdata"
+path="res://.godot/imported/UraBumBumSP.otf-d58a898491191d9f54120b5f06fc782e.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/UraBumBumSP.otf"
-dest_files=["res://.godot/imported/UraBumBumSP.otf-ec7f23c66564ab5a8047048cf4e95979.fontdata"]
+source_file="res://assets/legal/fonts/UraBumBumSP.otf"
+dest_files=["res://.godot/imported/UraBumBumSP.otf-d58a898491191d9f54120b5f06fc782e.fontdata"]
 
 [params]
 

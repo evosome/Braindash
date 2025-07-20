@@ -3,20 +3,19 @@ class_name RoundPopup extends Control
 enum PopupBadge {
 	CORRECT,
 	WRONG,
-	DRAW
-}
+	DRAW,
 
-const BADGE_TEXTURES = {
-	PopupBadge.CORRECT: preload("res://assets/textures/ui/correct.png"),
-	PopupBadge.WRONG: preload("res://assets/textures/ui/wrong.png"),
-	#FIXME - change this texture to draw texture
-	PopupBadge.DRAW: preload("res://assets/textures/ui/wrong.png")
+	#TODO - move win and lose popups to different widget, that also will display
+	# game statistics and result.
+	WIN,
+	LOSE
 }
 
 @onready var _background: ColorRect = %"Background"
 @onready var _badge_texture_rect: TextureRect = %"BadgeTexture"
 
 @export var _animation_player: AnimationPlayer
+@export var _badge_textures: Dictionary[PopupBadge, Texture2D]
 
 
 #region builtin
@@ -40,7 +39,7 @@ func _process(_delta: float) -> void:
 ## This method is asynchronous. Show animation of badge appearing
 ## until the end.
 func show_popup(popup_badge: PopupBadge, speed: float = 0.5) -> void:
-	var badge_texture = BADGE_TEXTURES[popup_badge]
+	var badge_texture = _badge_textures[popup_badge]
 	_badge_texture_rect.texture = badge_texture
 
 	visible = true

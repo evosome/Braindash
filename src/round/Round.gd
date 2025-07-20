@@ -16,13 +16,15 @@ var _question: Question
 var _end_reason: EndReason
 var _is_over: bool = false
 var _result: Result
+var _count: int
 
 
 #region constructor
 
-func _init(question: Question, timer: Timer) -> void:
+func _init(question: Question, timer: Timer, count: int) -> void:
 	_timer = timer
 	_question = question
+	_count = count
 
 #endregion
 
@@ -70,6 +72,10 @@ func start() -> Result:
 ## Get the question associated with this round
 func get_question() -> Question:
 	return _question
+
+
+func get_count() -> int:
+	return _count
 
 #endregion
 

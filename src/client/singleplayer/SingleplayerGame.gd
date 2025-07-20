@@ -1,13 +1,21 @@
 class_name SingleplayerGame extends Node
 
+enum ResultFlag {
+	WIN,
+	LOSE,
+	DRAW
+}
+
 const PRELOADED_SCENE = preload("res://src/client/singleplayer/SingleplayerGame.tscn")
 
-var _is_over: bool = false
 var _game_info: RoundInfo
 var _arena: Arena
 var _questionare: Questionare
 var _local_player: PlayerInfo
 var _enemy_player: PlayerInfo
+
+#TODO - is it reaslly good idea to keep round counter like that?
+var _round_counter: int = 0
 
 @export var _timer: Timer
 
@@ -27,7 +35,16 @@ func _ready() -> void:
 
 #endregion
 
+
 #region getters/setters
+
+func is_over() -> bool:
+	return _arena.is_any_died()
+
+
+func is_questionare_over() -> bool:
+	return _questionare.is_ended()
+
 
 func get_local_player() -> PlayerInfo:
 	return _local_player
@@ -39,26 +56,20 @@ func get_enemy_player() -> PlayerInfo:
 
 func get_next_round() -> Round:
 	var next_question = _questionare.next()
-	return Round.new(next_question, _timer)
+	_round_counter += 1
+	return Round.new(next_question, _timer, _round_counter)
 
 #endregion
 
 
 #region public
 
-func is_over() -> bool:
-	return _is_over
 
-
-func is_questionare_over() -> bool:
-	return _questionare.is_ended()
-
-
-func spawn_character_for(player: PlayerInfo, character_type: CharacterType) -> void:
+func spawn_character_for(player: PlayerInfo, character_type: CharacterType) -> PlayerCharacter:
 	if player != _local_player && player != _enemy_player:
 		push_error("Unable to spawn character for not existing player: ", player.to_string())
 		return
-	_arena.create_character_for(player, character_type)
+	return _arena.create_character_for(player, character_type)
 
 
 ## This method is asynchronous. Play fight or draw animation on arena scene
@@ -101,5 +112,17 @@ static func make(game_info: RoundInfo, local_player: PlayerInfo, enemy_player: P
 	singleplayer_game._enemy_player = enemy_player
 	singleplayer_game._questionare = Questionare.new(game_info.question_list, [local_player, enemy_player])
 	return singleplayer_game
+
+#endregion
+
+
+#region innter classes
+
+class Result:
+
+	var _result_flag: ResultFlag
+	
+	func _init(result_flag: ResultFlag) -> void:
+		_result_flag = result_flag
 
 #endregion

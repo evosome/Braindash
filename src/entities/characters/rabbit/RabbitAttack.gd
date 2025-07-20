@@ -18,6 +18,7 @@ func perform(arena: Arena, attacker: PlayerCharacter, attackable: PlayerCharacte
 	camera.set_following_target(null)
 
 	await attackable.async_play_animation(CharacterSprite.Animations.HURT)
+	attackable.damage(attacker.get_damage())
 
 	attackable.async_play_animation(CharacterSprite.Animations.IDLE)
 	attacker.async_play_animation(CharacterSprite.Animations.IDLE)

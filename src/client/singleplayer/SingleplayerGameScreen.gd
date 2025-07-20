@@ -214,6 +214,9 @@ class RoundOverState:
 
 		var question_layer = ctx.question_layer
 		question_layer.set_layer_visible(false)
+		
+		var question_layout = question_layer.get_question_layout()
+		question_layout.reset_question_timer()
 
 		var game = ctx.game
 		var local_player = game.get_local_player()

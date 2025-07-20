@@ -35,7 +35,7 @@ func _ready() -> void:
 #endregion
 
 
-#region public
+#region getter/setter
 
 func get_type() -> CharacterType:
 	return _character_type
@@ -43,6 +43,10 @@ func get_type() -> CharacterType:
 
 func get_health() -> HealthComponent:
 	return _health_component
+
+
+func get_sprite() -> CharacterSprite:
+	return _character_sprite
 
 
 func set_damage(value: int) -> void:
@@ -59,6 +63,10 @@ func set_target(other_player: PlayerCharacter) -> void:
 		return
 	_target = other_player
 
+#endregion
+
+
+#region public
 
 func damage(amount: int) -> void:
 	var current_health_amount = _health_component.get_health()

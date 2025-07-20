@@ -1,5 +1,7 @@
 class_name Arena extends Node
 
+const YOUR_CHARACTER_TIP_PRELOADED = preload("res://src/ui/core/YourCharacterTip.tscn")
+
 var _character_map: Dictionary[PlayerInfo, PlayerCharacter] = {}
 
 @export var _camera: ArenaCamera
@@ -53,6 +55,14 @@ func get_curve_of_ground() -> Curve2D:
 
 
 #region public
+
+
+#TODO - maybe it's better to render tips on UI layer?
+func show_tip_at(position: Vector2) -> void:
+	var new_tip = YOUR_CHARACTER_TIP_PRELOADED.instantiate()
+	new_tip.position = position
+	add_child(new_tip)	
+
 
 func create_character_for(player: PlayerInfo, charater_type: CharacterType) -> void:
 	if _character_map.has(player):

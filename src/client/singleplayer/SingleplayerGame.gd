@@ -38,6 +38,10 @@ func _ready() -> void:
 
 #region getters/setters
 
+func get_arena() -> Arena:
+	return _arena
+
+
 func is_over() -> bool:
 	return _arena.is_any_died()
 
@@ -70,6 +74,16 @@ func spawn_character_for(player: PlayerInfo, character_type: CharacterType) -> P
 		push_error("Unable to spawn character for not existing player: ", player.to_string())
 		return
 	return _arena.create_character_for(player, character_type)
+
+	#TODO - is there some elegant way to highlight current player?
+	if player == _local_player:
+		var local_player_character = _arena.get_character_of(player)
+		var player_sprite = local_player_character.get_sprite()
+		player_sprite.set_glowing(true)
+
+		var sprite_aabb = local_player_character.get_sprite().get_rect()
+		var top = local_player_character.position - Vector2(0, sprite_aabb.size.y / 2) - Vector2(0, 128)
+		_arena.show_tip_at(top)
 
 
 ## This method is asynchronous. Play fight or draw animation on arena scene

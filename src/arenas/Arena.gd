@@ -1,5 +1,7 @@
 class_name Arena extends Node
 
+const YOUR_CHARACTER_TIP_PRELOADED = preload("res://src/ui/core/YourCharacterTip.tscn")
+
 ## Fired when any character (or even characters) on arena was died. Death information will be
 ## passed via `death_info` param. All characters can die
 ## at the same time, so the flag `all_died` (`is_all_died` getter on `CharacterDeathInfo`) of death info will be true.
@@ -93,6 +95,22 @@ func get_curve_of_ground() -> Curve2D:
 
 
 #region public
+
+
+#TODO - maybe it's better to render tips on UI layer?
+func show_tip_at(position: Vector2) -> void:
+	var new_tip = YOUR_CHARACTER_TIP_PRELOADED.instantiate()
+	new_tip.position = position
+	add_child(new_tip)	
+
+
+
+#TODO - maybe it's better to render tips on UI layer?
+func show_tip_at(position: Vector2) -> void:
+	var new_tip = YOUR_CHARACTER_TIP_PRELOADED.instantiate()
+	new_tip.position = position
+	add_child(new_tip)	
+
 
 func create_character_for(player: PlayerInfo, charater_type: CharacterType) -> PlayerCharacter:
 	if _character_map.has(player):

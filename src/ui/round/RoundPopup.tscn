@@ -1,74 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://xfvdscqswb20"]
+[gd_scene load_steps=2 format=3 uid="uid://xfvdscqswb20"]
 
 [ext_resource type="Script" uid="uid://c30n7vf6mur0n" path="res://src/ui/round/RoundPopup.gd" id="1_lx1xs"]
-[ext_resource type="Texture2D" uid="uid://dnqw7js88swxb" path="res://assets/textures/ui/correct.png" id="2_y7jff"]
-[ext_resource type="Texture2D" uid="uid://dufkm5yf24tx5" path="res://assets/textures/ui/wrong.png" id="3_an8d5"]
-[ext_resource type="Texture2D" uid="uid://bmsvubbde8age" path="res://assets/textures/ui/draw.png" id="4_xek8f"]
-[ext_resource type="Texture2D" uid="uid://2431jobdnepn" path="res://assets/textures/ui/win.png" id="5_vc8wi"]
-[ext_resource type="Texture2D" uid="uid://p4nssqb8xan6" path="res://assets/textures/ui/lose.png" id="6_xiibm"]
 
-[sub_resource type="Animation" id="Animation_an8d5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BadgeTexture:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Background:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_y7jff"]
-resource_name = "animation_pop"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BadgeTexture:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.5, 1.96667),
-"transitions": PackedFloat32Array(0.5, 1, 2, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Background:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.4, 2),
-"transitions": PackedFloat32Array(1, 2, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.501961), Color(0, 0, 0, 0.501961), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_an8d5"]
-_data = {
-&"RESET": SubResource("Animation_an8d5"),
-&"animation_pop": SubResource("Animation_y7jff")
-}
-
-[node name="RoundPopup" type="Control" node_paths=PackedStringArray("_animation_player")]
+[node name="RoundPopup" type="Control" node_paths=PackedStringArray("_custom_content_holder")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,14 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lx1xs")
-_animation_player = NodePath("AnimationPlayer")
-_badge_textures = Dictionary[int, Texture2D]({
-0: ExtResource("2_y7jff"),
-1: ExtResource("3_an8d5"),
-2: ExtResource("4_xek8f"),
-3: ExtResource("5_vc8wi"),
-4: ExtResource("6_xiibm")
-})
+_custom_content_holder = NodePath("CustomContent")
 metadata/_custom_type_script = "uid://c30n7vf6mur0n"
 
 [node name="Background" type="ColorRect" parent="."]
@@ -94,22 +21,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 0.784314)
 
-[node name="BadgeTexture" type="TextureRect" parent="."]
-unique_name_in_owner = true
+[node name="CustomContent" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("2_y7jff")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_an8d5")
-}

@@ -8,14 +8,17 @@ enum ResultFlag {
 
 const PRELOADED_SCENE = preload("res://src/client/singleplayer/SingleplayerGame.tscn")
 
+var _is_over: bool = false
+var _last_result: Result
 var _game_info: RoundInfo
 var _arena: Arena
 var _questionare: Questionare
 var _local_player: PlayerInfo
 var _enemy_player: PlayerInfo
 
-#TODO - is it reaslly good idea to keep round counter like that?
+#TODO - is it reaslly good idea to keep round counter and round results like that?
 var _round_counter: int = 0
+var _round_results: Array[Round.Result] = []
 
 @export var _timer: Timer
 
@@ -33,6 +36,8 @@ func _ready() -> void:
 	add_child(instantiated_arena)
 	_arena = instantiated_arena
 
+	_arena.characters_died.connect(_on_characters_died)
+
 #endregion
 
 
@@ -43,7 +48,11 @@ func get_arena() -> Arena:
 
 
 func is_over() -> bool:
-	return _arena.is_any_died()
+	return _is_over
+
+
+func get_last_result() -> Result:
+	return _last_result
 
 
 func is_questionare_over() -> bool:
@@ -61,7 +70,9 @@ func get_enemy_player() -> PlayerInfo:
 func get_next_round() -> Round:
 	var next_question = _questionare.next()
 	_round_counter += 1
-	return Round.new(next_question, _timer, _round_counter)
+	var current_round = Round.new(next_question, _timer, _round_counter)
+	current_round.ended.connect(func(r: Round.Result): _round_results.append(r))
+	return current_round
 
 #endregion
 
@@ -118,6 +129,18 @@ func do_health_countdown() -> void:
 #endregion
 
 
+#region event handlers
+
+func _on_characters_died(death_info: Arena.CharacterDeathInfo) -> void:
+	_is_over = true
+
+	var local_player_character = _arena.get_character_of(_local_player)
+	var enemy_character = _arena.get_character_of(_enemy_player)
+	_last_result = Result.new(_local_player, local_player_character, enemy_character, death_info, _round_results)
+
+#endregion
+
+
 #region static
 
 static func make(game_info: RoundInfo, local_player: PlayerInfo, enemy_player: PlayerInfo) -> SingleplayerGame:
@@ -135,9 +158,54 @@ static func make(game_info: RoundInfo, local_player: PlayerInfo, enemy_player: P
 
 class Result:
 
+	var _local_player_character: PlayerCharacter
+	var _enemy_character: PlayerCharacter
 	var _result_flag: ResultFlag
+	var _total_question_amount: int
+	var _incorrect_amount: int
 	
-	func _init(result_flag: ResultFlag) -> void:
-		_result_flag = result_flag
+	func _init(
+			local_player: PlayerInfo,
+			local_player_character: PlayerCharacter,
+			enemy_character: PlayerCharacter,
+			death_info: Arena.CharacterDeathInfo,
+			round_results: Array[Round.Result]) -> void:
+
+		_local_player_character = local_player_character
+		_enemy_character = enemy_character
+		_result_flag = _determine_result_flag(death_info)
+		_total_question_amount = round_results.size()
+		_incorrect_amount = _count_incorrect_amount(round_results, local_player)
+	
+	func _determine_result_flag(death_info: Arena.CharacterDeathInfo) -> ResultFlag:
+		var result_flag = ResultFlag.DRAW
+		if !death_info.is_all_died():
+			var dead_characters = death_info.get_died()
+			result_flag = ResultFlag.WIN if not _local_player_character in dead_characters else ResultFlag.LOSE
+		return result_flag
+	
+	func _count_incorrect_amount(round_results: Array[Round.Result], local_player: PlayerInfo) -> int:
+		var incorrect_count = 0
+		for result in round_results:
+			var best_answer = result.get_best_answer()
+			var best_answerer = best_answer.get_who_answered()
+			if best_answerer == local_player:
+				incorrect_count += 1
+		return incorrect_count
+	
+	func get_result_flag() -> ResultFlag:
+		return _result_flag
+	
+	func get_local_player_character() -> PlayerCharacter:
+		return _local_player_character
+	
+	func get_enemy_character() -> PlayerCharacter:
+		return _enemy_character
+	
+	func get_total_question_amount() -> int:
+		return _total_question_amount
+	
+	func get_incorrect_amount() -> int:
+		return _incorrect_amount
 
 #endregion

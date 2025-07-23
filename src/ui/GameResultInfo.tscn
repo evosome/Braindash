@@ -1,0 +1,160 @@
+[gd_scene load_steps=8 format=3 uid="uid://boqxovawfj4f5"]
+
+[ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="1_kwiha"]
+[ext_resource type="Texture2D" uid="uid://2431jobdnepn" path="res://assets/textures/ui/win.png" id="1_qsorn"]
+[ext_resource type="Script" uid="uid://bj4g82sarrxkv" path="res://src/ui/GameResultInfo.gd" id="2_f3rtl"]
+[ext_resource type="Texture2D" uid="uid://cj1yhxcpejmwe" path="res://assets/textures/entities/characters/rabbit/rabbit_portrait.png" id="3_fc3wf"]
+[ext_resource type="Texture2D" uid="uid://p4nssqb8xan6" path="res://assets/textures/ui/lose.png" id="4_miqhc"]
+[ext_resource type="Texture2D" uid="uid://dywktwd5cxnxk" path="res://assets/textures/entities/characters/bear/bear_portrait.png" id="4_ytb2j"]
+[ext_resource type="Texture2D" uid="uid://bmsvubbde8age" path="res://assets/textures/ui/draw.png" id="5_1l0sd"]
+
+[node name="GameResultInfo" type="Control" node_paths=PackedStringArray("_result_flag_texture_rect", "_total_question_amount_label", "_incorrect_answers_amount_label", "_total_question_amount_label_of_incorrect")]
+custom_minimum_size = Vector2(1080, 720)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 600.0
+theme = ExtResource("1_kwiha")
+script = ExtResource("2_f3rtl")
+_result_flag_texture_rect = NodePath("ResultPanel/ResultLayout/ResultFlagTexture")
+_total_question_amount_label = NodePath("ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/TotalQuestions/TotalAnswersCount")
+_incorrect_answers_amount_label = NodePath("ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/CorrectAnswers/CorrectOfIncorrect/ValueLabel")
+_total_question_amount_label_of_incorrect = NodePath("ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/CorrectAnswers/CorrectOfIncorrect/TotalAnswersCountOfIncorrect")
+_result_flag_texture_map = Dictionary[int, Texture2D]({
+0: ExtResource("1_qsorn"),
+1: ExtResource("4_miqhc"),
+2: ExtResource("5_1l0sd")
+})
+
+[node name="ResultPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"QuestionTitlePanelContainer"
+
+[node name="ResultLayout" type="VBoxContainer" parent="ResultPanel"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+
+[node name="ResultFlagTexture" type="TextureRect" parent="ResultPanel/ResultLayout"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("1_qsorn")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ResultPanel/ResultLayout"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResultPanel/ResultLayout/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ResultPanel/ResultLayout/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Text16"
+text = "Это вы"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ResultPanel/ResultLayout/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_fc3wf")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ResultPanel/ResultLayout/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "VS"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ResultPanel/ResultLayout/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ResultPanel/ResultLayout/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_type_variation = &"Text16"
+text = "Это ваш противник"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ResultPanel/ResultLayout/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_ytb2j")
+expand_mode = 3
+stretch_mode = 5
+flip_h = true
+
+[node name="ResultContent" type="MarginContainer" parent="ResultPanel/ResultLayout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ResultPanel/ResultLayout/ResultContent"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ResultContentCentered" type="VBoxContainer" parent="ResultPanel/ResultLayout/ResultContent/HBoxContainer"]
+layout_mode = 2
+
+[node name="TotalQuestions" type="VBoxContainer" parent="ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/TotalQuestions"]
+layout_mode = 2
+theme_type_variation = &"Text32"
+text = "Всего вопросов"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalAnswersCount" type="Label" parent="ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/TotalQuestions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Text32"
+text = "25"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CorrectAnswers" type="HBoxContainer" parent="ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/CorrectAnswers"]
+layout_mode = 2
+theme_type_variation = &"Text32"
+text = "Правильных ответов:"
+
+[node name="CorrectOfIncorrect" type="HBoxContainer" parent="ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/CorrectAnswers"]
+layout_mode = 2
+
+[node name="ValueLabel" type="Label" parent="ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/CorrectAnswers/CorrectOfIncorrect"]
+layout_mode = 2
+theme_type_variation = &"Text32"
+text = "15"
+
+[node name="Delimeter" type="Label" parent="ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/CorrectAnswers/CorrectOfIncorrect"]
+layout_mode = 2
+theme_type_variation = &"Text32"
+text = "/"
+
+[node name="TotalAnswersCountOfIncorrect" type="Label" parent="ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/CorrectAnswers/CorrectOfIncorrect"]
+layout_mode = 2
+theme_type_variation = &"Text32"
+text = "25"

@@ -23,6 +23,11 @@ func _process(_delta: float) -> void:
 
 #region getter/setter
 
+
+func get_default_position() -> Vector2:
+	return Vector2.ZERO
+
+
 func set_following_target(node2d: Node2D) -> void:
 	_following_target = node2d
 

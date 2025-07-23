@@ -1,15 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqjatfrbtwte5"]
+[gd_scene load_steps=14 format=3 uid="uid://cqjatfrbtwte5"]
 
 [ext_resource type="Script" uid="uid://b5vb7uuqninn1" path="res://src/arenas/Arena.gd" id="1_spcgp"]
-[ext_resource type="Texture2D" uid="uid://blb3yjfd8c888" path="res://assets/textures/level_0/level0_background.png" id="2_mvosa"]
-[ext_resource type="Texture2D" uid="uid://cx0ufy6lrpsl5" path="res://assets/textures/level_0/level1.png" id="3_mvosa"]
+[ext_resource type="Texture2D" uid="uid://c8xa3knx5jcli" path="res://assets/textures/level_0x/sky.png" id="2_bps20"]
+[ext_resource type="Shader" uid="uid://b34jo00fn70sf" path="res://resources/shaders/Vignette.gdshader" id="2_lp1wd"]
+[ext_resource type="Texture2D" uid="uid://mnf2qhf33ac1" path="res://assets/textures/level_0x/sun.png" id="3_lp1wd"]
+[ext_resource type="Texture2D" uid="uid://dx8k1hrvi0sw8" path="res://assets/textures/level_0x/rocks0.png" id="4_c26m7"]
 [ext_resource type="PackedScene" uid="uid://ri4duqaeuxyx" path="res://src/entities/Pinwheel.tscn" id="4_qi2i7"]
+[ext_resource type="Texture2D" uid="uid://isji1edm20td" path="res://assets/textures/level_0x/rocks1.png" id="5_0i356"]
 [ext_resource type="Script" uid="uid://c178jhmaeapc6" path="res://src/arenas/CharacterSpawnpoint.gd" id="5_spcgp"]
+[ext_resource type="Texture2D" uid="uid://ckts28mwh8acs" path="res://assets/textures/level_0x/rocks2.png" id="6_2tklh"]
 [ext_resource type="Script" uid="uid://b05gaofxlcqng" path="res://src/arenas/ArenaCamera.gd" id="6_60ski"]
+[ext_resource type="Texture2D" uid="uid://drt0sq3wyeunf" path="res://assets/textures/level_0x/floor.png" id="7_vqovx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c26m7"]
+shader = ExtResource("2_lp1wd")
+shader_parameter/vignette_size = 0.849
+shader_parameter/vignette_softness = 0.087
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_60ski"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -960, 384, 0, 0, 0, 0, 960, 384)
+"points": PackedVector2Array(0, 0, 0, 0, -1088, 384, 0, 0, 0, 0, 1088, 384)
 }
 point_count = 2
 
@@ -22,37 +33,56 @@ _line_of_ground = NodePath("Path2D")
 
 [node name="Enviroment" type="Node" parent="."]
 
-[node name="Background2" type="Sprite2D" parent="Enviroment"]
-texture = ExtResource("2_mvosa")
+[node name="Sky" type="Sprite2D" parent="Enviroment"]
+texture = ExtResource("2_bps20")
+
+[node name="Sun" type="Sprite2D" parent="Enviroment"]
+position = Vector2(-840, -520)
+texture = ExtResource("3_lp1wd")
+
+[node name="Rocks2" type="Sprite2D" parent="Enviroment"]
+texture = ExtResource("4_c26m7")
+
+[node name="Rocks1" type="Sprite2D" parent="Enviroment"]
+texture = ExtResource("5_0i356")
+
+[node name="Rocks0" type="Sprite2D" parent="Enviroment"]
+texture = ExtResource("6_2tklh")
 
 [node name="ArenaGround" type="Sprite2D" parent="Enviroment"]
-texture = ExtResource("3_mvosa")
+texture = ExtResource("7_vqovx")
+
+[node name="Sky2" type="Sprite2D" parent="Enviroment"]
+material = SubResource("ShaderMaterial_c26m7")
+position = Vector2(-2.38419e-07, 0)
+texture = ExtResource("2_bps20")
 
 [node name="Entities" type="Node" parent="."]
 
 [node name="Pinwheel" parent="Entities" instance=ExtResource("4_qi2i7")]
-position = Vector2(-768, 232)
+position = Vector2(-768, 128)
 
 [node name="Pinwheel2" parent="Entities" instance=ExtResource("4_qi2i7")]
-position = Vector2(648, 24)
+position = Vector2(648, -72)
 scale = Vector2(1.31, 1.31)
 
 [node name="Spawnpoints" type="Node" parent="."]
 
 [node name="SpawnpointLeft" type="Node2D" parent="Spawnpoints"]
-position = Vector2(-768, 192)
+position = Vector2(-832, 192)
 script = ExtResource("5_spcgp")
 _character_look_direction = 1
 _character_distance = 1.0
 metadata/_custom_type_script = "uid://c178jhmaeapc6"
 
 [node name="SpawnpointRight" type="Node2D" parent="Spawnpoints"]
-position = Vector2(768, 192)
+position = Vector2(832, 192)
 script = ExtResource("5_spcgp")
 _character_distance = 1.0
 metadata/_custom_type_script = "uid://c178jhmaeapc6"
 
 [node name="ArenaCamera" type="Camera2D" parent="."]
+zoom = Vector2(0.8, 0.8)
 script = ExtResource("6_60ski")
 
 [node name="Path2D" type="Path2D" parent="."]

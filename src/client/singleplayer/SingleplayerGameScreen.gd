@@ -5,7 +5,6 @@ class_name SingleplayerGameScreen extends ClientScreen
 @onready var _round_popup: RoundPopup = %"RoundPopup"
 @onready var _current_player_stats: CharacterStats = %"CurrentPlayerStats"
 @onready var _enemy_player_stats: CharacterStats = %"EnemyPlayerStats"
-@onready var _round_count_popup: RoundCountPopup = %"RoundCountPopup"
 
 
 #region built in
@@ -53,7 +52,6 @@ func on_enter(ctx: GameContext) -> void:
 	game_context.state_manager = state_manager
 	game_context.question_layer = _question_layer
 	game_context.round_popup = _round_popup
-	game_context.round_count_popup = _round_count_popup
 	state_manager.set_context(game_context)
 
 	state_manager.register("intro", IntroState.new())
@@ -78,9 +76,7 @@ class GameStateContext:
 	var state_manager: StateManager
 	var question_layer: QuestionLayer
 	var current_round: Round
-	#TODO - rename this into `round_result_popup`
 	var round_popup: RoundPopup
-	var round_count_popup: RoundCountPopup
 
 	# shared fields between states
 	var round_result: Round.Result
@@ -122,7 +118,8 @@ class IntroduceQuestionState:
 		ctx.current_round = current_round
 
 		var round_count = current_round.get_count()
-		await ctx.round_count_popup.show_popup(round_count)
+		var round_count_widget = RoundCount.make_with_count(round_count)
+		await ctx.round_popup.show_popup(round_count_widget)
 
 		var current_question = current_round.get_question()
 
@@ -224,16 +221,17 @@ class RoundOverState:
 		var round_result = ctx.round_result
 
 		var round_popup = ctx.round_popup
-		var popup_badge = RoundPopup.PopupBadge.WRONG
+		var result_badge = RoundResultBadge.PopupBadges.WRONG
 		if round_result.is_draw():
-			popup_badge = RoundPopup.PopupBadge.DRAW
+			result_badge = RoundResultBadge.PopupBadges.DRAW
 		else:
 			var best_result = round_result.get_best_answer()
 
 			if best_result.get_who_answered() == local_player:
-				popup_badge = RoundPopup.PopupBadge.CORRECT
+				result_badge = RoundResultBadge.PopupBadges.CORRECT
 
-		await round_popup.show_popup(popup_badge)
+		var round_result_badge = RoundResultBadge.make_with_texture(result_badge)
+		await round_popup.show_popup(round_result_badge)
 
 		ctx.transition_to("fight")
 
@@ -271,5 +269,19 @@ class OutroState:
 
 	func on_enter(ctx: GameStateContext) -> void:
 		print_debug("Entered outro state")
+
+		var game = ctx.game
+		var arena = game.get_arena()
+		var arena_camera = arena.get_camera()
+
+		var game_result = game.get_last_result()
+
+		var round_popup = ctx.round_popup
+		var game_result_info = GameResultInfo.make_from_result(game_result)
+		round_popup.set_show_time(RoundPopup.INFINITE_SHOW_TIME)
+		round_popup.show_popup(game_result_info)
+
+		var camera_default_position = arena_camera.get_default_position()
+		await arena_camera.zoom_in(camera_default_position, 0.5, 10.0) 
 
 #endregion

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d12tiu6s4yaj4"]
+[gd_scene load_steps=12 format=3 uid="uid://d12tiu6s4yaj4"]
 
 [ext_resource type="Script" uid="uid://cv5vc583rvtkh" path="res://src/client/singleplayer/SingleplayerGameScreen.gd" id="1_66m0q"]
 [ext_resource type="PackedScene" uid="uid://dkrsrcgjfjdo2" path="res://src/ui/question/QuestionLayer.tscn" id="2_7ljsi"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dywktwd5cxnxk" path="res://assets/textures/entities/characters/bear/bear_portrait.png" id="4_g1xjg"]
 [ext_resource type="Texture2D" uid="uid://uxutntbuyan8" path="res://assets/textures/ui/hp_bar_background.png" id="5_eqi15"]
 [ext_resource type="Texture2D" uid="uid://syk3bolbyojj" path="res://assets/textures/ui/hp_bar_foreground.png" id="6_qhlm4"]
-[ext_resource type="PackedScene" uid="uid://balwl0hpfprps" path="res://src/ui/round/RoundCountPopup.tscn" id="9_g1xjg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g18ea"]
 bg_color = Color(1, 0.866667, 0.866667, 1)
@@ -160,11 +159,6 @@ z_index = 3
 layout_mode = 1
 
 [node name="RoundPopup" parent="." instance=ExtResource("3_72d34")]
-unique_name_in_owner = true
-z_index = 5
-layout_mode = 1
-
-[node name="RoundCountPopup" parent="." instance=ExtResource("9_g1xjg")]
 unique_name_in_owner = true
 z_index = 5
 layout_mode = 1

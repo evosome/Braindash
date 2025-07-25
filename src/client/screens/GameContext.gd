@@ -11,12 +11,14 @@ var _screen_manager: ScreenManager
 var _enemy_character_type: CharacterType
 var _my_character_type: CharacterType
 var _available_characters: Array[CharacterType]
+var _user_data: UserData
 
 
 #region builtin
 
-func _init(screen_manager: ScreenManager) -> void:
+func _init(screen_manager: ScreenManager, user_data: UserData) -> void:
 	_screen_manager = screen_manager
+	_user_data = user_data
 
 #endregion
 
@@ -99,5 +101,9 @@ func set_available_characters(characters: Array[CharacterType]) -> void:
 
 func get_available_characters() -> Array[CharacterType]:
 	return _available_characters
+
+
+func get_user_data() -> UserData:
+	return _user_data
 
 #endregion

@@ -5,10 +5,6 @@
 [ext_resource type="Script" uid="uid://bkivtbn77nera" path="res://addons/animatedtexturerect/animated_texture_rect.gd" id="3_0f8dp"]
 [ext_resource type="FontFile" uid="uid://no3xux1t2pys" path="res://assets/legal/fonts/Burlesk-Regular.ttf" id="4_284si"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bu7xj"]
-atlas = ExtResource("2_g34lb")
-region = Rect2(4320, 0, 1080, 1920)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_okj4h"]
 atlas = ExtResource("2_g34lb")
 region = Rect2(0, 0, 1080, 1920)
@@ -24,6 +20,10 @@ region = Rect2(2160, 0, 1080, 1920)
 [sub_resource type="AtlasTexture" id="AtlasTexture_mao8d"]
 atlas = ExtResource("2_g34lb")
 region = Rect2(3240, 0, 1080, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu7xj"]
+atlas = ExtResource("2_g34lb")
+region = Rect2(4320, 0, 1080, 1920)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx3x1"]
 atlas = ExtResource("2_g34lb")
@@ -73,13 +73,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_bu7xj")
+texture = SubResource("AtlasTexture_okj4h")
 expand_mode = 3
 stretch_mode = 5
 script = ExtResource("3_0f8dp")
 show_preview = true
 sprite_frames = SubResource("SpriteFrames_y5el3")
-frame = 4
 animation = "default"
 metadata/_custom_type_script = "uid://bkivtbn77nera"
 

@@ -52,6 +52,7 @@ func on_enter(ctx: GameContext) -> void:
 	game_context.state_manager = state_manager
 	game_context.question_layer = _question_layer
 	game_context.round_popup = _round_popup
+	game_context.user_data = ctx.get_user_data()
 	state_manager.set_context(game_context)
 
 	state_manager.register("intro", IntroState.new())
@@ -77,6 +78,7 @@ class GameStateContext:
 	var question_layer: QuestionLayer
 	var current_round: Round
 	var round_popup: RoundPopup
+	var user_data: UserData
 
 	# shared fields between states
 	var round_result: Round.Result
@@ -281,7 +283,11 @@ class OutroState:
 		round_popup.set_show_time(RoundPopup.INFINITE_SHOW_TIME)
 		round_popup.show_popup(game_result_info)
 
+		var user_data = ctx.user_data
+		var game_results = user_data.get_game_results()
+		game_results.save(game_result)
+
 		var camera_default_position = arena_camera.get_default_position()
-		await arena_camera.zoom_in(camera_default_position, 0.5, 10.0) 
+		await arena_camera.zoom_in(camera_default_position, 0.5, 10.0)
 
 #endregion

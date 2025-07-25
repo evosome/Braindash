@@ -7,7 +7,9 @@ var _screen_manager: ScreenManager
 func _ready() -> void:
 	
 	_screen_manager = ScreenManager.on(self)
-	_context = GameContext.new(_screen_manager)
+
+	var user_data = UserData.new()
+	_context = GameContext.new(_screen_manager, user_data)
 	_screen_manager.set_context(_context)
 	_context.set_me(PlayerInfo.new())
 	_context.set_enemy(PlayerInfo.new())

@@ -41,7 +41,7 @@ static func make_from_result(result: SingleplayerGame.Result) -> GameResultInfo:
 	
 	instantiated_game_result.set_total_question_amount(result.get_total_question_amount())
 
-	instantiated_game_result.set_incorrect_answer_amount(result.get_incorrect_amount())
+	instantiated_game_result.set_incorrect_answer_amount(result.get_correct_amount())
 
 	var result_flag_texture = result_flag_to_texture(result.get_result_flag())
 	instantiated_game_result.set_result_flag_texture(result_flag_texture)

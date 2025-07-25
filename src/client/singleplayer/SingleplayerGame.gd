@@ -15,10 +15,7 @@ var _arena: Arena
 var _questionare: Questionare
 var _local_player: PlayerInfo
 var _enemy_player: PlayerInfo
-
-#TODO - is it reaslly good idea to keep round counter and round results like that?
-var _round_counter: int = 0
-var _round_results: Array[Round.Result] = []
+var _round_manager: RoundManager
 
 @export var _timer: Timer
 
@@ -26,6 +23,8 @@ var _round_results: Array[Round.Result] = []
 
 func _ready() -> void:
 	assert(_timer != null, "Timer is not set in SingleplayerGame exports")
+
+	_round_manager = RoundManager.new(_timer, _questionare)
 
 	var packed_arena = _game_info.packed_arena
 	if !packed_arena.can_instantiate():
@@ -68,11 +67,8 @@ func get_enemy_player() -> PlayerInfo:
 
 
 func get_next_round() -> Round:
-	var next_question = _questionare.next()
-	_round_counter += 1
-	var current_round = Round.new(next_question, _timer, _round_counter)
-	current_round.ended.connect(func(r: Round.Result): _round_results.append(r))
-	return current_round
+	var next_round = _round_manager.next()
+	return next_round
 
 #endregion
 
@@ -136,7 +132,8 @@ func _on_characters_died(death_info: Arena.CharacterDeathInfo) -> void:
 
 	var local_player_character = _arena.get_character_of(_local_player)
 	var enemy_character = _arena.get_character_of(_enemy_player)
-	_last_result = Result.make(_local_player, local_player_character, enemy_character, death_info, _round_results)
+	var round_results = _round_manager.get_round_results()
+	_last_result = Result.make(_local_player, local_player_character, enemy_character, death_info, round_results)
 
 #endregion
 

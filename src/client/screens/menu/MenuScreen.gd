@@ -30,6 +30,16 @@ func on_enter(ctx: GameContext) -> void:
 	_subscreen_manager.set_context(_menu_context)
 	_subscreen_manager.switch("main")
 
+	var is_game_over = ctx.is_game_over
+	if !is_game_over:
+		return
+	
+	var last_game_result = ctx.last_game_result
+	var popup_manager = ctx.get_popup_manager()
+
+	var game_result_popup = GameResultInfo.make_from_result(last_game_result)
+	popup_manager.open_popup(game_result_popup)
+
 
 func get_subscreen_manager() -> ScreenManager:
 	return _subscreen_manager

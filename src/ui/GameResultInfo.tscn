@@ -1,14 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://boqxovawfj4f5"]
+[gd_scene load_steps=7 format=3 uid="uid://boqxovawfj4f5"]
 
 [ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="1_kwiha"]
-[ext_resource type="Texture2D" uid="uid://2431jobdnepn" path="res://assets/textures/ui/win.png" id="1_qsorn"]
 [ext_resource type="Script" uid="uid://bj4g82sarrxkv" path="res://src/ui/GameResultInfo.gd" id="2_f3rtl"]
 [ext_resource type="Texture2D" uid="uid://cj1yhxcpejmwe" path="res://assets/textures/entities/characters/rabbit/rabbit_portrait.png" id="3_fc3wf"]
-[ext_resource type="Texture2D" uid="uid://p4nssqb8xan6" path="res://assets/textures/ui/lose.png" id="4_miqhc"]
 [ext_resource type="Texture2D" uid="uid://dywktwd5cxnxk" path="res://assets/textures/entities/characters/bear/bear_portrait.png" id="4_ytb2j"]
-[ext_resource type="Texture2D" uid="uid://bmsvubbde8age" path="res://assets/textures/ui/draw.png" id="5_1l0sd"]
+[ext_resource type="Texture2D" uid="uid://cbj2yxlxe267w" path="res://assets/textures/ui/versus.png" id="5_ir6hx"]
+[ext_resource type="PackedScene" uid="uid://b2tbk7pvubosg" path="res://src/ui/badges/GameResultBadge.tscn" id="6_1l0sd"]
 
-[node name="GameResultInfo" type="Control" node_paths=PackedStringArray("_result_flag_texture_rect", "_total_question_amount_label", "_incorrect_answers_amount_label", "_total_question_amount_label_of_incorrect")]
+[node name="GameResultInfo" type="Control" node_paths=PackedStringArray("_result_flag", "_total_question_amount_label", "_incorrect_answers_amount_label", "_total_question_amount_label_of_incorrect")]
 custom_minimum_size = Vector2(1080, 720)
 layout_mode = 3
 anchors_preset = 0
@@ -16,15 +15,10 @@ offset_right = 800.0
 offset_bottom = 600.0
 theme = ExtResource("1_kwiha")
 script = ExtResource("2_f3rtl")
-_result_flag_texture_rect = NodePath("ResultPanel/ResultLayout/ResultFlagTexture")
+_result_flag = NodePath("ResultPanel/ResultLayout/GameResultBadge")
 _total_question_amount_label = NodePath("ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/TotalQuestions/TotalAnswersCount")
 _incorrect_answers_amount_label = NodePath("ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/CorrectAnswers/CorrectOfIncorrect/ValueLabel")
 _total_question_amount_label_of_incorrect = NodePath("ResultPanel/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/CorrectAnswers/CorrectOfIncorrect/TotalAnswersCountOfIncorrect")
-_result_flag_texture_map = Dictionary[int, Texture2D]({
-0: ExtResource("1_qsorn"),
-1: ExtResource("4_miqhc"),
-2: ExtResource("5_1l0sd")
-})
 
 [node name="ResultPanel" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -39,13 +33,9 @@ theme_type_variation = &"QuestionTitlePanelContainer"
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 
-[node name="ResultFlagTexture" type="TextureRect" parent="ResultPanel/ResultLayout"]
-custom_minimum_size = Vector2(512, 0)
+[node name="GameResultBadge" parent="ResultPanel/ResultLayout" instance=ExtResource("6_1l0sd")]
+custom_minimum_size = Vector2(512, 300)
 layout_mode = 2
-size_flags_vertical = 0
-texture = ExtResource("1_qsorn")
-expand_mode = 5
-stretch_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ResultPanel/ResultLayout"]
 layout_mode = 2
@@ -72,11 +62,13 @@ texture = ExtResource("3_fc3wf")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="ResultPanel/ResultLayout/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="ResultPanel/ResultLayout/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 64
-text = "VS"
+size_flags_vertical = 3
+texture = ExtResource("5_ir6hx")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ResultPanel/ResultLayout/HBoxContainer"]
 layout_mode = 2

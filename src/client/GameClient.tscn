@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://1bou5tfi3xnv"]
+[gd_scene load_steps=3 format=3 uid="uid://1bou5tfi3xnv"]
 
 [ext_resource type="Script" uid="uid://cs4ux64q3njch" path="res://src/client/GameClient.gd" id="1_enkav"]
+[ext_resource type="PackedScene" uid="uid://bb48red00aq12" path="res://src/ui/popup/PopupManager.tscn" id="2_g4av4"]
 
-[node name="GameClient" type="Node"]
+[node name="GameClient" type="Node" node_paths=PackedStringArray("_popup_manager")]
 script = ExtResource("1_enkav")
+_popup_manager = NodePath("PopupManager")
+
+[node name="PopupManager" parent="." instance=ExtResource("2_g4av4")]
+z_index = 2

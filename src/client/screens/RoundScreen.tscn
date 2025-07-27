@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bltc60laxgxby"]
+[gd_scene load_steps=3 format=3 uid="uid://bvaa8wjkysafq"]
 
 [ext_resource type="PackedScene" uid="uid://dkrsrcgjfjdo2" path="res://src/ui/question/QuestionLayer.tscn" id="2_dwmib"]
 

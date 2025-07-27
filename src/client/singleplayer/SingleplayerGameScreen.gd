@@ -52,7 +52,7 @@ func on_enter(ctx: GameContext) -> void:
 	game_context.state_manager = state_manager
 	game_context.question_layer = _question_layer
 	game_context.round_popup = _round_popup
-	game_context.user_data = ctx.get_user_data()
+	game_context.user_data = ctx.user_data
 	state_manager.set_context(game_context)
 
 	state_manager.register("intro", IntroState.new())
@@ -64,6 +64,13 @@ func on_enter(ctx: GameContext) -> void:
 	state_manager.register("outro", OutroState.new())
 
 	state_manager.transition_to("intro")
+
+	# wait until the end of all transitions (outro cause state manager to get ended)
+	await state_manager.ended
+
+	ctx.last_game_result = game_context.game_result
+	ctx.is_game_over = true
+	ctx.switch_screen("menu")
 
 #endregion
 
@@ -82,10 +89,15 @@ class GameStateContext:
 
 	# shared fields between states
 	var round_result: Round.Result
+	var game_result: SingleplayerGame.Result
 
 	## Shorthand for [code]ctx.state_manager.transition_to(...)[/code]
 	func transition_to(state_name: String) -> void:
 		state_manager.transition_to(state_name)
+	
+	## Shorthand for [code]ctx.state_manager.end()[/code]
+	func end_transition() -> void:
+		state_manager.end()
 
 
 class GameState:
@@ -278,16 +290,25 @@ class OutroState:
 
 		var game_result = game.get_last_result()
 
-		var round_popup = ctx.round_popup
-		var game_result_info = GameResultInfo.make_from_result(game_result)
-		round_popup.set_show_time(RoundPopup.INFINITE_SHOW_TIME)
-		round_popup.show_popup(game_result_info)
-
 		var user_data = ctx.user_data
 		var game_results = user_data.get_game_results()
 		game_results.save(game_result)
 
 		var camera_default_position = arena_camera.get_default_position()
-		await arena_camera.zoom_in(camera_default_position, 0.5, 10.0)
+		arena_camera.zoom_in(camera_default_position, 0.5, 10.0)
+
+		var result_badge = GameResultBadge.PopupBadges.DRAW
+		var result_flag = game_result.get_result_flag()
+		if result_flag == SingleplayerGame.ResultFlag.WIN:
+			result_badge = GameResultBadge.PopupBadges.WIN
+		elif result_flag == SingleplayerGame.ResultFlag.LOSE:
+			result_badge = GameResultBadge.PopupBadges.LOSE
+
+		var round_popup = ctx.round_popup
+		var game_result_badge = GameResultBadge.make_with_texture(result_badge)
+		await round_popup.show_popup(game_result_badge)
+
+		ctx.game_result = game_result
+		ctx.end_transition()
 
 #endregion

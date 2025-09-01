@@ -1,11 +1,22 @@
-
+## Represents a sequence of questions, that can be iterated
+## using the [member next] method.
 class_name Questionare extends Object
 
+
+#region signals
+
 signal ended()
+
+#endregion
+
+
+#region fields
 
 var _is_ended: bool
 var _question_index: int = 0
 var _question_list: Array[Question]
+
+#endregion
 
 
 #region constructor
@@ -25,6 +36,12 @@ func _init(question_list: QuestionList, participants: Array[PlayerInfo]) -> void
 
 #region public
 
+## Get the next question from sequence.
+## If question sequence was exhausted and method was called,
+## return error. Use the [member is_ended] method to check,
+## that sequence is not empty.
+## Also when the last question was popped, signal [signal ended] will
+## be fired.
 func next() -> Question:
 	var question_list_size = _question_list.size()
 	

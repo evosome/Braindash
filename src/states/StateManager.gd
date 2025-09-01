@@ -1,15 +1,26 @@
 class_name StateManager
 
+
+#region fields
+
 var _state_map: Dictionary[String, State] = {}
 var _current_state: State
 var _context: Variant
 
+#endregion
 
-#region public
 
+#region getters/setters
 
+## Set the context object, that will be passed
+## via [member on_enter] or [member on_exit] methods of [State] class.
 func set_context(ctx: Variant) -> void:
     _context = ctx
+
+#endregion
+
+
+#region public
 
 
 func register(id: Variant, state: State) -> void:

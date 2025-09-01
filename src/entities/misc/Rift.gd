@@ -1,12 +1,22 @@
 class_name Rift extends Node2D
 
+
+#region constants
+
 const PRELOADED_SCENE = preload("Rift.tscn")
+
+#endregion
+
+
+#region fields
 
 var _lifetime: float = 1.0
 var _destroy_on_end: bool
 
 @export var _animated_sprite: AnimatedSprite2D
 @export var _animation_player: AnimationPlayer
+
+#endregion
 
 
 #region getter/setter

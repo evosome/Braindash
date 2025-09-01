@@ -1,15 +1,25 @@
 
 class_name Question
 
-## Fired when any player answered for the question
+
+#region signals
+
+## Fired when certain player answered for the question.
 signal answered(participant: PlayerInfo, answer: Answer)
 
-## Fired when all players answered on the question.
+## Fired when all players answered for the question.
 signal all_participants_answered()
+
+#endregion
+
+
+#region fields
 
 var _type: QuestionType
 var _participants: Array[PlayerInfo]
 var _answers_map: Dictionary[PlayerInfo, Answer]
+
+#endregion
 
 
 #region constructor
@@ -108,7 +118,8 @@ class Answer:
 	func is_correct() -> bool:
 		return _correct
 	
-	## Get unix timestamp (float) when the answer was created
+	## Get unix timestamp (float) when the answer was created,
+	## describing when a player exactly answered for the question.
 	func get_timestamp() -> float:
 		return _timestamp
 

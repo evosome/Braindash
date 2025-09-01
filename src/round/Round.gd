@@ -1,21 +1,40 @@
 class_name Round
 
-signal ended(result: Result)
+
+#region enums
 
 ## Represents variants of round end. Round can be ended, when time is over or
 ## all players answered for a question.
 enum EndReason {
 	ALL_ANSWERED,
 	TIMEOUT
-}
 
+#endregion
+
+
+#region signals
+
+## Fired, when the round is over and result of it was determined.
+signal ended(result: Result)}
+
+# Internal signal, used to await, when any of two conditions are happend:
+# - timer is timed out
+# - all players are answered for the current question.
+#TODO: I maybe will rewrite it with using some signal helper libraries
 signal _internal_ended
+
+#endregion
+
+
+#region fields
 
 var _timer: Timer
 var _question: Question
 var _end_reason: EndReason
 var _is_over: bool = false
 var _result: Result
+
+#endregion
 
 
 #region constructor

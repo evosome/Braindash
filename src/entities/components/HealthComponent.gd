@@ -1,12 +1,22 @@
 class_name HealthComponent extends Node
 
+
+#region signals
+
 signal died()
 signal health_changed(value: int)
+
+#endregion
+
+
+#region fields
 
 var _health_amount: int
 var _max_health: int
 
 @export var _initial_max_health: int = 100
+
+#endregion
 
 
 #region built-in

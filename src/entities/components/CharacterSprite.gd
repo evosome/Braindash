@@ -9,9 +9,10 @@ const DEFAULT_WIDTH = 8.0
 
 #endregion
 
-## Fired when attack is gonna be performed while playing animation
-signal attack_happened
 
+#region enums
+
+## Common set of animations, used in game
 enum Animations {
 	IDLE,
 	ATTACK,
@@ -23,11 +24,26 @@ enum LookDirections {
 	RIGHT
 }
 
+#endregion
+
+
+#region signals
+
+## Fired when attack is gonna be performed while playing animation
+signal attack_happened
+
+#endregion
+
+
+#region fields
+
 var _is_glowing: bool = false
 var _shader_material: ShaderMaterial
 
 @export var _sprite: AnimatedSprite2D
 @export var _animation_player: AnimationPlayer
+
+#endregion
 
 
 #region builtin
@@ -54,6 +70,7 @@ func get_glowing() -> bool:
 	return _is_glowing
 
 
+## Get AABB rectangle, that sprite fits
 func get_rect() -> Rect2:
 	var current_animation = _sprite.animation
 	var current_frame_count = _sprite.frame
@@ -69,6 +86,7 @@ func look_at_direction(direction: LookDirections) -> void:
 	_sprite.flip_h = direction == LookDirections.LEFT
 
 
+## Play an animation from determined set of animations [Animations].
 func play_animation(animation: Animations) -> void:
 	var animation_name = Animations.find_key(animation)
 	if !_animation_player.has_animation(animation_name):
@@ -80,6 +98,7 @@ func play_animation(animation: Animations) -> void:
 	_animation_player.play(animation_name)
 
 
+## This method is async
 func async_play_animation(animation: Animations) -> void:
 	play_animation(animation)
 	await _animation_player.animation_finished

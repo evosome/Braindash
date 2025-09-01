@@ -1,12 +1,22 @@
 class_name ArrowProjectile extends Node2D
 
+
+#region constants
+
 const PRELOADED_SCENE = preload("ArrowProjectile.tscn")
+
+#endregion
+
+
+#region fields
 
 var _initial_position: Vector2
 var _target_position: Vector2
 var _fly_speed: float
 var _is_destroy_on_end: bool
 var _fly_tween: Tween
+
+#endregion
 
 
 #region getter/setter

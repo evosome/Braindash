@@ -1,5 +1,7 @@
+class_name ScreenManager
 
-class_name ScreenManager extends Object
+
+#region fields
 
 var _screen: Screen
 var _screen_ctx
@@ -7,10 +9,31 @@ var _managing_node: Node
 
 var _registration_map: Dictionary[String, PackedScene] = {}
 
+#endregion
+
+
+#region builtins
+
 func _init(on: Node) -> void:
 	_managing_node = on
 
+#endregion
 
+
+#region getters/setters
+
+## Set screen context, that will be shared between screens registered
+## in this screen manager.
+func set_context(ctx) -> void:
+	_screen_ctx = ctx
+
+#endregion
+
+
+#region public
+
+## Replace current screen with other by its name. To switch between
+## screens, it must be registered first with [member register].
 func switch(name: String) -> void:
 	
 	var packed_screen: PackedScene = _registration_map.get(name, null)
@@ -28,13 +51,16 @@ func switch(name: String) -> void:
 	_screen.on_enter(_screen_ctx)
 
 
+## Register packed scene of screen, using its name as identifier.
 func register(name: String, packed: PackedScene) -> void:
 	_registration_map[name] = packed
 
+#endregion
 
-func set_context(ctx) -> void:
-	_screen_ctx = ctx
 
+#region static
 
 static func on(node: Node) -> ScreenManager:
 	return ScreenManager.new(node) 
+
+#endregion

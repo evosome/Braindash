@@ -1,13 +1,21 @@
 class_name SingleplayerGame extends Node
 
+enum ResultFlag {
+	WIN,
+	LOSE,
+	DRAW
+}
+
 const PRELOADED_SCENE = preload("res://src/client/singleplayer/SingleplayerGame.tscn")
 
 var _is_over: bool = false
+var _last_result: SingleplayerGameResult
 var _game_info: RoundInfo
 var _arena: Arena
 var _questionare: Questionare
 var _local_player: PlayerInfo
 var _enemy_player: PlayerInfo
+var _round_manager: RoundManager
 
 @export var _timer: Timer
 
@@ -15,6 +23,8 @@ var _enemy_player: PlayerInfo
 
 func _ready() -> void:
 	assert(_timer != null, "Timer is not set in SingleplayerGame exports")
+
+	_round_manager = RoundManager.new(_timer, _questionare)
 
 	var packed_arena = _game_info.packed_arena
 	if !packed_arena.can_instantiate():
@@ -25,12 +35,27 @@ func _ready() -> void:
 	add_child(instantiated_arena)
 	_arena = instantiated_arena
 
+	_arena.characters_died.connect(_on_characters_died)
+
 #endregion
+
 
 #region getters/setters
 
 func get_arena() -> Arena:
 	return _arena
+
+
+func is_over() -> bool:
+	return _is_over
+
+
+func get_last_result() -> SingleplayerGameResult:
+	return _last_result
+
+
+func is_questionare_over() -> bool:
+	return _questionare.is_ended()
 
 
 func get_local_player() -> PlayerInfo:
@@ -42,37 +67,30 @@ func get_enemy_player() -> PlayerInfo:
 
 
 func get_next_round() -> Round:
-	var next_question = _questionare.next()
-	return Round.new(next_question, _timer)
+	var next_round = _round_manager.next()
+	return next_round
 
 #endregion
 
 
 #region public
 
-func is_over() -> bool:
-	return _is_over
-
-
-func is_questionare_over() -> bool:
-	return _questionare.is_ended()
-
-
-func spawn_character_for(player: PlayerInfo, character_type: CharacterType) -> void:
+func spawn_character_for(player: PlayerInfo, character_type: CharacterType) -> PlayerCharacter:
 	if player != _local_player && player != _enemy_player:
 		push_error("Unable to spawn character for not existing player: ", player.to_string())
 		return
-	_arena.create_character_for(player, character_type)
+	var player_character = _arena.create_character_for(player, character_type)
 
 	#TODO - is there some elegant way to highlight current player?
 	if player == _local_player:
-		var local_player_character = _arena.get_character_of(player)
-		var player_sprite = local_player_character.get_sprite()
+		var player_sprite = player_character.get_sprite()
 		player_sprite.set_glowing(true)
 
-		var sprite_aabb = local_player_character.get_sprite().get_rect()
-		var top = local_player_character.position - Vector2(0, sprite_aabb.size.y / 2) - Vector2(0, 128)
+		var sprite_aabb = player_character.get_sprite().get_rect()
+		var top = player_character.position - Vector2(0, sprite_aabb.size.y / 2) - Vector2(0, 128)
 		_arena.show_tip_at(top)
+	
+	return player_character
 
 
 ## This method is asynchronous. Play fight or draw animation on arena scene
@@ -102,6 +120,19 @@ func do_fight(round_result: Round.Result) -> void:
 ## This method is asynchronous. 
 func do_health_countdown() -> void:
 	pass
+
+#endregion
+
+
+#region event handlers
+
+func _on_characters_died(death_info: Arena.CharacterDeathInfo) -> void:
+	_is_over = true
+
+	var local_player_character = _arena.get_character_of(_local_player)
+	var enemy_character = _arena.get_character_of(_enemy_player)
+	var round_results = _round_manager.get_round_results()
+	_last_result = SingleplayerGameResult.make(_local_player, local_player_character, enemy_character, death_info, round_results)
 
 #endregion
 

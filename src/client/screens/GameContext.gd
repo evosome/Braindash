@@ -11,12 +11,19 @@ var _screen_manager: ScreenManager
 var _enemy_character_type: CharacterType
 var _my_character_type: CharacterType
 var _available_characters: Array[CharacterType]
+var _popup_manager: AbstractPopupManager
+
+#NOTE - new order named fields
+var user_data: UserData
+var last_game_result: SingleplayerGameResult
+var is_game_over: bool = false
 
 
 #region builtin
 
-func _init(screen_manager: ScreenManager) -> void:
-	_screen_manager = screen_manager
+func _init(game: GameClient) -> void:
+	_screen_manager = game.get_screen_manager()
+	_popup_manager = game.get_popup_manager()
 
 #endregion
 
@@ -99,5 +106,9 @@ func set_available_characters(characters: Array[CharacterType]) -> void:
 
 func get_available_characters() -> Array[CharacterType]:
 	return _available_characters
+
+
+func get_popup_manager() -> AbstractPopupManager:
+	return _popup_manager
 
 #endregion

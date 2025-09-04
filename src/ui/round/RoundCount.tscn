@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://balwl0hpfprps"]
+
+[ext_resource type="Script" uid="uid://bpyqaden677ky" path="res://src/ui/round/RoundCount.gd" id="1_72anr"]
+[ext_resource type="Texture2D" uid="uid://ygcg07kdbrw6" path="res://assets/textures/ui/Portal.png" id="2_g34lb"]
+[ext_resource type="Script" uid="uid://bkivtbn77nera" path="res://addons/animatedtexturerect/animated_texture_rect.gd" id="3_0f8dp"]
+[ext_resource type="FontFile" uid="uid://no3xux1t2pys" path="res://assets/legal/fonts/Burlesk-Regular.ttf" id="4_284si"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okj4h"]
+atlas = ExtResource("2_g34lb")
+region = Rect2(0, 0, 1080, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghx3i"]
+atlas = ExtResource("2_g34lb")
+region = Rect2(1080, 0, 1080, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j74vx"]
+atlas = ExtResource("2_g34lb")
+region = Rect2(2160, 0, 1080, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mao8d"]
+atlas = ExtResource("2_g34lb")
+region = Rect2(3240, 0, 1080, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu7xj"]
+atlas = ExtResource("2_g34lb")
+region = Rect2(4320, 0, 1080, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx3x1"]
+atlas = ExtResource("2_g34lb")
+region = Rect2(5400, 0, 1080, 1920)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y5el3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okj4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghx3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j74vx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mao8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu7xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx3x1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="RoundCountPopup" type="Control" node_paths=PackedStringArray("_round_counter_label")]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_72anr")
+_round_counter_label = NodePath("CenterContainer/Label")
+
+[node name="AnimatedTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_okj4h")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("3_0f8dp")
+show_preview = true
+sprite_frames = SubResource("SpriteFrames_y5el3")
+animation = "default"
+metadata/_custom_type_script = "uid://bkivtbn77nera"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_284si")
+theme_override_font_sizes/font_size = 128
+text = "Раунд 1"

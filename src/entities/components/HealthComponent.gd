@@ -18,7 +18,7 @@ func _ready() -> void:
 #endregion
 
 
-#region public
+#region getter/setter
 
 func get_health() -> int:
 	return _health_amount
@@ -34,5 +34,9 @@ func set_health(value: int) -> void:
 	
 	if _health_amount == 0:
 		died.emit()
+
+
+func get_max_health() -> int:
+	return _max_health
 
 #endregion

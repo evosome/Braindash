@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Sx="*res://addons/signal_extensions/sx_autoload.gd"
+uuid="*res://addons/uuid/uuid.gd"
 
 [display]
 
@@ -34,7 +35,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/animatedtexturerect/plugin.cfg")
+enabled=PackedStringArray("res://addons/animatedtexturerect/plugin.cfg", "res://addons/uuid/plugin.cfg")
 
 [rendering]
 

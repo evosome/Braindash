@@ -35,7 +35,7 @@ func _show_grade_cards(grades: Array[Grade]) -> void:
 	for grade in grades:
 		var card = SELECTION_CARD_PACKED.instantiate()
 		card.set_title(grade.name)
-		card.set_accent_color(Color.DEEP_SKY_BLUE)
+		card.set_accent_color(grade.accent_color)
 		card.set_context(grade)
 		_cards_grid.add_card(card)
 

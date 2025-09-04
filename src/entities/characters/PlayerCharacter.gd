@@ -26,6 +26,7 @@ func _ready() -> void:
 		push_error("Character sprite is not set on character type")
 		return
 
+	_damage_amount = _character_type.common_damage
 	_attack_type = _character_type.get_attack_type()
 	_character_sprite = packed_character_sprite.instantiate()
 	add_child(_character_sprite)

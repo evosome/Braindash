@@ -73,9 +73,9 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h3evu"]
 shader = ExtResource("5_h3evu")
-shader_parameter/alpha = 0.52
-shader_parameter/inner_radius = 0.2
-shader_parameter/outer_radius = 0.765
+shader_parameter/vignette_size = 0.795
+shader_parameter/vignette_softness = 0.207
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
 [node name="MenuScreen" type="Control" node_paths=PackedStringArray("_subscreen_container")]
 physics_interpolation_mode = 0

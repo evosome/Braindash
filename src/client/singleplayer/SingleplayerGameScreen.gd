@@ -3,6 +3,8 @@ class_name SingleplayerGameScreen extends ClientScreen
 @onready var _game_container: Node = %"GameContainer"
 @onready var _question_layer: QuestionLayer = %"QuestionLayer"
 @onready var _round_popup: RoundPopup = %"RoundPopup"
+@onready var _current_player_stats: CharacterStats = %"CurrentPlayerStats"
+@onready var _enemy_player_stats: CharacterStats = %"EnemyPlayerStats"
 
 
 #region built in
@@ -36,8 +38,11 @@ func on_enter(ctx: GameContext) -> void:
 	_game_container.add_child(singleplayer_game)
 
 	# spawn characters for players
-	singleplayer_game.spawn_character_for(me, ctx.get_my_character_type())
-	singleplayer_game.spawn_character_for(enemy, ctx.get_enemy_character_type())
+	var my_character = singleplayer_game.spawn_character_for(me, ctx.get_my_character_type())
+	var enemy_character = singleplayer_game.spawn_character_for(enemy, ctx.get_enemy_character_type())
+
+	_current_player_stats.set_character(my_character)
+	_enemy_player_stats.set_character(enemy_character)
 
 	# init state machine, create state context and register states
 	var state_manager = StateManager.new()
@@ -47,6 +52,7 @@ func on_enter(ctx: GameContext) -> void:
 	game_context.state_manager = state_manager
 	game_context.question_layer = _question_layer
 	game_context.round_popup = _round_popup
+	game_context.user_data = ctx.user_data
 	state_manager.set_context(game_context)
 
 	state_manager.register("intro", IntroState.new())
@@ -58,6 +64,13 @@ func on_enter(ctx: GameContext) -> void:
 	state_manager.register("outro", OutroState.new())
 
 	state_manager.transition_to("intro")
+
+	# wait until the end of all transitions (outro cause state manager to get ended)
+	await state_manager.ended
+
+	ctx.last_game_result = game_context.game_result
+	ctx.is_game_over = true
+	ctx.switch_screen("menu")
 
 #endregion
 
@@ -72,13 +85,19 @@ class GameStateContext:
 	var question_layer: QuestionLayer
 	var current_round: Round
 	var round_popup: RoundPopup
+	var user_data: UserData
 
 	# shared fields between states
 	var round_result: Round.Result
+	var game_result: SingleplayerGameResult
 
 	## Shorthand for [code]ctx.state_manager.transition_to(...)[/code]
 	func transition_to(state_name: String) -> void:
 		state_manager.transition_to(state_name)
+	
+	## Shorthand for [code]ctx.state_manager.end()[/code]
+	func end_transition() -> void:
+		state_manager.end()
 
 
 class GameState:
@@ -111,6 +130,10 @@ class IntroduceQuestionState:
 		var game = ctx.game
 		var current_round = game.get_next_round()
 		ctx.current_round = current_round
+
+		var round_count = current_round.get_count()
+		var round_count_widget = RoundCount.make_with_count(round_count)
+		await ctx.round_popup.show_popup(round_count_widget)
 
 		var current_question = current_round.get_question()
 
@@ -202,6 +225,9 @@ class RoundOverState:
 
 		var question_layer = ctx.question_layer
 		question_layer.set_layer_visible(false)
+		
+		var question_layout = question_layer.get_question_layout()
+		question_layout.reset_question_timer()
 
 		var game = ctx.game
 		var local_player = game.get_local_player()
@@ -209,16 +235,17 @@ class RoundOverState:
 		var round_result = ctx.round_result
 
 		var round_popup = ctx.round_popup
-		var popup_badge = RoundPopup.PopupBadge.WRONG
+		var result_badge = RoundResultBadge.PopupBadges.WRONG
 		if round_result.is_draw():
-			popup_badge = RoundPopup.PopupBadge.DRAW
+			result_badge = RoundResultBadge.PopupBadges.DRAW
 		else:
 			var best_result = round_result.get_best_answer()
 
 			if best_result.get_who_answered() == local_player:
-				popup_badge = RoundPopup.PopupBadge.CORRECT
+				result_badge = RoundResultBadge.PopupBadges.CORRECT
 
-		await round_popup.show_popup(popup_badge)
+		var round_result_badge = RoundResultBadge.make_with_texture(result_badge)
+		await round_popup.show_popup(round_result_badge)
 
 		ctx.transition_to("fight")
 
@@ -230,11 +257,17 @@ class FightState:
 		print_debug("Entered fight state")
 
 		var game = ctx.game
+
 		var round_result = ctx.round_result
 		
 		await game.do_fight(round_result)
 		
-		var next_state = "introduce_question" if !game.is_over() else "outro"
+		var next_state = "introduce_question"
+		if game.is_over():
+			next_state = "outro"
+		elif game.is_questionare_over():
+			next_state = "health_countdown"
+
 		ctx.transition_to(next_state)
 
 
@@ -250,5 +283,32 @@ class OutroState:
 
 	func on_enter(ctx: GameStateContext) -> void:
 		print_debug("Entered outro state")
+
+		var game = ctx.game
+		var arena = game.get_arena()
+		var arena_camera = arena.get_camera()
+
+		var game_result = game.get_last_result()
+
+		var user_data = ctx.user_data
+		var game_results = user_data.get_game_results()
+		game_results.save(game_result)
+
+		var camera_default_position = arena_camera.get_default_position()
+		arena_camera.zoom_in(camera_default_position, 0.5, 10.0)
+
+		var result_badge = GameResultBadge.PopupBadges.DRAW
+		var result_flag = game_result.get_result_flag()
+		if result_flag == SingleplayerGame.ResultFlag.WIN:
+			result_badge = GameResultBadge.PopupBadges.WIN
+		elif result_flag == SingleplayerGame.ResultFlag.LOSE:
+			result_badge = GameResultBadge.PopupBadges.LOSE
+
+		var round_popup = ctx.round_popup
+		var game_result_badge = GameResultBadge.make_with_texture(result_badge)
+		await round_popup.show_popup(game_result_badge)
+
+		ctx.game_result = game_result
+		ctx.end_transition()
 
 #endregion

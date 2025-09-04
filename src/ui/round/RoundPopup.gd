@@ -1,22 +1,21 @@
 class_name RoundPopup extends Control
 
-enum PopupBadge {
-	CORRECT,
-	WRONG,
-	DRAW
-}
 
-const BADGE_TEXTURES = {
-	PopupBadge.CORRECT: preload("res://assets/textures/ui/correct.png"),
-	PopupBadge.WRONG: preload("res://assets/textures/ui/wrong.png"),
-	#FIXME - change this texture to draw texture
-	PopupBadge.DRAW: preload("res://assets/textures/ui/wrong.png")
-}
+#region constants
 
-@onready var _background: ColorRect = %"Background"
-@onready var _badge_texture_rect: TextureRect = %"BadgeTexture"
+const INFINITE_SHOW_TIME = -1
 
-@export var _animation_player: AnimationPlayer
+const DEFAULT_FADE_INOUT_TIME = 0.3
+const DEFAULT_SHOW_TIME = 1.0
+
+#endregion
+
+
+var _custom_content: Control
+var _appearing_tween: Tween
+var _show_time: float = DEFAULT_SHOW_TIME
+
+@export var _custom_content_holder: Control
 
 
 #region builtin
@@ -26,28 +25,55 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if !visible:
+	if !visible || !_custom_content:
 		return
 
-	_badge_texture_rect.pivot_offset.x = size.x / 2
-	_badge_texture_rect.pivot_offset.y = size.y / 2
+	_custom_content.pivot_offset = _custom_content.size / 2
+	_custom_content.position = _custom_content_holder.size / 2 - _custom_content.size / 2
 
 #endregion
 
 
+func set_show_time(value: float) -> void:
+	_show_time = value
+
+
+func get_show_time() -> float:
+	return _show_time
+
+
 #region public
 
-## This method is asynchronous. Show animation of badge appearing
-## until the end.
-func show_popup(popup_badge: PopupBadge, speed: float = 0.5) -> void:
-	var badge_texture = BADGE_TEXTURES[popup_badge]
-	_badge_texture_rect.texture = badge_texture
+## This method is asynchronous. Show animation of popup appearing
+## until the end. You're able to set your custom content of appearing popup.
+func show_popup(content: Control) -> void:
+
+	if _appearing_tween:
+		push_error("Popup is already showing")
+		return
+
+	_custom_content = content
+	_custom_content_holder.add_child(content)
 
 	visible = true
-	
-	_animation_player.play("animation_pop")
-	await _animation_player.animation_finished
+
+	_custom_content.scale = Vector2.ZERO
+
+	var appearing_tween = create_tween()
+	appearing_tween.tween_property(_custom_content, "scale", Vector2.ONE, DEFAULT_FADE_INOUT_TIME).set_ease(Tween.EASE_IN)
+
+	if _show_time < 0:
+		await appearing_tween.finished
+		return
+
+	appearing_tween.tween_interval(_show_time)
+	appearing_tween.tween_property(_custom_content, "scale", Vector2.ZERO, DEFAULT_FADE_INOUT_TIME).set_ease(Tween.EASE_IN)
+
+	await appearing_tween.finished
 
 	visible = false
+
+	_custom_content = null
+	_custom_content_holder.remove_child(content)
 
 #endregion

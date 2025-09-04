@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://djogfvlavmqy8"]
 
-[ext_resource type="FontFile" uid="uid://cjig52atq8org" path="res://assets/fonts/UraBumBumSP.otf" id="1_npsat"]
+[ext_resource type="FontFile" uid="uid://cjig52atq8org" path="res://assets/legal/fonts/UraBumBumSP.otf" id="1_npsat"]
 [ext_resource type="Texture2D" uid="uid://cyfn3fbg5ux6s" path="res://assets/textures/ui/label_background.png" id="2_a3dao"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_atsxe"]

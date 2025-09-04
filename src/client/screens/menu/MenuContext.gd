@@ -57,4 +57,12 @@ func set_enemy_character_type(character_type: CharacterType) -> void:
 func get_available_characters() -> Array[CharacterType]:
 	return _game_context.get_available_characters()
 
+
+func get_user_data() -> UserData:
+	return _game_context.user_data
+
+
+func get_popup_manager() -> AbstractPopupManager:
+	return _game_context.get_popup_manager()
+
 #endregion

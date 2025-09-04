@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://dou7nhs1u6y62"]
+
+[ext_resource type="Script" uid="uid://bkbrngd3wufc8" path="res://src/ui/GameResultMetadataView.gd" id="1_np0s5"]
+[ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="1_tkhfb"]
+[ext_resource type="PackedScene" uid="uid://b2tbk7pvubosg" path="res://src/ui/badges/GameResultBadge.tscn" id="2_ufr8p"]
+
+[node name="GameResultMetadataView" type="Control" node_paths=PackedStringArray("_about_button", "_result_badge", "_game_count_label", "_game_date_label", "_game_id_label")]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 256.0
+theme = ExtResource("1_tkhfb")
+script = ExtResource("1_np0s5")
+_about_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/ButtonsContainer/AboutButton")
+_result_badge = NodePath("PanelContainer/MarginContainer/VBoxContainer/GameTitle/GameResultBadge")
+_game_count_label = NodePath("PanelContainer/MarginContainer/VBoxContainer/GameTitle/HBoxContainer/GameCountLabel")
+_game_date_label = NodePath("PanelContainer/MarginContainer/VBoxContainer/GameInfoContainer/GameDateContainer/GameDateLabel")
+_game_id_label = NodePath("PanelContainer/MarginContainer/VBoxContainer/GameInfoContainer/GameIdContainer/GameIdLabel")
+metadata/_custom_type_script = "uid://bkbrngd3wufc8"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"QuestionTitlePanelContainer"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="GameTitle" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GameTitle"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="_GameNoLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GameTitle/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Text32"
+text = "Игра #"
+
+[node name="GameCountLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GameTitle/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Text32"
+text = "0"
+
+[node name="GameResultBadge" parent="PanelContainer/MarginContainer/VBoxContainer/GameTitle" instance=ExtResource("2_ufr8p")]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="GameInfoContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GameDateContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GameInfoContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GameInfoContainer/GameDateContainer"]
+layout_mode = 2
+theme_type_variation = &"Text16"
+text = "Дата игры:"
+
+[node name="GameDateLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GameInfoContainer/GameDateContainer"]
+layout_mode = 2
+theme_type_variation = &"Text16"
+text = "22.02.2025"
+
+[node name="GameIdContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GameInfoContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GameInfoContainer/GameIdContainer"]
+layout_mode = 2
+theme_type_variation = &"Text16"
+text = "ID:"
+
+[node name="GameIdLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GameInfoContainer/GameIdContainer"]
+layout_mode = 2
+theme_type_variation = &"Text16"
+text = "aadfad-adfasdf-adsfasdf-adsf"
+
+[node name="ButtonsContainer" type="HFlowContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+reverse_fill = true
+
+[node name="AboutButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+theme_type_variation = &"BigButton"
+text = "Подробнее"

@@ -17,5 +17,6 @@ kind_icon = ExtResource("2_i6qch")
 ability_icons = Array[Texture2D]([])
 name = "Медведь"
 description = ""
+common_damage = 50
 packed_sprite = ExtResource("3_xetf6")
 metadata/_custom_type_script = "uid://b44s0gfuh4mpk"

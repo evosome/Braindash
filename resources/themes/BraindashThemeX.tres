@@ -49,11 +49,7 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2cml"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+bg_color = Color(1, 0.890196, 0.611765, 1)
 border_color = Color(0.937255, 0.572549, 0.67451, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -61,7 +57,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4prr1"]
-bg_color = Color(0.937255, 0.572549, 0.67451, 1)
+bg_color = Color(0.517647, 0.831373, 0.917647, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -111,6 +107,7 @@ QuestionLayout__AnswerButton/styles/normal = SubResource("StyleBoxFlat_fdgn6")
 QuestionTimerProgressBar/base_type = &"ProgressBar"
 QuestionTimerProgressBar/styles/background = SubResource("StyleBoxFlat_j2cml")
 QuestionTimerProgressBar/styles/fill = SubResource("StyleBoxFlat_4prr1")
+QuestionTitlePanelContainer/base_type = &"PanelContainer"
 QuestionTitlePanelContainer/styles/panel = SubResource("StyleBoxFlat_5n8qd")
 SelectionCardPanelContainer/base_type = &"PanelContainer"
 SelectionCardPanelContainer/styles/panel = SubResource("StyleBoxFlat_0lf65")

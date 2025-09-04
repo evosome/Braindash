@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpduh4bvas074"]
+
+[ext_resource type="Script" uid="uid://dq1q2i1cg43li" path="res://src/ui/character/CharacterStats.gd" id="1_j8onm"]
+[ext_resource type="Texture2D" uid="uid://dywktwd5cxnxk" path="res://assets/textures/entities/characters/bear/bear_portrait.png" id="2_hbx5n"]
+[ext_resource type="Texture2D" uid="uid://uxutntbuyan8" path="res://assets/textures/ui/hp_bar_background.png" id="3_rskra"]
+[ext_resource type="Texture2D" uid="uid://syk3bolbyojj" path="res://assets/textures/ui/hp_bar_foreground.png" id="4_0to2n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g18ea"]
+bg_color = Color(1, 0.866667, 0.866667, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.517647, 0.831373, 0.917647, 1)
+corner_radius_top_left = 96
+corner_radius_top_right = 96
+corner_radius_bottom_right = 96
+corner_radius_bottom_left = 96
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8nuyf"]
+texture = ExtResource("3_rskra")
+texture_margin_right = 64.0
+region_rect = Rect2(46, 0, 668, 54)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ljmb"]
+texture = ExtResource("4_0to2n")
+texture_margin_right = 64.0
+region_rect = Rect2(40, 0, 566, 46)
+
+[node name="CharacterStats" type="Control" node_paths=PackedStringArray("_icon_texture_rect", "_health_progress_bar")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_j8onm")
+_icon_texture_rect = NodePath("HBoxContainer/Control/TextureRect")
+_health_progress_bar = NodePath("HBoxContainer/VBoxContainer/ProgressBar")
+metadata/_custom_type_script = "uid://dq1q2i1cg43li"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_constants/separation = -64
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g18ea")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Control"]
+z_index = 1
+custom_minimum_size = Vector2(185, 185)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hbx5n")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxTexture_8nuyf")
+theme_override_styles/fill = SubResource("StyleBoxTexture_2ljmb")
+value = 24.54
+show_percentage = false

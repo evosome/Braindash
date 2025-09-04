@@ -5,6 +5,7 @@ class_name CharacterType extends Resource
 @export var ability_icons: Array[Texture2D]
 @export var name: String
 @export var description: String
+@export var common_damage: int
 @export var packed_sprite: PackedScene
 
 

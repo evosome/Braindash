@@ -38,6 +38,7 @@ func perform(arena: Arena, attacker: PlayerCharacter, attackable: PlayerCharacte
 		await rift.come_from_ground()
 
 	await attackable.async_play_animation(CharacterSprite.Animations.HURT)
+	attackable.damage(attacker.get_damage())
 
 	attackable.async_play_animation(CharacterSprite.Animations.IDLE)
 	attacker.async_play_animation(CharacterSprite.Animations.IDLE)

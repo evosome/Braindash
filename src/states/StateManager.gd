@@ -1,5 +1,7 @@
 class_name StateManager
 
+signal ended
+
 var _state_map: Dictionary[String, State] = {}
 var _current_state: State
 var _context: Variant
@@ -35,5 +37,10 @@ func transition_to(id: Variant) -> void:
     _current_state = new_state
     await _current_state.on_enter(_context)
 @warning_ignore_restore("redundant_await")
+
+
+func end() -> void:
+    _current_state = null
+    ended.emit()
 
 #endregion

@@ -1,4 +1,4 @@
-class_name GameResultInfo extends Control
+class_name GameResultInfo extends AbstractPopup
 
 enum ResultFlagTextures {
 	WIN,
@@ -8,10 +8,19 @@ enum ResultFlagTextures {
 
 const PRELOADED_SCENE = preload("GameResultInfo.tscn")
 
+@export var _ok_button: Button
 @export var _result_flag: GameResultBadge
 @export var _total_question_amount_label: Label
 @export var _incorrect_answers_amount_label: Label
 @export var _total_question_amount_label_of_incorrect: Label
+
+
+#region builtin
+
+func _ready() -> void:
+	_ok_button.pressed.connect(_on_ok_button_pressed)
+
+#endregion
 
 
 #region public
@@ -34,7 +43,7 @@ func set_result_flag_texture(value: GameResultBadge.PopupBadges) -> void:
 
 #region static
 
-static func make_from_result(result: SingleplayerGame.Result) -> GameResultInfo:
+static func make_from_result(result: SingleplayerGameResult) -> GameResultInfo:
 	var instantiated_game_result = PRELOADED_SCENE.instantiate()
 	
 	instantiated_game_result.set_total_question_amount(result.get_total_question_amount())
@@ -54,5 +63,13 @@ static func result_flag_to_texture(result_flag: SingleplayerGame.ResultFlag) -> 
 	elif result_flag == SingleplayerGame.ResultFlag.LOSE:
 		texture = GameResultBadge.PopupBadges.LOSE
 	return texture
+
+#endregion
+
+
+#region event handlers
+
+func _on_ok_button_pressed() -> void:
+	close()
 
 #endregion

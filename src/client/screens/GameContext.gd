@@ -11,11 +11,11 @@ var _screen_manager: ScreenManager
 var _enemy_character_type: CharacterType
 var _my_character_type: CharacterType
 var _available_characters: Array[CharacterType]
-var _popup_manager: PopupManager
+var _popup_manager: AbstractPopupManager
 
 #NOTE - new order named fields
 var user_data: UserData
-var last_game_result: SingleplayerGame.Result
+var last_game_result: SingleplayerGameResult
 var is_game_over: bool = false
 
 
@@ -108,7 +108,7 @@ func get_available_characters() -> Array[CharacterType]:
 	return _available_characters
 
 
-func get_popup_manager() -> PopupManager:
+func get_popup_manager() -> AbstractPopupManager:
 	return _popup_manager
 
 #endregion

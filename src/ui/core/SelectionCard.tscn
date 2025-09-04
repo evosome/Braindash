@@ -106,8 +106,11 @@ alignment = 1
 
 [node name="TitleLabel" type="Label" parent="MarginContainer/BasePanelContainer/VBoxContainer/MarginContainer/AllContentContainer/VBoxContainer/HeaderContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"SelectionCardTitle"
-text = "TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Divider" parent="MarginContainer/BasePanelContainer/VBoxContainer/MarginContainer/AllContentContainer/VBoxContainer" instance=ExtResource("4_0ia5h")]
 layout_mode = 2

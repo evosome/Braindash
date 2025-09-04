@@ -1,35 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://d12tiu6s4yaj4"]
+[gd_scene load_steps=6 format=3 uid="uid://d12tiu6s4yaj4"]
 
 [ext_resource type="Script" uid="uid://cv5vc583rvtkh" path="res://src/client/singleplayer/SingleplayerGameScreen.gd" id="1_66m0q"]
 [ext_resource type="PackedScene" uid="uid://dkrsrcgjfjdo2" path="res://src/ui/question/QuestionLayer.tscn" id="2_7ljsi"]
-[ext_resource type="PackedScene" uid="uid://cpduh4bvas074" path="res://src/ui/character/CharacterStats.tscn" id="2_fwtly"]
+[ext_resource type="PackedScene" uid="uid://cpduh4bvas074" path="res://src/ui/character/CharacterStatsLeftSided.tscn" id="2_fwtly"]
 [ext_resource type="PackedScene" uid="uid://xfvdscqswb20" path="res://src/ui/round/RoundPopup.tscn" id="3_72d34"]
-[ext_resource type="Script" uid="uid://dq1q2i1cg43li" path="res://src/ui/character/CharacterStats.gd" id="3_l22rk"]
-[ext_resource type="Texture2D" uid="uid://dywktwd5cxnxk" path="res://assets/textures/entities/characters/bear/bear_portrait.png" id="4_g1xjg"]
-[ext_resource type="Texture2D" uid="uid://uxutntbuyan8" path="res://assets/textures/ui/hp_bar_background.png" id="5_eqi15"]
-[ext_resource type="Texture2D" uid="uid://syk3bolbyojj" path="res://assets/textures/ui/hp_bar_foreground.png" id="6_qhlm4"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g18ea"]
-bg_color = Color(1, 0.866667, 0.866667, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.517647, 0.831373, 0.917647, 1)
-corner_radius_top_left = 96
-corner_radius_top_right = 96
-corner_radius_bottom_right = 96
-corner_radius_bottom_left = 96
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8nuyf"]
-texture = ExtResource("5_eqi15")
-texture_margin_right = 64.0
-region_rect = Rect2(46, 0, 668, 54)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ljmb"]
-texture = ExtResource("6_qhlm4")
-texture_margin_right = 64.0
-region_rect = Rect2(40, 0, 566, 46)
+[ext_resource type="PackedScene" uid="uid://dqujijauywedl" path="res://src/ui/character/CharacterStatsRightSided.tscn" id="3_otpg6"]
 
 [node name="SingleplayerGameScreen" type="Control"]
 layout_mode = 3
@@ -81,77 +56,17 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 16
 
 [node name="CurrentPlayerStats" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_fwtly")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="EnemyPlayerStats" type="Control" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("_icon_texture_rect", "_health_progress_bar")]
+[node name="EnemyPlayerStats" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_otpg6")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 128)
-layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("3_l22rk")
-_icon_texture_rect = NodePath("HBoxContainer/Control/TextureRect")
-_health_progress_bar = NodePath("HBoxContainer/VBoxContainer/ProgressBar")
-metadata/_custom_type_script = "uid://dq1q2i1cg43li"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer/HBoxContainer/EnemyPlayerStats"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = -64
-
-[node name="Control" type="Control" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer/HBoxContainer/EnemyPlayerStats/HBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="PanelContainer" type="PanelContainer" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer/HBoxContainer/EnemyPlayerStats/HBoxContainer/Control"]
-z_index = 1
-custom_minimum_size = Vector2(128, 128)
-layout_direction = 3
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_g18ea")
-
-[node name="TextureRect" type="TextureRect" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer/HBoxContainer/EnemyPlayerStats/HBoxContainer/Control"]
-z_index = 1
-custom_minimum_size = Vector2(185, 185)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_g1xjg")
-expand_mode = 4
-stretch_mode = 5
-flip_h = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer/HBoxContainer/EnemyPlayerStats/HBoxContainer"]
-layout_direction = 3
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ProgressBar" type="ProgressBar" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer/HBoxContainer/EnemyPlayerStats/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_direction = 3
-layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxTexture_8nuyf")
-theme_override_styles/fill = SubResource("StyleBoxTexture_2ljmb")
-value = 24.54
-show_percentage = false
 
 [node name="QuestionLayer" parent="." instance=ExtResource("2_7ljsi")]
 unique_name_in_owner = true

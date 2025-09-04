@@ -23,6 +23,7 @@ func _ready() -> void:
 	_subscreen_manager.register("topics", TOPIC_SEELCTION_SUBSCREEN)
 	_subscreen_manager.register("main", MAIN_SUBSCREEN)
 	_subscreen_manager.register("characters", CHARACTER_SELECTION_SUBSCREEN)
+	_subscreen_manager.register("game_results", GameResultsSubscreen.PRELOADED_SCENE)
 
 
 func on_enter(ctx: GameContext) -> void:

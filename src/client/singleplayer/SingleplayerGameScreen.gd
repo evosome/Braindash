@@ -89,7 +89,7 @@ class GameStateContext:
 
 	# shared fields between states
 	var round_result: Round.Result
-	var game_result: SingleplayerGame.Result
+	var game_result: SingleplayerGameResult
 
 	## Shorthand for [code]ctx.state_manager.transition_to(...)[/code]
 	func transition_to(state_name: String) -> void:

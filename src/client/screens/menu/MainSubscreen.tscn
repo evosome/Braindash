@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="2_p8ij3"]
 [ext_resource type="Script" uid="uid://blvm6n2nx4mse" path="res://src/client/screens/menu/MainMenuSubscreen.gd" id="2_q4ffi"]
 
-[node name="MainSubscreen" type="Control" node_paths=PackedStringArray("_start_button", "_quit_button")]
+[node name="MainSubscreen" type="Control" node_paths=PackedStringArray("_start_button", "_quit_button", "_game_results_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("2_q4ffi")
 _start_button = NodePath("AspectRatioContainer/VBoxContainer/VBoxContainer/StartButton")
 _quit_button = NodePath("AspectRatioContainer/VBoxContainer/VBoxContainer/QuitButton")
+_game_results_button = NodePath("AspectRatioContainer/VBoxContainer/VBoxContainer/GameResultsButton")
 metadata/_custom_type_script = "uid://blvm6n2nx4mse"
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
@@ -52,10 +53,10 @@ theme_type_variation = &"BigButton"
 text = "Старт
 "
 
-[node name="SettingsButton" type="Button" parent="AspectRatioContainer/VBoxContainer/VBoxContainer"]
+[node name="GameResultsButton" type="Button" parent="AspectRatioContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"BigButton"
-text = "Настройки
+text = "Результаты игр
 "
 
 [node name="AboutGameButton" type="Button" parent="AspectRatioContainer/VBoxContainer/VBoxContainer"]

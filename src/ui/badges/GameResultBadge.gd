@@ -41,4 +41,13 @@ static func make_with_texture(badge_texture: PopupBadges) -> GameResultBadge:
 	instantiated_result_badge.set_badge(badge_texture)
 	return instantiated_result_badge
 
+
+static func game_result_to_badge(game_result: SingleplayerGame.ResultFlag) -> PopupBadges:
+	var badge = PopupBadges.DRAW
+	if game_result == SingleplayerGame.ResultFlag.WIN:
+		badge = PopupBadges.WIN
+	elif game_result == SingleplayerGame.ResultFlag.LOSE:
+		badge = PopupBadges.LOSE
+	return badge
+
 #endregion

@@ -1,0 +1,168 @@
+[gd_resource type="Resource" script_class="QuestionList" load_steps=23 format=3 uid="uid://b6bspnwmpd5pu"]
+
+[ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="1_t8f85"]
+[ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="2_q1ouv"]
+
+[sub_resource type="Resource" id="Resource_q1ouv"]
+script = ExtResource("1_t8f85")
+title = "Какое из уравнений является квадратным?"
+description = ""
+variants = Array[String](["1. 2x+16=0", "2. 10x-12y=0", "3. 5x-x²=0", "4. 13x=26"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_kji1g"]
+script = ExtResource("1_t8f85")
+title = "Пример полного квадратного уравнения"
+description = ""
+variants = Array[String](["1. x²+2x-7=0", "2. x+7=10", "3. x²+5x=0", "4. x+13-7x=25"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_esq6e"]
+script = ExtResource("1_t8f85")
+title = "Формула дискриминанта"
+description = ""
+variants = Array[String](["1. D=b²+4ac", "2. D=b+4ac", "3. D=b-4ac", "4. D=b²-4ac"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_0wdwu"]
+script = ExtResource("1_t8f85")
+title = "Если дискриминант отрицательный, то"
+description = ""
+variants = Array[String](["1. 2 корня", "2. 1 корень", "3. Нет решения", "4. Такого не может быть"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_1mscj"]
+script = ExtResource("1_t8f85")
+title = "Если дискриминант положительный, то"
+description = ""
+variants = Array[String](["1. 2 корня", "2. 1 корень", "3. Нет решения", "4. Такого не может быть"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_48xip"]
+script = ExtResource("1_t8f85")
+title = "Если дискриминант равен 0, то"
+description = ""
+variants = Array[String](["1. 2 корня", "2. 1 корень", "3. Нет решения", "4. Такого не может быть"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_ik850"]
+script = ExtResource("1_t8f85")
+title = "Формула корней уравнения"
+description = ""
+variants = Array[String](["1. x=(b±√D)/2", "2. x= 2/(b±√D)", "3. x= 2/(-b±√D)", "4. х=(-b±√D)/2"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_7xabi"]
+script = ExtResource("1_t8f85")
+title = "Чему равен коэффициент b по теореме Виета?"
+description = ""
+variants = Array[String](["1. -(x1-x2)", "2. -(x2-x1)", "3. -(x1+x2)", "4. x1+x2"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_yny4f"]
+script = ExtResource("1_t8f85")
+title = "Чему равен коэффициент с по теореме Виета?"
+description = ""
+variants = Array[String](["1. x1*x2", "2. x1+x2", "3. x1-x2", "4. x2-x1"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_ucsft"]
+script = ExtResource("1_t8f85")
+title = "Чему равен коэффициент b по теореме Виета?"
+description = ""
+variants = Array[String](["1. Произведению корней с противоположным знаком", "2. Произведению корней с таким же знаком", "3. Сумме корней с противоположным знаком", "4. Сумме корней с таким же знаком"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_euov6"]
+script = ExtResource("1_t8f85")
+title = "Чему равен коэффициент с по теореме Виета?"
+description = ""
+variants = Array[String](["1. Произведению корней с противоположным знаком", "2. Произведению корней с таким же знаком", "3. Сумме корней с противоположным знаком", "4. Сумме корней с таким же знаком"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_n47vw"]
+script = ExtResource("1_t8f85")
+title = "x1+x2=5, x1*x2=6, какое это уравнение?"
+description = ""
+variants = Array[String](["1. x²-5x+6=0", "2. x²+5x-6=0", "3. x²-6x+5=0", "4. x²+6x-5=0"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_6kq2n"]
+script = ExtResource("1_t8f85")
+title = "Сколько корней имеет уравнение x²+4x+4=0, если D=0?"
+description = ""
+variants = Array[String](["1. 0", "2. 1", "3. 2", "4. 3"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_xf7d1"]
+script = ExtResource("1_t8f85")
+title = "x²-7x+10=0, чему равно x1+x2?"
+description = ""
+variants = Array[String](["1. -7", "2. 7", "3. 10", "4. -10"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_lg7ra"]
+script = ExtResource("1_t8f85")
+title = "Чему равно произведение корней уравнения x²-9x+20=0?"
+description = ""
+variants = Array[String](["1. 9", "2. -9", "3. 20", "4. -20"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_bxed2"]
+script = ExtResource("1_t8f85")
+title = "Если D=16, то сколько корней имеет уравнение?"
+description = ""
+variants = Array[String](["1. 0", "2. 1", "3. 2", "4. 3"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_xuifd"]
+script = ExtResource("1_t8f85")
+title = "Если D=-3, то сколько корней имеет уравнение?"
+description = ""
+variants = Array[String](["1. 0", "2. 1", "3. 2", "4. 3"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_khb0p"]
+script = ExtResource("1_t8f85")
+title = "Чему равна сумма корней уравнения x²-10х+21=0?"
+description = ""
+variants = Array[String](["1. -10", "2. 10", "3. 21", "4. -21"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_sph70"]
+script = ExtResource("1_t8f85")
+title = "Чему равно произведение корней уравнения х²+8х+15=0?"
+description = ""
+variants = Array[String](["1. 8", "2. -8", "3. 15", "4. -15"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_xtjtf"]
+script = ExtResource("1_t8f85")
+title = "Чему равен дискриминант уравнения 3х²-6х+3=0?"
+description = ""
+variants = Array[String](["1. 0", "2. 6", "3. 36", "4. -6"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[resource]
+script = ExtResource("2_q1ouv")
+questions = Array[ExtResource("1_t8f85")]([SubResource("Resource_q1ouv"), SubResource("Resource_kji1g"), SubResource("Resource_esq6e"), SubResource("Resource_0wdwu"), SubResource("Resource_1mscj"), SubResource("Resource_48xip"), SubResource("Resource_ik850"), SubResource("Resource_7xabi"), SubResource("Resource_yny4f"), SubResource("Resource_ucsft"), SubResource("Resource_euov6"), SubResource("Resource_n47vw"), SubResource("Resource_6kq2n"), SubResource("Resource_xf7d1"), SubResource("Resource_lg7ra"), SubResource("Resource_bxed2"), SubResource("Resource_xuifd"), SubResource("Resource_khb0p"), SubResource("Resource_sph70"), SubResource("Resource_xtjtf")])

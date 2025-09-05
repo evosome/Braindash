@@ -30,7 +30,7 @@ func get_current_grade() -> Grade:
 	return _current_grade
 
 
-func set_current_round_info(round_info: RoundInfo) -> void:
+func set_current_round_info(round_info: GameInfo) -> void:
 	_game_context.set_current_round_info(round_info)
 
 

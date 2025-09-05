@@ -10,7 +10,7 @@ const PRELOADED_SCENE = preload("res://src/client/singleplayer/SingleplayerGame.
 
 var _is_over: bool = false
 var _last_result: SingleplayerGameResult
-var _game_info: RoundInfo
+var _game_info: GameInfo
 var _arena: Arena
 var _questionare: Questionare
 var _local_player: PlayerInfo
@@ -139,7 +139,7 @@ func _on_characters_died(death_info: Arena.CharacterDeathInfo) -> void:
 
 #region static
 
-static func make(game_info: RoundInfo, local_player: PlayerInfo, enemy_player: PlayerInfo) -> SingleplayerGame:
+static func make(game_info: GameInfo, local_player: PlayerInfo, enemy_player: PlayerInfo) -> SingleplayerGame:
 	var singleplayer_game = PRELOADED_SCENE.instantiate()
 	singleplayer_game._game_info = game_info
 	singleplayer_game._local_player = local_player

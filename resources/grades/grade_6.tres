@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Grade" load_steps=4 format=3 uid="uid://dffdoemmns1vg"]
+
+[ext_resource type="Script" uid="uid://of8ygp14u0yt" path="res://src/questionare/Grade.gd" id="1_gul2u"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="2_622iy"]
+[ext_resource type="Resource" uid="uid://bgap0aid2jbxc" path="res://resources/topics/grade_6/Проценты.tres" id="3_ii7wh"]
+
+[resource]
+script = ExtResource("1_gul2u")
+name = "Класс 6"
+topics = Array[ExtResource("2_622iy")]([ExtResource("3_ii7wh")])
+accent_color = Color(0, 0, 0, 1)

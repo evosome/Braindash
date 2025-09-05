@@ -1,173 +1,19 @@
-[gd_scene load_steps=33 format=3 uid="uid://o1rdgd0key61"]
+[gd_scene load_steps=13 format=3 uid="uid://o1rdgd0key61"]
 
 [ext_resource type="Script" uid="uid://dqiq3ylg6rxgd" path="res://src/Main.gd" id="1_4gxt3"]
 [ext_resource type="Script" uid="uid://of8ygp14u0yt" path="res://src/questionare/Grade.gd" id="2_5qjmp"]
-[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="3_vjwby"]
-[ext_resource type="Texture2D" uid="uid://dbormhlve1p6" path="res://assets/textures/ui/logo.png" id="4_8ec3e"]
+[ext_resource type="Resource" uid="uid://cbxyrxbsqhbhn" path="res://resources/grades/grade_5.tres" id="3_k2i6c"]
+[ext_resource type="Resource" uid="uid://dffdoemmns1vg" path="res://resources/grades/grade_6.tres" id="4_0ri8u"]
 [ext_resource type="Resource" uid="uid://dssfhokhd1nrl" path="res://resources/characters/rabbit2.tres" id="5_fh42b"]
-[ext_resource type="Resource" uid="uid://ntjngd8ipd8l" path="res://resources/rounds/6klass.tres" id="5_vjwby"]
+[ext_resource type="Resource" uid="uid://cdk8ycmml5j21" path="res://resources/grades/grade_7.tres" id="5_y60b8"]
 [ext_resource type="Script" uid="uid://m5axqnbe46t3" path="res://src/entities/characters/CharacterType.gd" id="6_8ec3e"]
-[ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="7_0ri8u"]
-[ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="8_x08y8"]
-[ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/RoundInfo.gd" id="8_y60b8"]
-[ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="9_cj10r"]
-[ext_resource type="Texture2D" uid="uid://bsehpxjq6adus" path="res://assets/textures/ui/rtgfl78y.png" id="10_0ri8u"]
+[ext_resource type="Resource" uid="uid://s00wxl1lja" path="res://resources/grades/grade_8.tres" id="6_x08y8"]
+[ext_resource type="Resource" uid="uid://cb6s0unrd722s" path="res://resources/grades/grade_9.tres" id="7_cj10r"]
+[ext_resource type="Resource" uid="uid://dlqrno0pvl4j6" path="res://resources/grades/grade_10.tres" id="8_e7jk0"]
+[ext_resource type="Resource" uid="uid://bmyxeg8xs1upl" path="res://resources/grades/grade_11.tres" id="9_r7o8t"]
 [ext_resource type="Resource" uid="uid://gjkvbpcuxtmo" path="res://resources/characters/bear2.tres" id="12_k2i6c"]
-
-[sub_resource type="Resource" id="Resource_38a0m"]
-script = ExtResource("3_vjwby")
-name = "Биология"
-cover_image = ExtResource("4_8ec3e")
-round_info = ExtResource("5_vjwby")
-author_name = ""
-enemy_character_type = ExtResource("5_fh42b")
-metadata/_custom_type_script = "uid://btm8gwa2binwt"
-
-[sub_resource type="Resource" id="Resource_e7jk0"]
-script = ExtResource("8_x08y8")
-title = "Как называется предмет, изображенный на рисунке?"
-description = ""
-image = ExtResource("10_0ri8u")
-variants = Array[String](["Пюпитер", "Мальберт", "Кафедра", "Планшетник"])
-correct_index = 0
-timeout_seconds = 15.0
-metadata/_custom_type_script = "uid://gkiynunvfb7y"
-
-[sub_resource type="Resource" id="Resource_r7o8t"]
-script = ExtResource("8_x08y8")
-title = "Кто такой бойкиссер?"
-description = ""
-variants = Array[String](["тупой гей кот", "ВВП", "хихиха", "1"])
-correct_index = 0
-timeout_seconds = 30.0
-metadata/_custom_type_script = "uid://gkiynunvfb7y"
-
-[sub_resource type="Resource" id="Resource_7lugs"]
-script = ExtResource("8_x08y8")
-title = "Сколько?"
-description = ""
-variants = Array[String](["1", "2", "3", "4"])
-correct_index = 2
-timeout_seconds = 30.0
-metadata/_custom_type_script = "uid://gkiynunvfb7y"
-
-[sub_resource type="Resource" id="Resource_nsfgg"]
-script = ExtResource("9_cj10r")
-questions = Array[ExtResource("8_x08y8")]([SubResource("Resource_e7jk0"), SubResource("Resource_r7o8t"), SubResource("Resource_7lugs")])
-metadata/_custom_type_script = "uid://dbxtuj550kfe3"
-
-[sub_resource type="Resource" id="Resource_x08y8"]
-script = ExtResource("8_y60b8")
-packed_arena = ExtResource("7_0ri8u")
-question_list = SubResource("Resource_nsfgg")
-metadata/_custom_type_script = "uid://besub6tgkqobr"
-
-[sub_resource type="Resource" id="Resource_cj10r"]
-script = ExtResource("3_vjwby")
-name = "Музыка"
-cover_image = ExtResource("4_8ec3e")
-round_info = SubResource("Resource_x08y8")
-author_name = ""
-enemy_character_type = ExtResource("12_k2i6c")
-metadata/_custom_type_script = "uid://btm8gwa2binwt"
-
-[sub_resource type="Resource" id="Resource_fh42b"]
-script = ExtResource("2_5qjmp")
-name = "7 Класс"
-topics = Array[ExtResource("3_vjwby")]([SubResource("Resource_38a0m"), SubResource("Resource_cj10r")])
-accent_color = Color(0, 0, 0, 1)
-metadata/_custom_type_script = "uid://of8ygp14u0yt"
-
-[sub_resource type="Resource" id="Resource_ax4xf"]
-script = ExtResource("8_x08y8")
-title = "Что показывает знаменатель дроби?"
-description = ""
-variants = Array[String](["Сколько частей всего", "Сколько частей взяли", "Целое число", "Сумму частей"])
-correct_index = 0
-timeout_seconds = 30.0
-metadata/_custom_type_script = "uid://gkiynunvfb7y"
-
-[sub_resource type="Resource" id="Resource_7uhnt"]
-script = ExtResource("8_x08y8")
-title = "Что показывает числитель дроби?"
-description = ""
-variants = Array[String](["Сколько частей всего", "Целое число", "Сколько частей взяли", "Разность частей"])
-correct_index = 2
-timeout_seconds = 30.0
-metadata/_custom_type_script = "uid://gkiynunvfb7y"
-
-[sub_resource type="Resource" id="Resource_5wapb"]
-script = ExtResource("8_x08y8")
-title = "Как записать \"три пятых\"?"
-description = ""
-variants = Array[String](["5/3", "3/5", "3.5", "0.35"])
-correct_index = 1
-timeout_seconds = 30.0
-metadata/_custom_type_script = "uid://gkiynunvfb7y"
-
-[sub_resource type="Resource" id="Resource_ifm7t"]
-script = ExtResource("8_x08y8")
-title = "Как записать тринадцать пятнадцатых?"
-description = ""
-variants = Array[String](["28", "13.15", "15/13", "13/15"])
-correct_index = 3
-timeout_seconds = 30.0
-metadata/_custom_type_script = "uid://gkiynunvfb7y"
-
-[sub_resource type="Resource" id="Resource_1t6sf"]
-script = ExtResource("8_x08y8")
-title = "Какая дробь больше: 1/3 или 1/2?"
-description = ""
-variants = Array[String](["1/3", "1/2", "Они равны", "Нельзя сравнить"])
-correct_index = 1
-timeout_seconds = 30.0
-metadata/_custom_type_script = "uid://gkiynunvfb7y"
-
-[sub_resource type="Resource" id="Resource_mnlev"]
-script = ExtResource("8_x08y8")
-title = "Какая дробь больше 5/11 или 6/11"
-description = ""
-variants = Array[String](["6/11", "5/11", "Они равны", "Нельзя сравнить"])
-correct_index = 0
-timeout_seconds = 30.0
-metadata/_custom_type_script = "uid://gkiynunvfb7y"
-
-[sub_resource type="Resource" id="Resource_j3mw8"]
-script = ExtResource("8_x08y8")
-title = "Как называется дробь 7/4"
-description = ""
-variants = Array[String](["Десятичная", "Смешанная", "Правильная", "Неправильная"])
-correct_index = 3
-timeout_seconds = 30.0
-metadata/_custom_type_script = "uid://gkiynunvfb7y"
-
-[sub_resource type="Resource" id="Resource_1l6vr"]
-script = ExtResource("9_cj10r")
-questions = Array[ExtResource("8_x08y8")]([SubResource("Resource_ax4xf"), SubResource("Resource_7uhnt"), SubResource("Resource_5wapb"), SubResource("Resource_ifm7t"), SubResource("Resource_1t6sf"), SubResource("Resource_mnlev"), SubResource("Resource_j3mw8")])
-metadata/_custom_type_script = "uid://dbxtuj550kfe3"
-
-[sub_resource type="Resource" id="Resource_lso8w"]
-script = ExtResource("8_y60b8")
-packed_arena = ExtResource("7_0ri8u")
-question_list = SubResource("Resource_1l6vr")
-metadata/_custom_type_script = "uid://besub6tgkqobr"
-
-[sub_resource type="Resource" id="Resource_y60b8"]
-script = ExtResource("3_vjwby")
-name = "Сравнение дробей"
-round_info = SubResource("Resource_lso8w")
-author_name = "Любовь Александровна"
-enemy_character_type = ExtResource("12_k2i6c")
-metadata/_custom_type_script = "uid://btm8gwa2binwt"
-
-[sub_resource type="Resource" id="Resource_0ri8u"]
-script = ExtResource("2_5qjmp")
-name = "5 Класс"
-topics = Array[ExtResource("3_vjwby")]([SubResource("Resource_y60b8")])
-accent_color = Color(0.450825, 0.625868, 1, 1)
-metadata/_custom_type_script = "uid://of8ygp14u0yt"
 
 [node name="Main" type="Node"]
 script = ExtResource("1_4gxt3")
-_grades = Array[ExtResource("2_5qjmp")]([SubResource("Resource_fh42b"), SubResource("Resource_0ri8u")])
+_grades = Array[ExtResource("2_5qjmp")]([ExtResource("3_k2i6c"), ExtResource("4_0ri8u"), ExtResource("5_y60b8"), ExtResource("6_x08y8"), ExtResource("7_cj10r"), ExtResource("8_e7jk0"), ExtResource("9_r7o8t")])
 _characters = Array[ExtResource("6_8ec3e")]([ExtResource("12_k2i6c"), ExtResource("5_fh42b")])

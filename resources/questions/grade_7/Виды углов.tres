@@ -1,0 +1,208 @@
+[gd_resource type="Resource" script_class="QuestionList" load_steps=40 format=3 uid="uid://yxkxil2iel4x"]
+
+[ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="2_ejo1l"]
+[ext_resource type="Texture2D" uid="uid://c1jcyxte63idy" path="res://assets/textures/questions/grade_7/02b30433-32f5-4ea8-b019-8fc2e91425ec.png" id="2_u3703"]
+[ext_resource type="Texture2D" uid="uid://506yn2r8rhu2" path="res://assets/textures/questions/grade_7/e3e7a11a-34d3-4435-8d74-e7133afa672f.png" id="3_dudxp"]
+[ext_resource type="Texture2D" uid="uid://dymwamyx35312" path="res://assets/textures/questions/grade_7/43c744a5-3ca6-484d-8f59-ecad9e45545c.png" id="4_35j7p"]
+[ext_resource type="Texture2D" uid="uid://xrvvfj8lk6es" path="res://assets/textures/questions/grade_7/829769af-4d37-41f4-b6b4-14e3aab32820.png" id="5_h7afx"]
+[ext_resource type="Texture2D" uid="uid://cpjqr6q2soc43" path="res://assets/textures/questions/grade_7/af635248-53d6-420a-b09c-e7f0b4e3faf2.png" id="6_p5u4s"]
+[ext_resource type="Texture2D" uid="uid://7midfuo80xa1" path="res://assets/textures/questions/grade_7/89e708c0-cdb7-4cdd-b12d-1c9e35572fda.png" id="7_g7j8l"]
+[ext_resource type="Texture2D" uid="uid://bbuwynsujlfqh" path="res://assets/textures/questions/grade_7/50fdc766-4567-49e4-a55e-63aa1713a61e.png" id="8_o2yoy"]
+[ext_resource type="Texture2D" uid="uid://dludlr7xornxa" path="res://assets/textures/questions/grade_7/f5469d7d-bc14-45e2-9d09-f62f7d3c27a3.png" id="9_y2ry7"]
+[ext_resource type="Texture2D" uid="uid://b3232cc1sli1" path="res://assets/textures/questions/grade_7/ef747bcd-0ec8-486b-8e3b-d40e0199e186.png" id="10_sdij7"]
+[ext_resource type="Texture2D" uid="uid://cwt3qiv3do5nd" path="res://assets/textures/questions/grade_7/fadf0d98-21bc-4404-b170-9bb0b1b28a06.png" id="11_b4ew3"]
+[ext_resource type="Texture2D" uid="uid://bwprjcosau5ic" path="res://assets/textures/questions/grade_7/3a8a3d9f-e875-439f-acb4-dd946f24536c.png" id="12_2pqqq"]
+[ext_resource type="Texture2D" uid="uid://c8hcnqiudehq8" path="res://assets/textures/questions/grade_7/05166bbf-ab04-428d-b97a-0db1fb62cb41.png" id="13_f3rff"]
+[ext_resource type="Texture2D" uid="uid://dpllwdrc58f3c" path="res://assets/textures/questions/grade_7/5cb7cee5-7816-4ee1-bee1-e255c981cc18.png" id="14_lo4ap"]
+[ext_resource type="Texture2D" uid="uid://lei0b6p8l7ym" path="res://assets/textures/questions/grade_7/6fee1166-ebdc-4f26-828f-595d81296192.png" id="15_sp2nq"]
+[ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="19_wi2mt"]
+
+[sub_resource type="Resource" id="Resource_u3703"]
+script = ExtResource("2_ejo1l")
+title = "Какой это угол?"
+description = ""
+image = ExtResource("2_u3703")
+variants = Array[String](["1. Тупой", "2. Острый", "3. Прямой", "4. Развернутый"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_dudxp"]
+script = ExtResource("2_ejo1l")
+title = "Какой это угол?"
+description = ""
+image = ExtResource("3_dudxp")
+variants = Array[String](["1. Тупой", "2. Острый", "3. Прямой", "4. Развернутый"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_35j7p"]
+script = ExtResource("2_ejo1l")
+title = "Какой это угол?"
+description = ""
+image = ExtResource("4_35j7p")
+variants = Array[String](["1. Тупой", "2. Острый", "3. Прямой", "4. Развернутый"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_h7afx"]
+script = ExtResource("2_ejo1l")
+title = "Какой это угол?"
+description = ""
+image = ExtResource("5_h7afx")
+variants = Array[String](["1. Тупой", "2. Острый", "3. Прямой", "4. Развернутый"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_p5u4s"]
+script = ExtResource("2_ejo1l")
+title = "Какой это вид углов?"
+description = ""
+image = ExtResource("6_p5u4s")
+variants = Array[String](["1. Односторонние", "2. Соответственные", "3. Накрест лежащие", "4. Вертикальные"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_g7j8l"]
+script = ExtResource("2_ejo1l")
+title = "Какой это вид углов?"
+description = ""
+image = ExtResource("7_g7j8l")
+variants = Array[String](["1. Односторонние", "2. Соответственные", "3. Накрест лежащие", "4. Вертикальные"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_o2yoy"]
+script = ExtResource("2_ejo1l")
+title = "Какой это вид углов?"
+description = ""
+image = ExtResource("8_o2yoy")
+variants = Array[String](["1. Односторонние", "2. Соответственные", "3. Накрест лежащие", "4. Вертикальные"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_y2ry7"]
+script = ExtResource("2_ejo1l")
+title = "Если накрест лежащие углы равны, то прямые"
+description = ""
+variants = Array[String](["1. Совпадают", "2. Пересекаются", "3. Перпендикулярны", "4. Параллельны"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_sdij7"]
+script = ExtResource("2_ejo1l")
+title = "Какой это вид углов?"
+description = ""
+image = ExtResource("9_y2ry7")
+variants = Array[String](["1. Вертикальные", "2. Горизонтальные", "3. Смежные", "4. Односторонние"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_b4ew3"]
+script = ExtResource("2_ejo1l")
+title = "Какой это вид углов?"
+description = ""
+image = ExtResource("10_sdij7")
+variants = Array[String](["1. Вертикальные", "2. Горизонтальные", "3. Смежные", "4. Односторонние"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_2pqqq"]
+script = ExtResource("2_ejo1l")
+title = "Какие углы равны при параллельных прямых?"
+description = ""
+variants = Array[String](["1. Смежные", "2. Внешние односторонние", "3. Внутренние односторонние", "4. Накрест лежащие"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_f3rff"]
+script = ExtResource("2_ejo1l")
+title = "Какие углы всегда дают в сумме 180 градусов?"
+description = ""
+variants = Array[String](["1. Соответственные", "2. Смежные", "3. Вертикальные", "4. Накрест лежащие"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_lo4ap"]
+script = ExtResource("2_ejo1l")
+title = "Какой это вид углов?"
+description = ""
+image = ExtResource("11_b4ew3")
+variants = Array[String](["1. Соответственные", "2. Смежные", "3. Накрест лежащие", "4. Односторонние"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_sp2nq"]
+script = ExtResource("2_ejo1l")
+title = "Какой это вид углов?"
+description = ""
+image = ExtResource("12_2pqqq")
+variants = Array[String](["1. Соответственные", "2. Смежные", "3. Накрест лежащие", "4. Односторонние"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_nac8y"]
+script = ExtResource("2_ejo1l")
+title = "Какой это вид углов?"
+description = ""
+image = ExtResource("13_f3rff")
+variants = Array[String](["1. Соответственные", "2. Смежные", "3. Накрест лежащие", "4. Односторонние"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_wcyan"]
+script = ExtResource("2_ejo1l")
+title = "Какие углы отмечены 4 и 7?"
+description = ""
+image = ExtResource("14_lo4ap")
+variants = Array[String](["1. Вертикальные", "2. Смежные", "3. Накрест лежащие", "4. Соответственные"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_wi2mt"]
+script = ExtResource("2_ejo1l")
+title = "Какие углы отмечены 7 и 5?"
+description = ""
+image = ExtResource("15_sp2nq")
+variants = Array[String](["1. Накрест лежащие", "2. Соответственные", "3. Односторонние", "4. Смежные"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_cyr31"]
+metadata/__load_path__ = "res://assets/textures/questions/grade_7/02b30433-32f5-4ea8-b019-8fc2e91425ec.jpg"
+
+[sub_resource type="Resource" id="Resource_gufei"]
+script = ExtResource("2_ejo1l")
+title = "Какой это угол?"
+description = ""
+image = SubResource("Resource_cyr31")
+variants = Array[String](["1. Тупой", "2. Острый", "3. Прямой", "4. Развернутый"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_ejo1l"]
+metadata/__load_path__ = "res://assets/textures/questions/grade_7/e3e7a11a-34d3-4435-8d74-e7133afa672f.jpg"
+
+[sub_resource type="Resource" id="Resource_arlny"]
+script = ExtResource("2_ejo1l")
+title = "Какой это угол?"
+description = ""
+image = SubResource("Resource_ejo1l")
+variants = Array[String](["1. Тупой", "2. Острый", "3. Прямой", "4. Развернутый"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_6d8ew"]
+metadata/__load_path__ = "res://assets/textures/questions/grade_7/43c744a5-3ca6-484d-8f59-ecad9e45545c.jpg"
+
+[sub_resource type="Resource" id="Resource_0mxg0"]
+script = ExtResource("2_ejo1l")
+title = "Какой это угол?"
+description = ""
+image = SubResource("Resource_6d8ew")
+variants = Array[String](["1. Тупой", "2. Острый", "3. Прямой", "4. Развернутый"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[resource]
+script = ExtResource("19_wi2mt")
+questions = Array[ExtResource("2_ejo1l")]([SubResource("Resource_u3703"), SubResource("Resource_dudxp"), SubResource("Resource_35j7p"), SubResource("Resource_h7afx"), SubResource("Resource_p5u4s"), SubResource("Resource_g7j8l"), SubResource("Resource_o2yoy"), SubResource("Resource_y2ry7"), SubResource("Resource_sdij7"), SubResource("Resource_b4ew3"), SubResource("Resource_2pqqq"), SubResource("Resource_f3rff"), SubResource("Resource_lo4ap"), SubResource("Resource_sp2nq"), SubResource("Resource_nac8y"), SubResource("Resource_wcyan"), SubResource("Resource_wi2mt"), SubResource("Resource_gufei"), SubResource("Resource_arlny"), SubResource("Resource_0mxg0")])

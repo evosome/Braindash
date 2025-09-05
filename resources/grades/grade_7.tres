@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Grade" load_steps=6 format=3 uid="uid://cdk8ycmml5j21"]
+
+[ext_resource type="Script" uid="uid://of8ygp14u0yt" path="res://src/questionare/Grade.gd" id="1_h2dof"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="2_rgnhq"]
+[ext_resource type="Resource" uid="uid://m3a4vrgc1i02" path="res://resources/topics/grade_7/Виды углов.tres" id="3_b2od2"]
+[ext_resource type="Resource" uid="uid://nyt3ofayb8po" path="res://resources/topics/grade_7/Квадраты чисел.tres" id="4_evaol"]
+[ext_resource type="Resource" uid="uid://cv4p172r2c8ti" path="res://resources/topics/grade_7/Формулы сокращённого умножения.tres" id="5_w85fo"]
+
+[resource]
+script = ExtResource("1_h2dof")
+name = "Класс 7"
+topics = Array[ExtResource("2_rgnhq")]([ExtResource("3_b2od2"), ExtResource("4_evaol"), ExtResource("5_w85fo")])
+accent_color = Color(0, 0, 0, 1)

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Grade" load_steps=7 format=3 uid="uid://s00wxl1lja"]
+
+[ext_resource type="Script" uid="uid://of8ygp14u0yt" path="res://src/questionare/Grade.gd" id="1_kdqqp"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="2_60vy0"]
+[ext_resource type="Resource" uid="uid://u2hac4in82ea" path="res://resources/topics/grade_8/Корни.tres" id="3_gpf01"]
+[ext_resource type="Resource" uid="uid://w2yuiv3owa8s" path="res://resources/topics/grade_8/Площади фигур.tres" id="4_s0jlv"]
+[ext_resource type="Resource" uid="uid://ca2el0mu6rq3l" path="res://resources/topics/grade_8/Теорема Пифагора.tres" id="5_03iw5"]
+[ext_resource type="Resource" uid="uid://dtwtn6q6500q8" path="res://resources/topics/grade_8/Формулы дискриминанта и теорема Виета.tres" id="6_7ikdk"]
+
+[resource]
+script = ExtResource("1_kdqqp")
+name = "Класс 8"
+topics = Array[ExtResource("2_60vy0")]([ExtResource("3_gpf01"), ExtResource("4_s0jlv"), ExtResource("5_03iw5"), ExtResource("6_7ikdk")])
+accent_color = Color(0, 0, 0, 1)

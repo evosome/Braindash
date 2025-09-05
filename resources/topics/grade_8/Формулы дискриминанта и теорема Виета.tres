@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Topic" load_steps=7 format=3 uid="uid://dtwtn6q6500q8"]
+
+[ext_resource type="Resource" uid="uid://b6bspnwmpd5pu" path="res://resources/questions/grade_8/Формулы дискриминанта и теорема Виета.tres" id="1_3ihpa"]
+[ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_c8lti"]
+[ext_resource type="Resource" uid="uid://gjkvbpcuxtmo" path="res://resources/characters/bear2.tres" id="1_mftiq"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_t7rn7"]
+[ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/GameInfo.gd" id="2_c8lti"]
+
+[sub_resource type="Resource" id="Resource_mftiq"]
+script = ExtResource("2_c8lti")
+packed_arena = ExtResource("1_c8lti")
+question_list = ExtResource("1_3ihpa")
+metadata/_custom_type_script = "uid://besub6tgkqobr"
+
+[resource]
+script = ExtResource("1_t7rn7")
+name = "Формулы дискриминанта и теорема Виета"
+game_info = SubResource("Resource_mftiq")
+author_name = "Любовь Александровна"
+enemy_character_type = ExtResource("1_mftiq")

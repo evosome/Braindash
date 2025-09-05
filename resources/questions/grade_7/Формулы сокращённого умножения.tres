@@ -1,0 +1,168 @@
+[gd_resource type="Resource" script_class="QuestionList" load_steps=23 format=3 uid="uid://cw646h0leasa4"]
+
+[ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="1_1flnr"]
+[ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="2_ute0a"]
+
+[sub_resource type="Resource" id="Resource_ute0a"]
+script = ExtResource("1_1flnr")
+title = "(a+b)²="
+description = ""
+variants = Array[String](["1. (a-b)(a+b)", "2. a²+2ab+b²", "3. a²+2ab-b²", "4. a²-2ab+b²"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_a2n6d"]
+script = ExtResource("1_1flnr")
+title = "(a-b)²="
+description = ""
+variants = Array[String](["1. (a-b)(a+b)", "2. a²+2ab+b²", "3. a²+2ab-b²", "4. a²-2ab+b²"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_f7ncb"]
+script = ExtResource("1_1flnr")
+title = "a²-b²="
+description = ""
+variants = Array[String](["1. (a-b)(a+b)", "2. a²+2ab+b²", "3. a²+2ab-b²", "4. a²-2ab+b²"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_jum7s"]
+script = ExtResource("1_1flnr")
+title = "Квадрат разности - это"
+description = ""
+variants = Array[String](["1. (a+b)²", "2. (a-b)²", "3. a²+b²", "4. a²-b²"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_qu03q"]
+script = ExtResource("1_1flnr")
+title = "Разность квадратов - это"
+description = ""
+variants = Array[String](["1. (a+b)²", "2. (a-b)²", "3. a²+b²", "4. a²-b²"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_ia7he"]
+script = ExtResource("1_1flnr")
+title = "Квадрат суммы - это"
+description = ""
+variants = Array[String](["1. (a+b)²", "2. (a-b)²", "3. a²+b²", "4. a²-b²"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_c4asy"]
+script = ExtResource("1_1flnr")
+title = "(a-b)(a+b)="
+description = ""
+variants = Array[String](["1. (a+b)²", "2. (a-b)²", "3. a²+b²", "4. a²-b²"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_rm1fo"]
+script = ExtResource("1_1flnr")
+title = "a²+2ab+b²="
+description = ""
+variants = Array[String](["1. (a+b)²", "2. (a-b)²", "3. a²+b²", "4. a²-b²"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_rngxl"]
+script = ExtResource("1_1flnr")
+title = "a²-2ab+b²="
+description = ""
+variants = Array[String](["1. (a+b)²", "2. (a-b)²", "3. a²+b²", "4. a²-b²"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_4s42c"]
+script = ExtResource("1_1flnr")
+title = "(x+3)²="
+description = ""
+variants = Array[String](["1. x²+6x+9", "2. x²+3x+9", "3. x²+9", "4. x²+6x+6"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_jssfg"]
+script = ExtResource("1_1flnr")
+title = "a²-16="
+description = ""
+variants = Array[String](["1. (a-4)²", "2. (a+4)(a-4)", "3. (a+8)(a-8)", "4. (a-16)²"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_u4ax5"]
+script = ExtResource("1_1flnr")
+title = "(2y-5)²="
+description = ""
+variants = Array[String](["1. 4y²-25", "2. 4y²-20y+25", "3. 2y²-10y+25", "4. 4y²+25"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_206ca"]
+script = ExtResource("1_1flnr")
+title = "(x+7)(x-7)="
+description = ""
+variants = Array[String](["1. x²+49", "2. x²-49", "3. x²-14", "4. x²-7"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_dssgx"]
+script = ExtResource("1_1flnr")
+title = "(3+m)²="
+description = ""
+variants = Array[String](["1. 9+m²", "2. 3+6m+m²", "3. 9+6m+m²", "4. 9+3m+m²"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_focni"]
+script = ExtResource("1_1flnr")
+title = "9k²-4="
+description = ""
+variants = Array[String](["1. (3k-2)²", "2. (9k-4)(9k+4)", "3. (3k-2)(3k+2)", "4. (3k+2)²"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_hnh8x"]
+script = ExtResource("1_1flnr")
+title = "(5-n)²="
+description = ""
+variants = Array[String](["1. 25-n²", "2. 25-10n+n²", "3. 5-10n+n²", "4. 25+10n+n²"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_gf83y"]
+script = ExtResource("1_1flnr")
+title = "(4a+1)(4a-1)="
+description = ""
+variants = Array[String](["1. 16a²-1", "2. 4a²-1", "3. 16a²+1", "4. 8a²-1"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_vnxtu"]
+script = ExtResource("1_1flnr")
+title = "25-p²="
+description = ""
+variants = Array[String](["1. (5-p)²", "2. (25-p)(25+p)", "3. (5-p)(5+p)", "4. (p-5)(p+5)"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_rtoqv"]
+script = ExtResource("1_1flnr")
+title = "(x+4)²="
+description = ""
+variants = Array[String](["1. x²+8x+16", "2. x²+4x+16", "3. x²+16", "4. x²+8x+8"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_65nfx"]
+script = ExtResource("1_1flnr")
+title = "b²-25="
+description = ""
+variants = Array[String](["1. (b-5)²", "2. (b+5)(b-5)", "3. (b+25)(b-25)", "4. (b-25)²"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[resource]
+script = ExtResource("2_ute0a")
+questions = Array[ExtResource("1_1flnr")]([SubResource("Resource_ute0a"), SubResource("Resource_a2n6d"), SubResource("Resource_f7ncb"), SubResource("Resource_jum7s"), SubResource("Resource_qu03q"), SubResource("Resource_ia7he"), SubResource("Resource_c4asy"), SubResource("Resource_rm1fo"), SubResource("Resource_rngxl"), SubResource("Resource_4s42c"), SubResource("Resource_jssfg"), SubResource("Resource_u4ax5"), SubResource("Resource_206ca"), SubResource("Resource_dssgx"), SubResource("Resource_focni"), SubResource("Resource_hnh8x"), SubResource("Resource_gf83y"), SubResource("Resource_vnxtu"), SubResource("Resource_rtoqv"), SubResource("Resource_65nfx")])

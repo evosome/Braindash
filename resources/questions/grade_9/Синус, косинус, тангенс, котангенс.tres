@@ -1,0 +1,168 @@
+[gd_resource type="Resource" script_class="QuestionList" load_steps=23 format=3 uid="uid://bn8e2rhv4hh77"]
+
+[ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="1_bqors"]
+[ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="2_851tt"]
+
+[sub_resource type="Resource" id="Resource_851tt"]
+script = ExtResource("1_bqors")
+title = "sin 30°="
+description = ""
+variants = Array[String](["1. 1", "2. √3/2", "3. 1/2", "4. √2/2"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_w6nm1"]
+script = ExtResource("1_bqors")
+title = "cos 60°="
+description = ""
+variants = Array[String](["1. 1/2", "2. √3/2", "3. 1", "4. 0"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_tlp2h"]
+script = ExtResource("1_bqors")
+title = "tg 45°="
+description = ""
+variants = Array[String](["1. 1", "2. √3/3", "3. √3", "4. 0"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_ponpc"]
+script = ExtResource("1_bqors")
+title = "ctg 30°="
+description = ""
+variants = Array[String](["1. √3/3", "2. 1", "3. √3", "4. 0"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_jpcmi"]
+script = ExtResource("1_bqors")
+title = "sin 90°="
+description = ""
+variants = Array[String](["1. 0", "2. 1/2", "3. 1", "4. √3/2"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_0xncr"]
+script = ExtResource("1_bqors")
+title = "cos 0°="
+description = ""
+variants = Array[String](["1. 0", "2. 1", "3. 1/2", "4. √2/2"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_by7xr"]
+script = ExtResource("1_bqors")
+title = "tg 60°="
+description = ""
+variants = Array[String](["1. √3/3", "2. 1", "3. √3", "4. 0"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_6sukb"]
+script = ExtResource("1_bqors")
+title = "ctg 45°="
+description = ""
+variants = Array[String](["1. 1", "2. √3/3", "3. √3", "4. 0"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_yk3yr"]
+script = ExtResource("1_bqors")
+title = "sin 45°="
+description = ""
+variants = Array[String](["1. 1/2", "2. √2/2", "3. √3/2", "4. 1"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_7s5i3"]
+script = ExtResource("1_bqors")
+title = "cos 30°="
+description = ""
+variants = Array[String](["1. √3/2", "2. 1/2", "3. √2/2", "4. 1"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_bg6i0"]
+script = ExtResource("1_bqors")
+title = "tg 0°="
+description = ""
+variants = Array[String](["1. 1", "2. √3/3", "3. 0", "4. √3"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_kqs23"]
+script = ExtResource("1_bqors")
+title = "ctg 90°="
+description = ""
+variants = Array[String](["1. 1", "2. 0", "3. √3", "4. √3/3"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_qhrk4"]
+script = ExtResource("1_bqors")
+title = "sin 0°="
+description = ""
+variants = Array[String](["1. 1", "2. 1/2", "3. 0", "4. √3/2"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_pg230"]
+script = ExtResource("1_bqors")
+title = "cos 45°="
+description = ""
+variants = Array[String](["1. 1/2", "2. √3/2", "3. √2/2", "4. 1"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_katjk"]
+script = ExtResource("1_bqors")
+title = "tg 30°="
+description = ""
+variants = Array[String](["1. √3/3", "2. 1", "3. √3", "4. 0"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_e1st6"]
+script = ExtResource("1_bqors")
+title = "ctg 60°="
+description = ""
+variants = Array[String](["1. √3", "2. √3/3", "3. 1", "4. 0"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_fhhmp"]
+script = ExtResource("1_bqors")
+title = "sin 60°="
+description = ""
+variants = Array[String](["1. 1/2", "2. √2/2", "3. √3/2", "4. 1"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_7jb63"]
+script = ExtResource("1_bqors")
+title = "cos 90°="
+description = ""
+variants = Array[String](["1. 1", "2. 1/2", "3. 0", "4. √3/2"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_a0uky"]
+script = ExtResource("1_bqors")
+title = "tg 90°="
+description = ""
+variants = Array[String](["1. 0", "2. 1", "3. √3", "4. Не существует"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_thd3v"]
+script = ExtResource("1_bqors")
+title = "ctg 0°="
+description = ""
+variants = Array[String](["1. 1", "2. 0", "3. √3", "4. Не существует"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[resource]
+script = ExtResource("2_851tt")
+questions = Array[ExtResource("1_bqors")]([SubResource("Resource_851tt"), SubResource("Resource_w6nm1"), SubResource("Resource_tlp2h"), SubResource("Resource_ponpc"), SubResource("Resource_jpcmi"), SubResource("Resource_0xncr"), SubResource("Resource_by7xr"), SubResource("Resource_6sukb"), SubResource("Resource_yk3yr"), SubResource("Resource_7s5i3"), SubResource("Resource_bg6i0"), SubResource("Resource_kqs23"), SubResource("Resource_qhrk4"), SubResource("Resource_pg230"), SubResource("Resource_katjk"), SubResource("Resource_e1st6"), SubResource("Resource_fhhmp"), SubResource("Resource_7jb63"), SubResource("Resource_a0uky"), SubResource("Resource_thd3v")])

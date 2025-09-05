@@ -1,0 +1,168 @@
+[gd_resource type="Resource" script_class="QuestionList" load_steps=23 format=3 uid="uid://c4ufjvr72tgd6"]
+
+[ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="1_t43yf"]
+[ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="2_3jcmd"]
+
+[sub_resource type="Resource" id="Resource_3jcmd"]
+script = ExtResource("1_t43yf")
+title = "Что показывает знаменатель дроби?"
+description = ""
+variants = Array[String](["1. Сколько частей всего", "2. Сколько частей взяли", "3. Целое число", "4. Сумму частей"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_dbap0"]
+script = ExtResource("1_t43yf")
+title = "Что показывает знаменатель дроби?"
+description = ""
+variants = Array[String](["1. Сколько частей всего", "2. Сколько частей взяли", "3. Целое число", "4. Сумму частей"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_pv4k3"]
+script = ExtResource("1_t43yf")
+title = "Что показывает числитель дроби?"
+description = ""
+variants = Array[String](["1. Сколько частей всего", "2. Целое число", "3. Сколько частей взяли", "4. Разность частей"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_xrd0h"]
+script = ExtResource("1_t43yf")
+title = "Как записать «три пятых»?"
+description = ""
+variants = Array[String](["1. 5/3", "2. 3/5", "3. 3,5", "4. 0,35"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_cbpyq"]
+script = ExtResource("1_t43yf")
+title = "Как записать «тринадцать пятнадцатых»?"
+description = ""
+variants = Array[String](["1. 28", "2. 13,15", "3. 15/13", "4. 13/15"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_hfgqo"]
+script = ExtResource("1_t43yf")
+title = "Какая дробь больше: 1/3 или 1/2?"
+description = ""
+variants = Array[String](["1. 1/3", "2. 1/2", "3. Они равны", "4. Нельзя сравнить"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_ne1vg"]
+script = ExtResource("1_t43yf")
+title = "Какая дробь больше: 5/11 или 6/11?"
+description = ""
+variants = Array[String](["1. 6/11", "2. 5/11", "3. Они равны", "4. Нельзя сравнить"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_1nov1"]
+script = ExtResource("1_t43yf")
+title = "Как называется дробь 7/4?"
+description = ""
+variants = Array[String](["1. Десятичная", "2. Смешанная", "3. Правильная", "4. Неправильная"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_qd20t"]
+script = ExtResource("1_t43yf")
+title = "Как называется дробь 5/6?"
+description = ""
+variants = Array[String](["1. Десятичная", "2. Смешанная", "3. Правильная", "4. Неправильная"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_hqi1f"]
+script = ExtResource("1_t43yf")
+title = "Как называется дробь 0,7?"
+description = ""
+variants = Array[String](["1. Десятичная", "2. Смешанная", "3. Правильная", "4. Неправильная"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_gdtce"]
+script = ExtResource("1_t43yf")
+title = "Какая дробь равна 1/2?"
+description = ""
+variants = Array[String](["1. 2/3", "2. 3/6", "3. 1/3", "4. 4/1"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_far28"]
+script = ExtResource("1_t43yf")
+title = "Какая дробь больше: 3/4 или 3/5?"
+description = ""
+variants = Array[String](["1. Невозможно сравнить", "2. Они равны", "3. 3/5", "4. 3/4"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_y1rlr"]
+script = ExtResource("1_t43yf")
+title = "Сколько четвертей в целом?"
+description = ""
+variants = Array[String](["1. 2", "2. 3", "3. 4", "4. 5"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_0dg3d"]
+script = ExtResource("1_t43yf")
+title = "Правильная дробь всегда…"
+description = ""
+variants = Array[String](["1. Отрицательная", "2. Равна 1", "3. Меньше 1", "4. Больше 1"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_oi3cf"]
+script = ExtResource("1_t43yf")
+title = "2/5+1/5=?"
+description = ""
+variants = Array[String](["1. 1/5", "2. 2/5", "3. 3/10", "4. 3/5"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_o2wuq"]
+script = ExtResource("1_t43yf")
+title = "4/7-2/7=?"
+description = ""
+variants = Array[String](["1. 2/7", "2. 2/14", "3. 6/7", "4. 1/7"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_dwpo6"]
+script = ExtResource("1_t43yf")
+title = "3/4 фигуры закрашено, какая часть не закрашена?"
+description = ""
+variants = Array[String](["1. 3/4", "2. 1/4", "3. 4/4", "4. 1/3"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_3tby7"]
+script = ExtResource("1_t43yf")
+title = "Как прочитать дробь 5/8?"
+description = ""
+variants = Array[String](["1. Восемь пятых", "2. Пять точка восемь", "3. Пять восьмых", "4. Пять частей восемь"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_khihy"]
+script = ExtResource("1_t43yf")
+title = "Какая дробь меньше: 1/10 или 1/100?"
+description = ""
+variants = Array[String](["1. 1/100", "2. 1/10", "3. Они равны", "4. Нельзя сравнить"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_f41ux"]
+script = ExtResource("1_t43yf")
+title = "Как записать дробь «шесть девятых»?"
+description = ""
+variants = Array[String](["1. 0,69", "2. 6,9", "3. 9/6", "4. 6/9"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[resource]
+script = ExtResource("2_3jcmd")
+questions = Array[ExtResource("1_t43yf")]([SubResource("Resource_3jcmd"), SubResource("Resource_dbap0"), SubResource("Resource_pv4k3"), SubResource("Resource_xrd0h"), SubResource("Resource_cbpyq"), SubResource("Resource_hfgqo"), SubResource("Resource_ne1vg"), SubResource("Resource_1nov1"), SubResource("Resource_qd20t"), SubResource("Resource_hqi1f"), SubResource("Resource_gdtce"), SubResource("Resource_far28"), SubResource("Resource_y1rlr"), SubResource("Resource_0dg3d"), SubResource("Resource_oi3cf"), SubResource("Resource_o2wuq"), SubResource("Resource_dwpo6"), SubResource("Resource_3tby7"), SubResource("Resource_khihy"), SubResource("Resource_f41ux")])

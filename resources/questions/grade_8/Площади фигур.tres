@@ -1,0 +1,180 @@
+[gd_resource type="Resource" script_class="QuestionList" load_steps=29 format=3 uid="uid://bjnpktpw03dp7"]
+
+[ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="1_1d1rv"]
+[ext_resource type="Texture2D" uid="uid://cgb6ktnamx85f" path="res://assets/textures/questions/grade_8/92ec922b-8ec4-4227-9f62-de9b3abb8048.png" id="2_kuf5a"]
+[ext_resource type="Texture2D" uid="uid://dvupeta4wmgeb" path="res://assets/textures/questions/grade_8/aa297129-9dc6-416d-b35e-62ca24695209.png" id="3_527fh"]
+[ext_resource type="Texture2D" uid="uid://cn17kuntttyxw" path="res://assets/textures/questions/grade_8/752a7e5a-b4d7-458f-9835-644280915c23.png" id="4_rsefb"]
+[ext_resource type="Texture2D" uid="uid://dagogna2m7a2x" path="res://assets/textures/questions/grade_8/a5efa764-0ea3-44e0-b198-df33bad0391c.png" id="5_rawgb"]
+[ext_resource type="Texture2D" uid="uid://uq806odxvsgn" path="res://assets/textures/questions/grade_8/f875c7f8-0d03-46e8-a370-a2187abd72ce.png" id="6_ehxlv"]
+[ext_resource type="Texture2D" uid="uid://b04dfj55yjjng" path="res://assets/textures/questions/grade_8/472de1bb-9e7f-4fdd-9b7a-fd522e8628ef.png" id="7_ik6v6"]
+[ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="8_ik6v6"]
+
+[sub_resource type="Resource" id="Resource_qj4ml"]
+script = ExtResource("1_1d1rv")
+title = "Сторона квадрата равна 10. Чему равна его площадь?"
+description = ""
+variants = Array[String](["1. 200", "2. 100", "3. 20", "4. 40"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_c3ofb"]
+script = ExtResource("1_1d1rv")
+title = "Как считается площадь квадрата?"
+description = ""
+variants = Array[String](["1. S=a+a", "2. S=4a", "3. S=a²", "4. S=(a+b)*2"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_2nrsa"]
+script = ExtResource("1_1d1rv")
+title = "Как считается площадь прямоугольника?"
+description = ""
+variants = Array[String](["1. S=a*b", "2. S=a²", "3. S=(a+b)*2", "4. S=2a+2b"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_p5ave"]
+script = ExtResource("1_1d1rv")
+title = "В прямоугольнике одна сторона равна 10, другая сторона равна 12. Чему равна площадь прямоугольника?"
+description = ""
+variants = Array[String](["1. 22", "2. 44", "3. 60", "4. 120"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_ina5s"]
+script = ExtResource("1_1d1rv")
+title = "Как считается площадь параллелограмма?"
+description = ""
+variants = Array[String](["1. S=a*h", "2. S=a*b", "3. S=1/2*a*h", "4. S=(a+b)/2*h"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_pq71v"]
+script = ExtResource("1_1d1rv")
+title = "Чему равна площадь?"
+description = ""
+image = ExtResource("2_kuf5a")
+variants = Array[String](["1. 200", "2. 28", "3. 50", "4. 40"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_03kjk"]
+script = ExtResource("1_1d1rv")
+title = "Основание параллелограмма равно 8, а высота 6, чему равна площадь?"
+description = ""
+variants = Array[String](["1. 14", "2. 48", "3. 24", "4. 28"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_o5rb7"]
+script = ExtResource("1_1d1rv")
+title = "Как считается площадь треугольника?"
+description = ""
+variants = Array[String](["1. S=(a+b)/2", "2. S=a*b*c", "3. S=1/2*a*h", "4. S=a*h"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_hcspr"]
+script = ExtResource("1_1d1rv")
+title = "Сторона треугольника равна 10, а высота 5, чему равна площадь?"
+description = ""
+variants = Array[String](["1. 6", "2. 30", "3. 50", "4. 25"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_bxtn0"]
+script = ExtResource("1_1d1rv")
+title = "Как считается площадь прямоугольного треугольника?"
+description = ""
+variants = Array[String](["1. S=a*b", "2. S=1/2*a*b", "3. S=(a+b)/2", "4. S=(a+b)/h"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_sasq5"]
+script = ExtResource("1_1d1rv")
+title = "Два катета прямоугольного треугольника равны 4 и 9, чему равна его площадь?"
+description = ""
+variants = Array[String](["1. 18", "2. 36", "3. 13", "4. 27"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_fkwju"]
+script = ExtResource("1_1d1rv")
+title = "Как считается площадь трапеции?"
+description = ""
+variants = Array[String](["1. S=(a+b)/h", "2. S=a*b", "3. S=(a+b)/2*h", "4. S=a*h"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_1moti"]
+script = ExtResource("1_1d1rv")
+title = "Основания трапеции равны 2 и 4, а высота равна 11, чему равна площадь?"
+description = ""
+variants = Array[String](["1. 44", "2. 88", "3. 33", "4. 66"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_u4whe"]
+script = ExtResource("1_1d1rv")
+title = "Как считается площадь круга?"
+description = ""
+variants = Array[String](["1. S=πR", "2. S=πR²", "3. S=2πR", "4. S=2πR²"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_oml1a"]
+script = ExtResource("1_1d1rv")
+title = "Радиус круга равен 1, чему равна его площадь?"
+description = ""
+variants = Array[String](["1. 4π", "2. π²", "3. 2π", "4. π"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_x03gl"]
+script = ExtResource("1_1d1rv")
+title = "Чему равна площадь?"
+description = ""
+image = ExtResource("3_527fh")
+variants = Array[String](["1. 12", "2. 24", "3. 48", "4. 14"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_2brb7"]
+script = ExtResource("1_1d1rv")
+title = "Чему равна площадь?"
+description = ""
+image = ExtResource("4_rsefb")
+variants = Array[String](["1. 60", "2. 75", "3. 156", "4. 35"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_xsnjb"]
+script = ExtResource("1_1d1rv")
+title = "Чему равна площадь?"
+description = ""
+image = ExtResource("5_rawgb")
+variants = Array[String](["1. 18", "2. 16", "3. 15", "4. 14"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_k4gu1"]
+script = ExtResource("1_1d1rv")
+title = "Чему равна площадь?"
+description = ""
+image = ExtResource("6_ehxlv")
+variants = Array[String](["1. 3", "2. 9", "3. 8", "4. 11"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_v7wil"]
+script = ExtResource("1_1d1rv")
+title = "Чему равна площадь?"
+description = ""
+image = ExtResource("7_ik6v6")
+variants = Array[String](["1. 9", "2. 18", "3. 4,5", "4. 24"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[resource]
+script = ExtResource("8_ik6v6")
+questions = Array[ExtResource("1_1d1rv")]([SubResource("Resource_qj4ml"), SubResource("Resource_c3ofb"), SubResource("Resource_2nrsa"), SubResource("Resource_p5ave"), SubResource("Resource_ina5s"), SubResource("Resource_pq71v"), SubResource("Resource_03kjk"), SubResource("Resource_o5rb7"), SubResource("Resource_hcspr"), SubResource("Resource_bxtn0"), SubResource("Resource_sasq5"), SubResource("Resource_fkwju"), SubResource("Resource_1moti"), SubResource("Resource_u4whe"), SubResource("Resource_oml1a"), SubResource("Resource_x03gl"), SubResource("Resource_2brb7"), SubResource("Resource_xsnjb"), SubResource("Resource_k4gu1"), SubResource("Resource_v7wil")])

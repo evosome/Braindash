@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Topic" load_steps=7 format=3 uid="uid://b643j0rowpe2"]
+
+[ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_6kba0"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_kldlo"]
+[ext_resource type="Resource" uid="uid://gjkvbpcuxtmo" path="res://resources/characters/bear2.tres" id="1_uo0fe"]
+[ext_resource type="Resource" uid="uid://dl6uf0lasrdrx" path="res://resources/questions/grade_10/Объемы фигур.tres" id="1_xkk5i"]
+[ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/GameInfo.gd" id="2_6kba0"]
+
+[sub_resource type="Resource" id="Resource_uo0fe"]
+script = ExtResource("2_6kba0")
+packed_arena = ExtResource("1_6kba0")
+question_list = ExtResource("1_xkk5i")
+metadata/_custom_type_script = "uid://besub6tgkqobr"
+
+[resource]
+script = ExtResource("1_kldlo")
+name = "Объемы фигур"
+game_info = SubResource("Resource_uo0fe")
+author_name = "Любовь Александровна"
+enemy_character_type = ExtResource("1_uo0fe")

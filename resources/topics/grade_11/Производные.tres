@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Topic" load_steps=7 format=3 uid="uid://etig4nulvn22"]
+
+[ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_g52gd"]
+[ext_resource type="Resource" uid="uid://gjkvbpcuxtmo" path="res://resources/characters/bear2.tres" id="1_h7yag"]
+[ext_resource type="Resource" uid="uid://xqdxulpnhwde" path="res://resources/questions/grade_11/Производные.tres" id="1_ndndk"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_nufin"]
+[ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/GameInfo.gd" id="2_g52gd"]
+
+[sub_resource type="Resource" id="Resource_h7yag"]
+script = ExtResource("2_g52gd")
+packed_arena = ExtResource("1_g52gd")
+question_list = ExtResource("1_ndndk")
+metadata/_custom_type_script = "uid://besub6tgkqobr"
+
+[resource]
+script = ExtResource("1_nufin")
+name = "Производные"
+game_info = SubResource("Resource_h7yag")
+author_name = "Любовь Александровна"
+enemy_character_type = ExtResource("1_h7yag")

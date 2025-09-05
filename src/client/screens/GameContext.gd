@@ -4,7 +4,7 @@ class_name GameContext
 var _me: PlayerInfo
 var _enemy: PlayerInfo
 var _current_screen_name: String
-var _current_round_info: RoundInfo
+var _current_game_info: GameInfo
 var _grades: Array[Grade]
 var _current_grade: Grade
 var _screen_manager: ScreenManager
@@ -35,17 +35,17 @@ func switch_screen(screen_name: String) -> void:
 
 
 func has_round_info() -> bool:
-	return _current_round_info != null
+	return _current_game_info != null
 
 
 #TODO: rename this method into `get_game_info`
-func get_current_round_info() -> RoundInfo:
-	return _current_round_info
+func get_current_round_info() -> GameInfo:
+	return _current_game_info
 
 
 #TODO: rename this method into `set_game_info`
-func set_current_round_info(value: RoundInfo) -> void:
-	_current_round_info = value
+func set_current_round_info(value: GameInfo) -> void:
+	_current_game_info = value
 
 
 func get_current_screen_name() -> String:

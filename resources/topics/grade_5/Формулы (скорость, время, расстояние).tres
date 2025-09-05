@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Topic" load_steps=7 format=3 uid="uid://c3shfs51c762j"]
+
+[ext_resource type="Resource" uid="uid://drubjm0c465kp" path="res://resources/questions/grade_5/Формулы (скорость, время, расстояние).tres" id="1_2fbuv"]
+[ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/GameInfo.gd" id="1_6rfi1"]
+[ext_resource type="Resource" uid="uid://dssfhokhd1nrl" path="res://resources/characters/rabbit2.tres" id="1_7y12o"]
+[ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_034yd"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_edn2w"]
+
+[sub_resource type="Resource" id="Resource_2fbuv"]
+script = ExtResource("1_6rfi1")
+packed_arena = ExtResource("1_034yd")
+question_list = ExtResource("1_2fbuv")
+metadata/_custom_type_script = "uid://besub6tgkqobr"
+
+[resource]
+script = ExtResource("1_edn2w")
+name = "Формулы (скорость, время, расстояние)"
+game_info = SubResource("Resource_2fbuv")
+author_name = "Любовь Александровна"
+enemy_character_type = ExtResource("1_7y12o")

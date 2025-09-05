@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Grade" load_steps=4 format=3 uid="uid://dlqrno0pvl4j6"]
+
+[ext_resource type="Script" uid="uid://of8ygp14u0yt" path="res://src/questionare/Grade.gd" id="1_c0547"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="2_de3q8"]
+[ext_resource type="Resource" uid="uid://b643j0rowpe2" path="res://resources/topics/grade_10/Объемы фигур.tres" id="3_s51yd"]
+
+[resource]
+script = ExtResource("1_c0547")
+name = "Класс 10"
+topics = Array[ExtResource("2_de3q8")]([ExtResource("3_s51yd")])
+accent_color = Color(0, 0, 0, 1)

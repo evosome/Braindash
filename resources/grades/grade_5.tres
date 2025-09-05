@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Grade" load_steps=5 format=3 uid="uid://cbxyrxbsqhbhn"]
+
+[ext_resource type="Script" uid="uid://of8ygp14u0yt" path="res://src/questionare/Grade.gd" id="1_3kbbn"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="2_hntqb"]
+[ext_resource type="Resource" uid="uid://1xidxciu0vys" path="res://resources/topics/grade_5/Сравнение дробей.tres" id="3_8swum"]
+[ext_resource type="Resource" uid="uid://c3shfs51c762j" path="res://resources/topics/grade_5/Формулы (скорость, время, расстояние).tres" id="4_jd5im"]
+
+[resource]
+script = ExtResource("1_3kbbn")
+name = "Класс 5"
+topics = Array[ExtResource("2_hntqb")]([ExtResource("3_8swum"), ExtResource("4_jd5im")])
+accent_color = Color(0, 0, 0, 1)

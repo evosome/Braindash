@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_8n3dc"]
 [ext_resource type="Resource" uid="uid://ck7xw2r4vw1ap" path="res://resources/questions/grade_9/Вероятности.tres" id="1_21hql"]
 [ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_mhcp0"]
-[ext_resource type="Resource" uid="uid://gjkvbpcuxtmo" path="res://resources/characters/bear2.tres" id="1_qf4aw"]
+[ext_resource type="Resource" uid="uid://4x32a8jx8an1" path="res://resources/characters/alt_bear.tres" id="1_qf4aw"]
 [ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/GameInfo.gd" id="2_8n3dc"]
 
 [sub_resource type="Resource" id="Resource_qf4aw"]

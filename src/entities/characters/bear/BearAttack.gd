@@ -11,7 +11,7 @@ func perform(arena: Arena, attacker: PlayerCharacter, attackable: PlayerCharacte
 	var camera = arena.get_camera()
 	await camera.zoom_in(attacker.position, 1.0)
 
-	await attacker.async_play_animation(CharacterSprite.Animations.ATTACK)
+	await attacker.async_play_animation(CharacterSprite.Animations.ATTACK_PREPARE)
 
 	var direction_sign = sign(attackable.position - attacker.position)
 	var distance_between = attacker.position.distance_to(attackable.position)
@@ -21,6 +21,8 @@ func perform(arena: Arena, attacker: PlayerCharacter, attackable: PlayerCharacte
 	camera.zoom_in(attackable_position, 1.0, RIFT_AMOUNT * 0.2)
 
 	const RIFT_RATIO_SCALE = 1.0 / RIFT_AMOUNT
+	
+	attacker.async_play_animation(CharacterSprite.Animations.ATTACK)
 
 	for i in range(1, RIFT_AMOUNT + 1):
 		var unprojected_rift_position = attacker_position + rift_margin * direction_sign * i

@@ -8,11 +8,14 @@ func perform(arena: Arena, attacker: PlayerCharacter, attackable: PlayerCharacte
 	var camera = arena.get_camera()
 	await camera.zoom_in(attacker.position, 2)
 
-	await attacker.async_play_animation(CharacterSprite.Animations.ATTACK)
+	await attacker.async_play_animation(CharacterSprite.Animations.ATTACK_PREPARE)
 
 	var arrow = ArrowProjectile.make(attacker.position, attackable.position, 1.0)
 	camera.set_following_target(arrow)
 	arena.spawn(arrow)
+
+	attacker.async_play_animation(CharacterSprite.Animations.ATTACK)
+
 	await arrow.fly()
 
 	camera.set_following_target(null)

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EyeCharacterType" load_steps=6 format=3 uid="uid://on13381ok5hd"]
+
+[ext_resource type="Script" uid="uid://d3qy1lditfw5v" path="res://src/entities/characters/eye/EyeCharacterType.gd" id="1_o4a7r"]
+[ext_resource type="Script" uid="uid://bsb85oehoknkt" path="res://src/entities/characters/eye/EyeAttack.gd" id="1_t13gc"]
+[ext_resource type="Texture2D" uid="uid://m53qnludv3ua" path="res://assets/textures/entities/characters/evil_eye/evil_eye_portrait.png" id="2_4yc0i"]
+[ext_resource type="PackedScene" uid="uid://cim6e2k66cel7" path="res://src/entities/characters/eye/EvilEyeSprite.tscn" id="3_biwbx"]
+
+[sub_resource type="Resource" id="Resource_4yc0i"]
+script = ExtResource("1_t13gc")
+metadata/_custom_type_script = "uid://bsb85oehoknkt"
+
+[resource]
+script = ExtResource("1_o4a7r")
+_eye_attack_type = SubResource("Resource_4yc0i")
+kind = "Сущность злобоздания"
+kind_icon = ExtResource("2_4yc0i")
+ability_icons = Array[Texture2D]([])
+name = "Злобоглаз-клерк"
+description = ""
+common_damage = 100
+packed_sprite = ExtResource("3_biwbx")
+metadata/_custom_type_script = "uid://d3qy1lditfw5v"

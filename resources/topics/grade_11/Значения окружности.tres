@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Topic" load_steps=7 format=3 uid="uid://4akyrksggwhp"]
 
-[ext_resource type="Resource" uid="uid://gjkvbpcuxtmo" path="res://resources/characters/bear2.tres" id="1_5qcyj"]
+[ext_resource type="Resource" uid="uid://4x32a8jx8an1" path="res://resources/characters/alt_bear.tres" id="1_5qcyj"]
 [ext_resource type="Resource" uid="uid://oxja17qvujsa" path="res://resources/questions/grade_11/Значения окружности.tres" id="1_aoasy"]
 [ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_gpmco"]
 [ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_v2qr2"]

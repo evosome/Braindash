@@ -10,4 +10,4 @@ class_name CharacterType extends Resource
 
 
 func get_attack_type() -> AttackType:
-    return
+	return

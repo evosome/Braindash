@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Topic" load_steps=7 format=3 uid="uid://g0oxmk82odb2"]
 
-[ext_resource type="Resource" uid="uid://gjkvbpcuxtmo" path="res://resources/characters/bear2.tres" id="1_1uny1"]
+[ext_resource type="Resource" uid="uid://4x32a8jx8an1" path="res://resources/characters/alt_bear.tres" id="1_1uny1"]
 [ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_ikqet"]
 [ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_na6ag"]
 [ext_resource type="Resource" uid="uid://bn8e2rhv4hh77" path="res://resources/questions/grade_9/Синус, косинус, тангенс, котангенс.tres" id="1_u32ys"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_81lf3"]
 [ext_resource type="Resource" uid="uid://dwc5km1a7ffhh" path="res://resources/questions/grade_11/Свойства логарифмов.tres" id="1_e8qhc"]
 [ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_t0olq"]
-[ext_resource type="Resource" uid="uid://gjkvbpcuxtmo" path="res://resources/characters/bear2.tres" id="1_y3bax"]
+[ext_resource type="Resource" uid="uid://4x32a8jx8an1" path="res://resources/characters/alt_bear.tres" id="1_y3bax"]
 [ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/GameInfo.gd" id="2_t0olq"]
 
 [sub_resource type="Resource" id="Resource_y3bax"]

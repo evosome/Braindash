@@ -1,13 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://boqxovawfj4f5"]
+[gd_scene load_steps=6 format=3 uid="uid://boqxovawfj4f5"]
 
 [ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="1_kwiha"]
 [ext_resource type="Script" uid="uid://bj4g82sarrxkv" path="res://src/ui/GameResultInfo.gd" id="2_f3rtl"]
-[ext_resource type="Texture2D" uid="uid://cj1yhxcpejmwe" path="res://assets/textures/entities/characters/rabbit/rabbit_portrait.png" id="3_fc3wf"]
-[ext_resource type="Texture2D" uid="uid://dywktwd5cxnxk" path="res://assets/textures/entities/characters/bear/bear_portrait.png" id="4_ytb2j"]
+[ext_resource type="PackedScene" uid="uid://hlde3l1yx57g" path="res://src/ui/character/CharacterIcon.tscn" id="4_ir6hx"]
 [ext_resource type="Texture2D" uid="uid://cbj2yxlxe267w" path="res://assets/textures/ui/versus.png" id="5_ir6hx"]
 [ext_resource type="PackedScene" uid="uid://b2tbk7pvubosg" path="res://src/ui/badges/GameResultBadge.tscn" id="6_1l0sd"]
 
-[node name="GameResultInfo" type="Control" node_paths=PackedStringArray("_ok_button", "_result_flag", "_total_question_amount_label", "_incorrect_answers_amount_label", "_total_question_amount_label_of_incorrect")]
+[node name="GameResultInfo" type="Control" node_paths=PackedStringArray("_ok_button", "_result_flag", "_total_question_amount_label", "_incorrect_answers_amount_label", "_total_question_amount_label_of_incorrect", "_enemy_character_icon", "_player_character_icon")]
 custom_minimum_size = Vector2(900, 900)
 layout_mode = 3
 anchors_preset = 0
@@ -20,6 +19,8 @@ _result_flag = NodePath("PanelContainer/MarginContainer/VBoxContainer/ResultLayo
 _total_question_amount_label = NodePath("PanelContainer/MarginContainer/VBoxContainer/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/TotalQuestions/TotalAnswersCount")
 _incorrect_answers_amount_label = NodePath("PanelContainer/MarginContainer/VBoxContainer/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/CorrectAnswers/CorrectOfIncorrect/ValueLabel")
 _total_question_amount_label_of_incorrect = NodePath("PanelContainer/MarginContainer/VBoxContainer/ResultLayout/ResultContent/HBoxContainer/ResultContentCentered/CorrectAnswers/CorrectOfIncorrect/TotalAnswersCountOfIncorrect")
+_enemy_character_icon = NodePath("PanelContainer/MarginContainer/VBoxContainer/ResultLayout/HBoxContainer/VBoxContainer2/EnemyCharacterIcon")
+_player_character_icon = NodePath("PanelContainer/MarginContainer/VBoxContainer/ResultLayout/HBoxContainer/VBoxContainer/LocalPlayerCharacterIcon")
 metadata/_custom_type_script = "uid://dife5yu5b6gtg"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -66,14 +67,8 @@ text = "Это вы"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ResultLayout/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
+[node name="LocalPlayerCharacterIcon" parent="PanelContainer/MarginContainer/VBoxContainer/ResultLayout/HBoxContainer/VBoxContainer" instance=ExtResource("4_ir6hx")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("3_fc3wf")
-expand_mode = 3
-stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ResultLayout/HBoxContainer"]
 custom_minimum_size = Vector2(128, 128)
@@ -93,15 +88,8 @@ text = "Это ваш противник"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ResultLayout/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(128, 128)
+[node name="EnemyCharacterIcon" parent="PanelContainer/MarginContainer/VBoxContainer/ResultLayout/HBoxContainer/VBoxContainer2" instance=ExtResource("4_ir6hx")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("4_ytb2j")
-expand_mode = 3
-stretch_mode = 5
-flip_h = true
 
 [node name="ResultContent" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ResultLayout"]
 layout_mode = 2

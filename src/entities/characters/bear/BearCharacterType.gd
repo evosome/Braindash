@@ -4,4 +4,4 @@ class_name BearCharacterType extends CharacterType
 
 
 func get_attack_type() -> AttackType:
-    return _bear_attack_type
+	return _bear_attack_type

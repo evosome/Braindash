@@ -1,18 +1,29 @@
 class_name SingleplayerGameResult extends Resource
 
-var _local_player_character: PlayerCharacter
-var _enemy_character: PlayerCharacter
+
+#region fields
+
+var _local_character: PlayerCharacter
+
+@export var _local_player_character: CharacterType
+@export var _enemy_character: CharacterType
 @export var _result_flag: SingleplayerGame.ResultFlag
 @export var _total_question_amount: int
 @export var _correct_amount: int
 @export var _timestamp: float
 
+#endregion
+
+
+#region private
+
 func _determine_result_flag(death_info: Arena.CharacterDeathInfo) -> SingleplayerGame.ResultFlag:
 	var result_flag = SingleplayerGame.ResultFlag.DRAW
 	if !death_info.is_all_died():
 		var dead_characters = death_info.get_died()
-		result_flag = SingleplayerGame.ResultFlag.WIN if not _local_player_character in dead_characters else SingleplayerGame.ResultFlag.LOSE
+		result_flag = SingleplayerGame.ResultFlag.WIN if not _local_character in dead_characters else SingleplayerGame.ResultFlag.LOSE
 	return result_flag
+
 
 func _count_correct_amount(round_results: Array[Round.Result], local_player: PlayerInfo) -> int:
 	var correct_count = 0
@@ -23,13 +34,18 @@ func _count_correct_amount(round_results: Array[Round.Result], local_player: Pla
 			correct_count += 1
 	return correct_count
 
+#endregion
+
+
+#region getters/setters
+
 func get_result_flag() -> SingleplayerGame.ResultFlag:
 	return _result_flag
 
-func get_local_player_character() -> PlayerCharacter:
+func get_local_player_character_type() -> CharacterType:
 	return _local_player_character
 
-func get_enemy_character() -> PlayerCharacter:
+func get_enemy_character_type() -> CharacterType:
 	return _enemy_character
 
 func get_total_question_amount() -> int:
@@ -41,6 +57,11 @@ func get_correct_amount() -> int:
 func get_timestamp() -> float:
 	return _timestamp
 
+#endregion
+
+
+#region static
+
 static func make(
 		local_player: PlayerInfo,
 		local_player_character: PlayerCharacter,
@@ -49,10 +70,18 @@ static func make(
 		round_results: Array[Round.Result]) -> SingleplayerGameResult:
 
 	var result = SingleplayerGameResult.new()
-	result._local_player_character = local_player_character
-	result._enemy_character = enemy_character
+	result._local_character = local_player_character
+	
+	var local_player_character_type = local_player_character.get_type()
+	result._local_player_character = local_player_character_type
+	
+	var enemy_character_type = enemy_character.get_type()
+	result._enemy_character = enemy_character_type
+	
 	result._result_flag = result._determine_result_flag(death_info)
 	result._total_question_amount = round_results.size()
 	result._correct_amount = result._count_correct_amount(round_results, local_player)
 	result._timestamp = Time.get_unix_time_from_system()
 	return result
+
+#endregion

@@ -132,7 +132,12 @@ func _on_characters_died(death_info: Arena.CharacterDeathInfo) -> void:
 	var local_player_character = _arena.get_character_of(_local_player)
 	var enemy_character = _arena.get_character_of(_enemy_player)
 	var round_results = _round_manager.get_round_results()
-	_last_result = SingleplayerGameResult.make(_local_player, local_player_character, enemy_character, death_info, round_results)
+	_last_result = SingleplayerGameResult.make(
+		_local_player,
+		local_player_character,
+		enemy_character,
+		death_info,
+		round_results)
 
 #endregion
 

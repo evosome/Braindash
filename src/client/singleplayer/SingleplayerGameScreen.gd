@@ -1,10 +1,15 @@
 class_name SingleplayerGameScreen extends ClientScreen
 
+#region fields
+
 @onready var _game_container: Node = %"GameContainer"
 @onready var _question_layer: QuestionLayer = %"QuestionLayer"
 @onready var _round_popup: RoundPopup = %"RoundPopup"
 @onready var _current_player_stats: CharacterStats = %"CurrentPlayerStats"
 @onready var _enemy_player_stats: CharacterStats = %"EnemyPlayerStats"
+@export var _intro_animation_play: AnimationPlayer
+
+#endregion
 
 
 #region built in
@@ -53,6 +58,7 @@ func on_enter(ctx: GameContext) -> void:
 	game_context.question_layer = _question_layer
 	game_context.round_popup = _round_popup
 	game_context.user_data = ctx.user_data
+	game_context.intro_animation_player = _intro_animation_play
 	state_manager.set_context(game_context)
 
 	state_manager.register("intro", IntroState.new())
@@ -86,6 +92,7 @@ class GameStateContext:
 	var current_round: Round
 	var round_popup: RoundPopup
 	var user_data: UserData
+	var intro_animation_player: AnimationPlayer
 
 	# shared fields between states
 	var round_result: Round.Result
@@ -116,7 +123,10 @@ class IntroState:
 	extends GameState
 
 	func on_enter(ctx: GameStateContext) -> void:
-		print_debug("Entered intro state")
+		
+		var intro_animation_player = ctx.intro_animation_player
+		intro_animation_player.play("INTRO")
+		await intro_animation_player.animation_finished
 
 		ctx.transition_to("introduce_question")
 

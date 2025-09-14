@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Topic" load_steps=7 format=3 uid="uid://1xidxciu0vys"]
+
+[ext_resource type="Resource" uid="uid://bu4ymplr83tnm" path="res://resources/characters/alt_rabbit.tres" id="1_5jh1g"]
+[ext_resource type="Resource" uid="uid://c4ufjvr72tgd6" path="res://resources/questions/grade_5/Сравнение дробей.tres" id="1_bkhl7"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_h4mhd"]
+[ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/GameInfo.gd" id="1_j47a6"]
+[ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_qb5yw"]
+
+[sub_resource type="Resource" id="Resource_bkhl7"]
+script = ExtResource("1_j47a6")
+packed_arena = ExtResource("1_qb5yw")
+question_list = ExtResource("1_bkhl7")
+questions_to_win = 10
+metadata/_custom_type_script = "uid://besub6tgkqobr"
+
+[resource]
+script = ExtResource("1_h4mhd")
+name = "Сравнение дробей"
+game_info = SubResource("Resource_bkhl7")
+author_name = "Любовь Александровна"
+enemy_character_type = ExtResource("1_5jh1g")

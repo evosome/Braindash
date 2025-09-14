@@ -1,0 +1,145 @@
+[gd_scene load_steps=12 format=3 uid="uid://blcs6yqg1ri1u"]
+
+[ext_resource type="Script" uid="uid://8gf3hraf6m2" path="res://src/entities/misc/Rift.gd" id="1_wau1m"]
+[ext_resource type="Texture2D" uid="uid://bj6w147y7120d" path="res://assets/textures/entities/characters/bear/rifts.png" id="2_5y5t3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au32j"]
+atlas = ExtResource("2_5y5t3")
+region = Rect2(0, 0, 533, 413)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekh22"]
+atlas = ExtResource("2_5y5t3")
+region = Rect2(533, 0, 533, 413)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pswc4"]
+atlas = ExtResource("2_5y5t3")
+region = Rect2(1066, 0, 533, 413)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqvdn"]
+atlas = ExtResource("2_5y5t3")
+region = Rect2(1599, 0, 533, 413)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wau1m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au32j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekh22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pswc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqvdn")
+}],
+"loop": false,
+"name": &"grow",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_au32j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"grow"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ekh22"]
+resource_name = "fade"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5y5t3"]
+resource_name = "grow"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"grow"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ekh22"]
+_data = {
+&"RESET": SubResource("Animation_au32j"),
+&"fade": SubResource("Animation_ekh22"),
+&"grow": SubResource("Animation_5y5t3")
+}
+
+[node name="Rift" type="Node2D" node_paths=PackedStringArray("_animated_sprite", "_animation_player")]
+script = ExtResource("1_wau1m")
+_animated_sprite = NodePath("AnimatedSprite2D")
+_animation_player = NodePath("AnimationPlayer")
+metadata/_custom_type_script = "uid://8gf3hraf6m2"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wau1m")
+animation = &"grow"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ekh22")
+}

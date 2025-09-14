@@ -1,0 +1,361 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvaa8wjkysafq"]
+
+[ext_resource type="PackedScene" uid="uid://dkrsrcgjfjdo2" path="res://src/ui/question/QuestionLayer.tscn" id="2_dwmib"]
+[ext_resource type="Shader" uid="uid://dn2vypggoh7yi" path="res://resources/legal/shaders/universal_transitions/universal_transitions.gdshader" id="2_tsiw5"]
+[ext_resource type="Texture2D" uid="uid://dbormhlve1p6" path="res://assets/textures/ui/logo.png" id="3_tsiw5"]
+
+[sub_resource type="GDScript" id="GDScript_i253k"]
+script/source = "#TODO: rename this class into `GameScreen`
+class_name RoundScreen extends ClientScreen
+
+@export var _timer: Timer
+
+@onready var _arena_container: Node = %\"RoundContainer\"
+@onready var _question_layer: QuestionLayer = %\"QuestionLayer\"
+
+
+#region built in
+
+func _ready() -> void:
+	assert(_timer != null, \"Timer is not set on RoundScreen exports\")
+	assert(_arena_container != null, \"Arena container node do not exists on RoundScreen scene\")
+	assert(_question_layer != null, \"Question layer node do not exists on RoundScreen scene\")
+
+	_question_layer.set_layer_visible(false)
+
+#endregion
+
+
+#region virtual
+
+func on_enter(ctx: GameContext) -> void:
+
+	if !ctx.has_round_info():
+		push_error(\"Entered game screen, but round info was not set\")
+		return
+
+	# resolve game info
+	var round_info = ctx.get_current_round_info()
+
+	# init arena from game info and add instantiated scene as child of arena container
+	var packed_arena = round_info.packed_arena
+	if !packed_arena.can_instantiate():
+		push_error(\"Unable to instantiate arena scene\")
+		return
+
+	var instantiated_arena = packed_arena.instantiate() as Arena
+	_arena_container.add_child(instantiated_arena)
+
+	# create characters for both players
+	var me = ctx.get_me()
+	var enemy = ctx.get_enemy()
+
+	instantiated_arena.create_character_for(me, ctx.get_my_character_type())
+	instantiated_arena.create_character_for(enemy, ctx.get_enemy_character_type())
+
+	# init questionare from game info
+	var players: Array[PlayerInfo] = [me, enemy]
+	var question_list = round_info.question_list
+	var questionare = Questionare.new(question_list, players)
+
+	# init state machine, create state context and register states
+	var state_manager = StateManager.new()
+
+	var game_context = GameStateContext.new()
+	game_context.timer = _timer
+	game_context.arena = instantiated_arena
+	game_context.state_manager = state_manager
+	game_context.questionare = questionare
+	game_context.question_layer = _question_layer
+	game_context.local_player = me
+	state_manager.set_context(game_context)
+
+	state_manager.register(\"intro\", IntroState.new())
+	state_manager.register(\"round\", RoundState.new())
+	state_manager.register(\"fight\", FightState.new())
+	state_manager.register(\"outro\", OutroState.new())
+
+	state_manager.transition_to(\"intro\")
+
+#endregion
+
+
+#TODO: decompose game logic to other class (e.g. class named `Game`)!!!
+#region states
+
+class GameStateContext:
+
+	# permanent fields
+	var timer: Timer
+	var arena: Arena
+	var state_manager: StateManager
+	var questionare: Questionare
+	var question_layer: QuestionLayer
+	var local_player: PlayerInfo
+
+	# shared fields between states
+	var round_result: Round.Result
+
+	## Shorthand for [code]ctx.state_manager.transition_to(...)[/code]
+	func transition_to(state_name: String) -> void:
+		state_manager.transition_to(state_name)
+	
+	## Shorthand for [code]ctx.questionare.next()[/code]
+	func next_question() -> Question:
+		return questionare.next()
+
+
+class GameState:
+	extends State
+
+	@warning_ignore(\"unused_parameter\")
+	func on_enter(ctx: GameStateContext) -> void:
+		pass
+	
+	@warning_ignore(\"unused_parameter\")
+	func on_exit(ctx: GameStateContext) -> void:
+		pass
+
+
+class IntroState:
+	extends GameState
+
+	func on_enter(ctx: GameStateContext) -> void:
+		print_debug(\"Entered intro state\")
+
+		ctx.transition_to(\"round\")
+
+
+class RoundState:
+	extends GameState
+
+	var _current_player: PlayerInfo
+	var _current_question: Question
+	var _question_layout: QuestionLayout
+
+	func on_enter(ctx: GameStateContext) -> void:
+		print_debug(\"Entered question state\")
+
+		var timer = ctx.timer
+		var current_question = ctx.next_question()
+		var new_round = Round.new(current_question, timer)
+
+		_current_question = current_question
+		_current_player = ctx.local_player
+
+		# show UI and set question to render, when entered this state
+		var question_layer = ctx.question_layer
+		question_layer.set_layer_visible(true)
+
+		var question_layout = question_layer.get_question_layout()
+		question_layout.set_question_type(current_question.get_type())
+		question_layout.set_disabled(false)
+		question_layout.start_question_timer()
+
+		_question_layout = question_layout
+
+		question_layout.answered.connect(_on_ui_got_answer)
+
+		# run round until the end
+		var round_result = await new_round.start()
+		ctx.round_result = round_result
+
+		question_layer.set_layer_visible(false)
+
+		question_layout.answered.disconnect(_on_ui_got_answer)
+
+		ctx.transition_to(\"fight\")
+	
+	func _on_ui_got_answer(variant: String) -> void:
+		_question_layout.set_disabled(true)
+		_current_question.answer(variant, _current_player)
+
+
+class FightState:
+	extends GameState
+
+	func on_enter(ctx: GameStateContext) -> void:
+		print_debug(\"Entered fight state\")
+
+		var round_result = ctx.round_result
+		if !round_result:
+			push_error(\"Entered fight state, but round result was not set.\")
+			return
+		
+		var arena = ctx.arena
+		if !round_result.is_draw():
+			await _async_smash(arena, round_result)
+		else:
+			await arena.async_on_draw()
+		
+		var questionare = ctx.questionare
+		var next_state = \"round\" if !questionare.is_ended() else \"outro\"
+		ctx.transition_to(next_state)
+	
+	func _async_smash(arena: Arena, round_result: Round.Result) -> void:
+		var smash_info = SmashInfo.new()
+		smash_info.set_damage(100)
+
+		var best_answer = round_result.get_best_answer()
+		var best_player = best_answer.get_who_answered()
+		var best_character = arena.get_character_of(best_player)
+		smash_info.set_winner_character(best_character)
+
+		var worse_answers = round_result.get_worse_answers()
+		var loser_players = worse_answers.map(func(a: Question.Answer): return a.get_who_answered())
+		var loser_characters = arena.get_characters_of(loser_players)
+
+		smash_info.set_loser_characters(loser_characters)
+		await arena.async_smash(smash_info)
+
+
+class OutroState:
+	extends GameState
+
+	func on_enter(ctx: GameStateContext) -> void:
+		print_debug(\"Entered outro state\")
+
+#endregion
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gvg2w"]
+shader = ExtResource("2_tsiw5")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 1
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = true
+shader_parameter/grid_size = Vector2(1, 1)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/mask_texture = ExtResource("3_tsiw5")
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.2
+shader_parameter/progress_bias = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_tsiw5"]
+resource_name = "INTRO"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IntroRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [0.2, 0.2, 2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IntroRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gvg2w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IntroRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IntroRect:material:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IntroRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gvg2w"]
+_data = {
+&"INTRO": SubResource("Animation_tsiw5"),
+&"RESET": SubResource("Animation_gvg2w")
+}
+
+[node name="RoundScreen" type="Control" node_paths=PackedStringArray("_timer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_i253k")
+_timer = NodePath("QuestionTimer")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="RoundContainer" type="SubViewport" parent="SubViewportContainer"]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="QuestionLayer" parent="." instance=ExtResource("2_dwmib")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="QuestionTimer" type="Timer" parent="."]
+
+[node name="IntroRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gvg2w")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gvg2w")
+}

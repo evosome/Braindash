@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0c7lm5dsq8mw"]
+
+[ext_resource type="Script" uid="uid://bccwcx1tg2wl1" path="res://src/ui/badges/RoundResultBadge.gd" id="1_4bloo"]
+[ext_resource type="Texture2D" uid="uid://dnqw7js88swxb" path="res://assets/textures/ui/correct.png" id="2_caba8"]
+[ext_resource type="Texture2D" uid="uid://dufkm5yf24tx5" path="res://assets/textures/ui/wrong.png" id="3_uaouh"]
+[ext_resource type="Texture2D" uid="uid://bmsvubbde8age" path="res://assets/textures/ui/draw.png" id="4_y3nsr"]
+[ext_resource type="Texture2D" uid="uid://2431jobdnepn" path="res://assets/textures/ui/win.png" id="5_huno6"]
+[ext_resource type="Texture2D" uid="uid://p4nssqb8xan6" path="res://assets/textures/ui/lose.png" id="6_kmmci"]
+[ext_resource type="Texture2D" uid="uid://dbormhlve1p6" path="res://assets/textures/ui/logo.png" id="7_y3nsr"]
+
+[node name="RoundResultBadge" type="Control" node_paths=PackedStringArray("_texture_rect")]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4bloo")
+_texture_rect = NodePath("TextureRect")
+_badge_textures = Dictionary[int, Texture2D]({
+0: ExtResource("2_caba8"),
+1: ExtResource("3_uaouh"),
+2: ExtResource("4_y3nsr"),
+3: ExtResource("5_huno6"),
+4: ExtResource("6_kmmci")
+})
+_fallback_badge_texture = ExtResource("7_y3nsr")
+metadata/_custom_type_script = "uid://bccwcx1tg2wl1"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_caba8")
+expand_mode = 2
+stretch_mode = 5

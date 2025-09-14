@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2tbk7pvubosg"]
+
+[ext_resource type="Script" uid="uid://cvy73royhrojl" path="res://src/ui/badges/GameResultBadge.gd" id="1_wjcmt"]
+[ext_resource type="Texture2D" uid="uid://bmsvubbde8age" path="res://assets/textures/ui/draw.png" id="4_epdao"]
+[ext_resource type="Texture2D" uid="uid://2431jobdnepn" path="res://assets/textures/ui/win.png" id="5_ags4u"]
+[ext_resource type="Texture2D" uid="uid://p4nssqb8xan6" path="res://assets/textures/ui/lose.png" id="6_8icw5"]
+[ext_resource type="Texture2D" uid="uid://dbormhlve1p6" path="res://assets/textures/ui/logo.png" id="7_basf5"]
+
+[node name="GameResultBadge" type="Control" node_paths=PackedStringArray("_texture_rect")]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wjcmt")
+_texture_rect = NodePath("TextureRect")
+_badge_textures = Dictionary[int, Texture2D]({
+0: ExtResource("4_epdao"),
+1: ExtResource("5_ags4u"),
+2: ExtResource("6_8icw5")
+})
+_fallback_badge_texture = ExtResource("7_basf5")
+metadata/_custom_type_script = "uid://bccwcx1tg2wl1"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ags4u")
+expand_mode = 2
+stretch_mode = 5

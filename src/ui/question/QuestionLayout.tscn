@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=3 uid="uid://tfasl1rmo86s"]
+
+[ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="1_mg4y8"]
+[ext_resource type="Script" uid="uid://ckia01ydswkrs" path="res://src/ui/question/QuestionLayout.gd" id="2_hsshg"]
+[ext_resource type="PackedScene" uid="uid://jtqamw26pipu" path="res://src/ui/question/QuestionTimer.tscn" id="3_hsshg"]
+[ext_resource type="Script" uid="uid://cooknf4fg1rew" path="res://src/ui/question/AnswerButton.gd" id="5_mg4y8"]
+
+[node name="QuestionLayout" type="Control" node_paths=PackedStringArray("_question_timer", "_question_title_label", "_question_texture_rect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_mg4y8")
+script = ExtResource("2_hsshg")
+_question_timer = NodePath("_QuestionCenterContainer/_QuestionContent/QuestionTitleContainer/PanelContainer/MarginContainer/VBoxContainer/QuestionTimer")
+_question_title_label = NodePath("_QuestionCenterContainer/_QuestionContent/QuestionTitleContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/QuestionTitle")
+_question_texture_rect = NodePath("_QuestionCenterContainer/_QuestionContent/QuestionTitleContainer/PanelContainer/MarginContainer/VBoxContainer/TextureRect")
+
+[node name="_QuestionCenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="_QuestionContent" type="VBoxContainer" parent="_QuestionCenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="QuestionTitleContainer" type="HBoxContainer" parent="_QuestionCenterContainer/_QuestionContent"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.79
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="_QuestionCenterContainer/_QuestionContent/QuestionTitleContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_mg4y8")
+theme_type_variation = &"QuestionTitlePanelContainer"
+
+[node name="MarginContainer" type="MarginContainer" parent="_QuestionCenterContainer/_QuestionContent/QuestionTitleContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="_QuestionCenterContainer/_QuestionContent/QuestionTitleContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="TextureRect" type="TextureRect" parent="_QuestionCenterContainer/_QuestionContent/QuestionTitleContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="_QuestionCenterContainer/_QuestionContent/QuestionTitleContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="QuestionTitle" type="Label" parent="_QuestionCenterContainer/_QuestionContent/QuestionTitleContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_type_variation = &"Text32"
+text = "question title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestionTimer" parent="_QuestionCenterContainer/_QuestionContent/QuestionTitleContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_hsshg")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ButtonsMargin" type="CenterContainer" parent="_QuestionCenterContainer/_QuestionContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 11.49
+
+[node name="ButtonGrid" type="GridContainer" parent="_QuestionCenterContainer/_QuestionContent/ButtonsMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="AnswerButtonA" type="Button" parent="_QuestionCenterContainer/_QuestionContent/ButtonsMargin/ButtonGrid"]
+layout_mode = 2
+theme_type_variation = &"QuestionLayout__AnswerButton"
+script = ExtResource("5_mg4y8")
+metadata/_custom_type_script = "uid://cooknf4fg1rew"
+
+[node name="AnswerButtonB" type="Button" parent="_QuestionCenterContainer/_QuestionContent/ButtonsMargin/ButtonGrid"]
+layout_mode = 2
+theme_type_variation = &"QuestionLayout__AnswerButton"
+script = ExtResource("5_mg4y8")
+metadata/_custom_type_script = "uid://cooknf4fg1rew"
+
+[node name="AnswerButtonC" type="Button" parent="_QuestionCenterContainer/_QuestionContent/ButtonsMargin/ButtonGrid"]
+layout_mode = 2
+theme_type_variation = &"QuestionLayout__AnswerButton"
+script = ExtResource("5_mg4y8")
+metadata/_custom_type_script = "uid://cooknf4fg1rew"
+
+[node name="AnswerButtonD" type="Button" parent="_QuestionCenterContainer/_QuestionContent/ButtonsMargin/ButtonGrid"]
+layout_mode = 2
+theme_type_variation = &"QuestionLayout__AnswerButton"
+script = ExtResource("5_mg4y8")
+metadata/_custom_type_script = "uid://cooknf4fg1rew"

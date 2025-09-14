@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="RabbitCharacterType" load_steps=7 format=3 uid="uid://bu4ymplr83tnm"]
+
+[ext_resource type="Script" uid="uid://bdxmicut2k743" path="res://src/entities/characters/rabbit/RabbitAttack.gd" id="1_1dtwu"]
+[ext_resource type="Texture2D" uid="uid://d1oj03loofc1k" path="res://assets/textures/entities/characters/rabbit/arrow.png" id="2_448nu"]
+[ext_resource type="Texture2D" uid="uid://in64usdvw7hv" path="res://assets/textures/entities/characters/alt_rabbit/alt_rabbit_portrait.png" id="3_1dtwu"]
+[ext_resource type="PackedScene" uid="uid://ccxq5atx6qsj7" path="res://src/entities/characters/rabbit/AltRabbitSprite.tscn" id="4_1dtwu"]
+[ext_resource type="Script" uid="uid://b44s0gfuh4mpk" path="res://src/entities/characters/rabbit/RabbitCharacterType.gd" id="5_gwxjh"]
+
+[sub_resource type="Resource" id="Resource_cj10r"]
+script = ExtResource("1_1dtwu")
+metadata/_custom_type_script = "uid://bdxmicut2k743"
+
+[resource]
+script = ExtResource("5_gwxjh")
+_rabbit_attack_type = SubResource("Resource_cj10r")
+kind = "Лучник-робот"
+kind_icon = ExtResource("3_1dtwu")
+ability_icons = Array[Texture2D]([ExtResource("2_448nu")])
+name = "Крольчиха Гибус"
+description = ""
+common_damage = 38
+packed_sprite = ExtResource("4_1dtwu")
+damage_multiplier = 0.8
+metadata/_custom_type_script = "uid://b44s0gfuh4mpk"

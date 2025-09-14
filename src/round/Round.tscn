@@ -1,0 +1,110 @@
+[gd_scene load_steps=2 format=3 uid="uid://buf5tiis14j7o"]
+
+[sub_resource type="GDScript" id="GDScript_hkb6t"]
+script/source = "class_name Round
+
+## Represents variants of round end. Round can be ended, when time is over or
+## all players answered for a question.
+enum EndReason {
+	ALL_ANSWERED,
+	TIMEOUT
+}
+
+signal _internal_ended
+
+var _timer: Timer
+var _question: Question
+var _end_reason: EndReason
+
+
+#region constructor
+
+func _init(question: Question, timer: Timer) -> void:
+	_timer = timer
+	_question = question
+
+#endregion
+
+
+#region public
+
+## This method is asynchronous. Start the round and wait until any of two reasons happenned:
+## time is over or all players answered for a question.
+func start() -> Result:
+	var question_type = _question.get_type()
+	if question_type.has_timeout():
+		_timer.start(question_type.timeout_seconds)
+		_timer.timeout.connect(_on_timeout)
+	
+	_question.all_participants_answered.connect(_on_all_answered)
+
+	await _internal_ended
+
+	return Result.new(_question, _end_reason)
+
+
+## Get the question associated with this round
+func get_question() -> Question:
+	return _question
+
+#endregion
+
+
+#region event handlers
+
+func _on_timeout() -> void:
+	_end_reason = EndReason.TIMEOUT
+	_internal_ended.emit()
+
+
+func _on_all_answered() -> void:
+	_end_reason = EndReason.ALL_ANSWERED
+	_internal_ended.emit()
+
+#endregion
+
+
+#region inner classes
+
+class Result:
+
+	var _answers: Array[Question.Answer]
+	var _end_reason: EndReason
+	var _best_answer: Question.Answer
+
+	func _init(question: Question, end_reason: EndReason) -> void:
+		_answers = question.get_answers()
+		_end_reason = end_reason
+		_best_answer = _determine_best()
+		_answers.erase(_best_answer)
+	
+	func is_draw() -> bool:
+		return _best_answer == null
+	
+	func get_end_reason() -> EndReason:
+		return _end_reason
+	
+	func get_best_answer() -> Question.Answer:
+		return _best_answer
+	
+	func get_worse_answers() -> Array[Question.Answer]:
+		return _answers
+	
+	func _determine_best() -> Question.Answer:
+		# ascending sort by answer timestamps
+		_answers.sort_custom(
+			func(x: Question.Answer, y: Question.Answer):
+				return x.get_timestamp() < y.get_timestamp())
+
+		# find first correct answer in sorted array
+		var index = _answers.find_custom(func(a: Question.Answer): return a.is_correct())
+		return _answers[index] if index != -1 else null
+
+#endregion
+"
+
+[node name="Round" type="Node"]
+script = SubResource("GDScript_hkb6t")
+metadata/_custom_type_script = "uid://rx8cuja4qadg"
+
+[node name="Timer" type="Timer" parent="."]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://xfvdscqswb20"]
+
+[ext_resource type="Script" uid="uid://c30n7vf6mur0n" path="res://src/ui/round/RoundPopup.gd" id="1_lx1xs"]
+
+[node name="RoundPopup" type="Control" node_paths=PackedStringArray("_custom_content_holder")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lx1xs")
+_custom_content_holder = NodePath("CustomContent")
+metadata/_custom_type_script = "uid://c30n7vf6mur0n"
+
+[node name="Background" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.784314)
+
+[node name="CustomContent" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

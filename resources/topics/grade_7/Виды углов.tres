@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Topic" load_steps=7 format=3 uid="uid://m3a4vrgc1i02"]
+
+[ext_resource type="Resource" uid="uid://4x32a8jx8an1" path="res://resources/characters/alt_bear.tres" id="1_8ancv"]
+[ext_resource type="Resource" uid="uid://yxkxil2iel4x" path="res://resources/questions/grade_7/Виды углов.tres" id="1_b6sej"]
+[ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_h24va"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_l0svd"]
+[ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/GameInfo.gd" id="1_lt6uo"]
+
+[sub_resource type="Resource" id="Resource_b6sej"]
+script = ExtResource("1_lt6uo")
+packed_arena = ExtResource("1_h24va")
+question_list = ExtResource("1_b6sej")
+questions_to_win = 10
+metadata/_custom_type_script = "uid://besub6tgkqobr"
+
+[resource]
+script = ExtResource("1_l0svd")
+name = "Виды углов"
+game_info = SubResource("Resource_b6sej")
+author_name = "Любовь Александровна"
+enemy_character_type = ExtResource("1_8ancv")
+metadata/_custom_type_script = "uid://btm8gwa2binwt"

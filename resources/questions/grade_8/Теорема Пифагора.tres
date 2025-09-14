@@ -1,0 +1,168 @@
+[gd_resource type="Resource" script_class="QuestionList" load_steps=23 format=3 uid="uid://dre3jxd0xvpd3"]
+
+[ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="1_o4shh"]
+[ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="2_6hd1f"]
+
+[sub_resource type="Resource" id="Resource_6hd1f"]
+script = ExtResource("1_o4shh")
+title = "Как выглядит теорема Пифагора?"
+description = ""
+variants = Array[String](["1. a+b=c", "2. a²+b²=c", "3. a²+b²=c²", "4. a*b=c²"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_o3k8t"]
+script = ExtResource("1_o4shh")
+title = "В теореме Пифагора с - это"
+description = ""
+variants = Array[String](["1. Катет", "2. Гипотенуза", "3. Высота", "4. Медиана"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_fntsp"]
+script = ExtResource("1_o4shh")
+title = "Катет (а) = 3, катет (b) = 4, гипотенуза (с) ="
+description = ""
+variants = Array[String](["1. 5", "2. 6", "3. 7", "4. 8"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_rn40k"]
+script = ExtResource("1_o4shh")
+title = "Гипотенуза (с) = 10, катет (а) = 6, катет (b) ="
+description = ""
+variants = Array[String](["1. 4", "2. 6", "3. 8", "4. 9"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_v6x1c"]
+script = ExtResource("1_o4shh")
+title = "Катет (а) = 5, катет (b) = 12, гипотенуза (с) ="
+description = ""
+variants = Array[String](["1. 19", "2. 17", "3. 15", "4. 13"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_id27f"]
+script = ExtResource("1_o4shh")
+title = "Может ли гипотенуза быть меньше катета?"
+description = ""
+variants = Array[String](["1. Да", "2. Нет", "3. Только в равнобедренном треугольнике", "4. Зависит от углов"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_g8t3i"]
+script = ExtResource("1_o4shh")
+title = "Если в треугольнике стороны 3, 4 и 5, то он"
+description = ""
+variants = Array[String](["1. Остроугольный", "2. Тупоугольный", "3. Прямоугольный", "4. Равнобедренный"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_vmwd8"]
+script = ExtResource("1_o4shh")
+title = "В прямоугольном треугольнике гипотенуза всегда"
+description = ""
+variants = Array[String](["1. Меньше катетов", "2. Равна сумме катетов", "3. Равна произведению катетов", "4. Больше любого из катетов"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_ka5u8"]
+script = ExtResource("1_o4shh")
+title = "В треугольнике со сторонами 6, 8, 10, гипотенуза -"
+description = ""
+variants = Array[String](["1. 6", "2. 8", "3. 10", "4. Нет гипотенузы"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_e1oyj"]
+script = ExtResource("1_o4shh")
+title = "Гипотенуза = 13, катет = 5, второй катет ="
+description = ""
+variants = Array[String](["1. 8", "2. 9", "3. 10", "4. 12"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_7x7fo"]
+script = ExtResource("1_o4shh")
+title = "В треугольнике со сторонами 8, 17, 15, гипотенуза -"
+description = ""
+variants = Array[String](["1. 8", "2. 17", "3. 15", "4. Такого треугольника нет"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_r8udm"]
+script = ExtResource("1_o4shh")
+title = "Катеты равны 1 и 1, гипотенуза ="
+description = ""
+variants = Array[String](["1. √2", "2. 2", "3. √3", "4. 1"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_aiium"]
+script = ExtResource("1_o4shh")
+title = "В треугольнике 5, 12 и 13, угол между катетами"
+description = ""
+variants = Array[String](["1. Прямой", "2. Острый", "3. Тупой", "4. Нельзя определить"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_2141v"]
+script = ExtResource("1_o4shh")
+title = "Катеты равны 6 и 8, чему равна площадь?"
+description = ""
+variants = Array[String](["1. 10", "2. 14", "3. 24", "4. 48"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_mh0c3"]
+script = ExtResource("1_o4shh")
+title = "В треугольнике со сторонами 15, 12, 9, гипотенуза - это"
+description = ""
+variants = Array[String](["1. 15", "2. 12", "3. 9", "4. Нет гипотенузы"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_c56ua"]
+script = ExtResource("1_o4shh")
+title = "Катеты равны 5 и 12, чему равна площадь?"
+description = ""
+variants = Array[String](["1. 17", "2. 60", "3. 24", "4. 30"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_1kl22"]
+script = ExtResource("1_o4shh")
+title = "К каким треугольникам можно применить теорему Пифагора?"
+description = ""
+variants = Array[String](["1. К любым", "2. К прямоугольным", "3. К равнобедренным", "4. К равносторонним"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_7o5gy"]
+script = ExtResource("1_o4shh")
+title = "Квадрат гипотенузы равен"
+description = ""
+variants = Array[String](["1. Сумме катетов", "2. Квадрату катета", "3. Сумме квадратов катетов", "4. Произведению квадратов катетов"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_4qfof"]
+script = ExtResource("1_o4shh")
+title = "Сторона, лежащая напротив прямого угла - это"
+description = ""
+variants = Array[String](["1. Гипотенуза", "2. Катет", "3. Медиана", "4. Высота"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_dud0x"]
+script = ExtResource("1_o4shh")
+title = "Сторона, лежащая напротив угла в 30 градусов, равна"
+description = ""
+variants = Array[String](["1. Половине катета", "2. Половине гипотенузы", "3. Половине высоты", "4. Половине медианы"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[resource]
+script = ExtResource("2_6hd1f")
+questions = Array[ExtResource("1_o4shh")]([SubResource("Resource_6hd1f"), SubResource("Resource_o3k8t"), SubResource("Resource_fntsp"), SubResource("Resource_rn40k"), SubResource("Resource_v6x1c"), SubResource("Resource_id27f"), SubResource("Resource_g8t3i"), SubResource("Resource_vmwd8"), SubResource("Resource_ka5u8"), SubResource("Resource_e1oyj"), SubResource("Resource_7x7fo"), SubResource("Resource_r8udm"), SubResource("Resource_aiium"), SubResource("Resource_2141v"), SubResource("Resource_mh0c3"), SubResource("Resource_c56ua"), SubResource("Resource_1kl22"), SubResource("Resource_7o5gy"), SubResource("Resource_4qfof"), SubResource("Resource_dud0x")])

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://1bou5tfi3xnv"]
+
+[ext_resource type="Script" uid="uid://cs4ux64q3njch" path="res://src/client/GameClient.gd" id="1_enkav"]
+[ext_resource type="PackedScene" uid="uid://bb48red00aq12" path="res://src/ui/popup/managers/CommonPopupManager.tscn" id="2_g4av4"]
+
+[node name="GameClient" type="Node" node_paths=PackedStringArray("_popup_manager", "_screen_manager_container")]
+script = ExtResource("1_enkav")
+_popup_manager = NodePath("CanvasLayer/Control/CommonPopupManager")
+_screen_manager_container = NodePath("CanvasLayer/Control/ScreenManagerContainer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ScreenManagerContainer" type="Control" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CommonPopupManager" parent="CanvasLayer/Control" instance=ExtResource("2_g4av4")]
+layout_mode = 1

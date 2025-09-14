@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://drntkujsvyrlv"]
+
+[ext_resource type="Script" uid="uid://d0pm2txpmu6lj" path="res://src/client/singleplayer/SingleplayerGame.gd" id="1_bhrdm"]
+
+[node name="SingleplayerGame" type="Node" node_paths=PackedStringArray("_timer")]
+script = ExtResource("1_bhrdm")
+_timer = NodePath("Timer")
+metadata/_custom_type_script = "uid://d0pm2txpmu6lj"
+
+[node name="Timer" type="Timer" parent="."]

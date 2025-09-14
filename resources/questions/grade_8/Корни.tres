@@ -1,0 +1,168 @@
+[gd_resource type="Resource" script_class="QuestionList" load_steps=23 format=3 uid="uid://m05l2jlhfr8r"]
+
+[ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="1_03mdj"]
+[ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="2_fi5l3"]
+
+[sub_resource type="Resource" id="Resource_fi5l3"]
+script = ExtResource("1_03mdj")
+title = "√16=4"
+description = ""
+variants = Array[String](["1. 2", "2. 4", "3. 8", "4. 6"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_8c0nt"]
+script = ExtResource("1_03mdj")
+title = "√25="
+description = ""
+variants = Array[String](["1. 10", "2. 7", "3. 5", "4. 3"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_k1ejw"]
+script = ExtResource("1_03mdj")
+title = "√100="
+description = ""
+variants = Array[String](["1. 5", "2. 10", "3. 20", "4. 50"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_o48cx"]
+script = ExtResource("1_03mdj")
+title = "√9+√16="
+description = ""
+variants = Array[String](["1. 3", "2. 5", "3. 7", "4. 25"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_ph845"]
+script = ExtResource("1_03mdj")
+title = "√49-√36="
+description = ""
+variants = Array[String](["1. 1", "2. 5", "3. 9", "4. 13"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_j758l"]
+script = ExtResource("1_03mdj")
+title = "√81="
+description = ""
+variants = Array[String](["1. 6", "2. 7", "3. 8", "4. 9"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_50rl0"]
+script = ExtResource("1_03mdj")
+title = "√144="
+description = ""
+variants = Array[String](["1. 11", "2. 12", "3. 13", "4. 14"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_oshcd"]
+script = ExtResource("1_03mdj")
+title = "√0="
+description = ""
+variants = Array[String](["1. 0", "2. 1", "3. 10", "4. 100"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_5daw1"]
+script = ExtResource("1_03mdj")
+title = "√1="
+description = ""
+variants = Array[String](["1. 0", "2. 1", "3. 10", "4. 2"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_xir0e"]
+script = ExtResource("1_03mdj")
+title = "√64="
+description = ""
+variants = Array[String](["1. 2", "2. 4", "3. 8", "4. 32"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_nmfec"]
+script = ExtResource("1_03mdj")
+title = "√121="
+description = ""
+variants = Array[String](["1. 14", "2. 13", "3. 12", "4. 11"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_fqgw1"]
+script = ExtResource("1_03mdj")
+title = "√169="
+description = ""
+variants = Array[String](["1. 8", "2. 11", "3. 12", "4. 13"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_4jjkh"]
+script = ExtResource("1_03mdj")
+title = "√225="
+description = ""
+variants = Array[String](["1. 5", "2. 15", "3. 25", "4. 35"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_2f7sl"]
+script = ExtResource("1_03mdj")
+title = "√400="
+description = ""
+variants = Array[String](["1. 20", "2. 40", "3. 80", "4. 200"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_efdxi"]
+script = ExtResource("1_03mdj")
+title = "√625="
+description = ""
+variants = Array[String](["1. 15", "2. 25", "3. 35", "4. 45"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_nwmim"]
+script = ExtResource("1_03mdj")
+title = "√0,25="
+description = ""
+variants = Array[String](["1. 0,05", "2. 0,5", "3. 0,15", "4. 1,5"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_c1x0j"]
+script = ExtResource("1_03mdj")
+title = "√0,01="
+description = ""
+variants = Array[String](["1. 0,1", "2. 0,01", "3. 1", "4. 1,01"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_jqv13"]
+script = ExtResource("1_03mdj")
+title = "√2,25="
+description = ""
+variants = Array[String](["1. 0,5", "2. 1,05", "3. 0,15", "4. 1,5"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_ax7m7"]
+script = ExtResource("1_03mdj")
+title = "√196="
+description = ""
+variants = Array[String](["1. 12", "2. 13", "3. 14", "4. 16"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_83t8c"]
+script = ExtResource("1_03mdj")
+title = "√0,09="
+description = ""
+variants = Array[String](["1. 0,3", "2. 0,03", "3. 1,8", "4. 0,18"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[resource]
+script = ExtResource("2_fi5l3")
+questions = Array[ExtResource("1_03mdj")]([SubResource("Resource_fi5l3"), SubResource("Resource_8c0nt"), SubResource("Resource_k1ejw"), SubResource("Resource_o48cx"), SubResource("Resource_ph845"), SubResource("Resource_j758l"), SubResource("Resource_50rl0"), SubResource("Resource_oshcd"), SubResource("Resource_5daw1"), SubResource("Resource_xir0e"), SubResource("Resource_nmfec"), SubResource("Resource_fqgw1"), SubResource("Resource_4jjkh"), SubResource("Resource_2f7sl"), SubResource("Resource_efdxi"), SubResource("Resource_nwmim"), SubResource("Resource_c1x0j"), SubResource("Resource_jqv13"), SubResource("Resource_ax7m7"), SubResource("Resource_83t8c")])

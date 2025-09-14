@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://jtqamw26pipu"]
+
+[ext_resource type="Script" uid="uid://velje2hwgr0j" path="res://src/ui/question/QuestionTimer.gd" id="1_4tapp"]
+[ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="1_fyx2i"]
+
+[node name="QuestionTimer" type="Control"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme = ExtResource("1_fyx2i")
+script = ExtResource("1_4tapp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TimerProgressBar" type="ProgressBar" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_type_variation = &"QuestionTimerProgressBar"
+value = 80.0
+show_percentage = false
+
+[node name="RealTimer" type="Timer" parent="."]
+unique_name_in_owner = true

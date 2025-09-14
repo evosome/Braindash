@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Grade" load_steps=6 format=3 uid="uid://cb6s0unrd722s"]
+
+[ext_resource type="Script" uid="uid://of8ygp14u0yt" path="res://src/questionare/Grade.gd" id="1_m1c0v"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="2_pjby8"]
+[ext_resource type="Resource" uid="uid://d3p7pynqv6n0q" path="res://resources/topics/grade_9/Вероятности.tres" id="3_g66v7"]
+[ext_resource type="Resource" uid="uid://d2uerfv7feh7p" path="res://resources/topics/grade_9/Прогрессии.tres" id="4_0gngt"]
+[ext_resource type="Resource" uid="uid://g0oxmk82odb2" path="res://resources/topics/grade_9/Синус, косинус, тангенс, котангенс.tres" id="5_qnfn6"]
+
+[resource]
+script = ExtResource("1_m1c0v")
+name = "Класс 9"
+topics = Array[ExtResource("2_pjby8")]([ExtResource("3_g66v7"), ExtResource("4_0gngt"), ExtResource("5_qnfn6")])
+accent_color = Color(0, 0, 0, 1)

@@ -1,0 +1,168 @@
+[gd_resource type="Resource" script_class="QuestionList" load_steps=23 format=3 uid="uid://oxja17qvujsa"]
+
+[ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="1_x5r13"]
+[ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="2_b3368"]
+
+[sub_resource type="Resource" id="Resource_b3368"]
+script = ExtResource("1_x5r13")
+title = "Точка на окружности, равная 30°"
+description = ""
+variants = Array[String](["1. π/4", "2. π/2", "3. π", "4. π/6"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_u2i5y"]
+script = ExtResource("1_x5r13")
+title = "Точка на окружности, равная 45°"
+description = ""
+variants = Array[String](["1. π/4", "2. π/6", "3. π/2", "4. π"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_1t2db"]
+script = ExtResource("1_x5r13")
+title = "Точка на окружности, равная 60°"
+description = ""
+variants = Array[String](["1. π/4", "2. 3π/2", "3. π", "4. π/3"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_cyu41"]
+script = ExtResource("1_x5r13")
+title = "Точка на окружности, равная 90°"
+description = ""
+variants = Array[String](["1. π/6", "2. 3π/2", "3. π/3", "4. π/2"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_ir6qv"]
+script = ExtResource("1_x5r13")
+title = "Точка на окружности, равная 180°"
+description = ""
+variants = Array[String](["1. π/2", "2. π", "3. π/3", "4. 3π/2"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_vx5vv"]
+script = ExtResource("1_x5r13")
+title = "Точка на окружности, равная 270°"
+description = ""
+variants = Array[String](["1. π", "2. π/4", "3. π/2", "4. 3π/2"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_aqtyg"]
+script = ExtResource("1_x5r13")
+title = "Точка на окружности, равная 360°"
+description = ""
+variants = Array[String](["1. 2π", "2. 3π/2", "3. 3π", "4. π"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_mfo6n"]
+script = ExtResource("1_x5r13")
+title = "Точка на окружности, в которой cos 𝛼 = 1"
+description = ""
+variants = Array[String](["1. 3π/2", "2. 2π", "3. π", "4. 3π"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_k4162"]
+script = ExtResource("1_x5r13")
+title = "Точка на окружности, в которой cos 𝛼 = -1"
+description = ""
+variants = Array[String](["1. π/4", "2. 3π/2", "3. π", "4. π/3"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_1knu8"]
+script = ExtResource("1_x5r13")
+title = "Точка на окружности, в которой sin 𝛼 = 1"
+description = ""
+variants = Array[String](["1. π/2", "2. π/4", "3. π/6", "4. π"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_clmer"]
+script = ExtResource("1_x5r13")
+title = "Точка на окружности, в которой sin 𝛼 = -1"
+description = ""
+variants = Array[String](["1. π/2", "2. 3π/2", "3. π", "4. 2π"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_c0n8b"]
+script = ExtResource("1_x5r13")
+title = "Значение sin 𝛼 в точке π/2"
+description = ""
+variants = Array[String](["1. 0", "2. √3/2", "3. √2/2", "4. 1"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_fglrr"]
+script = ExtResource("1_x5r13")
+title = "Значение cos 𝛼 в точке π/6"
+description = ""
+variants = Array[String](["1. 0", "2. 1/2", "3. √3/2", "4. 1"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_y7vrx"]
+script = ExtResource("1_x5r13")
+title = "Значение sin 𝛼 в точке π/6"
+description = ""
+variants = Array[String](["1. 1", "2. √2/2", "3. √3/2", "4. 1/2"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_u66iv"]
+script = ExtResource("1_x5r13")
+title = "Значение cos 𝛼 в точке π/3"
+description = ""
+variants = Array[String](["1. 1/2", "2. √3/2", "3. 0", "4. √2/2"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_dmv7f"]
+script = ExtResource("1_x5r13")
+title = "Значение cos 90°"
+description = ""
+variants = Array[String](["1. 1/2", "2. √3/2", "3. 0", "4. 1"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_wcto5"]
+script = ExtResource("1_x5r13")
+title = "Значение cos 270°"
+description = ""
+variants = Array[String](["1. 1", "2. 0", "3. √3/2", "4. √2/2"])
+correct_index = 1
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_3c5uu"]
+script = ExtResource("1_x5r13")
+title = "Значение sin 180°"
+description = ""
+variants = Array[String](["1. 1/2", "2. √3/2", "3. 0", "4. √2/2"])
+correct_index = 2
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_l1d7o"]
+script = ExtResource("1_x5r13")
+title = "Значение sin 270°"
+description = ""
+variants = Array[String](["1. -1/2", "2. 1/2", "3. 1", "4. -1"])
+correct_index = 3
+timeout_seconds = 30.0
+
+[sub_resource type="Resource" id="Resource_w7207"]
+script = ExtResource("1_x5r13")
+title = "Значение tg 𝛼 в точке π/4"
+description = ""
+variants = Array[String](["1. 1", "2. -1", "3. 1/2", "4. 0"])
+correct_index = 0
+timeout_seconds = 30.0
+
+[resource]
+script = ExtResource("2_b3368")
+questions = Array[ExtResource("1_x5r13")]([SubResource("Resource_b3368"), SubResource("Resource_u2i5y"), SubResource("Resource_1t2db"), SubResource("Resource_cyu41"), SubResource("Resource_ir6qv"), SubResource("Resource_vx5vv"), SubResource("Resource_aqtyg"), SubResource("Resource_mfo6n"), SubResource("Resource_k4162"), SubResource("Resource_1knu8"), SubResource("Resource_clmer"), SubResource("Resource_c0n8b"), SubResource("Resource_fglrr"), SubResource("Resource_y7vrx"), SubResource("Resource_u66iv"), SubResource("Resource_dmv7f"), SubResource("Resource_wcto5"), SubResource("Resource_3c5uu"), SubResource("Resource_l1d7o"), SubResource("Resource_w7207")])

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Grade" load_steps=7 format=3 uid="uid://bmyxeg8xs1upl"]
+
+[ext_resource type="Script" uid="uid://of8ygp14u0yt" path="res://src/questionare/Grade.gd" id="1_k7pm6"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="2_00fgf"]
+[ext_resource type="Resource" uid="uid://4akyrksggwhp" path="res://resources/topics/grade_11/Значения окружности.tres" id="3_nxkp0"]
+[ext_resource type="Resource" uid="uid://etig4nulvn22" path="res://resources/topics/grade_11/Производные.tres" id="4_4o1ir"]
+[ext_resource type="Resource" uid="uid://dbjv28ll08ilh" path="res://resources/topics/grade_11/Свойства логарифмов.tres" id="5_4a760"]
+[ext_resource type="Resource" uid="uid://x3g4id5ej3cy" path="res://resources/topics/grade_11/Тригонометрия.tres" id="6_073q0"]
+
+[resource]
+script = ExtResource("1_k7pm6")
+name = "Класс 11"
+topics = Array[ExtResource("2_00fgf")]([ExtResource("3_nxkp0"), ExtResource("4_4o1ir"), ExtResource("5_4a760"), ExtResource("6_073q0")])
+accent_color = Color(0, 0, 0, 1)

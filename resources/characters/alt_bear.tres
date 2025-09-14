@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="BearCharacterType" load_steps=6 format=3 uid="uid://4x32a8jx8an1"]
+
+[ext_resource type="Script" uid="uid://d4bqt1d4bhiqk" path="res://src/entities/characters/bear/BearAttack.gd" id="1_pfjbf"]
+[ext_resource type="Texture2D" uid="uid://w0bstifyjjbf" path="res://assets/textures/entities/characters/alt_bear/alt_bear_portrait.png" id="2_pfjbf"]
+[ext_resource type="PackedScene" uid="uid://cuxo8u6ej2b1l" path="res://src/entities/characters/bear/AltBearSprite.tscn" id="3_pfjbf"]
+[ext_resource type="Script" uid="uid://vmvjfjwe52us" path="res://src/entities/characters/bear/BearCharacterType.gd" id="4_nqqh4"]
+
+[sub_resource type="Resource" id="Resource_sn7yo"]
+script = ExtResource("1_pfjbf")
+metadata/_custom_type_script = "uid://d4bqt1d4bhiqk"
+
+[resource]
+script = ExtResource("4_nqqh4")
+_bear_attack_type = SubResource("Resource_sn7yo")
+kind = "воин-робот"
+kind_icon = ExtResource("2_pfjbf")
+ability_icons = Array[Texture2D]([])
+name = "Медведь Гибус"
+description = ""
+common_damage = 50
+packed_sprite = ExtResource("3_pfjbf")
+damage_multiplier = 1.1
+metadata/_custom_type_script = "uid://b44s0gfuh4mpk"

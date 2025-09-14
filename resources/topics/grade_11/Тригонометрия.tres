@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Topic" load_steps=7 format=3 uid="uid://x3g4id5ej3cy"]
+
+[ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_6ukj4"]
+[ext_resource type="Resource" uid="uid://on13381ok5hd" path="res://resources/characters/eye_character.tres" id="1_35qvr"]
+[ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_fceif"]
+[ext_resource type="Resource" uid="uid://bpohlj812lwe7" path="res://resources/questions/grade_11/Тригонометрия.tres" id="1_ytnfh"]
+[ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/GameInfo.gd" id="2_6ukj4"]
+
+[sub_resource type="Resource" id="Resource_35qvr"]
+script = ExtResource("2_6ukj4")
+packed_arena = ExtResource("1_6ukj4")
+question_list = ExtResource("1_ytnfh")
+questions_to_win = 10
+metadata/_custom_type_script = "uid://besub6tgkqobr"
+
+[resource]
+script = ExtResource("1_fceif")
+name = "Тригонометрия"
+game_info = SubResource("Resource_35qvr")
+author_name = "Любовь Александровна"
+enemy_character_type = ExtResource("1_35qvr")

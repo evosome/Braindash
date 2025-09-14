@@ -10,6 +10,7 @@
 script = ExtResource("2_0mteu")
 packed_arena = ExtResource("1_0mteu")
 question_list = ExtResource("1_fgxst")
+questions_to_win = 10
 metadata/_custom_type_script = "uid://besub6tgkqobr"
 
 [resource]

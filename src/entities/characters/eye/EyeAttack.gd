@@ -31,6 +31,8 @@ func perform(arena: Arena, attacker: PlayerCharacter, attackable: PlayerCharacte
 
 	await attackable.async_play_animation(CharacterSprite.Animations.HURT)
 	attackable.damage(attacker.get_damage())
+	
+	desintegration_beam.queue_free()
 
 	attackable.async_play_animation(CharacterSprite.Animations.IDLE)
 	attacker.async_play_animation(CharacterSprite.Animations.IDLE)

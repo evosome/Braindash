@@ -101,7 +101,6 @@ func do_fight(round_result: Round.Result) -> void:
 		return
 
 	var smash_info = SmashInfo.new()
-	smash_info.set_damage(100)
 
 	var best_answer = round_result.get_best_answer()
 	var best_player = best_answer.get_who_answered()
@@ -114,6 +113,15 @@ func do_fight(round_result: Round.Result) -> void:
 	var loser_characters = _arena.get_characters_of(loser_players)
 
 	smash_info.set_loser_characters(loser_characters)
+	
+	#TODO: move damage calculation to separate class in v0.2
+	var questions_to_answer = _game_info.questions_to_win
+	var enemy_max_health = loser_characters[0].get_health().get_max_health()
+	var questions_ratio: float = float(enemy_max_health) / questions_to_answer
+	
+	var current_damage = questions_ratio * best_character.get_damage_amplifier()
+	smash_info.set_damage(current_damage)
+	
 	await _arena.async_smash(smash_info)
 
 

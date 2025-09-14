@@ -20,4 +20,5 @@ name = "Крольчиха Гибус"
 description = ""
 common_damage = 38
 packed_sprite = ExtResource("4_1dtwu")
+damage_multiplier = 0.8
 metadata/_custom_type_script = "uid://b44s0gfuh4mpk"

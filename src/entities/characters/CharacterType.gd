@@ -8,6 +8,11 @@ class_name CharacterType extends Resource
 @export var common_damage: int
 @export var packed_sprite: PackedScene
 
+## The game calculates damage using [class]DamageCalculator[/class] set
+## in game info. All implementations of damage calculator consider this damage scale,
+## that will be multiplied by calculated damage value.
+@export var damage_multiplier: float = 1.0
+
 
 func get_attack_type() -> AttackType:
 	return

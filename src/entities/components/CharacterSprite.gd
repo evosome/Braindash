@@ -4,8 +4,8 @@ class_name CharacterSprite extends Node2D
 #region shader constants
 
 const SHADER_PRELOADED = preload("CharacterSprite.gdshader")
-const WIDTH_PARAM = "width"
-const DEFAULT_WIDTH = 8.0
+const LINE_WIDTH_PARAM = "line_scale"
+const DEFAULT_LINE_WIDTH = 8.0
 
 #endregion
 
@@ -65,7 +65,7 @@ func _ready() -> void:
 
 func set_glowing(value: bool) -> void:
 	_is_glowing = value
-	_shader_material.set_shader_parameter(WIDTH_PARAM, DEFAULT_WIDTH if value else 0.0)
+	_shader_material.set_shader_parameter(LINE_WIDTH_PARAM, DEFAULT_LINE_WIDTH if value else 0.0)
 
 
 func get_glowing() -> bool:

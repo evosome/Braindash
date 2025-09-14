@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b36pnp1iiqk5n"]
+[gd_scene load_steps=9 format=3 uid="uid://b36pnp1iiqk5n"]
 
 [ext_resource type="Script" uid="uid://do5av0re8ksnm" path="res://src/entities/components/CharacterSprite.gd" id="1_rrxyn"]
-[ext_resource type="SpriteFrames" uid="uid://buavf4uv88hef" path="res://resources/spritesheets/rabbit_spritesheet.tres" id="2_apn38"]
+[ext_resource type="SpriteFrames" uid="uid://jb7t8kfw35yk" path="res://resources/spritesheets/rabbit_spritesheet.tres" id="2_apn38"]
 
-[sub_resource type="Animation" id="Animation_m30wo"]
+[sub_resource type="Animation" id="Animation_apn38"]
 resource_name = "ATTACK"
-length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -25,10 +24,37 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.866667, 1.1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0, 15, 15, 6]
+"values": [15, 5]
+}
+
+[sub_resource type="Animation" id="Animation_m30wo"]
+resource_name = "ATTACK_PREPARE"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 15]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -37,12 +63,9 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"perform_attack"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_rrxyn"]
@@ -131,7 +154,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m30wo"]
 _data = {
-&"ATTACK": SubResource("Animation_m30wo"),
+&"ATTACK": SubResource("Animation_apn38"),
+&"ATTACK_PREPARE": SubResource("Animation_m30wo"),
 &"HURT": SubResource("Animation_rrxyn"),
 &"IDLE": SubResource("Animation_a6jtl"),
 &"RESET": SubResource("Animation_hm0ad")

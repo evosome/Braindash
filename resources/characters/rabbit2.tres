@@ -20,4 +20,5 @@ name = "Крольчиха"
 description = ""
 common_damage = 38
 packed_sprite = ExtResource("4_0pybx")
+damage_multiplier = 1.0
 metadata/_custom_type_script = "uid://b44s0gfuh4mpk"

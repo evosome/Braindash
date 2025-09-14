@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="2_p8ij3"]
 [ext_resource type="Script" uid="uid://blvm6n2nx4mse" path="res://src/client/screens/menu/MainMenuSubscreen.gd" id="2_q4ffi"]
 
-[node name="MainSubscreen" type="Control" node_paths=PackedStringArray("_start_button", "_quit_button", "_game_results_button")]
+[node name="MainSubscreen" type="Control" node_paths=PackedStringArray("_start_button", "_quit_button", "_game_results_button", "_about_game_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +15,7 @@ script = ExtResource("2_q4ffi")
 _start_button = NodePath("AspectRatioContainer/VBoxContainer/VBoxContainer/StartButton")
 _quit_button = NodePath("AspectRatioContainer/VBoxContainer/VBoxContainer/QuitButton")
 _game_results_button = NodePath("AspectRatioContainer/VBoxContainer/VBoxContainer/GameResultsButton")
+_about_game_button = NodePath("AspectRatioContainer/VBoxContainer/VBoxContainer/HBoxContainer/AboutGameButton")
 metadata/_custom_type_script = "uid://blvm6n2nx4mse"
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
@@ -44,6 +45,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"CommonVBoxContainer"
+theme_override_constants/separation = 8
 alignment = 1
 
 [node name="StartButton" type="Button" parent="AspectRatioContainer/VBoxContainer/VBoxContainer"]
@@ -59,10 +61,22 @@ theme_type_variation = &"BigButton"
 text = "Результаты игр
 "
 
-[node name="AboutGameButton" type="Button" parent="AspectRatioContainer/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AboutGameButton" type="Button" parent="AspectRatioContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(304, 0)
 layout_mode = 2
 theme_type_variation = &"BigButton"
 text = "Об игре
+"
+
+[node name="SettingsButton" type="Button" parent="AspectRatioContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(304, 0)
+layout_mode = 2
+theme_type_variation = &"BigButton"
+text = "Настройки
 "
 
 [node name="QuitButton" type="Button" parent="AspectRatioContainer/VBoxContainer/VBoxContainer"]

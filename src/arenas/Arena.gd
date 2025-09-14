@@ -143,6 +143,7 @@ func async_smash(smash_info: SmashInfo) -> void:
 	var winner_char = smash_info.get_winner_character()
 	var loser_chars = smash_info.get_loser_characters()
 
+	winner_char.set_damage(smash_info.get_damage())
 	winner_char.set_target(loser_chars[0])
 	await winner_char.attack_target()
 

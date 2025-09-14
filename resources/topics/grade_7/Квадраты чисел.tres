@@ -3,13 +3,14 @@
 [ext_resource type="Resource" uid="uid://du8b5jwuuatfb" path="res://resources/questions/grade_7/Квадраты чисел.tres" id="1_kxws6"]
 [ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_n8sxg"]
 [ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_pra2l"]
-[ext_resource type="Resource" uid="uid://gjkvbpcuxtmo" path="res://resources/characters/bear2.tres" id="1_tbysn"]
+[ext_resource type="Resource" uid="uid://4x32a8jx8an1" path="res://resources/characters/alt_bear.tres" id="1_tbysn"]
 [ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/GameInfo.gd" id="2_pra2l"]
 
 [sub_resource type="Resource" id="Resource_kxws6"]
 script = ExtResource("2_pra2l")
 packed_arena = ExtResource("1_pra2l")
 question_list = ExtResource("1_kxws6")
+questions_to_win = 10
 metadata/_custom_type_script = "uid://besub6tgkqobr"
 
 [resource]

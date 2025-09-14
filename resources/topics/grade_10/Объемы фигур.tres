@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_6kba0"]
 [ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_kldlo"]
-[ext_resource type="Resource" uid="uid://gjkvbpcuxtmo" path="res://resources/characters/bear2.tres" id="1_uo0fe"]
+[ext_resource type="Resource" uid="uid://4x32a8jx8an1" path="res://resources/characters/alt_bear.tres" id="1_uo0fe"]
 [ext_resource type="Resource" uid="uid://dl6uf0lasrdrx" path="res://resources/questions/grade_10/Объемы фигур.tres" id="1_xkk5i"]
 [ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/GameInfo.gd" id="2_6kba0"]
 
@@ -10,6 +10,7 @@
 script = ExtResource("2_6kba0")
 packed_arena = ExtResource("1_6kba0")
 question_list = ExtResource("1_xkk5i")
+questions_to_win = 10
 metadata/_custom_type_script = "uid://besub6tgkqobr"
 
 [resource]

@@ -14,6 +14,7 @@ var _damage_amount: int
 var _target: PlayerCharacter
 var _character_type: CharacterType
 var _character_sprite: CharacterSprite
+var _damage_amplifier: float = 1.0
 var _attack_type: AttackType
 
 @export var _health_component: HealthComponent
@@ -27,6 +28,7 @@ func _ready() -> void:
 		return
 
 	_damage_amount = _character_type.common_damage
+	_damage_amplifier = _character_type.damage_multiplier
 	_attack_type = _character_type.get_attack_type()
 	_character_sprite = packed_character_sprite.instantiate()
 	add_child(_character_sprite)
@@ -63,6 +65,10 @@ func set_target(other_player: PlayerCharacter) -> void:
 		push_error("Cannot assign self as target")
 		return
 	_target = other_player
+
+
+func get_damage_amplifier() -> float:
+	return _damage_amplifier
 
 #endregion
 

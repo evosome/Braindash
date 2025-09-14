@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Topic" load_steps=7 format=3 uid="uid://bgap0aid2jbxc"]
 
-[ext_resource type="Resource" uid="uid://dssfhokhd1nrl" path="res://resources/characters/rabbit2.tres" id="1_22fb1"]
+[ext_resource type="Resource" uid="uid://bu4ymplr83tnm" path="res://resources/characters/alt_rabbit.tres" id="1_22fb1"]
 [ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_arm2u"]
 [ext_resource type="Resource" uid="uid://c0304wxdgicwi" path="res://resources/questions/grade_6/Проценты.tres" id="1_kslec"]
 [ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_rojq8"]
@@ -10,6 +10,7 @@
 script = ExtResource("2_arm2u")
 packed_arena = ExtResource("1_arm2u")
 question_list = ExtResource("1_kslec")
+questions_to_win = 10
 metadata/_custom_type_script = "uid://besub6tgkqobr"
 
 [resource]

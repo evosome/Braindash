@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://dre3jxd0xvpd3" path="res://resources/questions/grade_8/Теорема Пифагора.tres" id="1_id6d5"]
 [ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="1_n5736"]
-[ext_resource type="Resource" uid="uid://gjkvbpcuxtmo" path="res://resources/characters/bear2.tres" id="1_pkptm"]
+[ext_resource type="Resource" uid="uid://4x32a8jx8an1" path="res://resources/characters/alt_bear.tres" id="1_pkptm"]
 [ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="1_xpouw"]
 [ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/GameInfo.gd" id="2_xpouw"]
 
@@ -10,6 +10,7 @@
 script = ExtResource("2_xpouw")
 packed_arena = ExtResource("1_xpouw")
 question_list = ExtResource("1_id6d5")
+questions_to_win = 10
 metadata/_custom_type_script = "uid://besub6tgkqobr"
 
 [resource]

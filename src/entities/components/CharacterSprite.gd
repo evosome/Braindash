@@ -4,16 +4,17 @@ class_name CharacterSprite extends Node2D
 #region shader constants
 
 const SHADER_PRELOADED = preload("CharacterSprite.gdshader")
-const WIDTH_PARAM = "width"
-const DEFAULT_WIDTH = 8.0
+const LINE_WIDTH_PARAM = "line_scale"
+const DEFAULT_LINE_WIDTH = 8.0
 
 #endregion
 
-## Fired when attack is gonna be performed while playing animation
-signal attack_happened
+
+#region enums
 
 enum Animations {
 	IDLE,
+	ATTACK_PREPARE,
 	ATTACK,
 	HURT
 }
@@ -23,11 +24,28 @@ enum LookDirections {
 	RIGHT
 }
 
+#endregion
+
+
+#region signals
+
+## Fired when attack is gonna be performed while playing animation
+signal attack_happened
+
+#endregion
+
+
+#region fields
+
 var _is_glowing: bool = false
 var _shader_material: ShaderMaterial
+var _current_direction: LookDirections = LookDirections.RIGHT
 
+@export var _line_of_eyes: Node2D
 @export var _sprite: AnimatedSprite2D
 @export var _animation_player: AnimationPlayer
+
+#endregion
 
 
 #region builtin
@@ -47,7 +65,7 @@ func _ready() -> void:
 
 func set_glowing(value: bool) -> void:
 	_is_glowing = value
-	_shader_material.set_shader_parameter(WIDTH_PARAM, DEFAULT_WIDTH if value else 0.0)
+	_shader_material.set_shader_parameter(LINE_WIDTH_PARAM, DEFAULT_LINE_WIDTH if value else 0.0)
 
 
 func get_glowing() -> bool:
@@ -60,6 +78,15 @@ func get_rect() -> Rect2:
 	var current_frame = _sprite.sprite_frames.get_frame_texture(current_animation, current_frame_count)
 	return Rect2(_sprite.position, current_frame.get_size())
 
+
+func has_line_of_eyes() -> bool:
+	return _line_of_eyes != null
+
+
+func get_line_of_eyes() -> Vector2:
+	var direction_sign = 1 if _current_direction == LookDirections.RIGHT else -1
+	return global_position + _line_of_eyes.position * Vector2(direction_sign, 1)
+
 #endregion
 
 
@@ -67,6 +94,7 @@ func get_rect() -> Rect2:
 
 func look_at_direction(direction: LookDirections) -> void:
 	_sprite.flip_h = direction == LookDirections.LEFT
+	_current_direction = direction
 
 
 func play_animation(animation: Animations) -> void:

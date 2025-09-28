@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QuestionList" load_steps=23 format=3 uid="uid://c4ufjvr72tgd6"]
+[gd_resource type="Resource" script_class="QuestionList" load_steps=22 format=3 uid="uid://c4ufjvr72tgd6"]
 
 [ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="1_t43yf"]
 [ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="2_3jcmd"]
@@ -7,12 +7,6 @@
 script = ExtResource("1_t43yf")
 title = "Что показывает знаменатель дроби?"
 variants = Array[String](["1. Сколько частей всего", "2. Сколько частей взяли", "3. Целое число", "4. Сумму частей"])
-
-[sub_resource type="Resource" id="Resource_dbap0"]
-script = ExtResource("1_t43yf")
-title = "Что показывает числитель дроби?"
-variants = Array[String](["1. Сколько частей всего", "2. Сколько частей взяли", "3. Целое число", "4. Сумму частей"])
-correct_index = 1
 
 [sub_resource type="Resource" id="Resource_pv4k3"]
 script = ExtResource("1_t43yf")
@@ -120,4 +114,4 @@ correct_index = 3
 
 [resource]
 script = ExtResource("2_3jcmd")
-questions = Array[ExtResource("1_t43yf")]([SubResource("Resource_3jcmd"), SubResource("Resource_dbap0"), SubResource("Resource_pv4k3"), SubResource("Resource_xrd0h"), SubResource("Resource_cbpyq"), SubResource("Resource_hfgqo"), SubResource("Resource_ne1vg"), SubResource("Resource_1nov1"), SubResource("Resource_qd20t"), SubResource("Resource_hqi1f"), SubResource("Resource_gdtce"), SubResource("Resource_far28"), SubResource("Resource_y1rlr"), SubResource("Resource_0dg3d"), SubResource("Resource_oi3cf"), SubResource("Resource_o2wuq"), SubResource("Resource_dwpo6"), SubResource("Resource_3tby7"), SubResource("Resource_khihy"), SubResource("Resource_f41ux")])
+questions = Array[ExtResource("1_t43yf")]([SubResource("Resource_3jcmd"), SubResource("Resource_pv4k3"), SubResource("Resource_xrd0h"), SubResource("Resource_cbpyq"), SubResource("Resource_hfgqo"), SubResource("Resource_ne1vg"), SubResource("Resource_1nov1"), SubResource("Resource_qd20t"), SubResource("Resource_hqi1f"), SubResource("Resource_gdtce"), SubResource("Resource_far28"), SubResource("Resource_y1rlr"), SubResource("Resource_0dg3d"), SubResource("Resource_oi3cf"), SubResource("Resource_o2wuq"), SubResource("Resource_dwpo6"), SubResource("Resource_3tby7"), SubResource("Resource_khihy"), SubResource("Resource_f41ux")])

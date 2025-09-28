@@ -17,5 +17,5 @@ kind_icon = ExtResource("2_pfjbf")
 name = "Медведь Гибус"
 common_damage = 50
 packed_sprite = ExtResource("3_pfjbf")
-damage_multiplier = 1.1
+damage_multiplier = 5.0
 metadata/_custom_type_script = "uid://b44s0gfuh4mpk"

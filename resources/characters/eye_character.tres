@@ -17,5 +17,5 @@ kind_icon = ExtResource("2_4yc0i")
 name = "Злобоглаз-клерк"
 common_damage = 100
 packed_sprite = ExtResource("3_biwbx")
-damage_multiplier = 2.0
+damage_multiplier = 10.0
 metadata/_custom_type_script = "uid://d3qy1lditfw5v"

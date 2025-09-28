@@ -17,7 +17,6 @@ kind = "Лучник-робот"
 kind_icon = ExtResource("3_1dtwu")
 ability_icons = Array[Texture2D]([ExtResource("2_448nu")])
 name = "Крольчиха Гибус"
-description = ""
 common_damage = 38
 packed_sprite = ExtResource("4_1dtwu")
 damage_multiplier = 0.8

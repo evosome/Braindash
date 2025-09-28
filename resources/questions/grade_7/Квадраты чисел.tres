@@ -63,7 +63,7 @@ correct_index = 1
 [sub_resource type="Resource" id="Resource_nssi2"]
 script = ExtResource("1_1dgq6")
 title = "100²="
-variants = Array[String](["1. 10", "2. 100", "3. 10000"])
+variants = Array[String](["1. 10", "2. 100", "3. 10000", "4. 100000"])
 correct_index = 2
 
 [sub_resource type="Resource" id="Resource_aosum"]

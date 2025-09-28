@@ -3,14 +3,12 @@ class_name ClassSelectionSubscreen extends Screen
 const SELECTION_CARD_PACKED = preload("res://src/ui/core/SelectionCard.tscn")
 
 @onready var _back_button: Button = %"BackButton"
-@onready var _continue_button: Button = %"ContunueButton"
 @onready var _cards_grid: CardGrid = %"CardGrid"
 
 #region built-in
 
 func _ready() -> void:
 	_cards_grid.set_title("Выбор класса")
-	_continue_button.set_disabled(true)
 
 #endregion
 
@@ -20,7 +18,6 @@ func _ready() -> void:
 func on_enter(ctx: MenuContext) -> void:
 	
 	_back_button.pressed.connect(_on_back_button_pressed.bind(ctx))
-	_continue_button.pressed.connect(_on_continue_button_pressed.bind(ctx))
 	_cards_grid.card_selected.connect(func(card):
 		_on_card_selected(ctx, card))
 	
@@ -48,15 +45,11 @@ func _on_back_button_pressed(ctx: MenuContext) -> void:
 	ctx.switch_subscreen("main")
 
 
-func _on_continue_button_pressed(ctx: MenuContext) -> void:
-	ctx.switch_subscreen("topics")
-
-
 func _on_card_selected(
 		ctx: MenuContext,
 		card: SelectionCard) -> void:
 
-	_continue_button.set_disabled(false)
 	ctx.set_current_grade(card.get_context() as Grade)
+	ctx.switch_subscreen("topics")
 
 #endregion

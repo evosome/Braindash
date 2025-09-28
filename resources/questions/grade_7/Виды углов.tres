@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QuestionList" load_steps=40 format=3 uid="uid://yxkxil2iel4x"]
+[gd_resource type="Resource" script_class="QuestionList" load_steps=37 format=3 uid="uid://yxkxil2iel4x"]
 
 [ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="2_ejo1l"]
 [ext_resource type="Texture2D" uid="uid://c1jcyxte63idy" path="res://assets/textures/questions/grade_7/02b30433-32f5-4ea8-b019-8fc2e91425ec.png" id="2_u3703"]
@@ -128,33 +128,24 @@ image = ExtResource("15_sp2nq")
 variants = Array[String](["1. Накрест лежащие", "2. Соответственные", "3. Односторонние", "4. Смежные"])
 correct_index = 1
 
-[sub_resource type="Resource" id="Resource_cyr31"]
-metadata/__load_path__ = "res://assets/textures/questions/grade_7/02b30433-32f5-4ea8-b019-8fc2e91425ec.jpg"
-
 [sub_resource type="Resource" id="Resource_gufei"]
 script = ExtResource("2_ejo1l")
 title = "Какой это угол?"
-image = SubResource("Resource_cyr31")
+image = ExtResource("2_u3703")
 variants = Array[String](["1. Тупой", "2. Острый", "3. Прямой", "4. Развернутый"])
 correct_index = 1
-
-[sub_resource type="Resource" id="Resource_ejo1l"]
-metadata/__load_path__ = "res://assets/textures/questions/grade_7/e3e7a11a-34d3-4435-8d74-e7133afa672f.jpg"
 
 [sub_resource type="Resource" id="Resource_arlny"]
 script = ExtResource("2_ejo1l")
 title = "Какой это угол?"
-image = SubResource("Resource_ejo1l")
+image = ExtResource("3_dudxp")
 variants = Array[String](["1. Тупой", "2. Острый", "3. Прямой", "4. Развернутый"])
 correct_index = 3
-
-[sub_resource type="Resource" id="Resource_6d8ew"]
-metadata/__load_path__ = "res://assets/textures/questions/grade_7/43c744a5-3ca6-484d-8f59-ecad9e45545c.jpg"
 
 [sub_resource type="Resource" id="Resource_0mxg0"]
 script = ExtResource("2_ejo1l")
 title = "Какой это угол?"
-image = SubResource("Resource_6d8ew")
+image = ExtResource("4_35j7p")
 variants = Array[String](["1. Тупой", "2. Острый", "3. Прямой", "4. Развернутый"])
 
 [resource]

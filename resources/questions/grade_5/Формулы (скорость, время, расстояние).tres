@@ -34,7 +34,7 @@ variants = Array[String](["1. S/t", "2. t/S", "3. S*t", "4. S-t"])
 [sub_resource type="Resource" id="Resource_1sbhs"]
 script = ExtResource("1_6wh8f")
 title = "t="
-variants = Array[String](["2. S/V", "3. S*V", "4. S-V"])
+variants = Array[String](["1. S/V", "2. S*V", "3. S-V", "4. S+V"])
 correct_index = 1
 
 [sub_resource type="Resource" id="Resource_jbi38"]

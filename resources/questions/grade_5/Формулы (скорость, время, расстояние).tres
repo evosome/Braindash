@@ -6,162 +6,117 @@
 [sub_resource type="Resource" id="Resource_0t8df"]
 script = ExtResource("1_6wh8f")
 title = "Расстояние обозначается буквой"
-description = ""
 variants = Array[String](["1. S", "2. t", "3. V", "4. R"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_lmkvw"]
 script = ExtResource("1_6wh8f")
 title = "Скорость обозначается буквой"
-description = ""
 variants = Array[String](["1. S", "2. t", "3. V", "4. C"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_aplk8"]
 script = ExtResource("1_6wh8f")
 title = "Время обозначается буквой"
-description = ""
 variants = Array[String](["1. S", "2. t", "3. V", "4. W"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_a85nr"]
 script = ExtResource("1_6wh8f")
 title = "S="
-description = ""
 variants = Array[String](["1. V/t", "2. t/V", "3. V+t", "4. V*t"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_g1qlc"]
 script = ExtResource("1_6wh8f")
 title = "V="
-description = ""
 variants = Array[String](["1. S/t", "2. t/S", "3. S*t", "4. S-t"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_1sbhs"]
 script = ExtResource("1_6wh8f")
 title = "t="
-description = ""
-variants = Array[String](["2. S/V", "3. S*V", "4. S-V"])
+variants = Array[String](["1. S/V", "2. S*V", "3. S-V", "4. S+V"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_jbi38"]
 script = ExtResource("1_6wh8f")
 title = "S=100км, V=20км/ч, t="
-description = ""
 variants = Array[String](["1. 80мин", "2. 80ч", "3. 5мин", "4. 5ч"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_x74yy"]
 script = ExtResource("1_6wh8f")
 title = "S=20км, t=5ч, V="
-description = ""
 variants = Array[String](["1. 100км/ч", "2. 25км/ч", "3. 4км/ч", "4. 15км/ч"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_5obpb"]
 script = ExtResource("1_6wh8f")
 title = "V=8км/ч, t=2ч, S="
-description = ""
 variants = Array[String](["1. 16км", "2. 4км", "3. 6км", "4. 10км"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_r3e12"]
 script = ExtResource("1_6wh8f")
 title = "S=21м, V=3м/мин, t="
-description = ""
 variants = Array[String](["1. 18ч", "2. 18мин", "3. 7ч", "4. 7мин"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_fl8jj"]
 script = ExtResource("1_6wh8f")
 title = "S=40м, t=8мин, V="
-description = ""
 variants = Array[String](["1. 32м/мин", "2. 5м/мин", "3. 32км/ч", "4. 5км/ч"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_h5dxh"]
 script = ExtResource("1_6wh8f")
 title = "V=4м/мин, t=2мин, S="
-description = ""
 variants = Array[String](["1. 8км", "2. 2км", "3. 8м", "4. 2м"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_bxe5y"]
 script = ExtResource("1_6wh8f")
 title = "S=15км, V=5км/ч, t="
-description = ""
 variants = Array[String](["1. 3ч", "2. 30ч", "3. 3мин", "4. 30мин"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_nign8"]
 script = ExtResource("1_6wh8f")
 title = "S=26км, t=13ч, V="
-description = ""
 variants = Array[String](["1. 13км/ч", "2. 2км/ч", "3. 13м/мин", "4. 2м/мин"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_ufcsj"]
 script = ExtResource("1_6wh8f")
 title = "V=10км/ч, t=2ч, S="
-description = ""
 variants = Array[String](["1. 20м", "2. 5м", "3. 20км", "4. 5км"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_nkuch"]
 script = ExtResource("1_6wh8f")
 title = "Что плывёт по течению без собственной скорости?"
-description = ""
 variants = Array[String](["1. Яхта", "2. Лодка", "3. Катер", "4. Плот"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_vkoqy"]
 script = ExtResource("1_6wh8f")
 title = "V(по течению)="
-description = ""
 variants = Array[String](["1. V(соб)+V(теч)", "2. V(соб)-V(теч)", "3. V(теч)-V(соб)", "4. V(теч)*V(соб)"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_dycdm"]
 script = ExtResource("1_6wh8f")
 title = "V(против течения)="
-description = ""
 variants = Array[String](["1. V(соб)+V(теч)", "2. V(соб)-V(теч)", "3. V(теч)-V(соб)", "4. V(теч)*V(соб)"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_e2yyb"]
 script = ExtResource("1_6wh8f")
 title = "V(по течению)=10км/ч, V(собственная)=2км/ч, V(течения)="
-description = ""
 variants = Array[String](["1. 5км/ч", "2. 8км/ч", "3. 12км/ч", "4. 20км/ч"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_7jk5r"]
 script = ExtResource("1_6wh8f")
 title = "V(против течения)=6км/ч, V(течения)=2км/ч, V(собственная)="
-description = ""
 variants = Array[String](["1. 3км/ч", "2. 4км/ч", "3. 12км/ч", "4. 8км/ч"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [resource]
 script = ExtResource("2_0t8df")

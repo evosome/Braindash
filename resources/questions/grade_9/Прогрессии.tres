@@ -6,162 +6,117 @@
 [sub_resource type="Resource" id="Resource_3b4t2"]
 script = ExtResource("1_a6h2x")
 title = "Формула n-го члена арифметической прогрессии"
-description = ""
 variants = Array[String](["1. aₙ=a₁+d", "2. aₙ=a₁+d*(n-1)", "3. aₙ=a₁*qⁿ⁻¹", "4. aₙ=a₁*dⁿ⁻¹"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_e0b18"]
 script = ExtResource("1_a6h2x")
 title = "Что такое d в арифметической прогрессии?"
-description = ""
 variants = Array[String](["1. Первый член", "2. Номер члена", "3. Знаменатель", "4. Разность"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_wjx2j"]
 script = ExtResource("1_a6h2x")
 title = "Формула суммы n членов арифметической прогрессии"
-description = ""
 variants = Array[String](["1. Sₙ=(a₁+aₙ)/2*n", "2. Sₙ=a₁*(qⁿ-1)/(q-1)", "3. Sₙ=n/2*(2a₁+d*(n-1))", "4. Sₙ=a₁/(1-q)"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_nssqh"]
 script = ExtResource("1_a6h2x")
 title = "Формула n-го члена геометрической прогрессии"
-description = ""
 variants = Array[String](["1. bₙ=b₁+d*(n-1)", "2. bₙ=b₁*qⁿ", "3. bₙ=b₁*qⁿ⁻¹", "4. bₙ=b₁*dⁿ⁻¹"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_isw6t"]
 script = ExtResource("1_a6h2x")
 title = "Что такое q в геометрической прогрессии?"
-description = ""
 variants = Array[String](["1. Первый член", "2. Разность", "3. Знаменатель", "4. Сумма"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_udurr"]
 script = ExtResource("1_a6h2x")
 title = "Формула суммы n членов геометрической прогрессии"
-description = ""
 variants = Array[String](["1. Sₙ=(b₁+bₙ)/2*n", "2. Sₙ=b₁*(qⁿ-1)/(q-1)", "3. Sₙ=n/2*(2b₁+q*(n-1))", "4. Sₙ=b₁/(1-q)"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_cd6xd"]
 script = ExtResource("1_a6h2x")
 title = "Пример арифметической прогрессии"
-description = ""
 variants = Array[String](["1. 2, 4, 8, 16, …", "2. 5, 10, 15, 20, …", "3. 3, 6, 12, 24, …", "4. 1, 4, 9, 16, …"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_rb3f7"]
 script = ExtResource("1_a6h2x")
 title = "Пример геометрической прогрессии"
-description = ""
 variants = Array[String](["1. 1, 3, 5, 7, …", "2. 10, 8, 6, 4, …", "3. 1, 2, 4, 8, …", "4. 5, 5, 5, 5, …"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_seiia"]
 script = ExtResource("1_a6h2x")
 title = "Если a₁=3, d=2, то a₅=?"
-description = ""
 variants = Array[String](["1. a₅=3+2*(5-1)", "2. a₅=3+5*2", "3. a₅=3*2⁵⁻¹", "4. a₅=3*2⁴"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_iibl8"]
 script = ExtResource("1_a6h2x")
 title = "Если b₁=5, q=3, то b₄=?"
-description = ""
 variants = Array[String](["1. b₄=5+3*(4-1)", "2. b₄=5+4*3", "3. b₄=5*3⁴⁻¹", "4. b₄=5*3³"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_e2oao"]
 script = ExtResource("1_a6h2x")
 title = "d для прогрессии: 10, 7, 4, …?"
-description = ""
 variants = Array[String](["1. d=3", "2. d=-3", "3. d=10", "4. d=0"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_ulxin"]
 script = ExtResource("1_a6h2x")
 title = "q для прогрессии: 2, 6, 18, …?"
-description = ""
 variants = Array[String](["1. q=2", "2. q=3", "3. q=4", "4. q=1/3"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_osk62"]
 script = ExtResource("1_a6h2x")
 title = "Сумма а₁ до а₁₀ арифметической прогрессии?"
-description = ""
 variants = Array[String](["1. S₁₀=10/2*(a₁+a₁₀)", "2. S₁₀=10/2*(2a₁+9d)", "3. S₁₀=b₁*(10-1)/(q-1)", "4. S₁₀=a₁/(1-q)"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_wdav4"]
 script = ExtResource("1_a6h2x")
 title = "Сумма b₁ до b₅ геометрической прогрессии?"
-description = ""
 variants = Array[String](["1. S₅=5/2*(b₁+ b₅)", "2. S₅=5/2*(2b₁+4q)", "3. S₅=b₁*(q⁵-1)/(q-1)", "4. S₅=b₁/(1-q)"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_0i51t"]
 script = ExtResource("1_a6h2x")
 title = "Если a₅=15, а₇=19 арифметическая прогрессия, то d=?"
-description = ""
 variants = Array[String](["1. d=2", "2. d=4", "3. d=(19+15)/2", "4. d=(19-15)/1"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_bqfl4"]
 script = ExtResource("1_a6h2x")
 title = "Если b₂=12, b₄=48 геометрическая прогрессия, то q=?"
-description = ""
 variants = Array[String](["1. q=2", "2. q=4", "3. q=(48-12)/2", "4. q=48/12"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_2b3mx"]
 script = ExtResource("1_a6h2x")
 title = "Постоянная прогрессия: 5, 5, 5,… Какая это прогрессия?"
-description = ""
 variants = Array[String](["1. Только арифметическая (d=0)", "2. Только геометрическая (q=1)", "3. И арифметическая, и геометрическая", "4. Никакая"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_riotk"]
 script = ExtResource("1_a6h2x")
 title = "Образуют ли числа 2, 6, 10, 12, 16,… арифметическую прогрессию?"
-description = ""
 variants = Array[String](["1. Да, d=2", "2. Да, d=3", "3. Да, d=4", "4. Нет"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_euvr3"]
 script = ExtResource("1_a6h2x")
 title = "Образуют ли числа 1, 5, 25, 50, 75,… геометрическую прогрессию?"
-description = ""
 variants = Array[String](["1. Да, q=4", "2. Да, q=5", "3. Да, q=25", "4. Нет"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_ri5s1"]
 script = ExtResource("1_a6h2x")
 title = "Образуют ли числа 9, 3, 1,… геометрическую прогрессию?"
-description = ""
 variants = Array[String](["1. Да, q=9", "2. Да, q=3", "3. Да, q=2", "4. Нет"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [resource]
 script = ExtResource("2_3b4t2")

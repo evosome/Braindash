@@ -2,8 +2,16 @@ class_name ClassSelectionSubscreen extends Screen
 
 const SELECTION_CARD_PACKED = preload("res://src/ui/core/SelectionCard.tscn")
 
+
+#region fields
+
 @onready var _back_button: Button = %"BackButton"
 @onready var _cards_grid: CardGrid = %"CardGrid"
+
+@onready var _available_grades = Registry.get_all("resources.grades")
+
+#endregion
+
 
 #region built-in
 
@@ -15,20 +23,19 @@ func _ready() -> void:
 
 #region virtuals
 
-func on_enter(ctx: MenuContext) -> void:
-	
-	_back_button.pressed.connect(_on_back_button_pressed.bind(ctx))
+func on_enter(ctx: SharedContext) -> void:
+	_back_button.pressed.connect(_on_back_button_pressed)
 	_cards_grid.card_selected.connect(func(card):
 		_on_card_selected(ctx, card))
 	
-	_show_grade_cards(ctx.get_grades())
+	_show_grade_cards(_available_grades)
 
 #endregion
 
 
 #region private
 
-func _show_grade_cards(grades: Array[Grade]) -> void:
+func _show_grade_cards(grades) -> void:
 	for grade in grades:
 		var card = SELECTION_CARD_PACKED.instantiate()
 		card.set_title(grade.name)
@@ -41,15 +48,15 @@ func _show_grade_cards(grades: Array[Grade]) -> void:
 
 #region event handlers
 
-func _on_back_button_pressed(ctx: MenuContext) -> void:
-	ctx.switch_subscreen("main")
+func _on_back_button_pressed() -> void:
+	switch("main")
 
 
 func _on_card_selected(
-		ctx: MenuContext,
+		ctx: SharedContext,
 		card: SelectionCard) -> void:
 
-	ctx.set_current_grade(card.get_context() as Grade)
-	ctx.switch_subscreen("topics")
+	ctx.selected_grade = card.get_context() as Grade
+	switch("topics")
 
 #endregion

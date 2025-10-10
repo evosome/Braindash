@@ -21,8 +21,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Sx="*res://addons/signal_extensions/sx_autoload.gd"
-uuid="*res://addons/uuid/uuid.gd"
+Game="*res://src/Game.gd"
+ServiceLocator="*res://src/service/ServiceLocator.gd"
+Registry="*res://src/registry/Registry.gd"
 
 [display]
 

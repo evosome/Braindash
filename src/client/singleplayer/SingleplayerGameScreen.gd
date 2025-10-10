@@ -12,6 +12,13 @@ class_name SingleplayerGameScreen extends ClientScreen
 #endregion
 
 
+#region services
+
+@onready var _user_data = ServiceLocator.get_of(UserData) as UserData
+
+#endregion
+
+
 #region built in
 
 func _ready() -> void:
@@ -25,26 +32,32 @@ func _ready() -> void:
 
 #region virtual
 
-func on_enter(ctx: GameContext) -> void:
+func on_enter(ctx: SharedContext) -> void:
 
-	if !ctx.has_round_info():
-		push_error("Entered game screen, but round info was not set")
+	var selected_topic = ctx.selected_topic
+
+	if !selected_topic:
+		push_error("Entered game screen, but topic was not selected on TopicSelectionSubscreen")
 		return
 
 	# resolve game info
-	var game_info = ctx.get_current_round_info()
+	var game_info = selected_topic.game_info
 
 	# get players from context
-	var me = ctx.get_me()
-	var enemy = ctx.get_enemy()
+	#TODO - create PlayerService for storing local player info
+	var me = PlayerInfo.new()
+	var enemy = PlayerInfo.new()
 
 	# init game instance
 	var singleplayer_game = SingleplayerGame.make(game_info, me, enemy)
 	_game_container.add_child(singleplayer_game)
 
 	# spawn characters for players
-	var my_character = singleplayer_game.spawn_character_for(me, ctx.get_my_character_type())
-	var enemy_character = singleplayer_game.spawn_character_for(enemy, ctx.get_enemy_character_type())
+	var my_character_type = ctx.selected_character_type
+	var my_character = singleplayer_game.spawn_character_for(me, my_character_type)
+
+	var enemy_character_type = selected_topic.enemy_character_type
+	var enemy_character = singleplayer_game.spawn_character_for(enemy, enemy_character_type)
 
 	_current_player_stats.set_character(my_character)
 	_enemy_player_stats.set_character(enemy_character)
@@ -57,7 +70,7 @@ func on_enter(ctx: GameContext) -> void:
 	game_context.state_manager = state_manager
 	game_context.question_layer = _question_layer
 	game_context.round_popup = _round_popup
-	game_context.user_data = ctx.user_data
+	game_context.user_data = _user_data
 	game_context.intro_animation_player = _intro_animation_play
 	state_manager.set_context(game_context)
 
@@ -76,7 +89,7 @@ func on_enter(ctx: GameContext) -> void:
 
 	ctx.last_game_result = game_context.game_result
 	ctx.is_game_over = true
-	ctx.switch_screen("menu")
+	switch("menu")
 
 #endregion
 

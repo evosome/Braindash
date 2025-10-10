@@ -1,9 +1,21 @@
 extends MenuSubscreen
 
+
+#region fields
+
 @export var _start_button: Button
 @export var _quit_button: Button
 @export var _game_results_button: Button
 @export var _about_game_button: Button
+
+#endregion
+
+
+#region services
+
+@onready var _popup_manager = ServiceLocator.get_of(AbstractPopupManager) as AbstractPopupManager
+
+#endregion
 
 
 #region builtin
@@ -21,12 +33,11 @@ func _ready() -> void:
 
 #region virtuals
 
-func on_enter(ctx: MenuContext) -> void:
-	_start_button.pressed.connect(_on_start_button_pressed.bind(ctx))
-	_game_results_button.pressed.connect(_on_game_results_button_pressed.bind(ctx))
+func on_enter(ctx: SharedContext) -> void:
+	_start_button.pressed.connect(_on_start_button_pressed)
+	_game_results_button.pressed.connect(_on_game_results_button_pressed)
 	
-	var popup_manager = ctx.get_popup_manager()
-	_about_game_button.pressed.connect(_on_about_game_button_pressed.bind(popup_manager))
+	_about_game_button.pressed.connect(_on_about_game_button_pressed)
 
 #endregion
 
@@ -38,16 +49,16 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 
-func _on_start_button_pressed(ctx: MenuContext) -> void:
-	ctx.switch_subscreen("characters")
+func _on_start_button_pressed() -> void:
+	switch("characters")
 
 
-func _on_game_results_button_pressed(ctx: MenuContext) -> void:
-	ctx.switch_subscreen("game_results")
+func _on_game_results_button_pressed() -> void:
+	switch("game_results")
 
 
-func _on_about_game_button_pressed(popup_manager: AbstractPopupManager) -> void:
+func _on_about_game_button_pressed() -> void:
 	var about_game_popup = AboutGamePopup.make()
-	popup_manager.open_popup(about_game_popup)
+	_popup_manager.open_popup(about_game_popup)
 
 #endregion

@@ -4,4 +4,4 @@ class_name RabbitCharacterType extends CharacterType
 
 
 func get_attack_type() -> AttackType:
-    return _rabbit_attack_type
+	return _rabbit_attack_type

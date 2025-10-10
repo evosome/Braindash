@@ -1,12 +1,23 @@
-class_name TopicSelectionSubscreen extends Screen
+class_name TopicSelectionSubscreen extends MenuSubscreen
+
+
+#region constants
 
 #TODO - move these constant to their classes and create `make` static function
 const SELECTION_CARD_PACKED = preload("res://src/ui/core/SelectionCard.tscn")
 const CHARACTER_ICON_PACKED = preload("res://src/ui/character/CharacterIcon.tscn")
 
+#endregion
+
+
+#region fields
+
 @onready var _back_button: Button = %"BackButton"
 @onready var _continue_button: Button = %"ContunueButton"
 @onready var _cards_grid: CardGrid = %"CardGrid"
+
+#endregion
+
 
 #region built-in
 
@@ -19,13 +30,13 @@ func _ready() -> void:
 
 #region virtuals
 
-func on_enter(ctx: MenuContext) -> void:
+func on_enter(ctx: SharedContext) -> void:
 	
-	_back_button.pressed.connect(_on_back_button_pressed.bind(ctx))
-	_continue_button.pressed.connect(_on_continue_button_pressed.bind(ctx))
+	_back_button.pressed.connect(_on_back_button_pressed)
+	_continue_button.pressed.connect(_on_continue_button_pressed)
 	_cards_grid.card_selected.connect(func(card): _on_card_selected(ctx, card))
 	
-	var current_grade = ctx.get_current_grade()
+	var current_grade = ctx.selected_grade
 	if !current_grade:
 		push_error("Entered topic selection screen, but current grade is not set")
 		return
@@ -62,21 +73,20 @@ func _show_grade_cards(topics: Array[Topic], grade_accent: Color) -> void:
 
 #region event handlers
 
-func _on_back_button_pressed(ctx: MenuContext) -> void:
-	ctx.switch_subscreen("grades")
+func _on_back_button_pressed() -> void:
+	switch("grades")
 
 
-func _on_continue_button_pressed(ctx: MenuContext) -> void:
-	ctx.switch_screen("round")
+func _on_continue_button_pressed() -> void:
+	switch_global("round")
 
 
 func _on_card_selected(
-		ctx: MenuContext,
+		ctx: SharedContext,
 		card: SelectionCard) -> void:
 	_continue_button.set_disabled(false)
 	
 	var selected_topic = card.get_context() as Topic
-	ctx.set_enemy_character_type(selected_topic.enemy_character_type)
-	ctx.set_current_round_info(selected_topic.game_info)
+	ctx.selected_topic = selected_topic
 
 #endregion

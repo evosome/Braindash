@@ -1,6 +1,9 @@
-
+@abstract
 class_name ClientScreen extends Screen
 
 
-func on_enter(ctx: GameContext) -> void:
-	pass
+#region abstract
+
+@abstract func on_enter(ctx: SharedContext) -> void
+
+#endregion

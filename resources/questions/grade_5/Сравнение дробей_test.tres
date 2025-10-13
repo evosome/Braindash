@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="QuestionList" load_steps=6 format=3 uid="uid://daqwatlndwhfn"]
+
+[ext_resource type="Script" uid="uid://gkiynunvfb7y" path="res://src/questionare/QuestionType.gd" id="1_0glq7"]
+[ext_resource type="Script" uid="uid://dbxtuj550kfe3" path="res://src/questionare/QuestionList.gd" id="2_12fye"]
+
+[sub_resource type="Resource" id="Resource_3jcmd"]
+script = ExtResource("1_0glq7")
+title = "Что показывает знаменатель дроби?"
+variants = Array[String](["1. Сколько частей всего", "2. Сколько частей взяли", "3. Целое число", "4. Сумму частей"])
+
+[sub_resource type="Resource" id="Resource_pv4k3"]
+script = ExtResource("1_0glq7")
+title = "Что показывает числитель дроби?"
+variants = Array[String](["1. Сколько частей всего", "2. Целое число", "3. Сколько частей взяли", "4. Разность частей"])
+correct_index = 2
+
+[sub_resource type="Resource" id="Resource_xrd0h"]
+script = ExtResource("1_0glq7")
+title = "Как записать «три пятых»?"
+variants = Array[String](["1. 5/3", "2. 3/5", "3. 3,5", "4. 0,35"])
+correct_index = 1
+
+[resource]
+script = ExtResource("2_12fye")
+questions = Array[ExtResource("1_0glq7")]([SubResource("Resource_3jcmd"), SubResource("Resource_pv4k3"), SubResource("Resource_xrd0h")])

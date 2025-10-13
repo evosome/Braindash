@@ -6,162 +6,118 @@
 [sub_resource type="Resource" id="Resource_3ake5"]
 script = ExtResource("1_oo2v8")
 title = "logₐ1 ="
-description = ""
 variants = Array[String](["1. 1", "2. 0", "3. a", "4. -1"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_gllki"]
 script = ExtResource("1_oo2v8")
 title = "log₈1 ="
-description = ""
 variants = Array[String](["1. 0", "2. 8", "3. 1", "4. 1/8"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_jwmjg"]
 script = ExtResource("1_oo2v8")
 title = "logₐa ="
-description = ""
 variants = Array[String](["1. a", "2. 2", "3. 0", "4. 1"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_f8vn1"]
 script = ExtResource("1_oo2v8")
 title = "log₅5 ="
-description = ""
 variants = Array[String](["1. 5", "2. 25", "3. 1", "4. 0"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_7kwci"]
 script = ExtResource("1_oo2v8")
 title = "logₐ(b*c) ="
-description = ""
 variants = Array[String](["1. logₐb * logₐc", "2. logₐb + logₐc", "3. logₐb - logₐc", "4. logₐb / logₐc"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_tu0e4"]
 script = ExtResource("1_oo2v8")
 title = "log₃2*5 ="
-description = ""
 variants = Array[String](["1. log₃2 / log₃5", "2. log₃2 * log₃5", "3. log₃2 - log₃5", "4. log₃2 + log₃5"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_4du6b"]
 script = ExtResource("1_oo2v8")
 title = "logₐ(b/c) ="
-description = ""
 variants = Array[String](["1. logₐb + logₐc", "2. logₐb - logₐc", "3. logₐb * logₐc", "4. logₐb / logₐc"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_610fg"]
 script = ExtResource("1_oo2v8")
 title = "log₄(5/3) ="
-description = ""
 variants = Array[String](["1. log₄5 + log₄3", "2. log₄5 * log₄3", "3. log₄5 / log₄3", "4. log₄5 - log₄3"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_jgaxm"]
 script = ExtResource("1_oo2v8")
 title = "logₐbⁿ ="
-description = ""
 variants = Array[String](["1. 1/n*logₐb", "2. n/logₐb", "3. n*logₐb", "4. logₐn*logₐb"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_ey1u4"]
 script = ExtResource("1_oo2v8")
 title = "log₆8⁷ ="
-description = ""
 variants = Array[String](["1. 7*log₆8", "2. 1/7*log₆8", "3. 7/log₆8", "4. 7+log₆8"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_ptvuc"]
 script = ExtResource("1_oo2v8")
 title = "Степень основания логарифма можно вынести как"
-description = ""
 variants = Array[String](["1. степень - логарифм", "2. степень + логарифм", "3. степень * логарифм", "4. 1/степень * логарифм"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_isu7w"]
 script = ExtResource("1_oo2v8")
 title = "Можно ли привести логарифм к новому основанию?"
-description = ""
 variants = Array[String](["1. Нет", "2. Да", "3. Только если основание равно 1", "4. Только если основание равно 0"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_7jgyb"]
 script = ExtResource("1_oo2v8")
 title = "logₐb ="
-description = ""
 variants = Array[String](["1. logₓb-logₓa", "2. logₓb+logₓa", "3. logₓb/logₓa", "4. logₓb*logₓa"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_7p5na"]
 script = ExtResource("1_oo2v8")
 title = "log₃8 ="
-description = ""
 variants = Array[String](["1. log₂8-log₂3", "2. log₂8+log₂3", "3. log₂8*log₂3", "4. log₂8/log₂3"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_3viro"]
 script = ExtResource("1_oo2v8")
 title = "logₐx*logₓa ="
-description = ""
 variants = Array[String](["1. 0", "2. 1", "3. а", "4. х"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_l887g"]
 script = ExtResource("1_oo2v8")
 title = "log₄8*log₈4 ="
-description = ""
 variants = Array[String](["1. 4", "2. 8", "3. 0", "4. 1"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_42ixo"]
 script = ExtResource("1_oo2v8")
 title = "log₄1 ="
-description = ""
 variants = Array[String](["1. 0", "2. 1", "3. 4", "4. -4"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_rg1c6"]
 script = ExtResource("1_oo2v8")
 title = "log₄16 ="
-description = ""
 variants = Array[String](["1. 4", "2. 16", "3. 2", "4. 1"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_5k4ph"]
 script = ExtResource("1_oo2v8")
 title = "2*log₃3 ="
-description = ""
 variants = Array[String](["1. 9", "2. 3", "3. 2", "4. 18"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_5qqxf"]
 script = ExtResource("1_oo2v8")
 title = "log₃81 ="
-description = ""
 variants = Array[String](["1. 4", "2. 3", "3. 9", "4. 27"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [resource]
 script = ExtResource("2_3ake5")

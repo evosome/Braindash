@@ -7,9 +7,24 @@ var _managing_node: Node
 
 var _registration_map: Dictionary[String, PackedScene] = {}
 
-func _init(on: Node) -> void:
-	_managing_node = on
 
+#region builtins
+
+func _init(parent: Node) -> void:
+	_managing_node = parent
+
+#endregion
+
+
+#region setters/getters
+
+func set_context(ctx) -> void:
+	_screen_ctx = ctx
+
+#endregion
+
+
+#region public
 
 func switch(name: String) -> void:
 	
@@ -25,16 +40,18 @@ func switch(name: String) -> void:
 	var initialized_screen = packed_screen.instantiate()
 	_managing_node.add_child(initialized_screen)
 	_screen = initialized_screen
-	_screen.on_enter(_screen_ctx)
+	_screen.enter(self, _screen_ctx)
 
 
 func register(name: String, packed: PackedScene) -> void:
 	_registration_map[name] = packed
 
+#endregion
 
-func set_context(ctx) -> void:
-	_screen_ctx = ctx
 
+#region static
 
 static func on(node: Node) -> ScreenManager:
 	return ScreenManager.new(node) 
+
+#endregion

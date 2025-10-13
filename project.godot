@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Braindash"
 run/main_scene="uid://o1rdgd0key61"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false
@@ -21,8 +21,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Sx="*res://addons/signal_extensions/sx_autoload.gd"
-uuid="*res://addons/uuid/uuid.gd"
+Game="*res://src/Game.gd"
+ServiceLocator="*res://src/service/ServiceLocator.gd"
+Registry="*res://src/registry/Registry.gd"
 
 [display]
 

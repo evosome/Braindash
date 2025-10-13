@@ -18,6 +18,7 @@ var _damage_amplifier: float = 1.0
 var _attack_type: AttackType
 
 @export var _health_component: HealthComponent
+@export var _buff_component: BuffComponent
 
 #region built-in
 
@@ -70,6 +71,10 @@ func set_target(other_player: PlayerCharacter) -> void:
 func get_damage_amplifier() -> float:
 	return _damage_amplifier
 
+
+func get_buffs() -> BuffComponent:
+	return _buff_component
+
 #endregion
 
 
@@ -103,6 +108,10 @@ func look_at_other(other: PlayerCharacter) -> void:
 
 func look_at_direction(direction: CharacterSprite.LookDirections) -> void:
 	_character_sprite.look_at_direction(direction)
+
+
+func add_buff(buff_type: BuffType) -> void:
+	_buff_component.add(buff_type)
 
 #endregion
 

@@ -11,7 +11,8 @@ const PRELOADED_SCENE = preload("RoundResultBadge.tscn")
 enum PopupBadges {
 	CORRECT,
 	WRONG,
-	DRAW
+	DRAW,
+	HEALTH_COUNTDOWN
 }
 
 var _current_badge: PopupBadges

@@ -1,22 +1,40 @@
-
 class_name MenuScreen extends Screen
 
+
+#region constants
+
+#TODO - use preloads from registry
 const GRADE_SELECTION_SUBSCREEN = preload(
-		"res://src/client/screens/menu/ClassSelectionSubscreen.tscn")
+		"res://src/client/screens/menu/subscreens/ClassSelectionSubscreen.tscn")
 const TOPIC_SEELCTION_SUBSCREEN = preload(
-		"res://src/client/screens/menu/TopicSelectionSubscreen.tscn")
-const MAIN_SUBSCREEN = preload("res://src/client/screens/menu/MainSubscreen.tscn")
+		"res://src/client/screens/menu/subscreens/TopicSelectionSubscreen.tscn")
+const MAIN_SUBSCREEN = preload("res://src/client/screens/menu/subscreens/MainSubscreen.tscn")
 const CHARACTER_SELECTION_SUBSCREEN = preload(
-		"res://src/client/screens/menu/CharacterSelectionSubscreen.tscn")
+		"res://src/client/screens/menu/subscreens/CharacterSelectionSubscreen.tscn")
 
-var _menu_context: MenuContext
+#endregion
+
+
+#region fields
+
 var _subscreen_manager: ScreenManager
-@export var _subscreen_container: Control
-@export var _subscreen_manager_configurer: ScreenConfigurer
 
+@export var _subscreen_container: Control
+
+#endregion
+
+
+#region services
+
+@onready var _popup_manager = ServiceLocator.get_of(AbstractPopupManager) as AbstractPopupManager
+
+#endregion
+
+
+#region builtins
 
 func _ready() -> void:
-	assert(_subscreen_container, "Subscreeen container control is not set")
+	assert(_subscreen_container, "Subscreeen container (Control) is not set on MenuScreen class")
 	
 	_subscreen_manager = ScreenManager.on(_subscreen_container)
 	_subscreen_manager.register("grades", GRADE_SELECTION_SUBSCREEN)
@@ -25,10 +43,13 @@ func _ready() -> void:
 	_subscreen_manager.register("characters", CHARACTER_SELECTION_SUBSCREEN)
 	_subscreen_manager.register("game_results", GameResultsSubscreen.PRELOADED_SCENE)
 
+#endregion
 
-func on_enter(ctx: GameContext) -> void:
-	_menu_context = MenuContext.new(_subscreen_manager, ctx)
-	_subscreen_manager.set_context(_menu_context)
+
+#region virtuals
+
+func on_enter(ctx: SharedContext) -> void:
+	_subscreen_manager.set_context(ctx)
 	_subscreen_manager.switch("main")
 
 	var is_game_over = ctx.is_game_over
@@ -36,11 +57,8 @@ func on_enter(ctx: GameContext) -> void:
 		return
 	
 	var last_game_result = ctx.last_game_result
-	var popup_manager = ctx.get_popup_manager()
 
 	var game_result_popup = GameResultInfo.make_from_result(last_game_result)
-	popup_manager.open_popup(game_result_popup)
+	_popup_manager.open_popup(game_result_popup)
 
-
-func get_subscreen_manager() -> ScreenManager:
-	return _subscreen_manager
+#endregion

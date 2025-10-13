@@ -6,162 +6,115 @@
 [sub_resource type="Resource" id="Resource_51ga7"]
 script = ExtResource("1_wjccn")
 title = "sin 2𝛼 ="
-description = ""
 variants = Array[String](["1. 2*sin 𝛼*cos 𝛼", "2. sin 𝛼 + cos 𝛼", "3. sin 𝛼*cos 𝛼", "4. sin² 𝛼 - cos² 𝛼"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_nj8cg"]
 script = ExtResource("1_wjccn")
 title = "cos 2𝛼 ="
-description = ""
 variants = Array[String](["1. 1 - sin² 𝛼", "2. 2*sin² 𝛼 - 1", "3. sin² 𝛼 - 1", "4. 1 - 2*sin² 𝛼"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_nml38"]
 script = ExtResource("1_wjccn")
 title = "cos 2𝛼 ="
-description = ""
 variants = Array[String](["1. 2*cos² 𝛼 + 1", "2. 2*cos² 𝛼 - 1", "3. cos² 𝛼 - sin² 𝛼", "4. 1 - cos² 𝛼"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_4ko5y"]
 script = ExtResource("1_wjccn")
 title = "sin² 𝛼 + cos² 𝛼 ="
-description = ""
 variants = Array[String](["1. sin 2𝛼", "2. 1 - cos 2𝛼", "3. 1", "4. 2*sin 𝛼*cos 𝛼"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_5geud"]
 script = ExtResource("1_wjccn")
 title = "Как связаны tg и ctg одного угла?"
-description = ""
 variants = Array[String](["1. tg 𝛼*ctg 𝛼 = 1", "2. tg 𝛼 + ctg 𝛼 = 1", "3. tg 𝛼*ctg 𝛼 = 0", "4. tg 𝛼 = 1/sin 𝛼"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_qxh8p"]
 script = ExtResource("1_wjccn")
 title = "1 + tg² 𝛼 ="
-description = ""
 variants = Array[String](["1. sin² 𝛼", "2. cos² 𝛼", "3. tg 2𝛼", "4. 1/cos² 𝛼"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_i2iqr"]
 script = ExtResource("1_wjccn")
 title = "1 + ctg² 𝛼 ="
-description = ""
 variants = Array[String](["1. 1/sin² 𝛼", "2. cos² 𝛼", "3. sin² 𝛼", "4. ctg 2𝛼"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_lfdt7"]
 script = ExtResource("1_wjccn")
 title = "tg 2𝛼 ="
-description = ""
 variants = Array[String](["1. (1 - tg² 𝛼)/(2*tg 𝛼)", "2. 2*tg 𝛼/(1 - tg² 𝛼)", "3. tg² 𝛼", "4. 2*tg 𝛼"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_olhbu"]
 script = ExtResource("1_wjccn")
 title = "sin(π/2 - 𝛼) ="
-description = ""
 variants = Array[String](["1. cos 𝛼", "2. sin 𝛼", "3. -cos 𝛼", "4. -sin 𝛼"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_xdmfy"]
 script = ExtResource("1_wjccn")
 title = "cos (π - 𝛼) ="
-description = ""
 variants = Array[String](["1. sin 𝛼", "2. cos 𝛼", "3. -sin 𝛼", "4. -cos 𝛼"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_hlw32"]
 script = ExtResource("1_wjccn")
 title = "sin (𝛼 + β) ="
-description = ""
 variants = Array[String](["1. sin 𝛼*sin β + cos 𝛼*cos β", "2. sin 𝛼*sin β - cos 𝛼*cos β", "3. sin 𝛼*cos β + cos 𝛼*sin β", "4. sin 𝛼*cos β - cos 𝛼*sin β"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_qovp7"]
 script = ExtResource("1_wjccn")
 title = "sin (𝛼 - β) ="
-description = ""
 variants = Array[String](["1. sin 𝛼*sin β + cos 𝛼*cos β", "2. sin 𝛼*sin β - cos 𝛼*cos β", "3. sin 𝛼*cos β + cos 𝛼*sin β", "4. sin 𝛼*cos β - cos 𝛼*sin β"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_dmwhf"]
 script = ExtResource("1_wjccn")
 title = "cos (𝛼 + β) ="
-description = ""
 variants = Array[String](["1. cos 𝛼*cos β + sin 𝛼*sin β", "2. cos 𝛼*cos β - sin 𝛼*sin β", "3. cos 𝛼*sin β + sin 𝛼*cos β", "4. cos 𝛼*sin β - sin 𝛼*cos β"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_gdce6"]
 script = ExtResource("1_wjccn")
 title = "cos (𝛼 - β) ="
-description = ""
 variants = Array[String](["1. cos 𝛼*cos β + sin 𝛼*sin β", "2. cos 𝛼*cos β - sin 𝛼*sin β", "3. cos 𝛼*sin β + sin 𝛼*cos β", "4. cos 𝛼*sin β - sin 𝛼*cos β"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_0enb6"]
 script = ExtResource("1_wjccn")
 title = "tg (π/2 - 𝛼) ="
-description = ""
 variants = Array[String](["1. ctg 𝛼", "2. tg 𝛼", "3. -ctg 𝛼", "4. -tg 𝛼"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_x5kg2"]
 script = ExtResource("1_wjccn")
 title = "2*sin 𝛼* cos 𝛼 ="
-description = ""
 variants = Array[String](["1. cos 2𝛼", "2. sin 2𝛼", "3. sin² 𝛼", "4. cos² 𝛼"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_3ogj3"]
 script = ExtResource("1_wjccn")
 title = "cos² 𝛼 - sin² 𝛼 ="
-description = ""
 variants = Array[String](["1. 1", "2. -cos 2𝛼", "3. sin 2𝛼", "4. cos 2𝛼"])
 correct_index = 3
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_s42ac"]
 script = ExtResource("1_wjccn")
 title = "1 - 2*sin² 𝛼 ="
-description = ""
 variants = Array[String](["1. sin 2𝛼", "2. cos 2𝛼", "3. 2*cos² 𝛼 - 1", "4. tg 2𝛼"])
 correct_index = 1
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_h82r4"]
 script = ExtResource("1_wjccn")
 title = "tg 𝛼 ="
-description = ""
 variants = Array[String](["1. tg 𝛼 = 1/sin 𝛼", "2. tg 𝛼 = 1/cos 𝛼", "3. tg 𝛼 = sin 𝛼/cos 𝛼", "4. tg 𝛼 = cos 𝛼/sin 𝛼"])
 correct_index = 2
-timeout_seconds = 30.0
 
 [sub_resource type="Resource" id="Resource_gdcij"]
 script = ExtResource("1_wjccn")
 title = "sin (π + 𝛼) ="
-description = ""
 variants = Array[String](["1. -sin 𝛼", "2. -cos 𝛼", "3. sin 𝛼", "4. cos 𝛼"])
-correct_index = 0
-timeout_seconds = 30.0
 
 [resource]
 script = ExtResource("2_51ga7")

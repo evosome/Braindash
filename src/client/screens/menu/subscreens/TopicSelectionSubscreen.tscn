@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://7kcymuw21ytx"]
+[gd_scene load_steps=4 format=3 uid="uid://dbdbkguftho1r"]
 
-[ext_resource type="Script" uid="uid://cghmsn0olwnkc" path="res://src/client/screens/menu/ClassSelectionSubscreen.gd" id="1_hs8h0"]
-[ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="2_y2vwj"]
-[ext_resource type="PackedScene" uid="uid://ci6d5jeu8u8jv" path="res://src/ui/core/CardGrid.tscn" id="3_hs8h0"]
+[ext_resource type="Script" uid="uid://d3n2u2nvkpbtb" path="res://src/client/screens/menu/TopicSelectionSubscreen.gd" id="1_sd530"]
+[ext_resource type="Theme" uid="uid://b7akri5gxpl5b" path="res://resources/themes/BraindashThemeX.tres" id="2_lgnja"]
+[ext_resource type="PackedScene" uid="uid://ci6d5jeu8u8jv" path="res://src/ui/core/CardGrid.tscn" id="3_2xdoh"]
 
-[node name="ClassSelectionSubscreen" type="Control"]
+[node name="TopicSelectionSubscreen" type="Control"]
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 15
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_hs8h0")
+script = ExtResource("1_sd530")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -21,9 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("2_y2vwj")
+theme = ExtResource("2_lgnja")
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -33,7 +31,7 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="CardGrid" parent="VBoxContainer/MarginContainer2" instance=ExtResource("3_hs8h0")]
+[node name="CardGrid" parent="VBoxContainer/MarginContainer2" instance=ExtResource("3_2xdoh")]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -56,9 +54,3 @@ text = "Назад"
 [node name="Control" type="Control" parent="VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="ContunueButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_type_variation = &"BigButton"
-text = "Продолжить"

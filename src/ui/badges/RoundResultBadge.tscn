@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bccwcx1tg2wl1" path="res://src/ui/badges/RoundResultBadge.gd" id="1_4bloo"]
 [ext_resource type="Texture2D" uid="uid://dnqw7js88swxb" path="res://assets/textures/ui/correct.png" id="2_caba8"]
 [ext_resource type="Texture2D" uid="uid://dufkm5yf24tx5" path="res://assets/textures/ui/wrong.png" id="3_uaouh"]
+[ext_resource type="Texture2D" uid="uid://dctow7pttxygk" path="res://assets/textures/ui/health_countdown.png" id="4_8gnbp"]
 [ext_resource type="Texture2D" uid="uid://bmsvubbde8age" path="res://assets/textures/ui/draw.png" id="4_y3nsr"]
-[ext_resource type="Texture2D" uid="uid://2431jobdnepn" path="res://assets/textures/ui/win.png" id="5_huno6"]
 [ext_resource type="Texture2D" uid="uid://p4nssqb8xan6" path="res://assets/textures/ui/lose.png" id="6_kmmci"]
 [ext_resource type="Texture2D" uid="uid://dbormhlve1p6" path="res://assets/textures/ui/logo.png" id="7_y3nsr"]
 
@@ -17,24 +17,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4bloo")
-_texture_rect = NodePath("TextureRect")
+_texture_rect = NodePath("MarginContainer/TextureRect")
 _badge_textures = Dictionary[int, Texture2D]({
 0: ExtResource("2_caba8"),
 1: ExtResource("3_uaouh"),
 2: ExtResource("4_y3nsr"),
-3: ExtResource("5_huno6"),
+3: ExtResource("4_8gnbp"),
 4: ExtResource("6_kmmci")
 })
 _fallback_badge_texture = ExtResource("7_y3nsr")
 metadata/_custom_type_script = "uid://bccwcx1tg2wl1"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 96
+theme_override_constants/margin_top = 96
+theme_override_constants/margin_right = 96
+theme_override_constants/margin_bottom = 96
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
 texture = ExtResource("2_caba8")
 expand_mode = 2
 stretch_mode = 5

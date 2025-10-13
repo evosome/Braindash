@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://d12tiu6s4yaj4"]
+[gd_scene load_steps=15 format=3 uid="uid://d12tiu6s4yaj4"]
 
 [ext_resource type="Script" uid="uid://cv5vc583rvtkh" path="res://src/client/singleplayer/SingleplayerGameScreen.gd" id="1_66m0q"]
 [ext_resource type="PackedScene" uid="uid://dkrsrcgjfjdo2" path="res://src/ui/question/QuestionLayer.tscn" id="2_7ljsi"]
 [ext_resource type="PackedScene" uid="uid://cpduh4bvas074" path="res://src/ui/character/CharacterStatsLeftSided.tscn" id="2_fwtly"]
 [ext_resource type="PackedScene" uid="uid://xfvdscqswb20" path="res://src/ui/round/RoundPopup.tscn" id="3_72d34"]
+[ext_resource type="Texture2D" uid="uid://baopljs4xs37w" path="res://assets/textures/ui/pause_button.png" id="3_eqi15"]
 [ext_resource type="PackedScene" uid="uid://dqujijauywedl" path="res://src/ui/character/CharacterStatsRightSided.tscn" id="3_otpg6"]
 [ext_resource type="Shader" uid="uid://dn2vypggoh7yi" path="res://resources/legal/shaders/universal_transitions/universal_transitions.gdshader" id="6_ijwqn"]
 [ext_resource type="Texture2D" uid="uid://dbormhlve1p6" path="res://assets/textures/ui/logo.png" id="7_l22rk"]
@@ -230,11 +231,18 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 16
+alignment = 1
 
 [node name="CurrentPlayerStats" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_fwtly")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="PauseButton" type="Button" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+icon = ExtResource("3_eqi15")
+icon_alignment = 1
 
 [node name="EnemyPlayerStats" parent="DecomposeMeIntoHUDClass/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_otpg6")]
 unique_name_in_owner = true

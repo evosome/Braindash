@@ -20,6 +20,11 @@ func _ready() -> void:
 
 #region getter/setter
 
+
+func is_dead() -> bool:
+	return _health_amount == 0
+
+
 func get_health() -> int:
 	return _health_amount
 

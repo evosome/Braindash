@@ -1,12 +1,30 @@
-[gd_resource type="Resource" script_class="Grade" load_steps=5 format=3 uid="uid://cbxyrxbsqhbhn"]
+[gd_resource type="Resource" script_class="Grade" load_steps=11 format=3 uid="uid://cbxyrxbsqhbhn"]
 
 [ext_resource type="Script" uid="uid://of8ygp14u0yt" path="res://src/questionare/Grade.gd" id="1_3kbbn"]
 [ext_resource type="Script" uid="uid://btm8gwa2binwt" path="res://src/questionare/Topic.gd" id="2_hntqb"]
 [ext_resource type="Resource" uid="uid://1xidxciu0vys" path="res://resources/topics/grade_5/Сравнение дробей.tres" id="3_8swum"]
 [ext_resource type="Resource" uid="uid://c3shfs51c762j" path="res://resources/topics/grade_5/Формулы (скорость, время, расстояние).tres" id="4_jd5im"]
+[ext_resource type="Resource" uid="uid://daqwatlndwhfn" path="res://resources/questions/grade_5/Сравнение дробей_test.tres" id="5_30j07"]
+[ext_resource type="PackedScene" uid="uid://cqjatfrbtwte5" path="res://src/arenas/SimpleRoundArena.tscn" id="5_32vg4"]
+[ext_resource type="Resource" uid="uid://bu4ymplr83tnm" path="res://resources/characters/alt_rabbit.tres" id="5_mttnw"]
+[ext_resource type="Script" uid="uid://besub6tgkqobr" path="res://src/round/GameInfo.gd" id="6_32vg4"]
+
+[sub_resource type="Resource" id="Resource_mttnw"]
+script = ExtResource("6_32vg4")
+packed_arena = ExtResource("5_32vg4")
+question_list = ExtResource("5_30j07")
+questions_to_win = 10
+metadata/_custom_type_script = "uid://besub6tgkqobr"
+
+[sub_resource type="Resource" id="Resource_8swum"]
+script = ExtResource("2_hntqb")
+name = "[TEST] Сравнение дробей"
+game_info = SubResource("Resource_mttnw")
+author_name = "Чибизов А. В."
+enemy_character_type = ExtResource("5_mttnw")
+metadata/_custom_type_script = "uid://btm8gwa2binwt"
 
 [resource]
 script = ExtResource("1_3kbbn")
 name = "Класс 5"
-topics = Array[ExtResource("2_hntqb")]([ExtResource("3_8swum"), ExtResource("4_jd5im")])
-accent_color = Color(0, 0, 0, 1)
+topics = Array[ExtResource("2_hntqb")]([ExtResource("3_8swum"), ExtResource("4_jd5im"), SubResource("Resource_8swum")])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://o1rdgd0key61"]
+[gd_scene load_steps=28 format=3 uid="uid://o1rdgd0key61"]
 
 [ext_resource type="Script" uid="uid://dqiq3ylg6rxgd" path="res://src/Game.gd" id="1_4gxt3"]
 [ext_resource type="Resource" uid="uid://cbxyrxbsqhbhn" path="res://resources/grades/grade_5.tres" id="3_k2i6c"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://bmyxeg8xs1upl" path="res://resources/grades/grade_11.tres" id="9_r7o8t"]
 [ext_resource type="Resource" uid="uid://gjkvbpcuxtmo" path="res://resources/characters/bear2.tres" id="12_k2i6c"]
 [ext_resource type="Script" uid="uid://dljji8121hya2" path="res://src/EditorRegistration.gd" id="13_0rf6s"]
+[ext_resource type="Resource" uid="uid://jye2f322qhg8" path="res://resources/buffs/SlowHealthCountdown.tres" id="14_2fxc8"]
 [ext_resource type="Script" uid="uid://d0k105a8jyy1y" path="res://src/EditorRegistrationGroup.gd" id="14_lva8y"]
 [ext_resource type="Script" uid="uid://dco70khkwav7h" path="res://src/EditorRegistrationEntry.gd" id="15_5q0ih"]
 
@@ -80,9 +81,21 @@ path = "resources.grades"
 registry_entries = Array[ExtResource("15_5q0ih")]([SubResource("Resource_dbp7n"), SubResource("Resource_rgpsw"), SubResource("Resource_x2540"), SubResource("Resource_dlhd6"), SubResource("Resource_72vyi"), SubResource("Resource_at4if"), SubResource("Resource_0rf6s")])
 metadata/_custom_type_script = "uid://d0k105a8jyy1y"
 
+[sub_resource type="Resource" id="Resource_ok2ji"]
+script = ExtResource("15_5q0ih")
+qualified_name = "SlowHealthCountdown"
+instance = ExtResource("14_2fxc8")
+metadata/_custom_type_script = "uid://dco70khkwav7h"
+
+[sub_resource type="Resource" id="Resource_2fxc8"]
+script = ExtResource("14_lva8y")
+path = "resources.effects"
+registry_entries = Array[ExtResource("15_5q0ih")]([SubResource("Resource_ok2ji")])
+metadata/_custom_type_script = "uid://d0k105a8jyy1y"
+
 [node name="Main" type="Node"]
 script = ExtResource("1_4gxt3")
 
-[node name="Node" type="Node" parent="."]
+[node name="Registry" type="Node" parent="."]
 script = ExtResource("13_0rf6s")
-_groups = Array[ExtResource("14_lva8y")]([SubResource("Resource_8c8jm"), SubResource("Resource_eu8jo")])
+_groups = Array[ExtResource("14_lva8y")]([SubResource("Resource_8c8jm"), SubResource("Resource_eu8jo"), SubResource("Resource_2fxc8")])

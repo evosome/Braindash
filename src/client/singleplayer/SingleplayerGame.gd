@@ -1,12 +1,25 @@
 class_name SingleplayerGame extends Node
 
+
+#region constants
+
+const PRELOADED_SCENE = preload("res://src/client/singleplayer/SingleplayerGame.tscn")
+
+#endregion
+
+
+#region enums
+
 enum ResultFlag {
 	WIN,
 	LOSE,
 	DRAW
 }
 
-const PRELOADED_SCENE = preload("res://src/client/singleplayer/SingleplayerGame.tscn")
+#endregion
+
+
+#region fields
 
 var _is_over: bool = false
 var _last_result: SingleplayerGameResult
@@ -18,6 +31,11 @@ var _enemy_player: PlayerInfo
 var _round_manager: RoundManager
 
 @export var _timer: Timer
+
+@onready var _health_countdown_effect = Registry.get_one(Id.of_game("resources.effects", "SlowHealthCountdown")) as BuffType
+
+#endregion
+
 
 #region builtin
 
@@ -127,7 +145,13 @@ func do_fight(round_result: Round.Result) -> void:
 
 ## This method is asynchronous. 
 func do_health_countdown() -> void:
-	pass
+	var local_player_character = _arena.get_character_of(_local_player)
+	var enemy_player_character = _arena.get_character_of(_enemy_player)
+
+	local_player_character.add_buff(_health_countdown_effect)
+	enemy_player_character.add_buff(_health_countdown_effect)
+
+	await _arena.characters_died
 
 #endregion
 

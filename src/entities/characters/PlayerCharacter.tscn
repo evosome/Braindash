@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5om3lha823um"]
+[gd_scene load_steps=4 format=3 uid="uid://c5om3lha823um"]
 
 [ext_resource type="Script" uid="uid://2sc2g6ybjc8t" path="res://src/entities/characters/PlayerCharacter.gd" id="1_e87dg"]
 [ext_resource type="Script" uid="uid://bdg4ual2ghokm" path="res://src/entities/components/HealthComponent.gd" id="2_bm506"]
+[ext_resource type="Script" uid="uid://rbuihr7tco35" path="res://src/entities/components/BuffComponent.gd" id="3_a5tqc"]
 
-[node name="PlayerCharacter" type="Node2D" node_paths=PackedStringArray("_health_component")]
+[node name="PlayerCharacter" type="Node2D" node_paths=PackedStringArray("_health_component", "_buff_component")]
 script = ExtResource("1_e87dg")
 _health_component = NodePath("HealthComponent")
+_buff_component = NodePath("BuffComponent")
 metadata/_custom_type_script = "uid://2sc2g6ybjc8t"
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("2_bm506")
 metadata/_custom_type_script = "uid://bdg4ual2ghokm"
+
+[node name="BuffComponent" type="Node" parent="." node_paths=PackedStringArray("_timer", "_target")]
+script = ExtResource("3_a5tqc")
+_timer = NodePath("Timer")
+_target = NodePath("..")
+
+[node name="Timer" type="Timer" parent="BuffComponent"]
+wait_time = 0.1
+autostart = true

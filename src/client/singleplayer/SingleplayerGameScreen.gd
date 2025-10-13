@@ -81,6 +81,7 @@ func on_enter(ctx: SharedContext) -> void:
 	state_manager.register("round_over", RoundOverState.new())
 	state_manager.register("fight", FightState.new())
 	state_manager.register("outro", OutroState.new())
+	state_manager.register("health_countdown", HealthCountdownState.new())
 
 	state_manager.transition_to("intro")
 
@@ -298,7 +299,15 @@ class HealthCountdownState:
 	extends GameState
 
 	func on_enter(ctx: GameStateContext) -> void:
-		pass
+
+		var round_popup = ctx.round_popup
+		var round_result_badge = RoundResultBadge.make_with_texture(RoundResultBadge.PopupBadges.HEALTH_COUNTDOWN)
+		await round_popup.show_popup(round_result_badge)
+
+		var game = ctx.game
+		await game.do_health_countdown()
+
+		ctx.transition_to("outro")
 
 
 class OutroState:
